@@ -458,62 +458,50 @@
     }
 
     /* ── PRINCIPES ── */
-    .principes-grille {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1rem;
+    .principes-grille { display: grid; gap: 1.25rem; }
+    .principes-grille-2 { grid-template-columns: repeat(2, 1fr); }
+    .principes-grille-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .principes-groupe-titre {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gris);
+      margin: 1.75rem 0 1rem;
     }
+    .principes-groupe-titre:first-of-type { margin-top: 1.5rem; }
 
     .principe {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      padding: 1.3rem 1.5rem;
       background: var(--beige);
       border-radius: 8px;
-      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
-      cursor: default;
-      transition: box-shadow 0.2s, transform 0.2s;
+      padding: 1.8rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      border-left: 5px solid var(--vert);
     }
 
-    .principe:hover {
-      box-shadow: 0 4px 18px rgba(0,0,0,0.09);
-      transform: translateY(-2px);
-    }
-
-    .principe-barre {
-      width: 4px;
-      border-radius: 2px;
-      flex-shrink: 0;
-      align-self: stretch;
+    .principe-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gris);
     }
 
     .principe h3 {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 700;
-      color: var(--bleu);
-      margin-bottom: 0;
+      color: var(--sombre);
+      line-height: 1.35;
+      margin: 0;
     }
 
     .principe p {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       color: var(--gris);
       line-height: 1.65;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      margin-top: 0;
-      transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
-    }
-
-    .principe:hover p {
-      max-height: 8rem;
-      opacity: 1;
-      margin-top: 0.35rem;
-    }
-
-    @media (hover: none) {
-      .principe p { max-height: none; opacity: 1; margin-top: 0.35rem; }
+      margin: 0;
     }
 
     /* ── CONTACT ── */
@@ -1165,9 +1153,11 @@
       .enjeu-flux { flex-direction: column; }
       .flux-connecteur { width: 100%; height: 60px; }
       .flux-svg { transform: rotate(90deg); }
+      .principes-grille-3 { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 700px) {
+      .principes-grille-2, .principes-grille-3 { grid-template-columns: 1fr; }
       nav { padding: 0.8rem 1.2rem; }
       .nav-links { gap: 0.8rem; font-size: 0.8rem; }
       section { padding: 4rem 1.2rem; }
@@ -1380,62 +1370,37 @@
       <!-- Principes -->
       <div style="margin-top: 4rem;">
         <h3 class="approche-sous-titre" data-i18n="principes.tag"></h3>
-        <div class="principes-grille">
-          <div class="principe">
-            <div class="principe-barre" style="background:var(--vert)"></div>
-            <div>
-              <h3 data-i18n="principes.p1_title"></h3>
-              <p  data-i18n="principes.p1_text"></p>
-            </div>
+
+        <p class="principes-groupe-titre" data-i18n="principes.groupe_posture"></p>
+        <div class="principes-grille principes-grille-2">
+          <div class="principe" style="border-left-color:var(--vert)">
+            <span class="principe-num">01</span>
+            <h3 data-i18n="principes.p1_title"></h3>
+            <p  data-i18n="principes.p1_text"></p>
           </div>
-          <div class="principe">
-            <div class="principe-barre" style="background:var(--terre)"></div>
-            <div>
-              <h3 data-i18n="principes.p2_title"></h3>
-              <p  data-i18n="principes.p2_text"></p>
-            </div>
+          <div class="principe" style="border-left-color:var(--terre)">
+            <span class="principe-num">02</span>
+            <h3 data-i18n="principes.p2_title"></h3>
+            <p  data-i18n="principes.p2_text"></p>
           </div>
-          <div class="principe">
-            <div class="principe-barre" style="background:var(--bleu)"></div>
-            <div>
-              <h3 data-i18n="principes.p3_title"></h3>
-              <p  data-i18n="principes.p3_text"></p>
-            </div>
+        </div>
+
+        <p class="principes-groupe-titre" data-i18n="principes.groupe_methode"></p>
+        <div class="principes-grille principes-grille-3">
+          <div class="principe" style="border-left-color:var(--bleu)">
+            <span class="principe-num">03</span>
+            <h3 data-i18n="principes.p3_title"></h3>
+            <p  data-i18n="principes.p3_text"></p>
           </div>
-          <div class="principe">
-            <div class="principe-barre" style="background:var(--vert)"></div>
-            <div>
-              <h3 data-i18n="principes.p4_title"></h3>
-              <p  data-i18n="principes.p4_text"></p>
-            </div>
+          <div class="principe" style="border-left-color:var(--vert)">
+            <span class="principe-num">04</span>
+            <h3 data-i18n="principes.p4_title"></h3>
+            <p  data-i18n="principes.p4_text"></p>
           </div>
-          <div class="principe">
-            <div class="principe-barre" style="background:var(--terre)"></div>
-            <div>
-              <h3 data-i18n="principes.p5_title"></h3>
-              <p  data-i18n="principes.p5_text"></p>
-            </div>
-          </div>
-          <div class="principe">
-            <div class="principe-barre" style="background:var(--bleu)"></div>
-            <div>
-              <h3 data-i18n="principes.p6_title"></h3>
-              <p  data-i18n="principes.p6_text"></p>
-            </div>
-          </div>
-          <div class="principe">
-            <div class="principe-barre" style="background:var(--vert)"></div>
-            <div>
-              <h3 data-i18n="principes.p7_title"></h3>
-              <p  data-i18n="principes.p7_text"></p>
-            </div>
-          </div>
-          <div class="principe">
-            <div class="principe-barre" style="background:var(--terre)"></div>
-            <div>
-              <h3 data-i18n="principes.p8_title"></h3>
-              <p  data-i18n="principes.p8_text"></p>
-            </div>
+          <div class="principe" style="border-left-color:var(--terre)">
+            <span class="principe-num">05</span>
+            <h3 data-i18n="principes.p5_title"></h3>
+            <p  data-i18n="principes.p5_text"></p>
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PontLocal — Intermédiation pour le développement local</title>
+  <title>humalink — Intermédiation pour le développement local</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -53,13 +53,25 @@
     }
 
     .logo {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
     }
 
-    .logo span { color: var(--terre); }
+    .logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .logo-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
 
     .nav-right {
       display: flex;
@@ -177,6 +189,10 @@
     .hero-inner h1 em {
       font-style: normal;
       color: var(--bleu);
+    }
+
+    [lang="en"] .hero-inner h1 {
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
     }
 
     .hero-inner p {
@@ -1154,14 +1170,14 @@
 
   <!-- NAVIGATION -->
   <nav>
-    <div class="logo">Pont<span>Local</span></div>
+    <div class="logo"><img src="Logo.png" alt="humalink"><span class="logo-name">humalink</span></div>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="#notre-role"    data-i18n="nav.role"></a></li>
         <li><a href="#notre-approche" data-i18n="nav.approche"></a></li>
         <li><a href="#cartographie"  data-i18n="nav.carte"></a></li>
         <li><a href="#domaines"      data-i18n="nav.domaines"></a></li>
-        <li><a href="#contact" class="nav-cta" data-i18n="nav.contact"></a></li>
+        <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
       </ul>
       <div class="lang-switcher">
         <button data-lang="fr">FR</button>

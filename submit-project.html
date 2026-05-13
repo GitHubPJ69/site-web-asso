@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="submit.page_title">Soumettre un projet — humalink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bleu:        #C06800;
+      --bleu-clair:  #E08820;
+      --vert:        #1E9660;
+      --vert-clair:  #28A870;
+      --terre:       #D4820A;
+      --beige:       #F5F0E8;
+      --beige-fort:  #EDE7D9;
+      --gris:        #5A6A5E;
+      --gris-clair:  #FAF6EE;
+      --blanc:       #FFFFFF;
+      --sombre:      #0D3A1E;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+      color: var(--sombre);
+      background: var(--gris-clair);
+      line-height: 1.6;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(12, 74, 53, 0.97);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      padding: 0.9rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .logo-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.80);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-cta {
+      background: var(--terre);
+      color: #fff !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      opacity: 0.7;
+      cursor: default;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .lang-switcher button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.65);
+      padding: 0.28rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .lang-switcher button:hover {
+      border-color: rgba(255,255,255,0.7);
+      color: #fff;
+    }
+
+    .lang-switcher button.active {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(160deg, rgba(12,74,53,0.97) 0%, rgba(7,43,31,0.99) 100%);
+      padding: 7rem 2.5rem 3.5rem;
+      text-align: center;
+    }
+
+    .page-hero-inner { max-width: 640px; margin: 0 auto; }
+
+    .page-hero-tag {
+      display: inline-block;
+      background: rgba(212, 130, 10, 0.15);
+      color: var(--terre);
+      border: 1px solid rgba(212, 130, 10, 0.4);
+      padding: 0.3rem 1rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.2rem;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .page-hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.8;
+    }
+
+    /* ── FORM WRAPPER ── */
+    .form-wrapper {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* ── INTRO NOTE ── */
+    .form-intro-note {
+      background: #EEF9F4;
+      border: 1px solid #BFE8D4;
+      border-radius: 8px;
+      padding: 1rem 1.4rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-intro-note p {
+      font-size: 0.88rem;
+      color: var(--gris);
+      line-height: 1.6;
+    }
+
+    .req-star { color: #D92B2B; font-weight: 700; }
+
+    /* ── SECTION CARD ── */
+    .form-section {
+      background: var(--blanc);
+      border-radius: 10px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      border-left: 4px solid;
+    }
+
+    .form-section.sec-vert  { border-color: var(--vert); }
+    .form-section.sec-terre { border-color: var(--terre); }
+    .form-section.sec-bleu  { border-color: var(--bleu); }
+
+    /* ── SECTION HEADER ── */
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid #F0F0F0;
+    }
+
+    .section-badge {
+      flex-shrink: 0;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .badge-vert  { background: var(--vert); }
+    .badge-terre { background: var(--terre); }
+    .badge-bleu  { background: var(--bleu); }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--sombre);
+      margin-bottom: 0.25rem;
+    }
+
+    .section-desc {
+      font-size: 0.88rem;
+      color: var(--gris);
+      line-height: 1.6;
+    }
+
+    /* ── FIELDS ── */
+    .field { margin-bottom: 1.5rem; }
+    .field:last-child { margin-bottom: 0; }
+
+    .field-label {
+      display: flex;
+      align-items: baseline;
+      gap: 0.25rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--sombre);
+      margin-bottom: 0.45rem;
+    }
+
+    .field input[type=text],
+    .field input[type=email],
+    .field input[type=url],
+    .field input[type=number],
+    .field input[type=date],
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1.5px solid #D1D5DB;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-family: inherit;
+      color: var(--sombre);
+      background: #fff;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--vert);
+      box-shadow: 0 0 0 3px rgba(30, 150, 96, 0.12);
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    .field textarea.tall      { min-height: 160px; }
+    .field textarea.very-tall { min-height: 220px; }
+
+    .field-hint {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--gris);
+      margin-top: 0.35rem;
+      line-height: 1.5;
+    }
+
+    .field-error {
+      display: none;
+      font-size: 0.8rem;
+      color: #D92B2B;
+      margin-top: 0.4rem;
+      font-weight: 500;
+    }
+
+    /* ── FIELD ROW ── */
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .field-row .field { margin-bottom: 0; }
+
+    /* ── CHECKBOXES ── */
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.45rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.55rem 0.8rem;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 7px;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      font-size: 0.88rem;
+      color: var(--sombre);
+      user-select: none;
+    }
+
+    .checkbox-item:hover {
+      border-color: var(--vert);
+      background: #F0FBF6;
+    }
+
+    .checkbox-item input[type=checkbox] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--vert);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* ── MEDIA NOTE ── */
+    .media-note {
+      background: #FEF8ED;
+      border: 1px solid #F5D99C;
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+      margin-top: 1.2rem;
+    }
+
+    .media-note p {
+      font-size: 0.85rem;
+      color: #7A4F00;
+      line-height: 1.6;
+    }
+
+    /* ── SUBMIT AREA ── */
+    .form-submit-area {
+      background: var(--blanc);
+      border-radius: 10px;
+      padding: 2.5rem;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .btn-submit {
+      background: var(--vert);
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s, opacity 0.2s;
+      letter-spacing: 0.2px;
+    }
+
+    .btn-submit:hover   { background: #177A4E; }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+    .submit-note {
+      font-size: 0.8rem;
+      color: var(--gris);
+      max-width: 520px;
+      margin: 1.2rem auto 0;
+      line-height: 1.6;
+    }
+
+    .form-error-msg {
+      background: #FEF2F2;
+      border: 1px solid #FECACA;
+      border-radius: 7px;
+      padding: 0.8rem 1.2rem;
+      color: #D92B2B;
+      font-size: 0.88rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── SUCCESS ── */
+    .success-card {
+      background: var(--blanc);
+      border-radius: 12px;
+      padding: 4rem 2.5rem;
+      text-align: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+      border-top: 5px solid var(--vert);
+      margin-top: 2rem;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: #EEF9F4;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      font-size: 2rem;
+      color: var(--vert);
+    }
+
+    .success-card h2 {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--sombre);
+      margin-bottom: 1rem;
+    }
+
+    .success-card p {
+      color: var(--gris);
+      line-height: 1.8;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      font-size: 0.95rem;
+    }
+
+    .btn-retour {
+      display: inline-block;
+      background: var(--gris-clair);
+      color: var(--sombre);
+      text-decoration: none;
+      padding: 0.75rem 2rem;
+      border-radius: 7px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border: 1.5px solid var(--beige-fort);
+      transition: background 0.2s;
+    }
+
+    .btn-retour:hover { background: var(--beige-fort); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #083828;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 0.9rem 1.2rem; }
+      .nav-links { display: none; }
+      .page-hero { padding: 6rem 1.5rem 2.5rem; }
+      .form-wrapper { padding: 2rem 1rem 4rem; }
+      .form-section { padding: 1.5rem 1.3rem; }
+      .field-row { grid-template-columns: 1fr; gap: 0; }
+      .field-row .field { margin-bottom: 1.5rem; }
+      .checkbox-group { grid-template-columns: 1fr 1fr; }
+      .form-submit-area { padding: 1.8rem 1.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .checkbox-group { grid-template-columns: 1fr; }
+      .form-section { padding: 1.2rem 1rem; }
+      .btn-submit { width: 100%; }
+      .success-card { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="logo"><img src="Logo.png" alt="humalink"><span class="logo-name">humalink</span></a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html#notre-role"     data-i18n="nav.role"></a></li>
+        <li><a href="index.html#notre-approche" data-i18n="nav.approche"></a></li>
+        <li><a href="index.html#cartographie"   data-i18n="nav.carte"></a></li>
+        <li><a href="index.html#domaines"       data-i18n="nav.domaines"></a></li>
+        <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
+      </ul>
+      <div class="lang-switcher">
+        <button data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <span class="page-hero-tag" data-i18n="submit.hero_tag"></span>
+      <h1 data-i18n="submit.hero_title"></h1>
+      <p data-i18n="submit.hero_subtitle"></p>
+    </div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-wrapper">
+
+    <div class="form-intro-note" id="form-intro-note">
+      <p data-i18n="submit.intro_note"></p>
+    </div>
+
+    <form id="project-form" novalidate>
+      <input type="hidden" name="_subject" value="Nouvelle soumission de projet — humalink">
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+      <!-- ── SECTION A ── -->
+      <div class="form-section sec-vert">
+        <div class="section-header">
+          <div class="section-badge badge-vert">A</div>
+          <div>
+            <h2 class="section-title" data-i18n="submit.secA_title"></h2>
+            <p class="section-desc"   data-i18n="submit.secA_desc"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="org-name">
+            <span data-i18n="submit.fA1_label"></span><span class="req-star">*</span>
+          </label>
+          <input type="text" id="org-name" name="A1 — Nom de l'organisation" required
+                 data-i18n-placeholder="submit.fA1_ph">
+          <span class="field-hint" data-i18n="submit.fA1_hint"></span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="org-type">
+            <span data-i18n="submit.fA2_label"></span><span class="req-star">*</span>
+          </label>
+          <select id="org-type" name="A2 — Type d'organisation" required>
+            <option value="" disabled selected data-i18n="submit.fA2_ph0"></option>
+            <option value="ONG locale"              data-i18n="submit.fA2_opt1"></option>
+            <option value="ONG internationale"      data-i18n="submit.fA2_opt2"></option>
+            <option value="Association"             data-i18n="submit.fA2_opt3"></option>
+            <option value="Coopérative"             data-i18n="submit.fA2_opt4"></option>
+            <option value="Collectif informel"      data-i18n="submit.fA2_opt5"></option>
+            <option value="Entreprise sociale"      data-i18n="submit.fA2_opt6"></option>
+            <option value="École ou université"     data-i18n="submit.fA2_opt7"></option>
+            <option value="Municipalité"            data-i18n="submit.fA2_opt8"></option>
+            <option value="Initiative communautaire" data-i18n="submit.fA2_opt9"></option>
+            <option value="Autre"                   data-i18n="submit.fA2_opt10"></option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="org-country">
+            <span data-i18n="submit.fA3_label"></span><span class="req-star">*</span>
+          </label>
+          <select id="org-country" name="A3 — Pays" required>
+            <option value="" disabled selected data-i18n="submit.fA3_ph0"></option>
+          </select>
+          <span class="field-hint" data-i18n="submit.fA3_hint"></span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="org-region">
+            <span data-i18n="submit.fA4_label"></span><span class="req-star">*</span>
+          </label>
+          <input type="text" id="org-region" name="A4 — Région / Ville" required
+                 data-i18n-placeholder="submit.fA4_ph">
+          <span class="field-hint" data-i18n="submit.fA4_hint"></span>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="org-year" data-i18n="submit.fA5_label"></label>
+            <input type="number" id="org-year" name="A5 — Année de création"
+                   placeholder="ex. 2015" min="1900" max="2030">
+          </div>
+          <div class="field">
+            <label class="field-label" for="org-website" data-i18n="submit.fA6_label"></label>
+            <input type="url" id="org-website" name="A6 — Site web"
+                   placeholder="https://www.exemple.org">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="org-social" data-i18n="submit.fA7_label"></label>
+          <textarea id="org-social" name="A7 — Réseaux sociaux" rows="2"
+                    data-i18n-placeholder="submit.fA7_ph"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="org-desc">
+            <span data-i18n="submit.fA8_label"></span><span class="req-star">*</span>
+          </label>
+          <textarea id="org-desc" name="A8 — Présentation de l'organisation" required class="tall"
+                    data-i18n-placeholder="submit.fA8_ph"></textarea>
+          <span class="field-hint" data-i18n="submit.fA8_hint"></span>
+        </div>
+      </div>
+
+      <!-- ── SECTION B ── -->
+      <div class="form-section sec-terre">
+        <div class="section-header">
+          <div class="section-badge badge-terre">B</div>
+          <div>
+            <h2 class="section-title" data-i18n="submit.secB_title"></h2>
+            <p class="section-desc"   data-i18n="submit.secB_desc"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="proj-title">
+            <span data-i18n="submit.fB1_label"></span><span class="req-star">*</span>
+          </label>
+          <input type="text" id="proj-title" name="B1 — Titre du projet" required
+                 data-i18n-placeholder="submit.fB1_ph">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="proj-summary">
+            <span data-i18n="submit.fB2_label"></span><span class="req-star">*</span>
+          </label>
+          <textarea id="proj-summary" name="B2 — Résumé court" required class="tall"
+                    data-i18n-placeholder="submit.fB2_ph"></textarea>
+          <span class="field-hint" data-i18n="submit.fB2_hint"></span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="proj-desc">
+            <span data-i18n="submit.fB3_label"></span><span class="req-star">*</span>
+          </label>
+          <textarea id="proj-desc" name="B3 — Description détaillée" required class="very-tall"
+                    data-i18n-placeholder="submit.fB3_ph"></textarea>
+          <span class="field-hint" data-i18n="submit.fB3_hint"></span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="proj-problem">
+            <span data-i18n="submit.fB4_label"></span><span class="req-star">*</span>
+          </label>
+          <textarea id="proj-problem" name="B4 — Problème ou besoin local" required class="tall"
+                    data-i18n-placeholder="submit.fB4_ph"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="proj-why">
+            <span data-i18n="submit.fB5_label"></span><span class="req-star">*</span>
+          </label>
+          <textarea id="proj-why" name="B5 — Importance du projet" required class="tall"
+                    data-i18n-placeholder="submit.fB5_ph"></textarea>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="proj-date" data-i18n="submit.fB6_label"></label>
+            <input type="date" id="proj-date" name="B6 — Date de début">
+          </div>
+          <div class="field">
+            <label class="field-label" for="proj-status">
+              <span data-i18n="submit.fB7_label"></span><span class="req-star">*</span>
+            </label>
+            <select id="proj-status" name="B7 — Statut actuel" required>
+              <option value="" disabled selected data-i18n="submit.fB7_ph0"></option>
+              <option value="Phase d'idée"                  data-i18n="submit.fB7_opt1"></option>
+              <option value="Développement initial"         data-i18n="submit.fB7_opt2"></option>
+              <option value="Phase pilote"                  data-i18n="submit.fB7_opt3"></option>
+              <option value="Projet actif"                  data-i18n="submit.fB7_opt4"></option>
+              <option value="Phase de montée en charge"     data-i18n="submit.fB7_opt5"></option>
+              <option value="Mise en œuvre à long terme"    data-i18n="submit.fB7_opt6"></option>
+              <option value="Réponse d'urgence"             data-i18n="submit.fB7_opt7"></option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SECTION C ── -->
+      <div class="form-section sec-bleu">
+        <div class="section-header">
+          <div class="section-badge badge-bleu">C</div>
+          <div>
+            <h2 class="section-title" data-i18n="submit.secC_title"></h2>
+            <p class="section-desc"   data-i18n="submit.secC_desc"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label">
+            <span data-i18n="submit.fC1_label"></span><span class="req-star">*</span>
+          </label>
+          <span class="field-hint" style="margin-top:0;margin-bottom:0.7rem;display:block;"
+                data-i18n="submit.fC1_hint"></span>
+          <div class="checkbox-group" id="support-types">
+            <label class="checkbox-item">
+              <input type="checkbox" name="C1 — Types de soutien" value="Financement" class="support-cb">
+              <span data-i18n="submit.fC1_cb1"></span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="C1 — Types de soutien" value="Expertise technique" class="support-cb">
+              <span data-i18n="submit.fC1_cb2"></span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="C1 — Types de soutien" value="Bénévoles" class="support-cb">
+              <span data-i18n="submit.fC1_cb3"></span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="C1 — Types de soutien" value="Formation" class="support-cb">
+              <span data-i18n="submit.fC1_cb4"></span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="C1 — Types de soutien" value="Équipement" class="support-cb">
+              <span data-i18n="submit.fC1_cb5"></span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="C1 — Types de soutien" value="Communication" class="support-cb">
+              <span data-i18n="submit.fC1_cb6"></span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="C1 — Types de soutien" value="Partenariats" class="support-cb">
+              <span data-i18n="submit.fC1_cb7"></span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="C1 — Types de soutien" value="Visibilité" class="support-cb">
+              <span data-i18n="submit.fC1_cb8"></span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="C1 — Types de soutien" value="Recherche" class="support-cb">
+              <span data-i18n="submit.fC1_cb9"></span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="C1 — Types de soutien" value="Logistique" class="support-cb">
+              <span data-i18n="submit.fC1_cb10"></span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="C1 — Types de soutien" value="Autre" class="support-cb">
+              <span data-i18n="submit.fC1_cb11"></span>
+            </label>
+          </div>
+          <span class="field-error" id="soutien-error" data-i18n="submit.fC1_error"></span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="support-desc">
+            <span data-i18n="submit.fC2_label"></span><span class="req-star">*</span>
+          </label>
+          <textarea id="support-desc" name="C2 — Description des besoins" required class="tall"
+                    data-i18n-placeholder="submit.fC2_ph"></textarea>
+        </div>
+      </div>
+
+      <!-- ── SECTION D ── -->
+      <div class="form-section sec-vert">
+        <div class="section-header">
+          <div class="section-badge badge-vert">D</div>
+          <div>
+            <h2 class="section-title" data-i18n="submit.secD_title"></h2>
+            <p class="section-desc"   data-i18n="submit.secD_desc"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="impact-who">
+            <span data-i18n="submit.fD1_label"></span><span class="req-star">*</span>
+          </label>
+          <textarea id="impact-who" name="D1 — Bénéficiaires" required class="tall"
+                    data-i18n-placeholder="submit.fD1_ph"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="impact-nb" data-i18n="submit.fD2_label"></label>
+          <input type="text" id="impact-nb" name="D2 — Nombre de bénéficiaires"
+                 data-i18n-placeholder="submit.fD2_ph">
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="impact-short">
+            <span data-i18n="submit.fD3_label"></span><span class="req-star">*</span>
+          </label>
+          <textarea id="impact-short" name="D3 — Impact à court terme" required class="tall"
+                    data-i18n-placeholder="submit.fD3_ph"></textarea>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="impact-long">
+            <span data-i18n="submit.fD4_label"></span><span class="req-star">*</span>
+          </label>
+          <textarea id="impact-long" name="D4 — Impact à long terme" required class="tall"
+                    data-i18n-placeholder="submit.fD4_ph"></textarea>
+        </div>
+      </div>
+
+      <!-- ── SECTION E ── -->
+      <div class="form-section sec-terre">
+        <div class="section-header">
+          <div class="section-badge badge-terre">E</div>
+          <div>
+            <h2 class="section-title" data-i18n="submit.secE_title"></h2>
+            <p class="section-desc"   data-i18n="submit.secE_desc"></p>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="media-links" data-i18n="submit.fE1_label"></label>
+          <textarea id="media-links" name="E1 — Liens vers visuels / ressources" rows="3"
+                    data-i18n-placeholder="submit.fE1_ph"></textarea>
+          <span class="field-hint" data-i18n="submit.fE1_hint"></span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="media-docs" data-i18n="submit.fE2_label"></label>
+          <textarea id="media-docs" name="E2 — Documents disponibles" rows="3"
+                    data-i18n-placeholder="submit.fE2_ph"></textarea>
+          <span class="field-hint" data-i18n="submit.fE2_hint"></span>
+        </div>
+
+        <div class="media-note">
+          <p data-i18n="submit.media_note"></p>
+        </div>
+      </div>
+
+      <!-- ── SECTION F ── -->
+      <div class="form-section sec-bleu">
+        <div class="section-header">
+          <div class="section-badge badge-bleu">F</div>
+          <div>
+            <h2 class="section-title" data-i18n="submit.secF_title"></h2>
+            <p class="section-desc"   data-i18n="submit.secF_desc"></p>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="contact-name">
+              <span data-i18n="submit.fF1_label"></span><span class="req-star">*</span>
+            </label>
+            <input type="text" id="contact-name" name="F1 — Nom du contact" required
+                   data-i18n-placeholder="submit.fF1_ph">
+          </div>
+          <div class="field">
+            <label class="field-label" for="contact-role" data-i18n="submit.fF2_label"></label>
+            <input type="text" id="contact-role" name="F2 — Poste / Rôle"
+                   data-i18n-placeholder="submit.fF2_ph">
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="contact-email">
+              <span data-i18n="submit.fF3_label"></span><span class="req-star">*</span>
+            </label>
+            <input type="email" id="contact-email" name="F3 — Email" required
+                   placeholder="email@exemple.org">
+          </div>
+          <div class="field">
+            <label class="field-label" for="contact-phone" data-i18n="submit.fF4_label"></label>
+            <input type="text" id="contact-phone" name="F4 — Téléphone / WhatsApp"
+                   placeholder="+33 6 12 34 56 78">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" data-i18n="submit.fF5_label"></label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" name="F5 — Langues parlées" value="Français"> Français
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="F5 — Langues parlées" value="Anglais"> English
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="F5 — Langues parlées" value="Espagnol"> Español
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="F5 — Langues parlées" value="Arabe"> عربي
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="F5 — Langues parlées" value="Portugais"> Português
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="F5 — Langues parlées" value="Autre"> Autre / Other
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SUBMIT ── -->
+      <div class="form-submit-area">
+        <div id="form-error" class="form-error-msg" style="display:none;"
+             data-i18n="submit.form_error"></div>
+        <button type="submit" class="btn-submit" id="btn-submit"
+                data-i18n="submit.btn_submit"></button>
+        <p class="submit-note" data-i18n="submit.submit_note"></p>
+      </div>
+    </form>
+
+    <!-- SUCCESS STATE -->
+    <div id="form-success" style="display:none;">
+      <div class="success-card">
+        <div class="success-icon">&#10003;</div>
+        <h2 data-i18n="submit.success_title"></h2>
+        <p  data-i18n="submit.success_msg"></p>
+        <a href="index.html" class="btn-retour" data-i18n="submit.success_btn"></a>
+      </div>
+    </div>
+
+  </div><!-- /.form-wrapper -->
+
+  <footer>
+    <p data-i18n="footer.text"></p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    /* ── CONFIG — remplacez cette valeur par votre endpoint Formspree ── */
+    const FORMSPREE_ENDPOINT = 'FORMSPREE_ENDPOINT_PLACEHOLDER';
+
+    /* ── PAYS (noms internationaux) ── */
+    const COUNTRIES = [
+      'Afghanistan','Albania','Algeria','Angola','Antigua and Barbuda','Argentina',
+      'Armenia','Australia','Austria','Azerbaijan',
+      'Bahamas','Bahrain','Bangladesh','Barbados','Belarus','Belgium',
+      'Belize','Benin','Bhutan','Bolivia','Bosnia and Herzegovina','Botswana',
+      'Brazil','Brunei','Bulgaria','Burkina Faso','Burundi',
+      'Cabo Verde','Cambodia','Cameroon','Canada','Chile','China',
+      'Colombia','Comoros','Congo (Dem. Rep.)','Congo (Rep.)','Costa Rica',
+      "Côte d'Ivoire",'Croatia','Cuba','Cyprus','Czech Republic',
+      'Denmark','Djibouti','Dominica','Dominican Republic',
+      'Ecuador','Egypt','El Salvador','Equatorial Guinea','Eritrea',
+      'Estonia','Eswatini','Ethiopia',
+      'Fiji','Finland','France',
+      'Gabon','Gambia','Georgia','Germany','Ghana','Greece','Grenada',
+      'Guatemala','Guinea','Guinea-Bissau','Guyana',
+      'Haiti','Honduras','Hungary',
+      'India','Indonesia','Iran','Iraq','Ireland','Israel','Italy',
+      'Jamaica','Japan','Jordan',
+      'Kazakhstan','Kenya','Kosovo','Kuwait','Kyrgyzstan',
+      'Laos','Latvia','Lebanon','Lesotho','Liberia','Libya','Lithuania','Luxembourg',
+      'Madagascar','Malawi','Malaysia','Maldives','Mali','Malta','Mauritania','Mauritius',
+      'Mexico','Moldova','Mongolia','Montenegro','Morocco','Mozambique','Myanmar',
+      'Namibia','Nepal','Netherlands','New Zealand','Nicaragua','Niger','Nigeria','Norway',
+      'Oman','Pakistan','Palestine','Panama','Papua New Guinea','Paraguay','Peru',
+      'Philippines','Poland','Portugal',
+      'Qatar',
+      'Romania','Russia','Rwanda',
+      'Saint Kitts and Nevis','Saint Lucia','Saint Vincent and the Grenadines',
+      'Samoa','Sao Tome and Principe','Saudi Arabia','Senegal','Serbia',
+      'Sierra Leone','Singapore','Slovakia','Slovenia','Solomon Islands',
+      'Somalia','South Africa','South Sudan','Spain','Sri Lanka',
+      'Sudan','Suriname','Sweden','Switzerland','Syria',
+      'Tajikistan','Tanzania','Thailand','Timor-Leste','Togo',
+      'Trinidad and Tobago','Tunisia','Turkey','Turkmenistan',
+      'Uganda','Ukraine','United Arab Emirates','United Kingdom','United States','Uruguay',
+      'Uzbekistan',
+      'Vanuatu','Venezuela','Vietnam',
+      'Yemen',
+      'Zambia','Zimbabwe'
+    ];
+
+    (function () {
+      /* Populate country select */
+      var sel = document.getElementById('org-country');
+      COUNTRIES.forEach(function (c) {
+        var opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        sel.appendChild(opt);
+      });
+
+      /* Form submission */
+      var form       = document.getElementById('project-form');
+      var btnSubmit  = document.getElementById('btn-submit');
+      var formError  = document.getElementById('form-error');
+      var soutienErr = document.getElementById('soutien-error');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        formError.style.display  = 'none';
+        soutienErr.style.display = 'none';
+
+        /* Validate Section C: at least one support type */
+        var cbs = Array.from(document.querySelectorAll('.support-cb'));
+        if (!cbs.some(function (cb) { return cb.checked; })) {
+          soutienErr.style.display = 'block';
+          document.getElementById('support-types').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          return;
+        }
+
+        /* HTML5 validation for remaining required fields */
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        /* Submit */
+        btnSubmit.disabled   = true;
+        btnSubmit.textContent = document.documentElement.lang === 'en' ? 'Sending…' : 'Envoi en cours…';
+
+        fetch(FORMSPREE_ENDPOINT, {
+          method:  'POST',
+          body:    new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(function (res) {
+          if (res.ok) {
+            form.style.display = 'none';
+            document.getElementById('form-intro-note').style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          } else {
+            throw new Error('error');
+          }
+        })
+        .catch(function () {
+          btnSubmit.disabled    = false;
+          /* Restore button text from i18n */
+          var lang = document.documentElement.lang || 'fr';
+          btnSubmit.textContent = (translations[lang] && translations[lang].submit)
+            ? translations[lang].submit.btn_submit
+            : 'Envoyer ma soumission →';
+          formError.style.display = 'block';
+          formError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        });
+      });
+    }());
+  </script>
+
+</body>
+</html>

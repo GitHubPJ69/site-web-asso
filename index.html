@@ -270,6 +270,7 @@
 
     /* ── NOTRE RÔLE ── */
     #notre-role { background: var(--beige); }
+    #notre-role .section-en-tete { margin-bottom: 1.5rem; }
 
     .role-grille {
       display: grid;
@@ -320,7 +321,11 @@
       flex-direction: column;
       align-items: center;
       gap: 1rem;
+      cursor: pointer;
+      transition: box-shadow 0.2s;
     }
+    .pilier:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.10); }
+    .pilier.active { box-shadow: 0 4px 18px rgba(0,0,0,0.10); outline: 2px solid var(--terre); outline-offset: -2px; }
 
     .pilier-icone { font-size: 3rem; line-height: 1; }
 
@@ -338,6 +343,34 @@
       line-height: 1.55;
       margin: 0;
     }
+
+    .pilier-chevron {
+      font-size: 0.65rem;
+      color: var(--gris);
+      transition: transform 0.25s, color 0.2s;
+      margin-top: auto;
+      padding-top: 0.25rem;
+    }
+    .pilier.active .pilier-chevron { transform: rotate(180deg); color: var(--terre); }
+
+    .pilier-detail {
+      width: 100%;
+      align-self: stretch;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .pilier.active .pilier-detail { max-height: 500px; }
+
+    .pilier-detail-inner {
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 1rem;
+      margin-top: 0.5rem;
+      text-align: left;
+    }
+    .pilier-detail ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.55rem; }
+    .pilier-detail li { font-size: 0.88rem; color: var(--gris); line-height: 1.5; padding-left: 1.25rem; position: relative; }
+    .pilier-detail li::before { content: "›"; position: absolute; left: 0; color: var(--terre); font-weight: 700; }
 
     /* ── DOMAINES ── */
     #domaines { background: var(--gris-clair); }
@@ -1207,21 +1240,58 @@
         <h2 data-i18n="role.title"></h2>
         <p class="lead" data-i18n="role.lead"></p>
       </div>
-      <div class="role-grille">
-        <div class="carte-role">
-          <div class="icone">&#127758;</div>
-          <h3 data-i18n="role.c1_title"></h3>
-          <p  data-i18n="role.c1_text"></p>
+      <div class="enjeu-constat">
+        <p data-i18n="role.constat1"></p>
+        <p data-i18n="role.constat2"></p>
+      </div>
+
+      <!-- Schéma flux -->
+      <div class="enjeu-flux">
+        <div class="flux-bloc flux-gauche">
+          <div class="flux-icone">&#127758;</div>
+          <h3 data-i18n="role.flux_left_title"></h3>
+          <ul>
+            <li data-i18n="role.flux_left_1"></li>
+            <li data-i18n="role.flux_left_2"></li>
+            <li data-i18n="role.flux_left_3"></li>
+            <li data-i18n="role.flux_left_4"></li>
+          </ul>
         </div>
-        <div class="carte-role">
-          <div class="icone">&#128279;</div>
-          <h3 data-i18n="role.c2_title"></h3>
-          <p  data-i18n="role.c2_text"></p>
+        <div class="flux-connecteur">
+          <svg class="flux-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line class="flux-line-fwd" x1="6" y1="18" x2="54" y2="18" stroke-width="2.5" stroke-dasharray="6 4"/>
+            <path class="flux-head-fwd" d="M45,11 L54,18 L45,25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line class="flux-line-bwd" x1="54" y1="42" x2="6" y2="42" stroke-width="2.5" stroke-dasharray="6 4"/>
+            <path class="flux-head-bwd" d="M15,35 L6,42 L15,49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
         </div>
-        <div class="carte-role">
-          <div class="icone">&#128196;</div>
-          <h3 data-i18n="role.c3_title"></h3>
-          <p  data-i18n="role.c3_text"></p>
+        <div class="flux-bloc flux-centre">
+          <div class="flux-icone">&#128279;</div>
+          <h3 data-i18n="role.flux_center_title"></h3>
+          <ul>
+            <li data-i18n="role.flux_center_1"></li>
+            <li data-i18n="role.flux_center_2"></li>
+            <li data-i18n="role.flux_center_3"></li>
+            <li data-i18n="role.flux_center_4"></li>
+          </ul>
+        </div>
+        <div class="flux-connecteur">
+          <svg class="flux-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line class="flux-line-fwd" x1="6" y1="18" x2="54" y2="18" stroke-width="2.5" stroke-dasharray="6 4"/>
+            <path class="flux-head-fwd" d="M45,11 L54,18 L45,25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <line class="flux-line-bwd" x1="54" y1="42" x2="6" y2="42" stroke-width="2.5" stroke-dasharray="6 4"/>
+            <path class="flux-head-bwd" d="M15,35 L6,42 L15,49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="flux-bloc flux-droite">
+          <div class="flux-icone">&#128101;</div>
+          <h3 data-i18n="role.flux_right_title"></h3>
+          <ul>
+            <li data-i18n="role.flux_right_1"></li>
+            <li data-i18n="role.flux_right_2"></li>
+            <li data-i18n="role.flux_right_3"></li>
+            <li data-i18n="role.flux_right_4"></li>
+          </ul>
         </div>
       </div>
     </div>
@@ -1235,83 +1305,73 @@
         <h2 data-i18n="approche.title"></h2>
         <p class="lead" data-i18n="approche.lead"></p>
       </div>
-      <div class="enjeu-constat">
-        <p data-i18n="approche.constat1"></p>
-        <p data-i18n="approche.constat2"></p>
-      </div>
-
-      <!-- Schéma flux -->
-      <div class="enjeu-flux">
-        <div class="flux-bloc flux-gauche">
-          <div class="flux-icone">&#127758;</div>
-          <h3 data-i18n="approche.flux_left_title"></h3>
-          <ul>
-            <li data-i18n="approche.flux_left_1"></li>
-            <li data-i18n="approche.flux_left_2"></li>
-            <li data-i18n="approche.flux_left_3"></li>
-            <li data-i18n="approche.flux_left_4"></li>
-          </ul>
-        </div>
-        <div class="flux-connecteur">
-          <svg class="flux-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line class="flux-line-fwd" x1="6" y1="18" x2="54" y2="18" stroke-width="2.5" stroke-dasharray="6 4"/>
-            <path class="flux-head-fwd" d="M45,11 L54,18 L45,25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <line class="flux-line-bwd" x1="54" y1="42" x2="6" y2="42" stroke-width="2.5" stroke-dasharray="6 4"/>
-            <path class="flux-head-bwd" d="M15,35 L6,42 L15,49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </div>
-        <div class="flux-bloc flux-centre">
-          <div class="flux-icone">&#128279;</div>
-          <h3 data-i18n="approche.flux_center_title"></h3>
-          <ul>
-            <li data-i18n="approche.flux_center_1"></li>
-            <li data-i18n="approche.flux_center_2"></li>
-            <li data-i18n="approche.flux_center_3"></li>
-            <li data-i18n="approche.flux_center_4"></li>
-          </ul>
-        </div>
-        <div class="flux-connecteur">
-          <svg class="flux-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line class="flux-line-fwd" x1="6" y1="18" x2="54" y2="18" stroke-width="2.5" stroke-dasharray="6 4"/>
-            <path class="flux-head-fwd" d="M45,11 L54,18 L45,25" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <line class="flux-line-bwd" x1="54" y1="42" x2="6" y2="42" stroke-width="2.5" stroke-dasharray="6 4"/>
-            <path class="flux-head-bwd" d="M15,35 L6,42 L15,49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
-        </div>
-        <div class="flux-bloc flux-droite">
-          <div class="flux-icone">&#128101;</div>
-          <h3 data-i18n="approche.flux_right_title"></h3>
-          <ul>
-            <li data-i18n="approche.flux_right_1"></li>
-            <li data-i18n="approche.flux_right_2"></li>
-            <li data-i18n="approche.flux_right_3"></li>
-            <li data-i18n="approche.flux_right_4"></li>
-          </ul>
-        </div>
-      </div>
 
       <!-- Piliers -->
       <h3 class="approche-sous-titre" data-i18n="approche.piliers_titre"></h3>
       <div class="piliers-grille">
-        <div class="pilier">
+        <div class="pilier" onclick="togglePilier(this)">
           <div class="pilier-icone">&#128506;</div>
           <h3 data-i18n="approche.p1_title"></h3>
           <p  data-i18n="approche.p1_text"></p>
+          <div class="pilier-detail">
+            <div class="pilier-detail-inner">
+              <ul>
+                <li data-i18n="approche.p1_detail_1"></li>
+                <li data-i18n="approche.p1_detail_2"></li>
+                <li data-i18n="approche.p1_detail_3"></li>
+                <li data-i18n="approche.p1_detail_4"></li>
+              </ul>
+            </div>
+          </div>
+          <span class="pilier-chevron">&#9660;</span>
         </div>
-        <div class="pilier">
+        <div class="pilier" onclick="togglePilier(this)">
           <div class="pilier-icone">&#128279;</div>
           <h3 data-i18n="approche.p2_title"></h3>
           <p  data-i18n="approche.p2_text"></p>
+          <div class="pilier-detail">
+            <div class="pilier-detail-inner">
+              <ul>
+                <li data-i18n="approche.p2_detail_1"></li>
+                <li data-i18n="approche.p2_detail_2"></li>
+                <li data-i18n="approche.p2_detail_3"></li>
+                <li data-i18n="approche.p2_detail_4"></li>
+              </ul>
+            </div>
+          </div>
+          <span class="pilier-chevron">&#9660;</span>
         </div>
-        <div class="pilier">
+        <div class="pilier" onclick="togglePilier(this)">
           <div class="pilier-icone">&#128203;</div>
           <h3 data-i18n="approche.p3_title"></h3>
           <p  data-i18n="approche.p3_text"></p>
+          <div class="pilier-detail">
+            <div class="pilier-detail-inner">
+              <ul>
+                <li data-i18n="approche.p3_detail_1"></li>
+                <li data-i18n="approche.p3_detail_2"></li>
+                <li data-i18n="approche.p3_detail_3"></li>
+                <li data-i18n="approche.p3_detail_4"></li>
+              </ul>
+            </div>
+          </div>
+          <span class="pilier-chevron">&#9660;</span>
         </div>
-        <div class="pilier">
+        <div class="pilier" onclick="togglePilier(this)">
           <div class="pilier-icone">&#129309;</div>
           <h3 data-i18n="approche.p4_title"></h3>
           <p  data-i18n="approche.p4_text"></p>
+          <div class="pilier-detail">
+            <div class="pilier-detail-inner">
+              <ul>
+                <li data-i18n="approche.p4_detail_1"></li>
+                <li data-i18n="approche.p4_detail_2"></li>
+                <li data-i18n="approche.p4_detail_3"></li>
+                <li data-i18n="approche.p4_detail_4"></li>
+              </ul>
+            </div>
+          </div>
+          <span class="pilier-chevron">&#9660;</span>
         </div>
       </div>
 
@@ -1978,6 +2038,10 @@
 
   <script>
     var _domainesExpanded = false;
+    function togglePilier(el) { el.classList.toggle('active'); }
+  </script>
+
+  <script>
     function toggleDomaines(btn) {
       _domainesExpanded = !_domainesExpanded;
       var cartes = document.querySelectorAll('#domaines .domaine-carte');

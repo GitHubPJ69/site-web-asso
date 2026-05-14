@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projets — humalink</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bleu:        #C06800;
+      --bleu-clair:  #E08820;
+      --vert:        #1E9660;
+      --vert-clair:  #28A870;
+      --terre:       #D4820A;
+      --beige:       #F5F0E8;
+      --beige-fort:  #EDE7D9;
+      --gris:        #5A6A5E;
+      --gris-clair:  #FAF6EE;
+      --blanc:       #FFFFFF;
+      --sombre:      #0D3A1E;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+      color: var(--sombre);
+      line-height: 1.6;
+    }
+
+    p, .fiche-field p { text-align: justify; hyphens: auto; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(12, 74, 53, 0.97);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      padding: 0.9rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+    .logo img { height: 38px; width: auto; display: block; border-radius: 6px; }
+    .logo-name { font-size: 1.25rem; font-weight: 700; color: #fff; letter-spacing: 0.3px; }
+
+    .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.80);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: #fff; font-weight: 700; }
+
+    .nav-cta {
+      background: var(--terre);
+      color: #fff !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+
+    .lang-switcher { display: flex; gap: 0.3rem; }
+    .lang-switcher button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.65);
+      padding: 0.28rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .lang-switcher button:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
+    .lang-switcher button.active {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background:
+        linear-gradient(160deg, rgba(12,74,53,0.88) 0%, rgba(7,43,31,0.95) 100%),
+        url('8c351c11-b3ea-4a1d-9718-b27ff5f55270.png') center / cover no-repeat;
+      padding: 9rem 2.5rem 4rem;
+    }
+
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    .tag {
+      display: inline-block;
+      padding: 0.3rem 0.9rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+    .tag-vert { background: #DFF4EC; color: var(--vert); }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero p.subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.70);
+      max-width: 560px;
+      margin-bottom: 2rem;
+      line-height: 1.75;
+    }
+
+    .btn-back {
+      display: inline-block;
+      background: rgba(255,255,255,0.09);
+      color: rgba(255,255,255,0.80);
+      border: 1px solid rgba(255,255,255,0.22);
+      padding: 0.55rem 1.2rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-back:hover { background: rgba(255,255,255,0.16); color: #fff; }
+
+    /* ── SECTION LISTE ── */
+    #projets-liste {
+      background: var(--beige);
+      padding: 4rem 2.5rem 6rem;
+    }
+
+    /* ── GRILLE DE CARTES ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .projet-card {
+      background: var(--blanc);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.07);
+      cursor: pointer;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .projet-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.13);
+    }
+
+    /* Illustration colorée */
+    .card-visual {
+      height: 152px;
+      background: linear-gradient(145deg, #0e3d21 0%, #163d24 60%, #0a2f1a 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem 1.2rem;
+      flex-shrink: 0;
+    }
+
+    /* Halo coloré (statut) */
+    .card-glow {
+      position: absolute;
+      top: -45px; right: -35px;
+      width: 145px; height: 145px;
+      border-radius: 50%;
+      filter: blur(50px);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    /* Second halo subtil */
+    .card-glow2 {
+      position: absolute;
+      bottom: -30px; left: -20px;
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      filter: blur(35px);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+
+    /* Nom du pays en filigrane */
+    .card-country-bg {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3.8rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.045);
+      pointer-events: none;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      user-select: none;
+    }
+
+    /* Étiquette domaine */
+    .card-domain-tag {
+      font-size: 0.67rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.72);
+      background: rgba(255,255,255,0.09);
+      backdrop-filter: blur(4px);
+      padding: 0.18rem 0.55rem;
+      border-radius: 4px;
+      display: inline-block;
+      max-width: fit-content;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Contenu de la carte */
+    .card-body {
+      padding: 1rem 1.2rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .card-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 0.5rem;
+    }
+    .card-status-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--sombre);
+      line-height: 1.35;
+      margin-bottom: 0.45rem;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .card-location {
+      font-size: 0.75rem;
+      color: var(--gris);
+      margin-top: auto;
+      padding-top: 0.4rem;
+    }
+
+    /* ── VUE DÉTAIL ── */
+    .detail-back-row {
+      margin-bottom: 1.8rem;
+    }
+    .btn-back-cards {
+      background: none;
+      border: 1px solid rgba(0,0,0,0.18);
+      color: var(--gris);
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .btn-back-cards:hover {
+      background: rgba(0,0,0,0.04);
+      color: var(--sombre);
+      border-color: rgba(0,0,0,0.32);
+    }
+
+    /* ── FICHE PROJET ── */
+    .projet-fiche {
+      background: var(--blanc);
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+      overflow: hidden;
+    }
+
+    /* Bandeau fictif */
+    .fiche-fictional-banner {
+      background: rgba(212, 130, 10, 0.08);
+      border-bottom: 1px solid rgba(212, 130, 10, 0.22);
+      padding: 0.6rem 1.8rem;
+      font-size: 0.78rem;
+      color: var(--gris);
+      line-height: 1.5;
+    }
+    .fiche-fictional-banner strong { color: var(--terre); font-weight: 700; }
+
+    /* Header */
+    .fiche-header {
+      padding: 1.8rem 1.8rem 1.2rem;
+      border-bottom: 1px solid var(--beige-fort);
+    }
+
+    .fiche-status-pill {
+      display: inline-block;
+      padding: 0.22rem 0.7rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.75rem;
+    }
+
+    .fiche-title {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 800;
+      color: var(--sombre);
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+
+    .fiche-location {
+      font-size: 0.85rem;
+      color: var(--gris);
+      margin-bottom: 0.3rem;
+    }
+
+    .fiche-domain {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--vert);
+      margin-bottom: 0.75rem;
+    }
+
+    .fiche-support-badges {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.35rem;
+      margin-top: 0.4rem;
+    }
+
+    .fiche-support-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--gris);
+      margin-right: 0.2rem;
+    }
+
+    .support-badge {
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 600;
+    }
+    .support-financial { background: rgba(192,104,0,0.12); color: #C06800; }
+    .support-technical { background: rgba(30,150,96,0.12); color: #1E9660; }
+    .support-human     { background: rgba(30,150,96,0.08); color: #1E9660; }
+    .support-material  { background: rgba(212,130,10,0.12); color: #D4820A; }
+
+    /* Corps */
+    .fiche-body {
+      padding: 1.5rem 1.8rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem 2rem;
+    }
+
+    .fiche-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0 8px 8px 0;
+      background: rgba(0,0,0,0.025);
+    }
+
+    .fiche-field-label {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.9px;
+      color: var(--gris);
+    }
+
+    .fiche-field-icon {
+      font-size: 0.88rem;
+      opacity: 0.65;
+      flex-shrink: 0;
+    }
+
+    .fiche-field p {
+      font-size: 0.9rem;
+      color: var(--sombre);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .fiche-field.full-width { grid-column: 1 / -1; }
+
+    .fiche-partners {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .fiche-partners li {
+      font-size: 0.88rem;
+      color: var(--sombre);
+      padding-left: 1rem;
+      position: relative;
+    }
+    .fiche-partners li::before { content: '›'; position: absolute; left: 0; color: var(--vert); font-weight: 700; }
+
+    .fiche-timeline {
+      font-size: 0.82rem;
+      color: var(--gris);
+      font-style: italic;
+    }
+
+    /* Actions */
+    .fiche-actions {
+      padding: 1.2rem 1.8rem;
+      border-top: 1px solid var(--beige-fort);
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .fiche-btn {
+      display: inline-block;
+      padding: 0.65rem 1.4rem;
+      border-radius: 6px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .fiche-btn:hover { opacity: 0.82; }
+    .fiche-btn-primary   { background: var(--vert); color: #fff; }
+    .fiche-btn-secondary { background: var(--beige-fort); color: var(--sombre); border: 1px solid #d0cbbf; }
+
+    /* Bandeau fictif sur la carte */
+    .card-fictional-strip {
+      background: rgba(212, 130, 10, 0.10);
+      border-top: 1px solid rgba(212, 130, 10, 0.25);
+      border-bottom: 1px solid rgba(212, 130, 10, 0.25);
+      padding: 0.28rem 1.2rem;
+      font-size: 0.67rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--terre);
+    }
+
+    /* ── EMPTY STATE ── */
+    .no-projects {
+      text-align: center;
+      color: var(--gris);
+      font-size: 1rem;
+      padding: 4rem 0;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #083828;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 700px) {
+      nav { padding: 0.8rem 1.2rem; }
+      .nav-links { gap: 0.8rem; font-size: 0.8rem; }
+      .hero { padding: 8rem 1.4rem 3rem; }
+      #projets-liste { padding: 2.5rem 1.2rem 4rem; }
+      .fiche-header { padding: 1.4rem 1.2rem 1rem; }
+      .fiche-body { grid-template-columns: 1fr; padding: 1.2rem; gap: 1rem; }
+      .fiche-actions { padding: 1rem 1.2rem; }
+    }
+    @media (max-width: 540px) {
+      .nav-links { display: none; }
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="logo">
+      <img src="Logo.png" alt="humalink">
+      <span class="logo-name">humalink</span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html#notre-role"     data-i18n="nav.role"></a></li>
+        <li><a href="index.html#cartographie"   data-i18n="nav.carte"></a></li>
+        <li><a href="index.html#domaines"       data-i18n="nav.domaines"></a></li>
+        <li><a href="projects.html" class="active" data-i18n="nav.projets"></a></li>
+        <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
+      </ul>
+      <div class="lang-switcher">
+        <button data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="tag tag-vert" data-i18n="projets_page.tag"></span>
+      <h1 data-i18n="projets_page.title"></h1>
+      <p class="subtitle" data-i18n="projets_page.subtitle"></p>
+      <a href="index.html" class="btn-back" data-i18n="projets_page.back_home"></a>
+    </div>
+  </section>
+
+  <!-- LISTE DES PROJETS -->
+  <section id="projets-liste">
+    <div class="container">
+
+      <!-- Vue : grille de cartes -->
+      <div id="cards-view">
+        <div id="cards-grid" class="cards-grid"></div>
+      </div>
+
+      <!-- Vue : fiche détail -->
+      <div id="detail-view" style="display:none">
+        <div class="detail-back-row">
+          <button class="btn-back-cards" onclick="backToCards()" data-i18n="projets_page.back_cards"></button>
+        </div>
+        <div id="detail-container"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p data-i18n="footer.text"></p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="projects.js"></script>
+
+  <script>
+    const STATUS_COLORS_PAGE = {
+      needs_support:      '#FF7A1A',
+      in_progress:        '#00C893',
+      completed_followed: '#38AAFF'
+    };
+
+    let currentProjectId = null;
+
+    function getLang() {
+      let lang = 'fr';
+      try { lang = localStorage.getItem('lang') || 'fr'; } catch(e) {}
+      return lang;
+    }
+
+    function getLabels() {
+      const lang = getLang();
+      const pp = translations[lang].projets_page;
+      return {
+        pp,
+        statusLabels: {
+          needs_support:      pp.status_needs,
+          in_progress:        pp.status_progress,
+          completed_followed: pp.status_done
+        },
+        supportLabels: {
+          financial: pp.support_financial,
+          technical: pp.support_technical,
+          human:     pp.support_human,
+          material:  pp.support_material
+        }
+      };
+    }
+
+    function renderCards() {
+      const grid = document.getElementById('cards-grid');
+      const { pp, statusLabels } = getLabels();
+
+      if (!projects || !projects.length) {
+        grid.innerHTML = `<p class="no-projects">${pp.no_projects}</p>`;
+        return;
+      }
+
+      grid.innerHTML = projects.map(p => {
+        const color = STATUS_COLORS_PAGE[p.status] || '#888';
+        const statusLabel = statusLabels[p.status] || p.status;
+        const location = [p.city, p.country].filter(Boolean).join(', ');
+
+        return `
+          <div class="projet-card" onclick="openProject('${p.id}')">
+            <div class="card-visual">
+              <div class="card-glow"  style="background:${color}"></div>
+              <div class="card-glow2" style="background:${color}"></div>
+              <span class="card-country-bg">${p.country}</span>
+              <span class="card-domain-tag">${p.domain}</span>
+            </div>
+            ${p.fictional ? `<div class="card-fictional-strip">${pp.fictional_label}</div>` : ''}
+            <div class="card-body">
+              <span class="card-status-pill">
+                <span class="card-status-dot" style="background:${color}"></span>
+                <span style="color:${color}">${statusLabel}</span>
+              </span>
+              <h2 class="card-title">${p.title}</h2>
+              <p class="card-location">&#128205; ${location}</p>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    function renderDetail(p) {
+      const { pp, statusLabels, supportLabels } = getLabels();
+      const color = STATUS_COLORS_PAGE[p.status] || '#888';
+
+      const fictionalBanner = p.fictional ? `
+        <div class="fiche-fictional-banner">
+          <strong>${pp.fictional_label}</strong> — ${pp.fictional_note}
+        </div>` : '';
+
+      const supportBadges = (p.supportNeeds || [])
+        .map(s => `<span class="support-badge support-${s}">${supportLabels[s] || s}</span>`)
+        .join('');
+
+      const partnersList = (p.localPartners || [])
+        .map(partner => `<li>${partner}</li>`).join('');
+
+      function field(label, value, extraClass, icon) {
+        if (!value) return '';
+        const iconHtml = icon ? `<span class="fiche-field-icon">${icon}</span>` : '';
+        return `<div class="fiche-field${extraClass ? ' ' + extraClass : ''}" style="border-left:3px solid ${color}50">
+          <span class="fiche-field-label">${iconHtml}${label}</span>
+          <p>${value}</p>
+        </div>`;
+      }
+
+      document.getElementById('detail-container').innerHTML = `
+        <article class="projet-fiche" id="${p.id}">
+          ${fictionalBanner}
+          <div class="fiche-header">
+            <span class="fiche-status-pill" style="background:${color}22;color:${color};border:1px solid ${color}55">
+              ${statusLabels[p.status] || p.status}
+            </span>
+            <h2 class="fiche-title">${p.title}</h2>
+            <p class="fiche-location">&#128205; ${[p.city, p.region, p.country].filter(Boolean).join(', ')}</p>
+            <p class="fiche-domain">${p.domain}</p>
+            ${supportBadges ? `<div class="fiche-support-badges">
+              <span class="fiche-support-label">${pp.field_support}</span>
+              ${supportBadges}
+            </div>` : ''}
+          </div>
+          <div class="fiche-body">
+            ${field(pp.field_summary,       p.summary,             'full-width', '&#128203;')}
+            ${field(pp.field_needs,         p.localNeeds,          'full-width', '&#128270;')}
+            ${field(pp.field_resources,     p.localResources,      '',           '&#127793;')}
+            ${partnersList ? `<div class="fiche-field" style="border-left:3px solid ${color}50">
+              <span class="fiche-field-label"><span class="fiche-field-icon">&#129309;</span>${pp.field_partners}</span>
+              <ul class="fiche-partners">${partnersList}</ul>
+            </div>` : ''}
+            ${field(pp.field_beneficiaries, p.targetBeneficiaries, '',           '&#128101;')}
+            ${p.timeline ? `<div class="fiche-field fiche-timeline" style="border-left:3px solid ${color}50">
+              <span class="fiche-field-label"><span class="fiche-field-icon">&#128197;</span>${pp.field_timeline}</span>
+              <p>&#9201; ${p.timeline}</p>
+            </div>` : ''}
+            ${field(pp.field_impact,        p.impact,              '',           '&#10024;')}
+            ${field(pp.field_followup,      p.followUp,            '',           '&#128202;')}
+          </div>
+          <div class="fiche-actions">
+            <a href="index.html#contact" class="fiche-btn fiche-btn-primary">${pp.btn_contact}</a>
+            <a href="submit-project.html" class="fiche-btn fiche-btn-secondary">${pp.btn_submit}</a>
+          </div>
+        </article>`;
+    }
+
+    function openProject(id) {
+      const p = projects.find(proj => proj.id === id);
+      if (!p) return;
+      currentProjectId = id;
+      renderDetail(p);
+      document.getElementById('cards-view').style.display = 'none';
+      document.getElementById('detail-view').style.display = 'block';
+      history.replaceState(null, '', '#' + id);
+      const section = document.getElementById('projets-liste');
+      if (section) window.scrollTo({ top: section.offsetTop - 80, behavior: 'smooth' });
+    }
+
+    function backToCards() {
+      currentProjectId = null;
+      document.getElementById('detail-view').style.display = 'none';
+      document.getElementById('cards-view').style.display = 'block';
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+
+    document.addEventListener('langchange', () => {
+      renderCards();
+      if (currentProjectId) {
+        const p = projects.find(proj => proj.id === currentProjectId);
+        if (p) renderDetail(p);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCards();
+      const hash = window.location.hash.slice(1);
+      if (hash && projects.some(p => p.id === hash)) {
+        openProject(hash);
+      }
+    });
+  </script>
+
+</body>
+</html>

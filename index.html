@@ -980,6 +980,25 @@
     .panel-btn-primary   { background: var(--terre); color: #fff; }
     .panel-btn-secondary { background: rgba(255,255,255,0.09); color: #fff; border: 1px solid rgba(255,255,255,0.18); }
 
+    /* Bandeau projet fictif */
+    .panel-fictional-banner {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      background: rgba(212, 130, 10, 0.10);
+      border: 1px solid rgba(212, 130, 10, 0.28);
+      border-radius: 6px;
+      padding: 0.6rem 0.85rem;
+      margin-bottom: 1.1rem;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.55;
+    }
+    .panel-fictional-banner strong {
+      color: #D4820A;
+      font-weight: 700;
+    }
+
     /* Utilitaire */
     .globe-hidden { display: none !important; }
 
@@ -1029,31 +1048,24 @@
 
     /* Onglet Projets */
     .projets-list { padding: 0.8rem 1.2rem 2rem; }
-    .projets-domain-section { margin-bottom: 1.5rem; }
-    .projets-domain-title {
-      font-size: 0.7rem;
+    .projets-continent-section { margin-bottom: 1.5rem; }
+    .projets-continent-title {
+      font-size: 0.68rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: rgba(255,255,255,0.28);
-      padding-bottom: 0.4rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
-      margin-bottom: 0.7rem;
+      letter-spacing: 1.2px;
+      color: var(--vert-clair);
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      margin-bottom: 0.6rem;
     }
-    .projets-status-group { margin-bottom: 0.65rem; }
-    .projets-status-label {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.7rem;
+    .projets-country-section { margin-bottom: 0.5rem; }
+    .projets-country-title {
+      font-size: 0.75rem;
       font-weight: 600;
       color: rgba(255,255,255,0.40);
       margin-bottom: 0.3rem;
-    }
-    .projets-status-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      flex-shrink: 0;
+      padding-left: 0.15rem;
     }
     .panel-idle {
       padding: 3rem 1.2rem;
@@ -1244,6 +1256,7 @@
         <li><a href="#notre-approche" data-i18n="nav.approche"></a></li>
         <li><a href="#cartographie"  data-i18n="nav.carte"></a></li>
         <li><a href="#domaines"      data-i18n="nav.domaines"></a></li>
+        <li><a href="projects.html"  data-i18n="nav.projets"></a></li>
         <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
       </ul>
       <div class="lang-switcher">
@@ -1635,10 +1648,12 @@
     };
 
     // ── État ─────────────────────────────────────────────────────────────────
-    let countriesData    = [];
-    let selectedISO      = null;   // ISO alpha-3 du pays sélectionné
-    let selectedProject  = null;
-    let pointJustClicked = false;  // évite double-clic point + polygone
+    let countriesData       = [];
+    let selectedISO         = null;   // ISO alpha-3 du pays sélectionné
+    let selectedProject     = null;
+    let pointJustClicked    = false;  // évite double-clic point + polygone
+    let activeTab           = 'carte';
+    let projectDetailSource = 'carte'; // 'carte' | 'projets'
 
     // ── Index pays → projets ─────────────────────────────────────────────────
     const countryMap = {};
@@ -1686,7 +1701,8 @@
     }
 
     function t(key) {
-      const lang = localStorage.getItem('lang') || 'fr';
+      let lang = 'fr';
+      try { lang = localStorage.getItem('lang') || 'fr'; } catch(e) {}
       const keys = key.split('.');
       return keys.reduce((obj, k) => obj?.[k], translations[lang]) || key;
     }
@@ -1706,13 +1722,7 @@
         .backgroundColor('#0C4A35')
         .polygonsData([])
         .polygonGeoJsonGeometry(feat => feat.geometry)
-        .polygonCapColor(feat => {
-          const iso = feat.properties?.ISO_A3;
-          if (!iso || iso === '-99') return POLY_COLORS.none;
-          const ps = countryMap[iso];
-          if (iso === selectedISO) return ps?.length ? hexToRgba(STATUS_COLORS[getDominantStatus(ps)], 0.9) : POLY_COLORS.selected;
-          return ps?.length ? STATUS_COLORS[getDominantStatus(ps)] : POLY_COLORS.none;
-        })
+        .polygonCapColor(() => POLY_COLORS.none)
         .polygonSideColor(() => 'rgba(0,0,0,0)')
         .polygonStrokeColor(() => 'rgba(0,0,0,0)')
         .polygonAltitude(feat => feat.properties?.ISO_A3 === selectedISO ? 0.016 : 0.008)
@@ -1728,9 +1738,9 @@
         .pointLat('lat')
         .pointLng('lng')
         .pointColor(p => STATUS_COLORS[p.status])
-        .pointRadius(0)
-        .pointAltitude(0.025)
-        .pointResolution(12)
+        .pointRadius(0.45)
+        .pointAltitude(0.02)
+        .pointResolution(16)
         .onPointClick((p, evt) => {
           pointJustClicked = true;
           setTimeout(() => { pointJustClicked = false; }, 80);
@@ -1767,7 +1777,8 @@
     }, 0);
 
     // Le globe est rendu — masquer le texte de chargement immédiatement
-    document.getElementById('globe-loading').style.display = 'none';
+    const loadingEl = document.getElementById('globe-loading');
+    if (loadingEl) loadingEl.style.display = 'none';
 
     // ── Frontières pays (fichier local countries.js — pas de fetch réseau) ────
     if (typeof COUNTRIES_GEOJSON !== 'undefined') {
@@ -1781,22 +1792,30 @@
       const iso = feat.properties?.ISO_A3;
       if (!iso || iso === '-99') return;
 
+      const countryProjects = countryMap[iso] || [];
+      if (!countryProjects.length) return;
+
       selectedISO = iso;
       selectedProject = null;
-      globe.polygonsData([...countriesData]); // forcer recalcul des couleurs
+      globe.polygonsData([...countriesData]);
 
       const centroid = getCentroid(feat);
       globe.pointOfView({ lat: centroid.lat, lng: centroid.lng, altitude: 0.5 }, 1200);
-      globe.autoRotate(false);
-
-      const name = feat.properties?.ADMIN || feat.properties?.NAME || iso;
-      showCountryPanel(name, countryMap[iso] || []);
+      globe.controls().autoRotate = false;
       resetBtn.classList.remove('globe-hidden');
+
+      if (countryProjects.length === 1) {
+        projectDetailSource = 'carte';
+        handleProjectClick(countryProjects[0]);
+      } else {
+        const name = feat.properties?.ADMIN || feat.properties?.NAME || iso;
+        showCountryPanel(name, countryProjects);
+      }
     }
 
     function handleProjectClick(project) {
       selectedProject = project;
-      globe.autoRotate(false);
+      globe.controls().autoRotate = false;
       showProjectPanel(project);
     }
 
@@ -1805,14 +1824,12 @@
       selectedProject = null;
       globe.polygonsData([...countriesData]);
       globe.pointOfView({ lat: 2, lng: 25, altitude: 2.5 }, 1000);
-      globe.autoRotate(true);
+      globe.controls().autoRotate = true;
       closePanel();
       resetBtn.classList.add('globe-hidden');
     });
 
     // ── Onglets du panneau ──────────────────────────────────────────────────
-    let activeTab = 'carte';
-    let projectDetailSource = 'carte'; // 'carte' | 'projets'
 
     function panelWrap(tab, bodyHTML) {
       return `<div class="panel-tabs-bar">
@@ -1827,7 +1844,7 @@
         closePanel();
         selectedISO = null;
         selectedProject = null;
-        globe.autoRotate(true);
+        globe.controls().autoRotate = true;
         if (countriesData.length) globe.polygonsData([...countriesData]);
         resetBtn.classList.add('globe-hidden');
       });
@@ -1920,11 +1937,16 @@
         return `<div class="panel-field"><span class="panel-field-label">${label}</span><p>${value}</p></div>`;
       }
 
+      const fictionalBanner = project.fictional
+        ? `<div class="panel-fictional-banner"><strong>${t('carte.fictional_banner_label')}</strong> — ${t('carte.fictional_banner_text')}</div>`
+        : '';
+
       panel.innerHTML = panelWrap(activeTab, `
         <div class="panel-header">
           <button class="panel-back-btn" id="panel-back">${backLabel}</button>
         </div>
         <div class="panel-body">
+          ${fictionalBanner}
           <div class="panel-project-header">
             <span class="panel-status-pill" style="background:${color}22;color:${color};border:1px solid ${color}55">
               ${statusLabels[project.status]||project.status}
@@ -1943,8 +1965,8 @@
           ${field(t('carte.panel_impact'),   project.impact)}
           ${field(t('carte.panel_followup'), project.followUp)}
           <div class="panel-actions">
-            <a href="#contact" class="panel-btn panel-btn-primary" onclick="globePanelClose()">${t('carte.panel_btn_support')}</a>
-            <a href="#contact" class="panel-btn panel-btn-secondary" onclick="globePanelClose()">${t('carte.panel_btn_contact')}</a>
+            <a href="projects.html#${project.id}" class="panel-btn panel-btn-primary">${t('carte.btn_full_project')}</a>
+            <a href="index.html#contact" class="panel-btn panel-btn-secondary" onclick="globePanelClose()">${t('carte.panel_btn_contact')}</a>
           </div>
         </div>`);
 
@@ -1962,37 +1984,40 @@
 
     function showProjectsTab() {
       activeTab = 'projets';
-      const statusOrder  = ['needs_support', 'in_progress', 'completed_followed'];
-      const statusLabels = {
-        needs_support: t('carte.status_needs'), in_progress: t('carte.status_progress'), completed_followed: t('carte.status_done')
-      };
-      const byDomain = {};
-      projects.forEach(p => { if (!byDomain[p.domain]) byDomain[p.domain] = []; byDomain[p.domain].push(p); });
 
-      const domainsHTML = Object.entries(byDomain).map(([domain, dps]) => {
-        const byStatus = {};
-        dps.forEach(p => { if (!byStatus[p.status]) byStatus[p.status] = []; byStatus[p.status].push(p); });
-        const statusHTML = statusOrder.filter(s => byStatus[s]).map(s => `
-          <div class="projets-status-group">
-            <div class="projets-status-label">
-              <span class="projets-status-dot" style="background:${STATUS_COLORS[s]}"></span>${statusLabels[s]}
-            </div>
-            ${byStatus[s].map(p => `
-              <div class="panel-project-card" data-id="${p.id}">
-                <span class="panel-status-dot" style="background:${STATUS_COLORS[p.status]}"></span>
-                <div>
-                  <strong>${p.title}</strong>
-                  <small>${[p.city, p.region, p.country].filter(Boolean).join(' · ')}</small>
-                </div>
-              </div>`).join('')}
-          </div>`).join('');
-        return `<div class="projets-domain-section"><div class="projets-domain-title">${domain}</div>${statusHTML}</div>`;
+      const byContinent = {};
+      projects.forEach(p => {
+        const cont = p.continent || 'other';
+        if (!byContinent[cont]) byContinent[cont] = {};
+        if (!byContinent[cont][p.country]) byContinent[cont][p.country] = [];
+        byContinent[cont][p.country].push(p);
+      });
+
+      const continentsHTML = Object.entries(byContinent).map(([cont, countries]) => {
+        const countriesHTML = Object.entries(countries).map(([country, cps]) => {
+          const cardsHTML = cps.map(p => `
+            <div class="panel-project-card" data-id="${p.id}">
+              <span class="panel-status-dot" style="background:${STATUS_COLORS[p.status]}"></span>
+              <div>
+                <strong>${p.title}</strong>
+                <small>${[p.city, p.region].filter(Boolean).join(' · ')}</small>
+              </div>
+            </div>`).join('');
+          return `<div class="projets-country-section">
+            <div class="projets-country-title">${country}</div>
+            ${cardsHTML}
+          </div>`;
+        }).join('');
+        return `<div class="projets-continent-section">
+          <div class="projets-continent-title">${t('continents.' + cont)}</div>
+          ${countriesHTML}
+        </div>`;
       }).join('');
 
       panel.innerHTML = panelWrap('projets',
         projects.length === 0
           ? `<p class="panel-idle">${t('carte.projets_empty')}</p>`
-          : `<div class="projets-list">${domainsHTML}</div>`
+          : `<div class="projets-list">${continentsHTML}</div>`
       );
       bindPanelBase();
       panel.querySelectorAll('.panel-project-card').forEach(card => {
@@ -2002,7 +2027,7 @@
           projectDetailSource = 'projets';
           selectedISO = proj.countryCode;
           selectedProject = proj;
-          globe.autoRotate(false);
+          globe.controls().autoRotate = false;
           globe.pointOfView({ lat: proj.lat, lng: proj.lng, altitude: 1.0 }, 1000);
           if (countriesData.length) globe.polygonsData([...countriesData]);
           showProjectPanel(proj);
@@ -2025,7 +2050,7 @@
 
     // ── Bouton "Liste des projets" ───────────────────────────────────────────
     document.getElementById('globe-projets-btn')?.addEventListener('click', () => {
-      showProjectsTab();
+      window.location.href = 'projects.html';
     });
 
     // ── Filtres (préparés, non encore exposés en UI) ─────────────────────────

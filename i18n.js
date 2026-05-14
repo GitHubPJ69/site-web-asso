@@ -7,6 +7,7 @@ const translations = {
       approche:  "Approche",
       carte:     "Carte",
       domaines:  "Domaines",
+      projets:   "Projets",
       contact:   "Soumettre un projet"
     },
     hero: {
@@ -152,7 +153,46 @@ const translations = {
       btn_projets:   "Liste des projets",
       carte_idle:    "Cliquez sur un point ou un pays pour afficher les détails d'un projet.",
       projets_empty: "Aucun projet renseigné pour l'instant.",
-      projets_back:  "← Liste des projets"
+      projets_back:  "← Liste des projets",
+      fictional_banner_label: "Projet fictif illustratif",
+      fictional_banner_text:  "Ce projet est présenté à titre d'exemple dans le cadre du prototype de la plateforme. Il ne correspond à aucune organisation réelle.",
+      btn_full_project: "Voir la fiche complète"
+    },
+    continents: {
+      africa:        "Afrique",
+      south_america: "Amérique du Sud",
+      north_america: "Amérique du Nord",
+      asia:          "Asie",
+      europe:        "Europe",
+      oceania:       "Océanie"
+    },
+    projets_page: {
+      tag:           "Initiatives de terrain",
+      title:         "Projets",
+      subtitle:      "Initiatives locales documentées et relayées par humalink.",
+      back_home:     "← Retour à l'accueil",
+      back_cards:    "← Tous les projets",
+      no_projects:   "Aucun projet référencé pour l'instant.",
+      fictional_label: "Projet fictif illustratif",
+      fictional_note:  "Ce projet est présenté à titre d'exemple dans le cadre du prototype de la plateforme. Il ne correspond à aucune organisation réelle.",
+      field_summary:       "Résumé",
+      field_needs:         "Besoins identifiés",
+      field_resources:     "Ressources et compétences locales",
+      field_partners:      "Partenaires locaux",
+      field_beneficiaries: "Bénéficiaires",
+      field_timeline:      "Calendrier",
+      field_impact:        "Impact attendu",
+      field_followup:      "Suivi prévu",
+      field_support:       "Soutien recherché",
+      btn_contact:         "Nous contacter",
+      btn_submit:          "Soumettre un projet",
+      status_needs:        "Soutien recherché",
+      status_progress:     "En cours",
+      status_done:         "Terminé / suivi",
+      support_financial:   "Financier",
+      support_technical:   "Technique",
+      support_human:       "Humain",
+      support_material:    "Matériel"
     },
     contact: {
       tag:         "Contact",
@@ -309,6 +349,7 @@ const translations = {
       approche:  "Approach",
       carte:     "Map",
       domaines:  "Domains",
+      projets:   "Projects",
       contact:   "Submit a project"
     },
     hero: {
@@ -454,7 +495,46 @@ const translations = {
       btn_projets:   "Project list",
       carte_idle:    "Click on a point or a country to display project details.",
       projets_empty: "No projects listed yet.",
-      projets_back:  "← Project list"
+      projets_back:  "← Project list",
+      fictional_banner_label: "Illustrative fictional project",
+      fictional_banner_text:  "This project is presented as an example as part of the platform prototype. It does not correspond to any real organisation.",
+      btn_full_project: "View full project"
+    },
+    continents: {
+      africa:        "Africa",
+      south_america: "South America",
+      north_america: "North America",
+      asia:          "Asia",
+      europe:        "Europe",
+      oceania:       "Oceania"
+    },
+    projets_page: {
+      tag:           "Field initiatives",
+      title:         "Projects",
+      subtitle:      "Local initiatives documented and shared by humalink.",
+      back_home:     "← Back to home",
+      back_cards:    "← All projects",
+      no_projects:   "No projects listed yet.",
+      fictional_label: "Illustrative fictional project",
+      fictional_note:  "This project is presented as an example as part of the platform prototype. It does not correspond to any real organisation.",
+      field_summary:       "Summary",
+      field_needs:         "Identified needs",
+      field_resources:     "Local resources and expertise",
+      field_partners:      "Local partners",
+      field_beneficiaries: "Beneficiaries",
+      field_timeline:      "Timeline",
+      field_impact:        "Expected impact",
+      field_followup:      "Follow-up plan",
+      field_support:       "Support needed",
+      btn_contact:         "Contact us",
+      btn_submit:          "Submit a project",
+      status_needs:        "Support needed",
+      status_progress:     "In progress",
+      status_done:         "Completed / monitored",
+      support_financial:   "Financial",
+      support_technical:   "Technical",
+      support_human:       "Human",
+      support_material:    "Material"
     },
     contact: {
       tag:         "Contact",

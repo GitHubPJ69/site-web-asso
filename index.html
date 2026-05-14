@@ -1202,6 +1202,133 @@
       line-height: 1.5;
     }
 
+    /* ── QUI SOMMES-NOUS ── */
+    #qui-sommes-nous { background: var(--beige-fort); padding: 4rem 2.5rem; }
+
+    .equipe-profil {
+      display: flex;
+      gap: 2.5rem;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+    }
+
+    .equipe-photo-wrap { flex-shrink: 0; }
+
+    .equipe-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      border: 2px solid var(--beige-fort);
+      display: block;
+    }
+
+    .equipe-texte > span { margin-bottom: 0.5rem; display: block; }
+
+    .equipe-texte h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--sombre);
+      margin-bottom: 0.7rem;
+      line-height: 1.3;
+    }
+
+    .equipe-intro {
+      font-size: 0.92rem;
+      color: var(--gris);
+      line-height: 1.75;
+    }
+
+    .equipe-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-top: 0.8rem;
+      font-size: 0.82rem;
+      color: var(--vert);
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+
+    .equipe-linkedin:hover { opacity: 0.75; }
+
+    .equipe-linkedin-badge {
+      background: #0A66C2;
+      color: #fff;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.12rem 0.38rem;
+      border-radius: 3px;
+      letter-spacing: 0.2px;
+      line-height: 1.4;
+    }
+
+    .equipe-axes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .axe-carte {
+      background: var(--beige);
+      border: 1px solid rgba(196,144,74,0.2);
+      border-left: 3px solid var(--terre);
+      border-radius: 0 10px 10px 0;
+      padding: 1.1rem 1.3rem;
+      transition: box-shadow 0.2s;
+    }
+
+    .axe-carte:hover {
+      box-shadow: 0 3px 14px rgba(13,58,30,0.06);
+    }
+
+    .axe-header {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .axe-icone {
+      font-size: 1.05rem;
+      flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .axe-carte h3 {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--sombre);
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .axe-carte ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.28rem;
+    }
+
+    .axe-carte ul li {
+      font-size: 0.81rem;
+      color: var(--gris);
+      padding-left: 0.85rem;
+      position: relative;
+      line-height: 1.4;
+    }
+
+    .axe-carte ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--terre);
+      font-weight: 700;
+    }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .piliers-grille { grid-template-columns: repeat(2, 1fr); }
@@ -1211,6 +1338,7 @@
       .flux-connecteur { width: 100%; height: 60px; }
       .flux-svg { transform: rotate(90deg); }
       .principes-grille-3 { grid-template-columns: repeat(2, 1fr); }
+      .equipe-axes { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 700px) {
@@ -1221,11 +1349,13 @@
       #globe-zone { height: 420px; }
       #globe-controls { padding: 0.6rem 1.2rem 0; }
       #globe-legende { gap: 0.8rem; }
+      .equipe-profil { flex-direction: column; gap: 1.5rem; }
     }
 
     @media (max-width: 540px) {
       .nav-links { display: none; }
       .domaines-grille { grid-template-columns: 1fr; }
+      .equipe-axes { grid-template-columns: 1fr; }
       #globe-zone { height: 340px; }
       /* Panel en drawer bas sur mobile */
       #globe-panel {
@@ -1583,6 +1713,62 @@
     </div>
   </section>
 
+
+  <!-- QUI SOMMES-NOUS -->
+  <section id="qui-sommes-nous">
+    <div class="equipe-profil">
+      <div class="equipe-photo-wrap">
+        <img src="Photo.pro.png" alt="Sidonie Tisseau" class="equipe-photo">
+      </div>
+      <div class="equipe-texte">
+        <span class="tag tag-terre" data-i18n="equipe.tag"></span>
+        <h2 data-i18n="equipe.title"></h2>
+        <p class="equipe-intro" data-i18n="equipe.intro"></p>
+        <a href="https://www.linkedin.com/in/sidonie-tisseau-4931141a9/" class="equipe-linkedin" target="_blank" rel="noopener">
+          <span class="equipe-linkedin-badge">in</span>
+          <span data-i18n="equipe.linkedin"></span>
+        </a>
+        <div class="equipe-axes">
+      <div class="axe-carte">
+        <div class="axe-header">
+          <span class="axe-icone">&#128204;</span>
+          <h3 data-i18n="equipe.axe1_title"></h3>
+        </div>
+        <ul>
+          <li data-i18n="equipe.axe1_k1"></li>
+          <li data-i18n="equipe.axe1_k2"></li>
+          <li data-i18n="equipe.axe1_k3"></li>
+          <li data-i18n="equipe.axe1_k4"></li>
+        </ul>
+      </div>
+      <div class="axe-carte">
+        <div class="axe-header">
+          <span class="axe-icone">&#127760;</span>
+          <h3 data-i18n="equipe.axe2_title"></h3>
+        </div>
+        <ul>
+          <li data-i18n="equipe.axe2_k1"></li>
+          <li data-i18n="equipe.axe2_k2"></li>
+          <li data-i18n="equipe.axe2_k3"></li>
+          <li data-i18n="equipe.axe2_k4"></li>
+        </ul>
+      </div>
+      <div class="axe-carte">
+        <div class="axe-header">
+          <span class="axe-icone">&#129309;</span>
+          <h3 data-i18n="equipe.axe3_title"></h3>
+        </div>
+        <ul>
+          <li data-i18n="equipe.axe3_k1"></li>
+          <li data-i18n="equipe.axe3_k2"></li>
+          <li data-i18n="equipe.axe3_k3"></li>
+          <li data-i18n="equipe.axe3_k4"></li>
+        </ul>
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- CONTACT -->
   <section id="contact">

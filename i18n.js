@@ -14,7 +14,8 @@ const translations = {
       title:       "Comprendre le terrain.<br />Relier les acteurs.<br /><em>Renforcer les projets.</em>",
       subtitle:    "Nous créons du lien entre les initiatives locales et les organisations internationales, pour que les projets de développement soient mieux informés, mieux ancrés et plus utiles aux communautés concernées.",
       btn_primary:   "Découvrir notre approche",
-      btn_secondary: "Nous contacter"
+      btn_secondary: "Nous contacter",
+      phase_banner:  "<strong>Initiative en phase exploratoire.</strong> La méthodologie, la cartographie et le réseau se construisent progressivement, à travers des échanges et des expérimentations de terrain."
     },
     role: {
       tag:      "Notre rôle",
@@ -315,7 +316,8 @@ const translations = {
       title:       "Understanding the field.<br />Connecting actors.<br /><em>Strengthening projects.</em>",
       subtitle:    "We build bridges between local initiatives and international organisations, so that development projects are better informed, better rooted, and more useful to the communities they concern.",
       btn_primary:   "Discover our approach",
-      btn_secondary: "Contact us"
+      btn_secondary: "Contact us",
+      phase_banner:  "<strong>Initiative in an exploratory phase.</strong> The methodology, mapping, and network are being progressively built through ongoing discussions and field-based experimentation."
     },
     role: {
       tag:      "Our role",

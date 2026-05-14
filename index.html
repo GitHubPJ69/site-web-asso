@@ -82,13 +82,13 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 1.8rem;
+      gap: 1.2rem;
     }
 
     .nav-links a {
       color: rgba(255,255,255,0.80);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       font-weight: 500;
       transition: color 0.2s;
     }
@@ -1383,11 +1383,12 @@
     <div class="logo"><img src="Logo.png" alt="humalink"><span class="logo-name">humalink</span></div>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="#notre-role"    data-i18n="nav.role"></a></li>
-        <li><a href="#notre-approche" data-i18n="nav.approche"></a></li>
-        <li><a href="#cartographie"  data-i18n="nav.carte"></a></li>
-        <li><a href="#domaines"      data-i18n="nav.domaines"></a></li>
-        <li><a href="projects.html"  data-i18n="nav.projets"></a></li>
+        <li><a href="#accueil"         data-i18n="nav.accueil"></a></li>
+        <li><a href="#notre-role"      data-i18n="nav.demarche"></a></li>
+        <li><a href="#domaines"        data-i18n="nav.domaines"></a></li>
+        <li><a href="#cartographie"    data-i18n="nav.projets"></a></li>
+        <li><a href="#qui-sommes-nous" data-i18n="nav.qui"></a></li>
+        <li><a href="#contact"          data-i18n="nav.contact_lien"></a></li>
         <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
       </ul>
       <div class="lang-switcher">
@@ -1600,48 +1601,6 @@
   </section>
 
 
-  <!-- CARTOGRAPHIE -->
-  <section id="cartographie">
-    <div class="container">
-      <div class="section-en-tete centre">
-        <span class="tag tag-vert" data-i18n="carte.tag"></span>
-        <h2 data-i18n="carte.title"></h2>
-        <p class="lead" data-i18n="carte.intro"></p>
-      </div>
-    </div>
-
-    <div id="globe-zone">
-      <div id="globe-container">
-        <div id="globe-loading" data-i18n="carte.loading"></div>
-      </div>
-      <!-- Panneau latéral — rempli dynamiquement par le script globe -->
-      <div id="globe-panel"></div>
-    </div>
-
-    <div id="globe-controls">
-      <button id="globe-reset" class="globe-reset-btn globe-hidden" data-i18n="carte.btn_reset"></button>
-      <button id="globe-projets-btn" class="globe-projets-btn" data-i18n="carte.btn_projets"></button>
-      <div id="globe-legende">
-        <div class="legende-item">
-          <span class="legende-dot" style="background:#FF7A1A"></span>
-          <span data-i18n="carte.legend_needs"></span>
-        </div>
-        <div class="legende-item">
-          <span class="legende-dot" style="background:#00C893"></span>
-          <span data-i18n="carte.legend_progress"></span>
-        </div>
-        <div class="legende-item">
-          <span class="legende-dot" style="background:#38AAFF"></span>
-          <span data-i18n="carte.legend_done"></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="container">
-      <p class="carte-note" data-i18n="carte.note"></p>
-    </div>
-  </section>
-
   <!-- DOMAINES -->
   <section id="domaines">
     <div class="container">
@@ -1710,6 +1669,48 @@
         <p data-i18n="domaines.conclusion"></p>
         <p class="domaines-nexus" data-i18n="domaines.nexus"></p>
       </div>
+    </div>
+  </section>
+
+  <!-- CARTOGRAPHIE -->
+  <section id="cartographie">
+    <div class="container">
+      <div class="section-en-tete centre">
+        <span class="tag tag-vert" data-i18n="carte.tag"></span>
+        <h2 data-i18n="carte.title"></h2>
+        <p class="lead" data-i18n="carte.intro"></p>
+      </div>
+    </div>
+
+    <div id="globe-zone">
+      <div id="globe-container">
+        <div id="globe-loading" data-i18n="carte.loading"></div>
+      </div>
+      <!-- Panneau latéral — rempli dynamiquement par le script globe -->
+      <div id="globe-panel"></div>
+    </div>
+
+    <div id="globe-controls">
+      <button id="globe-reset" class="globe-reset-btn globe-hidden" data-i18n="carte.btn_reset"></button>
+      <button id="globe-projets-btn" class="globe-projets-btn" data-i18n="carte.btn_projets"></button>
+      <div id="globe-legende">
+        <div class="legende-item">
+          <span class="legende-dot" style="background:#FF7A1A"></span>
+          <span data-i18n="carte.legend_needs"></span>
+        </div>
+        <div class="legende-item">
+          <span class="legende-dot" style="background:#00C893"></span>
+          <span data-i18n="carte.legend_progress"></span>
+        </div>
+        <div class="legende-item">
+          <span class="legende-dot" style="background:#38AAFF"></span>
+          <span data-i18n="carte.legend_done"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <p class="carte-note" data-i18n="carte.note"></p>
     </div>
   </section>
 

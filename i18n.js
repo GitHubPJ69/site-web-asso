@@ -3,12 +3,13 @@ const translations = {
 
   fr: {
     nav: {
-      role:      "Notre rôle",
-      approche:  "Approche",
-      carte:     "Carte",
-      domaines:  "Domaines",
+      accueil:   "Accueil",
+      demarche:  "Notre démarche",
+      domaines:  "Domaines d'intervention",
       projets:   "Projets",
-      contact:   "Soumettre un projet"
+      qui:          "Qui sommes-nous ?",
+      contact_lien: "Contact",
+      contact:      "Soumettre un projet"
     },
     hero: {
       surtitre:    "Intermédiation &middot; Mise en lien &middot; Développement local &middot; Coopération",
@@ -376,12 +377,13 @@ const translations = {
 
   en: {
     nav: {
-      role:      "Our role",
-      approche:  "Approach",
-      carte:     "Map",
-      domaines:  "Domains",
+      accueil:   "Home",
+      demarche:  "Our approach",
+      domaines:  "Areas of action",
       projets:   "Projects",
-      contact:   "Submit a project"
+      qui:          "About us",
+      contact_lien: "Contact",
+      contact:      "Submit a project"
     },
     hero: {
       surtitre:    "Intermediation &middot; Connecting Actors &middot; Local Development &middot; Cooperation",

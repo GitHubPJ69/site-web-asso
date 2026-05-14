@@ -325,72 +325,73 @@
     .fiche-fictional-banner {
       background: rgba(212, 130, 10, 0.08);
       border-bottom: 1px solid rgba(212, 130, 10, 0.22);
-      padding: 0.6rem 1.8rem;
+      padding: 0.6rem 2rem;
       font-size: 0.78rem;
       color: var(--gris);
       line-height: 1.5;
     }
     .fiche-fictional-banner strong { color: var(--terre); font-weight: 700; }
 
-    /* Header */
+    /* Header sombre (mini-hero) */
     .fiche-header {
-      padding: 1.8rem 1.8rem 1.2rem;
-      border-bottom: 1px solid var(--beige-fort);
+      background: var(--sombre);
+      padding: 2rem 2rem 1.8rem;
     }
 
     .fiche-status-pill {
       display: inline-block;
-      padding: 0.22rem 0.7rem;
+      padding: 0.22rem 0.75rem;
       border-radius: 20px;
       font-size: 0.7rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
 
     .fiche-title {
-      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-size: clamp(1.15rem, 2.5vw, 1.5rem);
       font-weight: 800;
-      color: var(--sombre);
+      color: #fff;
       line-height: 1.3;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.55rem;
     }
 
     .fiche-location {
-      font-size: 0.85rem;
-      color: var(--gris);
-      margin-bottom: 0.3rem;
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.58);
+      margin-bottom: 0.25rem;
     }
 
     .fiche-domain {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--vert);
-      margin-bottom: 0.75rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
     }
 
-    .fiche-support-badges {
+    /* Bandeau soutien (entre header et sections) */
+    .fiche-info-strip {
+      background: var(--blanc);
+      padding: 0.85rem 2rem;
+      border-bottom: 1px solid var(--beige-fort);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 0.35rem;
-      margin-top: 0.4rem;
     }
 
     .fiche-support-label {
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.8px;
       color: var(--gris);
-      margin-right: 0.2rem;
     }
 
     .support-badge {
-      padding: 0.2rem 0.6rem;
+      padding: 0.2rem 0.65rem;
       border-radius: 4px;
-      font-size: 0.72rem;
+      font-size: 0.73rem;
       font-weight: 600;
     }
     .support-financial { background: rgba(192,104,0,0.12); color: #C06800; }
@@ -398,32 +399,151 @@
     .support-human     { background: rgba(30,150,96,0.08); color: #1E9660; }
     .support-material  { background: rgba(212,130,10,0.12); color: #D4820A; }
 
-    /* Corps */
-    .fiche-body {
-      padding: 1.5rem 1.8rem;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.25rem 2rem;
+    /* Sections thématiques */
+    .fiche-section {
+      padding: 1.6rem 2rem;
+      border-bottom: 1px solid rgba(0,0,0,0.055);
     }
 
+    .fiche-section-label {
+      font-size: 0.66rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gris);
+      margin-bottom: 1.15rem;
+      display: flex;
+      align-items: center;
+    }
+    .fiche-section-label::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 13px;
+      background: var(--vert);
+      border-radius: 2px;
+      margin-right: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .fiche-section-overview     { background: var(--beige); }
+    .fiche-section-terrain      { background: var(--blanc); }
+    .fiche-section-actors       { background: rgba(30, 150, 96, 0.04); }
+    .fiche-section-perspectives { background: rgba(13, 58, 30, 0.03); }
+
+    .fiche-summary-text {
+      font-size: 0.97rem;
+      color: var(--sombre);
+      line-height: 1.85;
+    }
+
+    /* Empilement vertical des champs dans une section */
+    .fiche-fields-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ── ENCADRÉ POINTS CLÉS ── */
+    .fiche-keypoints {
+      border: 1.5px solid var(--beige-fort);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .fiche-keypoints-title {
+      background: var(--sombre);
+      color: rgba(255,255,255,0.80);
+      font-size: 0.63rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding: 0.6rem 1rem;
+    }
+
+    .fiche-kp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .fiche-kp-item {
+      padding: 0.82rem 1rem;
+      border-bottom: 1px solid var(--beige-fort);
+      border-right: 1px solid var(--beige-fort);
+    }
+    .fiche-kp-item:nth-child(even) { border-right: none; }
+    .fiche-kp-item.kp-full { grid-column: 1 / -1; border-right: none; }
+    .fiche-kp-item:last-child { border-bottom: none; }
+
+    .fiche-kp-label {
+      font-size: 0.61rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gris);
+      margin-bottom: 0.22rem;
+    }
+
+    .fiche-kp-value {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--sombre);
+      line-height: 1.5;
+    }
+
+    /* Sous-label à l'intérieur d'une section */
+    .fiche-subsection-label {
+      font-size: 0.63rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--vert);
+      margin-top: 1.5rem;
+      margin-bottom: 0.65rem;
+    }
+
+    /* ── ZONE PARTENAIRES DE SOUTIEN ── */
+    .fiche-support-zone {
+      border: 2px dashed rgba(30,150,96,0.28);
+      border-radius: 8px;
+      padding: 1.1rem 1.4rem;
+    }
+
+    .fiche-support-zone-empty {
+      font-size: 0.82rem;
+      color: var(--gris);
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    .fiche-support-zone-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .fiche-support-zone-line {
+      height: 1px;
+      background: rgba(30,150,96,0.18);
+      border-radius: 1px;
+    }
+
+    /* Champs individuels */
     .fiche-field {
       display: flex;
       flex-direction: column;
       gap: 0.3rem;
-      padding: 0.75rem 1rem;
-      border-radius: 0 8px 8px 0;
-      background: rgba(0,0,0,0.025);
     }
 
     .fiche-field-label {
       display: flex;
       align-items: center;
       gap: 0.35rem;
-      font-size: 0.68rem;
+      font-size: 0.67rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.9px;
-      color: var(--gris);
+      color: var(--vert);
     }
 
     .fiche-field-icon {
@@ -438,8 +558,6 @@
       line-height: 1.7;
       margin: 0;
     }
-
-    .fiche-field.full-width { grid-column: 1 / -1; }
 
     .fiche-partners {
       list-style: none;
@@ -465,11 +583,12 @@
 
     /* Actions */
     .fiche-actions {
-      padding: 1.2rem 1.8rem;
+      padding: 1.2rem 2rem;
       border-top: 1px solid var(--beige-fort);
       display: flex;
       gap: 0.75rem;
       flex-wrap: wrap;
+      background: var(--blanc);
     }
 
     .fiche-btn {
@@ -525,8 +644,11 @@
       .nav-links { gap: 0.8rem; font-size: 0.8rem; }
       .hero { padding: 8rem 1.4rem 3rem; }
       #projets-liste { padding: 2.5rem 1.2rem 4rem; }
-      .fiche-header { padding: 1.4rem 1.2rem 1rem; }
-      .fiche-body { grid-template-columns: 1fr; padding: 1.2rem; gap: 1rem; }
+      .fiche-header { padding: 1.5rem 1.2rem 1.4rem; }
+      .fiche-info-strip { padding: 0.75rem 1.2rem; }
+      .fiche-section { padding: 1.3rem 1.2rem; }
+      .fiche-kp-grid { grid-template-columns: 1fr; }
+      .fiche-kp-item { border-right: none !important; }
       .fiche-actions { padding: 1rem 1.2rem; }
     }
     @media (max-width: 540px) {
@@ -678,49 +800,118 @@
         .map(s => `<span class="support-badge support-${s}">${supportLabels[s] || s}</span>`)
         .join('');
 
+      const supportText = (p.supportNeeds || [])
+        .map(s => supportLabels[s] || s)
+        .join(' · ');
+
       const partnersList = (p.localPartners || [])
         .map(partner => `<li>${partner}</li>`).join('');
 
-      function field(label, value, extraClass, icon) {
+      function field(label, value, icon) {
         if (!value) return '';
         const iconHtml = icon ? `<span class="fiche-field-icon">${icon}</span>` : '';
-        return `<div class="fiche-field${extraClass ? ' ' + extraClass : ''}" style="border-left:3px solid ${color}50">
+        return `<div class="fiche-field">
           <span class="fiche-field-label">${iconHtml}${label}</span>
           <p>${value}</p>
         </div>`;
       }
 
+      const hasActors = partnersList || p.targetBeneficiaries;
+      const hasPersp  = p.impact || p.followUp;
+
+      const keypointsHtml = `
+        <div class="fiche-keypoints">
+          <div class="fiche-keypoints-title">${pp.keypoints_title}</div>
+          <div class="fiche-kp-grid">
+            <div class="fiche-kp-item">
+              <div class="fiche-kp-label">&#128205; ${pp.kp_zone}</div>
+              <div class="fiche-kp-value">${[p.city, p.region, p.country].filter(Boolean).join(', ')}</div>
+            </div>
+            <div class="fiche-kp-item">
+              <div class="fiche-kp-label">&#127793; ${pp.kp_domain}</div>
+              <div class="fiche-kp-value">${p.domain}</div>
+            </div>
+            <div class="fiche-kp-item">
+              <div class="fiche-kp-label">&#129309; ${pp.section_partners_support}</div>
+              <div class="fiche-kp-value" style="color:var(--gris);font-style:italic">${pp.kp_partners_none}</div>
+            </div>
+            ${supportText ? `<div class="fiche-kp-item">
+              <div class="fiche-kp-label">&#128295; ${pp.kp_support_types}</div>
+              <div class="fiche-kp-value">${supportText}</div>
+            </div>` : ''}
+            ${p.timeline ? `<div class="fiche-kp-item kp-full">
+              <div class="fiche-kp-label">&#128197; ${pp.field_timeline}</div>
+              <div class="fiche-kp-value" style="font-style:italic;color:var(--gris)">${p.timeline}</div>
+            </div>` : ''}
+          </div>
+        </div>`;
+
       document.getElementById('detail-container').innerHTML = `
         <article class="projet-fiche" id="${p.id}">
           ${fictionalBanner}
-          <div class="fiche-header">
+
+          <div class="fiche-header" style="border-bottom:3px solid ${color}">
             <span class="fiche-status-pill" style="background:${color}22;color:${color};border:1px solid ${color}55">
               ${statusLabels[p.status] || p.status}
             </span>
             <h2 class="fiche-title">${p.title}</h2>
             <p class="fiche-location">&#128205; ${[p.city, p.region, p.country].filter(Boolean).join(', ')}</p>
             <p class="fiche-domain">${p.domain}</p>
-            ${supportBadges ? `<div class="fiche-support-badges">
-              <span class="fiche-support-label">${pp.field_support}</span>
-              ${supportBadges}
-            </div>` : ''}
           </div>
-          <div class="fiche-body">
-            ${field(pp.field_summary,       p.summary,             'full-width', '&#128203;')}
-            ${field(pp.field_needs,         p.localNeeds,          'full-width', '&#128270;')}
-            ${field(pp.field_resources,     p.localResources,      '',           '&#127793;')}
-            ${partnersList ? `<div class="fiche-field" style="border-left:3px solid ${color}50">
-              <span class="fiche-field-label"><span class="fiche-field-icon">&#129309;</span>${pp.field_partners}</span>
-              <ul class="fiche-partners">${partnersList}</ul>
-            </div>` : ''}
-            ${field(pp.field_beneficiaries, p.targetBeneficiaries, '',           '&#128101;')}
-            ${p.timeline ? `<div class="fiche-field fiche-timeline" style="border-left:3px solid ${color}50">
-              <span class="fiche-field-label"><span class="fiche-field-icon">&#128197;</span>${pp.field_timeline}</span>
-              <p>&#9201; ${p.timeline}</p>
-            </div>` : ''}
-            ${field(pp.field_impact,        p.impact,              '',           '&#10024;')}
-            ${field(pp.field_followup,      p.followUp,            '',           '&#128202;')}
+
+          ${supportBadges ? `<div class="fiche-info-strip">
+            <span class="fiche-support-label">${pp.field_support}&nbsp;&nbsp;</span>
+            ${supportBadges}
+          </div>` : ''}
+
+          <div class="fiche-section fiche-section-terrain">
+            ${keypointsHtml}
           </div>
+
+          ${p.summary ? `<div class="fiche-section fiche-section-overview">
+            <div class="fiche-section-label">${pp.field_summary}</div>
+            <p class="fiche-summary-text">${p.summary}</p>
+          </div>` : ''}
+
+          ${(p.localNeeds || p.localResources) ? `<div class="fiche-section fiche-section-terrain">
+            <div class="fiche-section-label">${pp.section_terrain}</div>
+            <div class="fiche-fields-stack">
+              ${field(pp.field_needs,     p.localNeeds,     '&#128270;')}
+              ${field(pp.field_resources, p.localResources, '&#127793;')}
+            </div>
+          </div>` : ''}
+
+          <div class="fiche-section fiche-section-actors">
+            <div class="fiche-section-label">${pp.section_actors}</div>
+            <div class="fiche-fields-stack">
+              ${partnersList ? `<div class="fiche-field">
+                <span class="fiche-field-label"><span class="fiche-field-icon">&#129309;</span>${pp.field_partners}</span>
+                <ul class="fiche-partners">${partnersList}</ul>
+              </div>` : ''}
+              <div class="fiche-field">
+                <span class="fiche-field-label"><span class="fiche-field-icon">&#11088;</span>${pp.section_partners_support}</span>
+                <div class="fiche-support-zone">
+                  <p class="fiche-support-zone-empty">${pp.partners_support_empty}</p>
+                  <div class="fiche-support-zone-lines">
+                    <div class="fiche-support-zone-line"></div>
+                    <div class="fiche-support-zone-line"></div>
+                    <div class="fiche-support-zone-line"></div>
+                    <div class="fiche-support-zone-line"></div>
+                  </div>
+                </div>
+              </div>
+              ${field(pp.field_beneficiaries, p.targetBeneficiaries, '&#128101;')}
+            </div>
+          </div>
+
+          ${hasPersp ? `<div class="fiche-section fiche-section-perspectives">
+            <div class="fiche-section-label">${pp.section_perspectives}</div>
+            <div class="fiche-fields-stack">
+              ${field(pp.field_impact,   p.impact,   '&#10024;')}
+              ${field(pp.field_followup, p.followUp, '&#128202;')}
+            </div>
+          </div>` : ''}
+
           <div class="fiche-actions">
             <a href="index.html#contact" class="fiche-btn fiche-btn-primary">${pp.btn_contact}</a>
             <a href="submit-project.html" class="fiche-btn fiche-btn-secondary">${pp.btn_submit}</a>

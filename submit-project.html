@@ -937,8 +937,7 @@
 
   <script src="i18n.js"></script>
   <script>
-    /* ── CONFIG — remplacez cette valeur par votre endpoint Formspree ── */
-    const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mlgzyyqe';
+    const GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwRL3O4Nn9ZHLzuDyqjZ5szee8S01OJ3J4OdBSQVaWkJMW5zxXPoPaESEN1CfKXIy_b/exec';
 
     /* ── PAYS (noms internationaux) ── */
     const COUNTRIES = [
@@ -1018,27 +1017,31 @@
         }
 
         /* Submit */
-        btnSubmit.disabled   = true;
+        btnSubmit.disabled    = true;
         btnSubmit.textContent = document.documentElement.lang === 'en' ? 'Sending…' : 'Envoi en cours…';
 
-        fetch(FORMSPREE_ENDPOINT, {
+        /* Convertir FormData en JSON (les cases à cocher sont concaténées) */
+        var formData = new FormData(form);
+        var json = {};
+        formData.forEach(function (value, key) {
+          if (json[key]) { json[key] = json[key] + ', ' + value; }
+          else            { json[key] = value; }
+        });
+
+        fetch(GAS_ENDPOINT, {
           method:  'POST',
-          body:    new FormData(form),
-          headers: { 'Accept': 'application/json' }
+          mode:    'no-cors',
+          headers: { 'Content-Type': 'text/plain' },
+          body:    JSON.stringify(json)
         })
-        .then(function (res) {
-          if (res.ok) {
-            form.style.display = 'none';
-            document.getElementById('form-intro-note').style.display = 'none';
-            document.getElementById('form-success').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          } else {
-            throw new Error('error');
-          }
+        .then(function () {
+          form.style.display = 'none';
+          document.getElementById('form-intro-note').style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         })
         .catch(function () {
           btnSubmit.disabled    = false;
-          /* Restore button text from i18n */
           var lang = document.documentElement.lang || 'fr';
           btnSubmit.textContent = (translations[lang] && translations[lang].submit)
             ? translations[lang].submit.btn_submit

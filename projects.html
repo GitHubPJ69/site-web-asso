@@ -738,6 +738,12 @@
       return lang;
     }
 
+    function pField(p, f) {
+      const lang = getLang();
+      if (lang !== 'fr') { const v = p[f + '_en']; if (v !== undefined) return v; }
+      return p[f];
+    }
+
     function getLabels() {
       const lang = getLang();
       const pp = translations[lang].projets_page;
@@ -769,15 +775,15 @@
       grid.innerHTML = projects.map(p => {
         const color = STATUS_COLORS_PAGE[p.status] || '#888';
         const statusLabel = statusLabels[p.status] || p.status;
-        const location = [p.city, p.country].filter(Boolean).join(', ');
+        const location = [p.city, pField(p, 'country')].filter(Boolean).join(', ');
 
         return `
           <div class="projet-card" onclick="openProject('${p.id}')">
             <div class="card-visual">
               <div class="card-glow"  style="background:${color}"></div>
               <div class="card-glow2" style="background:${color}"></div>
-              <span class="card-country-bg">${p.country}</span>
-              <span class="card-domain-tag">${p.domain}</span>
+              <span class="card-country-bg">${pField(p, 'country')}</span>
+              <span class="card-domain-tag">${pField(p, 'domain')}</span>
             </div>
             ${p.fictional ? `<div class="card-fictional-strip">${pp.fictional_label}</div>` : ''}
             <div class="card-body">
@@ -785,7 +791,7 @@
                 <span class="card-status-dot" style="background:${color}"></span>
                 <span style="color:${color}">${statusLabel}</span>
               </span>
-              <h2 class="card-title">${p.title}</h2>
+              <h2 class="card-title">${pField(p, 'title')}</h2>
               <p class="card-location">&#128205; ${location}</p>
             </div>
           </div>`;
@@ -794,6 +800,20 @@
 
     function renderDetail(p) {
       const { pp, statusLabels, supportLabels } = getLabels();
+      const lp = Object.assign({}, p, {
+        title:               pField(p, 'title'),
+        country:             pField(p, 'country'),
+        region:              pField(p, 'region'),
+        domain:              pField(p, 'domain'),
+        summary:             pField(p, 'summary'),
+        localNeeds:          pField(p, 'localNeeds'),
+        localResources:      pField(p, 'localResources'),
+        localPartners:       pField(p, 'localPartners'),
+        targetBeneficiaries: pField(p, 'targetBeneficiaries'),
+        timeline:            pField(p, 'timeline'),
+        impact:              pField(p, 'impact'),
+        followUp:            pField(p, 'followUp'),
+      });
       const color = STATUS_COLORS_PAGE[p.status] || '#888';
 
       const fictionalBanner = p.fictional ? `
@@ -809,7 +829,7 @@
         .map(s => supportLabels[s] || s)
         .join(' · ');
 
-      const partnersList = (p.localPartners || [])
+      const partnersList = (lp.localPartners || [])
         .map(partner => `<li>${partner}</li>`).join('');
 
       function field(label, value, icon) {
@@ -821,8 +841,8 @@
         </div>`;
       }
 
-      const hasActors = partnersList || p.targetBeneficiaries;
-      const hasPersp  = p.impact || p.followUp;
+      const hasActors = partnersList || lp.targetBeneficiaries;
+      const hasPersp  = lp.impact || lp.followUp;
 
       const keypointsHtml = `
         <div class="fiche-keypoints">
@@ -830,11 +850,11 @@
           <div class="fiche-kp-grid">
             <div class="fiche-kp-item">
               <div class="fiche-kp-label">&#128205; ${pp.kp_zone}</div>
-              <div class="fiche-kp-value">${[p.city, p.region, p.country].filter(Boolean).join(', ')}</div>
+              <div class="fiche-kp-value">${[p.city, lp.region, lp.country].filter(Boolean).join(', ')}</div>
             </div>
             <div class="fiche-kp-item">
               <div class="fiche-kp-label">&#127793; ${pp.kp_domain}</div>
-              <div class="fiche-kp-value">${p.domain}</div>
+              <div class="fiche-kp-value">${lp.domain}</div>
             </div>
             <div class="fiche-kp-item">
               <div class="fiche-kp-label">&#129309; ${pp.section_partners_support}</div>
@@ -844,9 +864,9 @@
               <div class="fiche-kp-label">&#128295; ${pp.kp_support_types}</div>
               <div class="fiche-kp-value">${supportText}</div>
             </div>` : ''}
-            ${p.timeline ? `<div class="fiche-kp-item kp-full">
+            ${lp.timeline ? `<div class="fiche-kp-item kp-full">
               <div class="fiche-kp-label">&#128197; ${pp.field_timeline}</div>
-              <div class="fiche-kp-value" style="font-style:italic;color:var(--gris)">${p.timeline}</div>
+              <div class="fiche-kp-value" style="font-style:italic;color:var(--gris)">${lp.timeline}</div>
             </div>` : ''}
           </div>
         </div>`;
@@ -859,9 +879,9 @@
             <span class="fiche-status-pill" style="background:${color}22;color:${color};border:1px solid ${color}55">
               ${statusLabels[p.status] || p.status}
             </span>
-            <h2 class="fiche-title">${p.title}</h2>
-            <p class="fiche-location">&#128205; ${[p.city, p.region, p.country].filter(Boolean).join(', ')}</p>
-            <p class="fiche-domain">${p.domain}</p>
+            <h2 class="fiche-title">${lp.title}</h2>
+            <p class="fiche-location">&#128205; ${[p.city, lp.region, lp.country].filter(Boolean).join(', ')}</p>
+            <p class="fiche-domain">${lp.domain}</p>
           </div>
 
           ${supportBadges ? `<div class="fiche-info-strip">
@@ -873,16 +893,16 @@
             ${keypointsHtml}
           </div>
 
-          ${p.summary ? `<div class="fiche-section fiche-section-overview">
+          ${lp.summary ? `<div class="fiche-section fiche-section-overview">
             <div class="fiche-section-label">${pp.field_summary}</div>
-            <p class="fiche-summary-text">${p.summary}</p>
+            <p class="fiche-summary-text">${lp.summary}</p>
           </div>` : ''}
 
-          ${(p.localNeeds || p.localResources) ? `<div class="fiche-section fiche-section-terrain">
+          ${(lp.localNeeds || lp.localResources) ? `<div class="fiche-section fiche-section-terrain">
             <div class="fiche-section-label">${pp.section_terrain}</div>
             <div class="fiche-fields-stack">
-              ${field(pp.field_needs,     p.localNeeds,     '&#128270;')}
-              ${field(pp.field_resources, p.localResources, '&#127793;')}
+              ${field(pp.field_needs,     lp.localNeeds,     '&#128270;')}
+              ${field(pp.field_resources, lp.localResources, '&#127793;')}
             </div>
           </div>` : ''}
 
@@ -905,15 +925,15 @@
                   </div>
                 </div>
               </div>
-              ${field(pp.field_beneficiaries, p.targetBeneficiaries, '&#128101;')}
+              ${field(pp.field_beneficiaries, lp.targetBeneficiaries, '&#128101;')}
             </div>
           </div>
 
           ${hasPersp ? `<div class="fiche-section fiche-section-perspectives">
             <div class="fiche-section-label">${pp.section_perspectives}</div>
             <div class="fiche-fields-stack">
-              ${field(pp.field_impact,   p.impact,   '&#10024;')}
-              ${field(pp.field_followup, p.followUp, '&#128202;')}
+              ${field(pp.field_impact,   lp.impact,   '&#10024;')}
+              ${field(pp.field_followup, lp.followUp, '&#128202;')}
             </div>
           </div>` : ''}
 

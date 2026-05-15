@@ -22,6 +22,17 @@
       --gris-clair:  #FAF6EE;
       --blanc:       #FFFFFF;
       --sombre:      #0D3A1E;
+      --surface:     rgba(255,255,255,0.84);
+      --surface-soft:rgba(255,255,255,0.68);
+      --line-soft:   rgba(13,58,30,0.09);
+      --shadow-soft: 0 10px 24px rgba(13,58,30,0.07);
+      --shadow-lift: 0 16px 34px rgba(13,58,30,0.11);
+      --radius-sm:   8px;
+      --radius-md:   14px;
+      --radius-lg:   18px;
+      --radius-xl:   24px;
+      --text-soft:   rgba(13,58,30,0.74);
+      --text-muted:  rgba(13,58,30,0.58);
     }
 
     body {
@@ -29,9 +40,10 @@
       color: var(--sombre);
       scroll-behavior: smooth;
       line-height: 1.6;
+      letter-spacing: -0.01em;
     }
 
-    p, .lead, .domaine-ex, .carte-role p, .pilier p, .principe p,
+    p, .lead, .domaine-ex, .carte-role p, .pilier p,
     .contact-intro p, .domaines-conclusion p, .panel-field p,
     .flux-bloc li, .enjeu-constat p {
       text-align: justify;
@@ -63,7 +75,7 @@
       height: 38px;
       width: auto;
       display: block;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
     }
 
     .logo-name {
@@ -99,7 +111,7 @@
       background: var(--terre);
       color: #fff !important;
       padding: 0.45rem 1.1rem;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
       font-weight: 600 !important;
     }
 
@@ -116,7 +128,7 @@
       border: 1px solid rgba(255,255,255,0.35);
       color: rgba(255,255,255,0.65);
       padding: 0.28rem 0.6rem;
-      border-radius: 4px;
+      border-radius: 999px;
       font-size: 0.75rem;
       font-weight: 600;
       letter-spacing: 0.5px;
@@ -169,7 +181,7 @@
       color: var(--bleu);
       border: 1px solid rgba(192,104,0,0.35);
       padding: 0.35rem 1rem;
-      border-radius: 4px;
+      border-radius: 999px;
       font-size: 0.8rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -196,11 +208,11 @@
     }
 
     .hero-inner p {
-      font-size: 1.1rem;
-      color: rgba(255,255,255,0.80);
-      max-width: 580px;
+      font-size: 1.08rem;
+      color: rgba(255,255,255,0.84);
+      max-width: 610px;
       margin-bottom: 2.5rem;
-      line-height: 1.8;
+      line-height: 1.82;
     }
 
     .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -208,7 +220,7 @@
     .btn {
       display: inline-block;
       padding: 0.85rem 2rem;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
       font-size: 0.95rem;
       font-weight: 600;
       text-decoration: none;
@@ -281,12 +293,17 @@
     .container { max-width: 1100px; margin: 0 auto; }
 
     .section-en-tete { margin-bottom: 3.5rem; }
-    .section-en-tete.centre { text-align: center; }
+    .section-en-tete.centre {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .section-en-tete.centre p.lead { margin-left: auto; margin-right: auto; }
 
     .tag {
       display: inline-block;
       padding: 0.3rem 0.9rem;
-      border-radius: 4px;
+      border-radius: 999px;
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
@@ -294,23 +311,59 @@
       margin-bottom: 1rem;
     }
 
-    .tag-vert  { background: #DFF4EC; color: var(--vert); }
-    .tag-bleu  { background: #FEF3E0; color: var(--bleu); }
-    .tag-terre { background: #FEF0D8; color: var(--terre); }
-    .tag-gris  { background: #DFF4EC; color: var(--vert); }
+    .tag-vert  { background: rgba(30,150,96,0.13); color: var(--vert); border: 1px solid rgba(30,150,96,0.18); }
+    .tag-bleu  { background: rgba(192,104,0,0.13); color: var(--bleu); border: 1px solid rgba(192,104,0,0.18); }
+    .tag-terre { background: rgba(212,130,10,0.14); color: var(--terre); border: 1px solid rgba(212,130,10,0.18); }
+    .tag-gris  { background: rgba(30,150,96,0.10); color: var(--vert); border: 1px solid rgba(30,150,96,0.16); }
 
     .section-en-tete h2 {
-      font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+      font-size: clamp(1.8rem, 3.5vw, 2.55rem);
       font-weight: 800;
       color: var(--bleu);
-      line-height: 1.25;
-      margin-bottom: 0.8rem;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.9rem;
     }
 
     .section-en-tete p.lead {
-      font-size: 1.05rem;
-      color: var(--gris);
-      line-height: 1.8;
+      font-size: 1.06rem;
+      color: var(--text-soft);
+      line-height: 1.85;
+    }
+
+    .section-en-tete.section-parent h2 {
+      font-size: clamp(1.95rem, 3.8vw, 2.8rem);
+      margin-bottom: 1rem;
+    }
+    .demarche-partie {
+      margin-top: 3.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .demarche-partie h3 {
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--vert);
+      margin-bottom: 0.72rem;
+    }
+    .demarche-partie h4 {
+      font-size: clamp(1.5rem, 2.8vw, 2rem);
+      font-weight: 760;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      color: var(--bleu);
+      margin-bottom: 0.82rem;
+    }
+    .demarche-partie p.lead {
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.82;
+    }
+    #notre-approche .demarche-partie { margin-top: 0; }
+    .principes-partie {
+      margin-top: 0;
+      margin-bottom: 0.9rem;
     }
 
     /* ── NOTRE RÔLE ── */
@@ -324,11 +377,17 @@
     }
 
     .carte-role {
-      background: var(--blanc);
-      border-radius: 10px;
+      background: var(--surface);
+      border-radius: var(--radius-md);
       padding: 2rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--line-soft);
       border-left: 4px solid;
+      transition: transform 0.24s ease, box-shadow 0.24s ease;
+    }
+    .carte-role:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lift);
     }
 
     .carte-role:nth-child(1) { border-color: var(--vert); }
@@ -344,96 +403,257 @@
       margin-bottom: 0.6rem;
     }
 
-    .carte-role p { font-size: 0.95rem; color: var(--gris); line-height: 1.7; }
+    .carte-role p { font-size: 0.95rem; color: var(--text-soft); line-height: 1.78; }
 
     /* ── NOTRE APPROCHE ── */
-    #notre-approche { background: var(--blanc); }
+    #notre-approche {
+      background: var(--blanc);
+      position: relative;
+    }
+    #notre-approche::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(13,58,30,0.038) 1.5px, transparent 1.5px);
+      background-size: 30px 30px;
+      pointer-events: none;
+    }
+    #notre-approche .container { position: relative; }
 
-    /* ── PILIERS ── */
-    .piliers-grille {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin: 3rem 0 2.5rem;
+    /* ── MÉTHODE 6 ÉTAPES ── */
+    .methode-phase { margin-bottom: 0; }
+
+    .methode-phase-label {
+      text-align: center;
+      margin-bottom: 1.6rem;
     }
 
-    .pilier {
-      background: var(--beige);
-      border-radius: 12px;
-      padding: 2.5rem 1.5rem;
+    .phase-badge {
+      display: inline-block;
+      padding: 0.4rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      background: rgba(192,104,0,0.09);
+      color: var(--bleu);
+      border: 1px solid rgba(192,104,0,0.22);
+    }
+    .phase-badge-2 {
+      background: rgba(30,150,96,0.08);
+      color: var(--vert);
+      border-color: rgba(30,150,96,0.2);
+    }
+
+    .methode-grille {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+
+    .etapes-encadre {
+      background: linear-gradient(160deg, var(--beige-fort) 0%, var(--beige) 55%);
+      border: 1px solid rgba(13,58,30,0.10);
+      border-radius: var(--radius-xl);
+      padding: 2.25rem 2rem 2.25rem;
+      margin-top: 0.5rem;
+      margin-bottom: 4.2rem;
+      box-shadow: 0 4px 24px rgba(13,58,30,0.06);
+    }
+
+    .etapes-encadre-titre {
       text-align: center;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--bleu);
+      margin: 0 0 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(13,58,30,0.10);
+    }
+
+    .methode-etape {
+      border-radius: var(--radius-md);
+      padding: 1.75rem 1.5rem 1.5rem;
+      border: 1px solid rgba(13,58,30,0.07);
+      box-shadow: 0 2px 14px rgba(13,58,30,0.05);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      cursor: pointer;
-      transition: box-shadow 0.2s;
-    }
-    .pilier:hover { box-shadow: 0 4px 18px rgba(0,0,0,0.10); }
-    .pilier.active { box-shadow: 0 4px 18px rgba(0,0,0,0.10); outline: 2px solid var(--terre); outline-offset: -2px; }
-
-    .pilier-icone { font-size: 3rem; line-height: 1; }
-
-    .pilier h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--bleu);
-      line-height: 1.3;
-      margin: 0;
-    }
-
-    .pilier p {
-      font-size: 0.88rem;
-      color: var(--gris);
-      line-height: 1.55;
-      margin: 0;
-    }
-
-    .pilier-chevron {
-      font-size: 0.65rem;
-      color: var(--gris);
-      transition: transform 0.25s, color 0.2s;
-      margin-top: auto;
-      padding-top: 0.25rem;
-    }
-    .pilier.active .pilier-chevron { transform: rotate(180deg); color: var(--terre); }
-
-    .pilier-detail {
-      width: 100%;
-      align-self: stretch;
-      max-height: 0;
+      gap: 0.65rem;
+      position: relative;
       overflow: hidden;
-      transition: max-height 0.35s ease;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
-    .pilier.active .pilier-detail { max-height: 500px; }
+    .methode-etape::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--accent, var(--bleu));
+      border-radius: 14px 14px 0 0;
+    }
+    /* Phase 1 — dégradé coin haut-gauche → blanc */
+    .methode-etape[data-step="1"] { --accent: var(--bleu);  background: linear-gradient(135deg, rgba(192,104,0,0.14) 0%, #ffffff 68%); }
+    .methode-etape[data-step="2"] { --accent: var(--terre); background: linear-gradient(135deg, rgba(212,130,10,0.14) 0%, #ffffff 68%); }
+    .methode-etape[data-step="3"] { --accent: var(--vert);  background: linear-gradient(135deg, rgba(30,150,96,0.13) 0%, #ffffff 68%); }
+    /* Phase 2 — dégradé coin bas-droit → blanc */
+    .methode-etape[data-step="4"] { --accent: var(--bleu);  background: linear-gradient(315deg, rgba(192,104,0,0.14) 0%, #ffffff 68%); }
+    .methode-etape[data-step="5"] { --accent: var(--terre); background: linear-gradient(315deg, rgba(212,130,10,0.14) 0%, #ffffff 68%); }
+    .methode-etape[data-step="6"] { --accent: var(--vert);  background: linear-gradient(315deg, rgba(30,150,96,0.13) 0%, #ffffff 68%); }
 
-    .pilier-detail-inner {
-      border-top: 1px solid rgba(0,0,0,0.08);
-      padding-top: 1rem;
-      margin-top: 0.5rem;
+    @media (hover: hover) {
+      .methode-etape:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 32px rgba(13,58,30,0.1);
+      }
+    }
+
+    .etape-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .etape-num {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent, var(--bleu));
+    }
+
+    .etape-icone { font-size: 1.7rem; line-height: 1; }
+
+    .methode-etape h3 {
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--sombre);
+      line-height: 1.35;
+      margin: 0;
+    }
+
+    .methode-etape > p {
+      font-size: 0.87rem;
+      color: var(--gris);
+      line-height: 1.65;
+      margin: 0;
       text-align: left;
     }
-    .pilier-detail ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.55rem; }
-    .pilier-detail li { font-size: 0.88rem; color: var(--gris); line-height: 1.5; padding-left: 1.25rem; position: relative; }
-    .pilier-detail li::before { content: "›"; position: absolute; left: 0; color: var(--terre); font-weight: 700; }
+
+    .etape-details {
+      list-style: none;
+      padding: 0.75rem 0 0;
+      margin: 0.25rem 0 0;
+      border-top: 1px solid rgba(13,58,30,0.09);
+      display: none;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .etape-details.open { display: flex; }
+
+    .etape-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      padding: 0.3rem 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent, var(--terre));
+      opacity: 0.55;
+      transition: opacity 0.2s;
+      font-family: inherit;
+    }
+    .etape-toggle:hover { opacity: 1; }
+    .etape-toggle-arrow {
+      font-size: 1.05rem;
+      line-height: 1;
+      display: inline-block;
+      transition: transform 0.25s ease;
+    }
+    .methode-etape.etape-open .etape-toggle-arrow { transform: rotate(180deg); }
+
+    @media (hover: hover) {
+      .methode-etape:hover .etape-details { display: flex; }
+      .methode-etape:hover .etape-toggle-arrow { transform: rotate(180deg); }
+    }
+
+    .etape-details li {
+      font-size: 0.8rem;
+      color: var(--gris);
+      line-height: 1.5;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .etape-details li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--accent, var(--terre));
+      font-weight: 700;
+    }
+
+    .methode-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin: 0.75rem 0 1rem;
+    }
+    .sep-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(13,58,30,0.14), transparent);
+    }
+    .sep-icon {
+      font-size: 1.1rem;
+      color: var(--terre);
+      opacity: 0.65;
+      line-height: 1;
+    }
 
     /* ── DOMAINES ── */
-    #domaines { background: var(--gris-clair); }
+    #domaines {
+      position: relative;
+      background:
+        radial-gradient(circle at 8% 10%, rgba(45,125,111,0.10), transparent 28%),
+        radial-gradient(circle at 92% 12%, rgba(196,144,74,0.10), transparent 24%),
+        linear-gradient(180deg, rgba(248,249,250,0.98), rgba(245,240,232,0.72));
+      overflow: hidden;
+    }
+    #domaines::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(13,58,30,0.05) 1px, transparent 1px),
+        linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.42) 48%, transparent 100%);
+      background-size: 28px 28px, 100% 100%;
+      opacity: 0.36;
+      pointer-events: none;
+    }
+    #domaines .container { position: relative; }
 
     .domaines-grille {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.25rem;
     }
 
     .domaine-carte {
-      background: var(--blanc);
-      border-radius: 10px;
+      background: var(--surface);
+      border-radius: var(--radius-md);
       padding: 1.8rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
-      border-top: 3px solid var(--vert);
-      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--line-soft);
+      border-top: 3px solid rgba(30,150,96,0.92);
+      backdrop-filter: blur(8px);
+      transition: transform 0.24s ease, box-shadow 0.24s ease, border-color 0.24s ease;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -442,7 +662,8 @@
 
     .domaine-carte:hover {
       transform: translateY(-4px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      border-color: rgba(45,125,111,0.18);
+      box-shadow: var(--shadow-lift);
     }
 
     .domaine-icone {
@@ -454,7 +675,7 @@
     .domaine-carte h3 {
       font-size: 1rem;
       font-weight: 700;
-      color: var(--bleu);
+      color: var(--sombre);
       margin-bottom: 0;
       flex: 1;
       min-width: 0;
@@ -467,29 +688,32 @@
 
     .domaine-ex {
       font-size: 0.82rem;
-      color: var(--gris);
-      line-height: 1.65;
+      color: var(--text-soft);
+      line-height: 1.72;
       font-style: italic;
     }
 
     .domaines-conclusion {
-      background: var(--blanc);
-      border-radius: 10px;
-      padding: 2rem 2.5rem;
-      border-left: 4px solid var(--vert);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      width: 100%;
+      margin: 2.5rem 0 0;
+      background: var(--surface-soft);
+      border-radius: var(--radius-lg);
+      padding: 2rem clamp(1.35rem, 3vw, 2.5rem);
+      border: 1px solid var(--line-soft);
+      box-shadow: 0 16px 38px rgba(13,58,30,0.07);
+      backdrop-filter: blur(10px);
     }
 
     .domaines-conclusion p {
-      font-size: 0.95rem;
-      color: #444;
-      line-height: 1.8;
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      line-height: 1.86;
     }
 
     .domaines-nexus {
-      margin-top: 1rem;
-      font-size: 0.88rem;
-      color: var(--gris);
+      margin-top: 1.05rem;
+      font-size: 0.89rem;
+      color: var(--text-muted);
       font-style: italic;
     }
 
@@ -507,55 +731,243 @@
       font-weight: 600;
       font-family: inherit;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      transition: background 0.2s, color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
     .btn-voir-plus:hover {
       background: var(--vert);
       color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(45,125,111,0.18);
     }
 
     /* ── PRINCIPES ── */
-    .principes-grille { display: grid; gap: 1.25rem; }
-    .principes-grille-2 { grid-template-columns: repeat(2, 1fr); }
-    .principes-grille-3 { grid-template-columns: repeat(3, 1fr); }
-
-    .principes-groupe-titre {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--gris);
-      margin: 1.75rem 0 1rem;
+    .principes-wrap {
+      position: relative;
+      margin-top: 1rem;
+      padding: 0.8rem clamp(1.2rem, 3vw, 2.2rem) 1.1rem;
+      border: 1px solid rgba(13,58,30,0.08);
+      border-radius: 24px;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(212,130,10,0.08), transparent 28%),
+        radial-gradient(circle at 92% 12%, rgba(30,150,96,0.075), transparent 26%),
+        linear-gradient(145deg, rgba(250,246,238,0.82), rgba(245,240,232,0.70));
+      overflow: hidden;
     }
-    .principes-groupe-titre:first-of-type { margin-top: 1.5rem; }
+    .principes-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(13,58,30,0.035) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.28;
+      pointer-events: none;
+    }
+    .principes-wrap > * { position: relative; }
 
-    .principe {
-      background: var(--beige);
-      border-radius: 8px;
-      padding: 1.8rem 1.5rem;
+    .principes-intro {
+      width: 100%;
+      max-width: none;
+      margin: 0 0 1.9rem;
+      font-size: 0.92rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      text-align: left;
+      hyphens: none;
+    }
+
+    .principes-edito {
       display: flex;
       flex-direction: column;
-      gap: 0.6rem;
-      border-left: 5px solid var(--vert);
+      gap: 0;
     }
 
-    .principe h3 {
-      font-size: 1rem;
+    .principe-edito {
+      position: relative;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+      padding: 1.35rem 0 1.3rem;
+      border-top: 1px solid rgba(13,58,30,0.10);
+      background: transparent;
+    }
+    .principe-edito:first-child {
+      border-top: 0;
+      padding-top: 0.7rem;
+    }
+    .principe-edito::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -1px;
+      width: 0;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(192,104,0,0.76), rgba(30,150,96,0.48));
+      transition: width 0.45s ease;
+    }
+    .principe-edito:hover::before,
+    .principe-edito.is-open::before { width: min(132px, 20%); }
+    .principe-edito.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .principe-edito-entete {
+      display: grid;
+      grid-template-columns: minmax(230px, 0.8fr) minmax(320px, 1.2fr);
+      align-items: center;
+      column-gap: 2rem;
+      row-gap: 0.5rem;
+      margin-bottom: 0.72rem;
+    }
+
+    .principe-edito-icon {
+      width: 1rem;
+      height: 1rem;
+      color: rgba(30,150,96,0.76);
+      flex-shrink: 0;
+    }
+
+    .principe-edito-titre-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      min-width: 0;
+    }
+
+    .principe-edito-titre {
+      font-size: clamp(0.96rem, 1.1vw, 1.02rem);
       font-weight: 700;
       color: var(--sombre);
-      line-height: 1.35;
+      line-height: 1.3;
       margin: 0;
+      transition: color 0.25s ease;
+    }
+    .principe-edito:hover .principe-edito-titre,
+    .principe-edito.is-open .principe-edito-titre { color: var(--vert); }
+
+    .principe-edito-phrase {
+      max-width: none;
+      margin: 0;
+      font-size: 0.9rem;
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(13,58,30,0.70);
+      line-height: 1.55;
+      hyphens: none;
     }
 
-    .principe p {
-      font-size: 0.88rem;
-      color: var(--gris);
-      line-height: 1.65;
+    .principe-edito-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.42rem;
+      margin-left: 0;
+      border: 0;
+      background: transparent;
+      padding: 0;
+      color: rgba(13,58,30,0.50);
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 0.25s ease;
+    }
+    .principe-edito-toggle::after {
+      content: '';
+      width: 1.45rem;
+      height: 1px;
+      background: currentColor;
+      opacity: 0.42;
+      transition: width 0.35s ease, opacity 0.25s ease;
+    }
+    .principe-edito-toggle::before {
+      content: '⌄';
+      display: inline-block;
+      font-size: 0.82rem;
+      line-height: 1;
+      opacity: 0.58;
+      transform: translateY(-0.05rem);
+      transition: transform 0.35s ease, opacity 0.25s ease;
+    }
+    .principe-edito-toggle:hover { color: var(--vert); }
+    .principe-edito-toggle:hover::after {
+      width: 1.9rem;
+      opacity: 0.72;
+    }
+    .principe-edito.is-open .principe-edito-toggle::before {
+      transform: rotate(180deg) translateY(0.05rem);
+      opacity: 0.82;
+    }
+
+    .principe-edito-detail {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.5s ease, margin-top 0.5s ease, opacity 0.35s ease;
+      opacity: 0;
+      margin-top: 0;
+    }
+    .principe-edito.is-open .principe-edito-detail {
+      grid-template-rows: 1fr;
+      opacity: 1;
+      margin-top: 0.95rem;
+    }
+    .principe-edito-detail-inner { overflow: hidden; }
+
+    .principe-edito-corps {
+      max-width: none;
+      width: 100%;
       margin: 0;
+      font-size: 0.81rem;
+      color: rgba(13,58,30,0.62);
+      line-height: 1.8;
+    }
+
+    .principe-edito-note {
+      width: 100%;
+      max-width: none;
+      margin-top: 0.85rem;
+      padding: 0 0.2rem;
+    }
+
+    .principe-edito-note-label {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: rgba(13,58,30,0.38);
+    }
+
+    .principe-edito-note > p {
+      max-width: none;
+      margin: 0;
+      font-size: 0.72rem;
+      color: rgba(13,58,30,0.42);
+      line-height: 1.65;
+      font-style: italic;
+      text-align: left;
     }
 
     /* ── CONTACT ── */
-    #contact { background: var(--beige); }
+    #contact {
+      position: relative;
+      background:
+        radial-gradient(circle at 12% 14%, rgba(212,130,10,0.08), transparent 28%),
+        radial-gradient(circle at 88% 12%, rgba(30,150,96,0.08), transparent 24%),
+        var(--beige);
+      overflow: hidden;
+    }
+    #contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(13,58,30,0.035) 1px, transparent 1px);
+      background-size: 28px 28px;
+      opacity: 0.24;
+      pointer-events: none;
+    }
+    #contact .container { position: relative; }
 
     .contact-contenu {
       display: grid;
@@ -572,9 +984,9 @@
     }
 
     .contact-intro p {
-      color: var(--gris);
-      font-size: 0.95rem;
-      line-height: 1.8;
+      color: var(--text-soft);
+      font-size: 0.97rem;
+      line-height: 1.84;
       margin-bottom: 1.5rem;
     }
 
@@ -585,12 +997,12 @@
       align-items: center;
       gap: 0.7rem;
       font-size: 0.9rem;
-      color: #444;
+      color: rgba(13,58,30,0.78);
     }
 
     .profil-badge::before {
       content: '›';
-      color: var(--vert);
+      color: var(--terre);
       font-weight: 800;
       font-size: 1.2rem;
     }
@@ -602,10 +1014,10 @@
     .formulaire textarea {
       padding: 0.85rem 1.1rem;
       border: 1.5px solid #D1D5DB;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       font-size: 0.95rem;
       font-family: inherit;
-      transition: border-color 0.2s;
+      transition: border-color 0.2s, box-shadow 0.2s;
       outline: none;
       background: #fff;
       color: var(--sombre);
@@ -613,7 +1025,10 @@
 
     .formulaire input:focus,
     .formulaire select:focus,
-    .formulaire textarea:focus { border-color: var(--vert); }
+    .formulaire textarea:focus {
+      border-color: var(--vert);
+      box-shadow: 0 0 0 4px rgba(30,150,96,0.10);
+    }
 
     .formulaire textarea { min-height: 120px; resize: vertical; }
 
@@ -626,7 +1041,7 @@
       font-size: 0.95rem;
       font-weight: 600;
       padding: 0.85rem 2rem;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
       cursor: pointer;
       transition: background 0.2s;
     }
@@ -742,8 +1157,9 @@
       font-size: 0.82rem;
       color: rgba(255,255,255,0.32);
       line-height: 1.8;
-      max-width: 680px;
-      margin: 2rem auto 0;
+      width: 100%;
+      max-width: none;
+      margin: 2rem 0 0;
       text-align: center;
       padding: 0 2.5rem;
     }
@@ -1108,11 +1524,11 @@
     #notre-approche { background: var(--blanc); }
 
     .enjeu-constat {
-      margin: 0 0 52px;
+      margin: 0 0 40px;
     }
     .enjeu-constat p {
-      color: var(--gris);
-      line-height: 1.75;
+      color: var(--text-soft);
+      line-height: 1.84;
       margin-bottom: 1em;
     }
 
@@ -1187,28 +1603,55 @@
     .flux-line-bwd { animation: flux-bwd 0.9s linear infinite; animation-delay: 0.45s; }
 
     .approche-sous-titre {
-      text-align: center;
-      font-size: 0.82rem;
+      font-size: 0.76rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--bleu);
-      margin: 0 0 32px;
+      letter-spacing: 0.16em;
+      color: var(--vert);
+      margin: 0 0 0.72rem;
     }
 
     .enjeu-conclusion {
-      text-align: center;
-      font-size: 1.2rem;
+      position: relative;
+      background: var(--surface-soft);
+      border-left: 4px solid var(--terre);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      padding: 1.5rem 3.5rem 1.5rem 2rem;
+      max-width: 660px;
+      margin: 3rem auto;
+      box-shadow: var(--shadow-soft);
+      border-top: 1px solid var(--line-soft);
+      border-right: 1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
+      overflow: hidden;
+      text-align: left;
+      font-size: 1.05rem;
       font-weight: 600;
-      color: var(--terre);
       font-style: italic;
-      white-space: nowrap;
-      margin: 0 auto;
-      line-height: 1.5;
+      color: var(--sombre);
+      line-height: 1.75;
+      white-space: normal;
+    }
+    .enjeu-conclusion::before {
+      content: '\201C';
+      position: absolute;
+      top: 0.2rem;
+      right: 1.2rem;
+      font-size: 5.5rem;
+      line-height: 1;
+      color: var(--terre);
+      opacity: 0.15;
+      font-family: Georgia, 'Times New Roman', serif;
+      pointer-events: none;
     }
 
     /* ── QUI SOMMES-NOUS ── */
-    #qui-sommes-nous { background: var(--beige-fort); padding: 4rem 2.5rem; }
+    #qui-sommes-nous {
+      background:
+        radial-gradient(circle at 10% 12%, rgba(192,104,0,0.06), transparent 28%),
+        linear-gradient(180deg, var(--beige-fort), var(--beige));
+      padding: 4rem 2.5rem;
+    }
 
     .equipe-profil {
       display: flex;
@@ -1232,17 +1675,18 @@
     .equipe-texte > span { margin-bottom: 0.5rem; display: block; }
 
     .equipe-texte h2 {
-      font-size: 1.3rem;
+      font-size: 1.34rem;
       font-weight: 700;
       color: var(--sombre);
       margin-bottom: 0.7rem;
-      line-height: 1.3;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
     }
 
     .equipe-intro {
-      font-size: 0.92rem;
-      color: var(--gris);
-      line-height: 1.75;
+      font-size: 0.94rem;
+      color: var(--text-soft);
+      line-height: 1.82;
     }
 
     .equipe-linkedin {
@@ -1278,16 +1722,18 @@
     }
 
     .axe-carte {
-      background: var(--beige);
-      border: 1px solid rgba(196,144,74,0.2);
+      background: var(--surface-soft);
+      border: 1px solid var(--line-soft);
       border-left: 3px solid var(--terre);
-      border-radius: 0 10px 10px 0;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
       padding: 1.1rem 1.3rem;
-      transition: box-shadow 0.2s;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
 
     .axe-carte:hover {
-      box-shadow: 0 3px 14px rgba(13,58,30,0.06);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lift);
     }
 
     .axe-header {
@@ -1320,7 +1766,7 @@
 
     .axe-carte ul li {
       font-size: 0.81rem;
-      color: var(--gris);
+      color: var(--text-soft);
       padding-left: 0.85rem;
       position: relative;
       line-height: 1.4;
@@ -1337,17 +1783,22 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       .piliers-grille { grid-template-columns: repeat(2, 1fr); }
+      .methode-grille { grid-template-columns: 1fr 1fr; }
       .contact-contenu { grid-template-columns: 1fr; gap: 2.5rem; }
       .domaines-grille { grid-template-columns: repeat(2, 1fr); }
       .enjeu-flux { flex-direction: column; }
       .flux-connecteur { width: 100%; height: 60px; }
       .flux-svg { transform: rotate(90deg); }
-      .principes-grille-3 { grid-template-columns: repeat(2, 1fr); }
+      /* principes timeline: no change needed at 900px */
       .equipe-axes { grid-template-columns: repeat(2, 1fr); }
     }
 
     @media (max-width: 700px) {
-      .principes-grille-2, .principes-grille-3 { grid-template-columns: 1fr; }
+      .methode-grille { grid-template-columns: 1fr; }
+      .principe-edito-entete { grid-template-columns: 1fr; }
+      .principe-edito-phrase,
+      .principe-edito-toggle,
+      .principe-edito-corps { margin-left: 0; }
       nav { padding: 0.8rem 1.2rem; }
       .nav-links { gap: 0.8rem; font-size: 0.8rem; }
       section { padding: 4rem 1.2rem; }
@@ -1423,11 +1874,12 @@
   <!-- NOTRE RÔLE -->
   <section id="notre-role">
     <div class="container">
-      <div class="section-en-tete">
-        <span class="tag tag-vert" data-i18n="role.tag"></span>
-        <h2 data-i18n="role.title"></h2>
-        <p class="lead" data-i18n="role.lead"></p>
+      <div class="section-en-tete section-parent">
+        <span class="tag tag-vert" data-i18n="demarche.tag"></span>
+        <h2 data-i18n="demarche.title"></h2>
+        <p class="lead" data-i18n="demarche.lead"></p>
       </div>
+
       <div class="enjeu-constat">
         <p data-i18n="role.constat1"></p>
         <p data-i18n="role.constat2"></p>
@@ -1488,114 +1940,219 @@
   <!-- NOTRE APPROCHE -->
   <section id="notre-approche">
     <div class="container">
-      <div class="section-en-tete">
-        <span class="tag tag-bleu" data-i18n="approche.tag"></span>
-        <h2 data-i18n="approche.title"></h2>
+      <div class="demarche-partie">
+        <h3 data-i18n="approche.tag"></h3>
+        <h4 data-i18n="approche.title"></h4>
         <p class="lead" data-i18n="approche.lead"></p>
       </div>
 
-      <!-- Piliers -->
-      <h3 class="approche-sous-titre" data-i18n="approche.piliers_titre"></h3>
-      <div class="piliers-grille">
-        <div class="pilier" onclick="togglePilier(this)">
-          <div class="pilier-icone">&#128506;</div>
-          <h3 data-i18n="approche.p1_title"></h3>
-          <p  data-i18n="approche.p1_text"></p>
-          <div class="pilier-detail">
-            <div class="pilier-detail-inner">
-              <ul>
-                <li data-i18n="approche.p1_detail_1"></li>
-                <li data-i18n="approche.p1_detail_2"></li>
-                <li data-i18n="approche.p1_detail_3"></li>
-                <li data-i18n="approche.p1_detail_4"></li>
-              </ul>
-            </div>
-          </div>
-          <span class="pilier-chevron">&#9660;</span>
+      <div class="etapes-encadre">
+      <!-- Phase 1 : Analyser & Documenter -->
+      <div class="methode-phase">
+        <div class="methode-phase-label">
+          <span class="phase-badge" data-i18n="approche.phase1_label"></span>
         </div>
-        <div class="pilier" onclick="togglePilier(this)">
-          <div class="pilier-icone">&#128279;</div>
-          <h3 data-i18n="approche.p2_title"></h3>
-          <p  data-i18n="approche.p2_text"></p>
-          <div class="pilier-detail">
-            <div class="pilier-detail-inner">
-              <ul>
-                <li data-i18n="approche.p2_detail_1"></li>
-                <li data-i18n="approche.p2_detail_2"></li>
-                <li data-i18n="approche.p2_detail_3"></li>
-                <li data-i18n="approche.p2_detail_4"></li>
-              </ul>
+        <div class="methode-grille">
+          <div class="methode-etape" data-step="1">
+            <div class="etape-header">
+              <span class="etape-num"><span data-i18n="approche.etape_pfx"></span>&thinsp;01</span>
+              <span class="etape-icone">&#128204;</span>
             </div>
+            <h3 data-i18n="approche.e1_title"></h3>
+            <p  data-i18n="approche.e1_text"></p>
+            <ul class="etape-details">
+              <li data-i18n="approche.e1_d1"></li>
+              <li data-i18n="approche.e1_d2"></li>
+              <li data-i18n="approche.e1_d3"></li>
+            </ul>
           </div>
-          <span class="pilier-chevron">&#9660;</span>
-        </div>
-        <div class="pilier" onclick="togglePilier(this)">
-          <div class="pilier-icone">&#128203;</div>
-          <h3 data-i18n="approche.p3_title"></h3>
-          <p  data-i18n="approche.p3_text"></p>
-          <div class="pilier-detail">
-            <div class="pilier-detail-inner">
-              <ul>
-                <li data-i18n="approche.p3_detail_1"></li>
-                <li data-i18n="approche.p3_detail_2"></li>
-                <li data-i18n="approche.p3_detail_3"></li>
-                <li data-i18n="approche.p3_detail_4"></li>
-              </ul>
+          <div class="methode-etape" data-step="2">
+            <div class="etape-header">
+              <span class="etape-num"><span data-i18n="approche.etape_pfx"></span>&thinsp;02</span>
+              <span class="etape-icone">&#128270;</span>
             </div>
+            <h3 data-i18n="approche.e2_title"></h3>
+            <p  data-i18n="approche.e2_text"></p>
+            <ul class="etape-details">
+              <li data-i18n="approche.e2_d1"></li>
+              <li data-i18n="approche.e2_d2"></li>
+              <li data-i18n="approche.e2_d3"></li>
+            </ul>
           </div>
-          <span class="pilier-chevron">&#9660;</span>
-        </div>
-        <div class="pilier" onclick="togglePilier(this)">
-          <div class="pilier-icone">&#129309;</div>
-          <h3 data-i18n="approche.p4_title"></h3>
-          <p  data-i18n="approche.p4_text"></p>
-          <div class="pilier-detail">
-            <div class="pilier-detail-inner">
-              <ul>
-                <li data-i18n="approche.p4_detail_1"></li>
-                <li data-i18n="approche.p4_detail_2"></li>
-                <li data-i18n="approche.p4_detail_3"></li>
-                <li data-i18n="approche.p4_detail_4"></li>
-              </ul>
+          <div class="methode-etape" data-step="3">
+            <div class="etape-header">
+              <span class="etape-num"><span data-i18n="approche.etape_pfx"></span>&thinsp;03</span>
+              <span class="etape-icone">&#128506;</span>
             </div>
+            <h3 data-i18n="approche.e3_title"></h3>
+            <p  data-i18n="approche.e3_text"></p>
+            <ul class="etape-details">
+              <li data-i18n="approche.e3_d1"></li>
+              <li data-i18n="approche.e3_d2"></li>
+              <li data-i18n="approche.e3_d3"></li>
+            </ul>
           </div>
-          <span class="pilier-chevron">&#9660;</span>
         </div>
       </div>
 
-      <p class="enjeu-conclusion" data-i18n="approche.conclusion"></p>
+
+
+      <!-- Séparateur de phase -->
+      <div class="methode-separator">
+        <div class="sep-icon">&#8595;</div>
+      </div>
+
+      <!-- Phase 2 : Connecter & Accompagner -->
+      <div class="methode-phase">
+        <div class="methode-phase-label">
+          <span class="phase-badge phase-badge-2" data-i18n="approche.phase2_label"></span>
+        </div>
+        <div class="methode-grille">
+          <div class="methode-etape" data-step="4">
+            <div class="etape-header">
+              <span class="etape-num"><span data-i18n="approche.etape_pfx"></span>&thinsp;04</span>
+              <span class="etape-icone">&#128279;</span>
+            </div>
+            <h3 data-i18n="approche.e4_title"></h3>
+            <p  data-i18n="approche.e4_text"></p>
+            <ul class="etape-details">
+              <li data-i18n="approche.e4_d1"></li>
+              <li data-i18n="approche.e4_d2"></li>
+              <li data-i18n="approche.e4_d3"></li>
+            </ul>
+          </div>
+          <div class="methode-etape" data-step="5">
+            <div class="etape-header">
+              <span class="etape-num"><span data-i18n="approche.etape_pfx"></span>&thinsp;05</span>
+              <span class="etape-icone">&#129309;</span>
+            </div>
+            <h3 data-i18n="approche.e5_title"></h3>
+            <p  data-i18n="approche.e5_text"></p>
+            <ul class="etape-details">
+              <li data-i18n="approche.e5_d1"></li>
+              <li data-i18n="approche.e5_d2"></li>
+              <li data-i18n="approche.e5_d3"></li>
+            </ul>
+          </div>
+          <div class="methode-etape" data-step="6">
+            <div class="etape-header">
+              <span class="etape-num"><span data-i18n="approche.etape_pfx"></span>&thinsp;06</span>
+              <span class="etape-icone">&#128203;</span>
+            </div>
+            <h3 data-i18n="approche.e6_title"></h3>
+            <p  data-i18n="approche.e6_text"></p>
+            <ul class="etape-details">
+              <li data-i18n="approche.e6_d1"></li>
+              <li data-i18n="approche.e6_d2"></li>
+              <li data-i18n="approche.e6_d3"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      </div><!-- /.etapes-encadre -->
 
       <!-- Principes -->
-      <div style="margin-top: 4rem;">
+      <div class="demarche-partie principes-partie">
         <h3 class="approche-sous-titre" data-i18n="principes.tag"></h3>
+      </div>
+      <p class="principes-intro" data-i18n="principes.intro"></p>
 
-        <p class="principes-groupe-titre" data-i18n="principes.groupe_posture"></p>
-        <div class="principes-grille principes-grille-2">
-          <div class="principe" style="border-left-color:var(--vert)">
-            <h3 data-i18n="principes.p1_title"></h3>
-            <p  data-i18n="principes.p1_text"></p>
-          </div>
-          <div class="principe" style="border-left-color:var(--terre)">
-            <h3 data-i18n="principes.p2_title"></h3>
-            <p  data-i18n="principes.p2_text"></p>
-          </div>
+      <div class="principes-wrap">
+
+        <div class="principes-edito">
+          <article class="principe-edito">
+            <div class="principe-edito-entete">
+              <div class="principe-edito-titre-wrap">
+                <svg class="principe-edito-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="2"/>
+                  <path d="M8.5 8.5a5 5 0 0 0 0 7"/>
+                  <path d="M5.5 5.5a9 9 0 0 0 0 13"/>
+                  <path d="M15.5 8.5a5 5 0 0 1 0 7"/>
+                </svg>
+                <h3 class="principe-edito-titre" data-i18n="principes.p1_title"></h3>
+              </div>
+              <p class="principe-edito-phrase" data-i18n="principes.p1_phrase"></p>
+            </div>
+            <button class="principe-edito-toggle" type="button" data-i18n="principes.detail_toggle"></button>
+            <div class="principe-edito-detail">
+              <div class="principe-edito-detail-inner">
+                <p class="principe-edito-corps" data-i18n="principes.p1_text"></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="principe-edito">
+            <div class="principe-edito-entete">
+              <div class="principe-edito-titre-wrap">
+                <svg class="principe-edito-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="4.5" cy="12" r="2.5"/>
+                  <circle cx="19.5" cy="12" r="2.5"/>
+                  <path d="M7 12h10" stroke-dasharray="3 2"/>
+                  <path d="M14.5 9l3 3-3 3"/>
+                </svg>
+                <h3 class="principe-edito-titre" data-i18n="principes.p2_title"></h3>
+              </div>
+              <p class="principe-edito-phrase" data-i18n="principes.p2_phrase"></p>
+            </div>
+            <button class="principe-edito-toggle" type="button" data-i18n="principes.detail_toggle"></button>
+            <div class="principe-edito-detail">
+              <div class="principe-edito-detail-inner">
+                <p class="principe-edito-corps" data-i18n="principes.p2_text"></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="principe-edito">
+            <div class="principe-edito-entete">
+              <div class="principe-edito-titre-wrap">
+                <svg class="principe-edito-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="5" r="2"/>
+                  <circle cx="4" cy="19" r="2"/>
+                  <circle cx="20" cy="19" r="2"/>
+                  <path d="M10.3 6.9L5.3 17.3"/>
+                  <path d="M13.7 6.9L18.7 17.3"/>
+                  <path d="M6.3 17h11.4"/>
+                </svg>
+                <h3 class="principe-edito-titre" data-i18n="principes.p3_title"></h3>
+              </div>
+              <p class="principe-edito-phrase" data-i18n="principes.p3_phrase"></p>
+            </div>
+            <button class="principe-edito-toggle" type="button" data-i18n="principes.detail_toggle"></button>
+            <div class="principe-edito-detail">
+              <div class="principe-edito-detail-inner">
+                <p class="principe-edito-corps" data-i18n="principes.p3_text"></p>
+              </div>
+            </div>
+          </article>
+
+          <article class="principe-edito">
+            <div class="principe-edito-entete">
+              <div class="principe-edito-titre-wrap">
+                <svg class="principe-edito-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="15" width="18" height="5" rx="1.5"/>
+                  <rect x="5.5" y="9.5" width="13" height="5" rx="1.5"/>
+                  <rect x="8.5" y="4" width="7" height="5" rx="1.5"/>
+                </svg>
+                <h3 class="principe-edito-titre" data-i18n="principes.p4_title"></h3>
+              </div>
+              <p class="principe-edito-phrase" data-i18n="principes.p4_phrase"></p>
+            </div>
+            <button class="principe-edito-toggle" type="button" data-i18n="principes.detail_toggle"></button>
+            <div class="principe-edito-detail">
+              <div class="principe-edito-detail-inner">
+                <p class="principe-edito-corps" data-i18n="principes.p4_text"></p>
+              </div>
+            </div>
+          </article>
+
         </div>
 
-        <p class="principes-groupe-titre" data-i18n="principes.groupe_methode"></p>
-        <div class="principes-grille principes-grille-3">
-          <div class="principe" style="border-left-color:var(--bleu)">
-            <h3 data-i18n="principes.p3_title"></h3>
-            <p  data-i18n="principes.p3_text"></p>
-          </div>
-          <div class="principe" style="border-left-color:var(--vert)">
-            <h3 data-i18n="principes.p4_title"></h3>
-            <p  data-i18n="principes.p4_text"></p>
-          </div>
-          <div class="principe" style="border-left-color:var(--terre)">
-            <h3 data-i18n="principes.p5_title"></h3>
-            <p  data-i18n="principes.p5_text"></p>
-          </div>
-        </div>
+      </div>
+
+      <div class="principe-edito-note">
+        <span class="principe-edito-note-label" data-i18n="principes.note_label"></span>
+        <p data-i18n="principes.note_text"></p>
       </div>
     </div>
   </section>
@@ -1612,54 +2169,64 @@
       <!-- Grille de cartes — pour ajouter un domaine : dupliquer un .domaine-carte et créer les clés d1x_title / d1x_ex dans i18n.js -->
       <div class="domaines-grille">
         <div class="domaine-carte">
-          <div class="domaine-icone">&#127806;</div>
+          <div class="domaine-icone">&#128138;</div>
           <h3 data-i18n="domaines.d1_title"></h3>
           <p class="domaine-ex" data-i18n="domaines.d1_ex"></p>
         </div>
         <div class="domaine-carte">
-          <div class="domaine-icone">&#128167;</div>
+          <div class="domaine-icone">&#128218;</div>
           <h3 data-i18n="domaines.d2_title"></h3>
           <p class="domaine-ex" data-i18n="domaines.d2_ex"></p>
         </div>
         <div class="domaine-carte">
-          <div class="domaine-icone">&#127807;</div>
+          <div class="domaine-icone">&#128167;</div>
           <h3 data-i18n="domaines.d3_title"></h3>
           <p class="domaine-ex" data-i18n="domaines.d3_ex"></p>
         </div>
         <div class="domaine-carte" style="display:none">
-          <div class="domaine-icone">&#9889;</div>
+          <div class="domaine-icone">&#127806;</div>
           <h3 data-i18n="domaines.d4_title"></h3>
           <p class="domaine-ex" data-i18n="domaines.d4_ex"></p>
         </div>
         <div class="domaine-carte" style="display:none">
-          <div class="domaine-icone">&#128218;</div>
+          <div class="domaine-icone">&#9889;</div>
           <h3 data-i18n="domaines.d5_title"></h3>
           <p class="domaine-ex" data-i18n="domaines.d5_ex"></p>
         </div>
         <div class="domaine-carte" style="display:none">
-          <div class="domaine-icone">&#127973;</div>
+          <div class="domaine-icone">&#127968;</div>
           <h3 data-i18n="domaines.d6_title"></h3>
           <p class="domaine-ex" data-i18n="domaines.d6_ex"></p>
         </div>
         <div class="domaine-carte" style="display:none">
-          <div class="domaine-icone">&#128200;</div>
+          <div class="domaine-icone">&#128663;</div>
           <h3 data-i18n="domaines.d7_title"></h3>
           <p class="domaine-ex" data-i18n="domaines.d7_ex"></p>
         </div>
         <div class="domaine-carte" style="display:none">
-          <div class="domaine-icone">&#127912;</div>
+          <div class="domaine-icone">&#127807;</div>
           <h3 data-i18n="domaines.d8_title"></h3>
           <p class="domaine-ex" data-i18n="domaines.d8_ex"></p>
         </div>
         <div class="domaine-carte" style="display:none">
-          <div class="domaine-icone">&#128176;</div>
+          <div class="domaine-icone">&#128187;</div>
           <h3 data-i18n="domaines.d9_title"></h3>
           <p class="domaine-ex" data-i18n="domaines.d9_ex"></p>
         </div>
         <div class="domaine-carte" style="display:none">
-          <div class="domaine-icone">&#129309;</div>
+          <div class="domaine-icone">&#128188;</div>
           <h3 data-i18n="domaines.d10_title"></h3>
           <p class="domaine-ex" data-i18n="domaines.d10_ex"></p>
+        </div>
+        <div class="domaine-carte" style="display:none">
+          <div class="domaine-icone">&#129309;</div>
+          <h3 data-i18n="domaines.d11_title"></h3>
+          <p class="domaine-ex" data-i18n="domaines.d11_ex"></p>
+        </div>
+        <div class="domaine-carte" style="display:none">
+          <div class="domaine-icone">&#127758;</div>
+          <h3 data-i18n="domaines.d12_title"></h3>
+          <p class="domaine-ex" data-i18n="domaines.d12_ex"></p>
         </div>
       </div>
       <div class="domaines-toggle-wrap">
@@ -1895,9 +2462,16 @@
       return keys.reduce((obj, k) => obj?.[k], translations[lang]) || key;
     }
 
+    function pField(p, f) {
+      let lang = 'fr';
+      try { lang = localStorage.getItem('lang') || 'fr'; } catch(e) {}
+      if (lang !== 'fr') { const v = p[f + '_en']; if (v !== undefined) return v; }
+      return p[f];
+    }
+
     // ── Globe init ───────────────────────────────────────────────────────────
     if (typeof Globe !== 'function') {
-      container.innerHTML = '<p style="color:rgba(255,255,255,0.4);padding:2rem;text-align:center">Erreur : impossible de charger la librairie globe</p>';
+      container.innerHTML = '<p style="color:rgba(255,255,255,0.4);padding:2rem;text-align:center">Error: unable to load the globe library</p>';
       return;
     }
 
@@ -1940,7 +2514,7 @@
         })
         (container);
     } catch (err) {
-      container.innerHTML = '<p style="color:rgba(255,100,100,0.8);padding:2rem;text-align:center;font-size:0.85rem">Erreur globe : ' + err.message + '</p>';
+      container.innerHTML = '<p style="color:rgba(255,100,100,0.8);padding:2rem;text-align:center;font-size:0.85rem">Globe error: ' + err.message + '</p>';
       return;
     }
 
@@ -2076,9 +2650,9 @@
             <div class="panel-project-card" data-id="${p.id}">
               <span class="panel-status-dot" style="background:${STATUS_COLORS[p.status]}"></span>
               <div>
-                <strong>${p.title}</strong>
-                <small>${[p.city, p.region].filter(Boolean).join(' · ')}</small>
-                <small class="panel-card-domain">${p.domain}</small>
+                <strong>${pField(p, 'title')}</strong>
+                <small>${[p.city, pField(p, 'region')].filter(Boolean).join(' · ')}</small>
+                <small class="panel-card-domain">${pField(p, 'domain')}</small>
               </div>
             </div>`).join('');
 
@@ -2105,6 +2679,21 @@
       const isFromProjets = projectDetailSource === 'projets';
       activeTab = isFromProjets ? 'projets' : 'carte';
 
+      const lp = Object.assign({}, project, {
+        title:               pField(project, 'title'),
+        country:             pField(project, 'country'),
+        region:              pField(project, 'region'),
+        domain:              pField(project, 'domain'),
+        summary:             pField(project, 'summary'),
+        localNeeds:          pField(project, 'localNeeds'),
+        localResources:      pField(project, 'localResources'),
+        localPartners:       pField(project, 'localPartners'),
+        targetBeneficiaries: pField(project, 'targetBeneficiaries'),
+        timeline:            pField(project, 'timeline'),
+        impact:              pField(project, 'impact'),
+        followUp:            pField(project, 'followUp'),
+      });
+
       const statusLabels = {
         needs_support:      t('carte.status_needs'),
         in_progress:        t('carte.status_progress'),
@@ -2117,7 +2706,7 @@
       const color = STATUS_COLORS[project.status];
       const supportBadges = (project.supportNeeds || [])
         .map(s => `<span class="support-badge support-${s}">${supportLabels[s]||s}</span>`).join('');
-      const partnersHTML = (project.localPartners || []).map(p => `<li>${p}</li>`).join('');
+      const partnersHTML = (lp.localPartners || []).map(p => `<li>${p}</li>`).join('');
       const backLabel = isFromProjets ? t('carte.projets_back') : (selectedISO ? t('carte.panel_back') : t('carte.panel_close'));
 
       function field(label, value) {
@@ -2139,19 +2728,19 @@
             <span class="panel-status-pill" style="background:${color}22;color:${color};border:1px solid ${color}55">
               ${statusLabels[project.status]||project.status}
             </span>
-            <p class="panel-project-title">${project.title}</p>
-            <p class="panel-location">&#128205; ${[project.city, project.region, project.country].filter(Boolean).join(', ')}</p>
-            <p class="panel-domain-tag">${project.domain}</p>
+            <p class="panel-project-title">${lp.title}</p>
+            <p class="panel-location">&#128205; ${[project.city, lp.region, lp.country].filter(Boolean).join(', ')}</p>
+            <p class="panel-domain-tag">${lp.domain}</p>
             ${supportBadges ? `<div class="panel-support-badges"><span class="panel-label">${t('carte.panel_needs_label')}</span>${supportBadges}</div>` : ''}
           </div>
-          ${field(t('carte.panel_summary'),         project.summary)}
-          ${field(t('carte.panel_local_needs'),     project.localNeeds)}
-          ${field(t('carte.panel_local_resources'), project.localResources)}
+          ${field(t('carte.panel_summary'),         lp.summary)}
+          ${field(t('carte.panel_local_needs'),     lp.localNeeds)}
+          ${field(t('carte.panel_local_resources'), lp.localResources)}
           ${partnersHTML ? `<div class="panel-field"><span class="panel-field-label">${t('carte.panel_partners')}</span><ul class="panel-partners-list">${partnersHTML}</ul></div>` : ''}
-          ${field(t('carte.panel_beneficiaries'), project.targetBeneficiaries)}
-          ${project.timeline ? `<p class="panel-timeline">&#9201; ${project.timeline}</p>` : ''}
-          ${field(t('carte.panel_impact'),   project.impact)}
-          ${field(t('carte.panel_followup'), project.followUp)}
+          ${field(t('carte.panel_beneficiaries'), lp.targetBeneficiaries)}
+          ${lp.timeline ? `<p class="panel-timeline">&#9201; ${lp.timeline}</p>` : ''}
+          ${field(t('carte.panel_impact'),   lp.impact)}
+          ${field(t('carte.panel_followup'), lp.followUp)}
           <div class="panel-actions">
             <a href="projects.html#${project.id}" class="panel-btn panel-btn-primary">${t('carte.btn_full_project')}</a>
             <a href="index.html#contact" class="panel-btn panel-btn-secondary" onclick="globePanelClose()">${t('carte.panel_btn_contact')}</a>
@@ -2177,8 +2766,9 @@
       projects.forEach(p => {
         const cont = p.continent || 'other';
         if (!byContinent[cont]) byContinent[cont] = {};
-        if (!byContinent[cont][p.country]) byContinent[cont][p.country] = [];
-        byContinent[cont][p.country].push(p);
+        const cKey = pField(p, 'country');
+        if (!byContinent[cont][cKey]) byContinent[cont][cKey] = [];
+        byContinent[cont][cKey].push(p);
       });
 
       const continentsHTML = Object.entries(byContinent).map(([cont, countries]) => {
@@ -2187,8 +2777,8 @@
             <div class="panel-project-card" data-id="${p.id}">
               <span class="panel-status-dot" style="background:${STATUS_COLORS[p.status]}"></span>
               <div>
-                <strong>${p.title}</strong>
-                <small>${[p.city, p.region].filter(Boolean).join(' · ')}</small>
+                <strong>${pField(p, 'title')}</strong>
+                <small>${[p.city, pField(p, 'region')].filter(Boolean).join(' · ')}</small>
               </div>
             </div>`).join('');
           return `<div class="projets-country-section">
@@ -2265,6 +2855,58 @@
   <script>
     var _domainesExpanded = false;
     function togglePilier(el) { el.classList.toggle('active'); }
+  </script>
+
+  <script>
+    (function() {
+      var items = document.querySelectorAll('.principe-edito');
+      if (!items.length) return;
+      if (!window.IntersectionObserver) {
+        items.forEach(function(el) { el.classList.add('visible'); });
+        return;
+      }
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+      items.forEach(function(el, i) {
+        el.style.transitionDelay = (i * 0.07) + 's';
+        obs.observe(el);
+      });
+    })();
+  </script>
+
+  <script>
+    document.querySelectorAll('.principe-edito').forEach(function(panel) {
+      var button = panel.querySelector('.principe-edito-toggle');
+      if (!button) return;
+      button.addEventListener('click', function() {
+        var isOpen = panel.classList.toggle('is-open');
+        var lang = document.documentElement.lang || 'fr';
+        button.textContent = translations[lang].principes[isOpen ? 'detail_close' : 'detail_toggle'];
+      });
+    });
+  </script>
+
+  <script>
+    document.querySelectorAll('.methode-etape').forEach(function(card) {
+      var details = card.querySelector('.etape-details');
+      if (!details) return;
+      var btn = document.createElement('button');
+      btn.className = 'etape-toggle';
+      btn.setAttribute('aria-expanded', 'false');
+      btn.innerHTML = '<span class="etape-toggle-arrow">&#8964;</span>';
+      details.insertAdjacentElement('beforebegin', btn);
+      btn.addEventListener('click', function() {
+        var isOpen = card.classList.toggle('etape-open');
+        details.classList.toggle('open', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    });
   </script>
 
   <script>

@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>humalink — Intermédiation pour le développement local</title>
+  <link rel="icon" type="image/png" href="Logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1355,6 +1356,7 @@
       margin: 0;
     }
 
+
     .panel-partners-list {
       list-style: none;
       padding: 0;
@@ -1550,7 +1552,8 @@
     .flux-gauche { background: var(--bleu); }
     .flux-centre { background: var(--terre); }
     .flux-droite { background: var(--vert); }
-    .flux-icone { font-size: 1.9rem; line-height: 1; }
+    .flux-header { display: flex; align-items: center; gap: 0.55rem; }
+    .flux-icone { font-size: 1.5rem; line-height: 1; flex-shrink: 0; }
     .flux-bloc h3 {
       font-size: 0.82rem;
       font-weight: 700;
@@ -1888,8 +1891,10 @@
       <!-- Schéma flux -->
       <div class="enjeu-flux">
         <div class="flux-bloc flux-gauche">
-          <div class="flux-icone">&#127758;</div>
-          <h3 data-i18n="role.flux_left_title"></h3>
+          <div class="flux-header">
+            <div class="flux-icone">&#127758;</div>
+            <h3 data-i18n="role.flux_left_title"></h3>
+          </div>
           <ul>
             <li data-i18n="role.flux_left_1"></li>
             <li data-i18n="role.flux_left_2"></li>
@@ -1906,8 +1911,10 @@
           </svg>
         </div>
         <div class="flux-bloc flux-centre">
-          <div class="flux-icone">&#128279;</div>
-          <h3 data-i18n="role.flux_center_title"></h3>
+          <div class="flux-header">
+            <div class="flux-icone">&#128279;</div>
+            <h3 data-i18n="role.flux_center_title"></h3>
+          </div>
           <ul>
             <li data-i18n="role.flux_center_1"></li>
             <li data-i18n="role.flux_center_2"></li>
@@ -1924,8 +1931,10 @@
           </svg>
         </div>
         <div class="flux-bloc flux-droite">
-          <div class="flux-icone">&#128101;</div>
-          <h3 data-i18n="role.flux_right_title"></h3>
+          <div class="flux-header">
+            <div class="flux-icone">&#128101;</div>
+            <h3 data-i18n="role.flux_right_title"></h3>
+          </div>
           <ul>
             <li data-i18n="role.flux_right_1"></li>
             <li data-i18n="role.flux_right_2"></li>

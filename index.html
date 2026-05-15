@@ -323,7 +323,7 @@
 
     /* ── PHASE BANNER ── */
     .phase-banner {
-      position: fixed;
+      position: sticky;
       top: calc(38px + 1.8rem);
       left: 0;
       right: 0;
@@ -368,6 +368,7 @@
 
     @media (max-width: 900px) {
       .phase-banner {
+        position: fixed;
         top: auto;
         bottom: 0;
         padding: 0.35rem 1.25rem;
@@ -1976,11 +1977,12 @@
         <a href="#contact" class="btn btn-contour" data-i18n="hero.btn_secondary"></a>
       </div>
     </div>
-    <div class="phase-banner">
-      <span class="phase-banner-dot"></span>
-      <p data-i18n="hero.phase_banner"></p>
-    </div>
   </section>
+
+  <div class="phase-banner">
+    <span class="phase-banner-dot"></span>
+    <p data-i18n="hero.phase_banner"></p>
+  </div>
 
   <!-- NOTRE RÔLE -->
   <section id="notre-role">

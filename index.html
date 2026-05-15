@@ -434,6 +434,10 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.06);
       border-top: 3px solid var(--vert);
       transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0 0.6rem;
     }
 
     .domaine-carte:hover {
@@ -442,15 +446,23 @@
     }
 
     .domaine-icone {
-      font-size: 2rem;
-      margin-bottom: 0.75rem;
+      font-size: 1.8rem;
+      line-height: 1;
+      flex-shrink: 0;
     }
 
     .domaine-carte h3 {
       font-size: 1rem;
       font-weight: 700;
       color: var(--bleu);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .domaine-ex {
+      flex: 0 0 100%;
+      margin-top: 0.6rem;
     }
 
     .domaine-ex {
@@ -2260,7 +2272,7 @@
       _domainesExpanded = !_domainesExpanded;
       var cartes = document.querySelectorAll('#domaines .domaine-carte');
       for (var i = 3; i < cartes.length; i++) {
-        cartes[i].style.display = _domainesExpanded ? 'block' : 'none';
+        cartes[i].style.display = _domainesExpanded ? '' : 'none';
       }
       try {
         var lang = document.documentElement.lang || 'fr';

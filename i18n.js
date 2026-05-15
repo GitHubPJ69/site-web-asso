@@ -74,7 +74,7 @@ const translations = {
     },
     domaines: {
       tag:   "Domaines d'intervention",
-      title: "Domaines d'intervention",
+      title: "Champs d'action",
       intro: "Nous accompagnons des projets de développement ancrés localement, construits avec les personnes concernées, les associations locales et les partenaires de terrain. Ces domaines peuvent évoluer selon les besoins identifiés, les compétences locales disponibles et les dynamiques propres à chaque territoire.",
       d1_title: "Sécurité alimentaire",
       d1_ex:    "Production locale, nutrition, élevage, agriculture durable, transformation alimentaire, circuits courts.",
@@ -448,7 +448,7 @@ const translations = {
     },
     domaines: {
       tag:   "Areas of intervention",
-      title: "Areas of intervention",
+      title: "Fields of action",
       intro: "We support locally rooted development projects, built with the people concerned, local associations and field partners. These areas may evolve according to identified needs, locally available expertise and the specific dynamics of each territory.",
       d1_title: "Food security",
       d1_ex:    "Local production, livestock, sustainable agriculture, food processing, short supply chains.",

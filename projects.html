@@ -60,12 +60,12 @@
     .nav-links {
       list-style: none;
       display: flex;
-      gap: 1.8rem;
+      gap: 1.2rem;
     }
     .nav-links a {
       color: rgba(255,255,255,0.80);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.82rem;
       font-weight: 500;
       transition: color 0.2s;
     }
@@ -667,10 +667,12 @@
     </a>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="index.html#notre-role"     data-i18n="nav.role"></a></li>
-        <li><a href="index.html#cartographie"   data-i18n="nav.carte"></a></li>
-        <li><a href="index.html#domaines"       data-i18n="nav.domaines"></a></li>
+        <li><a href="index.html#accueil"         data-i18n="nav.accueil"></a></li>
+        <li><a href="index.html#notre-role"      data-i18n="nav.demarche"></a></li>
+        <li><a href="index.html#domaines"        data-i18n="nav.domaines"></a></li>
         <li><a href="projects.html" class="active" data-i18n="nav.projets"></a></li>
+        <li><a href="index.html#qui-sommes-nous" data-i18n="nav.qui"></a></li>
+        <li><a href="index.html#contact"         data-i18n="nav.contact_lien"></a></li>
         <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
       </ul>
       <div class="lang-switcher">
@@ -686,7 +688,10 @@
       <span class="tag tag-vert" data-i18n="projets_page.tag"></span>
       <h1 data-i18n="projets_page.title"></h1>
       <p class="subtitle" data-i18n="projets_page.subtitle"></p>
-      <a href="index.html" class="btn-back" data-i18n="projets_page.back_home"></a>
+      <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.25rem;">
+        <a href="index.html" class="btn-back" data-i18n="projets_page.back_home"></a>
+        <a href="index.html#cartographie" class="btn-back" data-i18n="projets_page.btn_carto"></a>
+      </div>
     </div>
   </section>
 

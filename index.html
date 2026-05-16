@@ -1163,6 +1163,7 @@
       position: absolute;
       inset: 0;
       cursor: grab;
+      touch-action: none;
     }
 
     #globe-container:active { cursor: grabbing; }
@@ -1784,6 +1785,42 @@
       font-size: 0.94rem;
       color: var(--text-soft);
       line-height: 1.82;
+    }
+
+    .equipe-citation {
+      font-size: 0.97rem;
+      font-style: italic;
+      font-weight: 500;
+      color: var(--sombre);
+      line-height: 1.92;
+      text-align: justify;
+      hyphens: none;
+      max-width: 700px;
+      margin-top: 2.2rem;
+      margin-bottom: 0.5rem;
+      margin-left: 2rem;
+      padding-left: 1.2rem;
+      border-left: 2px solid var(--terre);
+    }
+
+    .equipe-citation::before {
+      content: "\201C";
+      color: var(--terre);
+      font-size: 1.25em;
+      font-style: normal;
+      font-weight: 600;
+      margin-right: 0.04em;
+      vertical-align: -0.05em;
+    }
+
+    .equipe-citation::after {
+      content: "\201D";
+      color: var(--terre);
+      font-size: 1.25em;
+      font-style: normal;
+      font-weight: 600;
+      margin-left: 0.04em;
+      vertical-align: -0.05em;
     }
 
     .equipe-linkedin {
@@ -2411,6 +2448,8 @@
         <span class="tag tag-terre" data-i18n="equipe.tag"></span>
         <h2 data-i18n="equipe.title"></h2>
         <p class="equipe-intro" data-i18n="equipe.intro"></p>
+        <p class="equipe-intro" data-i18n="equipe.intro2"></p>
+        <p class="equipe-citation" data-i18n="equipe.citation"></p>
         <a href="https://www.linkedin.com/in/sidonie-tisseau-4931141a9/" class="equipe-linkedin" target="_blank" rel="noopener">
           <span class="equipe-linkedin-badge">in</span>
           <span data-i18n="equipe.linkedin"></span>

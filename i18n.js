@@ -22,11 +22,11 @@ const translations = {
     demarche: {
       tag:   "Notre démarche",
       title: "Relier les acteurs,<br />structurer les coopérations",
-      lead:  "Humalink relie les initiatives locales aux acteurs de soutien, afin que des ressources disponibles puissent rencontrer des projets pertinents, crédibles et ancrés dans les réalités du terrain."
+      lead:  "Humalink Network relie les initiatives locales aux acteurs de soutien, afin que des ressources disponibles puissent rencontrer des projets pertinents, crédibles et ancrés dans les réalités du terrain."
     },
     role: {
       constat1: "De nombreuses organisations internationales disposent de ressources importantes et recherchent des projets capables de produire un impact réel, durable et ancré localement.",
-      constat2: "Dans le même temps, des acteurs locaux portent des initiatives concrètes, fondées sur une connaissance fine de leur territoire, mais manquent parfois de visibilité, de réseau ou d'accompagnement pour accéder aux ressources nécessaires. Humalink intervient dans cet espace : écouter, documenter, connecter.",
+      constat2: "Dans le même temps, des acteurs locaux portent des initiatives concrètes, fondées sur une connaissance fine de leur territoire, mais manquent parfois de visibilité, de réseau ou d'accompagnement pour accéder aux ressources nécessaires. Humalink Network intervient dans cet espace : écouter, documenter, connecter.",
       flux_left_title:   "Organisations & financeurs",
       flux_left_1:       "Ressources financières",
       flux_left_2:       "Expertises techniques",
@@ -46,7 +46,7 @@ const translations = {
     approche: {
       tag:      "Notre approche",
       title:    "Structurer des coopérations utiles et ancrées",
-      lead:     "Humalink agit comme un tiers de confiance entre les initiatives locales et les acteurs internationaux. Notre démarche est structurée, ancrée dans les réalités du terrain, et conduite avec rigueur à chaque étape.",
+      lead:     "Humalink Network agit comme un tiers de confiance entre les initiatives locales et les acteurs internationaux. Notre démarche est structurée, ancrée dans les réalités du terrain, et conduite avec rigueur à chaque étape.",
       piliers_titre: "Notre processus d'accompagnement",
       etape_pfx:  "Étape",
       phase1_label: "Analyser &amp; Documenter",
@@ -114,7 +114,7 @@ const translations = {
       voir_plus: "Voir plus",
       voir_moins: "Voir moins",
       conclusion: "Ces domaines servent de repères pour organiser l'analyse, rendre les besoins plus lisibles et identifier les complémentarités possibles entre initiatives locales et acteurs de soutien. Ils ne prétendent pas figer les réalités d'un territoire : chaque situation demande d'écouter les priorités exprimées, de comprendre les ressources déjà présentes et de replacer les projets dans leur contexte social, économique et institutionnel.",
-      nexus: "Humalink conserve volontairement une approche ouverte et évolutive. Les mises en relation sont envisagées à partir de besoins documentés, de capacités locales existantes et de partenariats réellement pertinents, afin que la plateforme reste utile sans enfermer les projets dans une grille prédéfinie."
+      nexus: "Humalink Network conserve volontairement une approche ouverte et évolutive. Les mises en relation sont envisagées à partir de besoins documentés, de capacités locales existantes et de partenariats réellement pertinents, afin que la plateforme reste utile sans enfermer les projets dans une grille prédéfinie."
     },
     principes: {
       tag:   "Nos principes",
@@ -123,24 +123,24 @@ const translations = {
       detail_close: "Masquer le détail",
       p1_title:  "Partir du terrain",
       p1_phrase: "Comprendre avant d'agir.",
-      p1_text:   "Avant toute mise en relation, Humalink cherche à comprendre les dynamiques existantes, les ressources disponibles et les contraintes propres à chaque contexte local. Cette écoute préalable conditionne la pertinence de toute intervention extérieure.",
+      p1_text:   "Avant toute mise en relation, Humalink Network cherche à comprendre les dynamiques existantes, les ressources disponibles et les contraintes propres à chaque contexte local. Cette écoute préalable conditionne la pertinence de toute intervention extérieure.",
       p2_title:  "Relier sans se substituer",
       p2_phrase: "Créer les conditions de la rencontre, sans décider à la place.",
-      p2_text:   "Humalink identifie les complémentarités, facilite les contacts et laisse aux acteurs concernés la maîtrise de leur trajectoire. Son rôle est d'articuler, non de se substituer.",
+      p2_text:   "Humalink Network identifie les complémentarités, facilite les contacts et laisse aux acteurs concernés la maîtrise de leur trajectoire. Son rôle est d'articuler, non de se substituer.",
       p3_title:  "Une mise en relation ciblée",
       p3_phrase: "Chaque connexion doit répondre à un besoin identifié.",
       p3_text:   "Chaque rapprochement est construit à partir des besoins, des capacités existantes et de la valeur ajoutée réelle pour les deux parties, afin de privilégier des partenariats utiles, durables et opérationnels.",
       p4_title:  "Contextualiser et nommer les limites",
       p4_phrase: "La transparence fait partie de la méthode.",
-      p4_text:   "Humalink contextualise ses analyses, signale les zones d'incertitude et évite de présenter comme certaines des réalités encore incomplètes. Les partenaires sont informés des limites comme des points d'appui.",
+      p4_text:   "Humalink Network contextualise ses analyses, signale les zones d'incertitude et évite de présenter comme certaines des réalités encore incomplètes. Les partenaires sont informés des limites comme des points d'appui.",
       note_label: "Note de cadrage",
-      note_text:  "Ces principes sont en cours de consolidation. Humalink est une initiative dans sa phase exploratoire&nbsp;: ses méthodes évoluent au contact des réalités de terrain, des retours de ses partenaires et des enseignements tirés de chaque mission. Ce cadre exprime une direction appelée à être ajustée avec rigueur et honnêteté.",
+      note_text:  "Ces principes sont en cours de consolidation. Humalink Network est une initiative dans sa phase exploratoire&nbsp;: ses méthodes évoluent au contact des réalités de terrain, des retours de ses partenaires et des enseignements tirés de chaque mission. Ce cadre exprime une direction appelée à être ajustée avec rigueur et honnêteté.",
     },
     equipe: {
       tag:   "Derrière l'initiative",
       title: "Qui sommes-nous&nbsp;?",
-      intro:  "Humalink est une initiative portée par Sidonie Tisseau. Après un Master en Intervention et Développement Social, centré sur l'intermédiation, la démocratie participative et les dynamiques territoriales, elle a construit un parcours de terrain en France et à l'international, entre accompagnement social, coordination de projets associatifs, solidarité internationale et soutien éducatif.",
-      intro2: "La démarche d'Humalink est directement issue de cette expérience&nbsp;: observer avant d'agir, comprendre les réalités locales et créer des liens utiles entre les acteurs, avec méthode, écoute et ancrage territorial.",
+      intro:  "Humalink Network est une initiative portée par Sidonie Tisseau. Après un Master en Intervention et Développement Social, centré sur l'intermédiation, la démocratie participative et les dynamiques territoriales, elle a construit un parcours de terrain en France et à l'international, entre accompagnement social, coordination de projets associatifs, solidarité internationale et soutien éducatif.",
+      intro2: "La démarche d'Humalink Network est directement issue de cette expérience&nbsp;: observer avant d'agir, comprendre les réalités locales et créer des liens utiles entre les acteurs, avec méthode, écoute et ancrage territorial.",
       citation: "Les projets les plus pertinents naissent toujours du terrain. L'enjeu n'est pas d'imposer une vision extérieure, mais de soutenir des initiatives à l'image des réalités locales qui les ont fait émerger.",
       linkedin: "Profil LinkedIn",
       axe1_title: "Parcours socio-territorial",
@@ -213,7 +213,7 @@ const translations = {
     projets_page: {
       tag:           "Initiatives de terrain",
       title:         "Projets",
-      subtitle:      "Initiatives locales documentées et relayées par humalink.",
+      subtitle:      "Initiatives locales documentées et relayées par Humalink Network.",
       back_home:     "← Retour à l'accueil",
       btn_carto:     "Cartographie mondiale →",
       back_cards:    "← Tous les projets",
@@ -273,7 +273,7 @@ const translations = {
       f_submit:  "Envoyer le message &rsaquo;"
     },
     submit: {
-      page_title:    "Soumettre un projet — humalink",
+      page_title:    "Soumettre un projet — Humalink Network",
       hero_tag:      "Porteurs de projets",
       hero_title:    "Soumettre un projet",
       hero_subtitle: "Présentez votre initiative locale pour rejoindre la plateforme et faciliter des collaborations avec des partenaires, financeurs ou experts internationaux.",
@@ -386,7 +386,7 @@ const translations = {
       fF5_label:   "Langues parlées",
 
       btn_submit:   "Envoyer ma soumission →",
-      submit_note:  "En soumettant ce formulaire, vous acceptez que les informations fournies soient utilisées par l'équipe humalink pour l'évaluation de votre projet. La soumission ne garantit pas la publication. Toutes les soumissions sont examinées manuellement.",
+      submit_note:  "En soumettant ce formulaire, vous acceptez que les informations fournies soient utilisées par l'équipe de Humalink Network pour l'évaluation de votre projet. La soumission ne garantit pas la publication. Toutes les soumissions sont examinées manuellement.",
       form_error:   "Une erreur est survenue lors de l'envoi. Veuillez vérifier les champs obligatoires et réessayer.",
 
       success_title: "Votre projet a bien été soumis",
@@ -394,7 +394,7 @@ const translations = {
       success_btn:   "← Retour à l'accueil"
     },
     footer: {
-      text: "&copy; 2026 humalink &middot; Comprendre le terrain, créer des liens"
+      text: "&copy; 2026 Humalink Network &middot; Comprendre le terrain, créer des liens"
     }
   },
 
@@ -419,11 +419,11 @@ const translations = {
     demarche: {
       tag:   "Our approach",
       title: "Connecting actors,<br />structuring cooperation",
-      lead:  "Humalink connects local initiatives with supporting actors so that available resources can meet relevant, credible projects rooted in field realities."
+      lead:  "Humalink Network connects local initiatives with supporting actors so that available resources can meet relevant, credible projects rooted in field realities."
     },
     role: {
       constat1: "Many international organisations have significant resources and are looking for projects capable of producing real, lasting impact while remaining rooted in local realities.",
-      constat2: "At the same time, local actors are carrying concrete initiatives built on in-depth knowledge of their territory, but sometimes lack the visibility, networks or support needed to access resources. Humalink operates in that space: listening, documenting, connecting.",
+      constat2: "At the same time, local actors are carrying concrete initiatives built on in-depth knowledge of their territory, but sometimes lack the visibility, networks or support needed to access resources. Humalink Network operates in that space: listening, documenting, connecting.",
       flux_left_title:   "Organisations & funders",
       flux_left_1:       "Financial resources",
       flux_left_2:       "Technical expertise",
@@ -443,7 +443,7 @@ const translations = {
     approche: {
       tag:      "Our approach",
       title:    "Structuring useful and grounded cooperation",
-      lead:     "Humalink acts as a trusted intermediary between local initiatives and international actors. Our process is structured, grounded in field realities, and conducted rigorously at every step.",
+      lead:     "Humalink Network acts as a trusted intermediary between local initiatives and international actors. Our process is structured, grounded in field realities, and conducted rigorously at every step.",
       piliers_titre: "Our support process",
       etape_pfx:  "Step",
       phase1_label: "Analyse &amp; Document",
@@ -511,7 +511,7 @@ const translations = {
       voir_plus: "Show more",
       voir_moins: "Show less",
       conclusion: "These fields act as reference points for structuring analysis, making needs easier to read and identifying possible complementarities between local initiatives and supporting actors. They are not meant to freeze the realities of a territory: each situation requires listening to expressed priorities, understanding resources already present and placing projects within their social, economic and institutional context.",
-      nexus: "Humalink deliberately keeps an open and evolving approach. Connections are considered from documented needs, existing local capacities and genuinely relevant partnerships, so the platform remains useful without forcing projects into a predefined grid."
+      nexus: "Humalink Network deliberately keeps an open and evolving approach. Connections are considered from documented needs, existing local capacities and genuinely relevant partnerships, so the platform remains useful without forcing projects into a predefined grid."
     },
     principes: {
       tag:   "Our principles",
@@ -520,24 +520,24 @@ const translations = {
       detail_close: "Hide the detail",
       p1_title:  "Start from the field",
       p1_phrase: "Understand before acting.",
-      p1_text:   "Before any introduction, Humalink seeks to understand existing dynamics, available resources and the constraints specific to each local context. This prior listening determines the relevance of any outside intervention.",
+      p1_text:   "Before any introduction, Humalink Network seeks to understand existing dynamics, available resources and the constraints specific to each local context. This prior listening determines the relevance of any outside intervention.",
       p2_title:  "Connect without substituting",
       p2_phrase: "Create the conditions for encounter, without deciding in others' place.",
-      p2_text:   "Humalink identifies complementarities, facilitates contacts and leaves the actors concerned in control of their own path. Its role is to articulate, not to substitute.",
+      p2_text:   "Humalink Network identifies complementarities, facilitates contacts and leaves the actors concerned in control of their own path. Its role is to articulate, not to substitute.",
       p3_title:  "A targeted introduction",
       p3_phrase: "Every connection should answer an identified need.",
       p3_text:   "Each introduction is built from needs, existing capacities and real added value for both parties, in order to favour useful, lasting and operational partnerships.",
       p4_title:  "Contextualise and name the limits",
       p4_phrase: "Transparency is part of the method.",
-      p4_text:   "Humalink contextualises its analyses, flags areas of uncertainty and avoids presenting incomplete realities as certain. Partners are informed of limitations as much as of points of support.",
+      p4_text:   "Humalink Network contextualises its analyses, flags areas of uncertainty and avoids presenting incomplete realities as certain. Partners are informed of limitations as much as of points of support.",
       note_label: "Framing note",
-      note_text:  "These principles are still being consolidated. Humalink is an initiative in its exploratory phase: its methods evolve through contact with field realities, partner feedback and lessons drawn from each mission. This framework expresses a direction that will continue to be adjusted with rigour and honesty.",
+      note_text:  "These principles are still being consolidated. Humalink Network is an initiative in its exploratory phase: its methods evolve through contact with field realities, partner feedback and lessons drawn from each mission. This framework expresses a direction that will continue to be adjusted with rigour and honesty.",
     },
     equipe: {
       tag:   "Behind the initiative",
       title: "Who we are",
-      intro:  "Humalink is an initiative led by Sidonie Tisseau. Holding a Master's in Social Intervention and Development, with a focus on intermediation, participatory democracy and territorial dynamics, she built her path through field experience in France and internationally, spanning social accompaniment, coordination of associative projects, international solidarity and educational support.",
-      intro2: "Humalink's approach grows directly from this experience: observing before acting, understanding local realities, and building useful connections between actors, with method, attentiveness and genuine territorial grounding.",
+      intro:  "Humalink Network is an initiative led by Sidonie Tisseau. Holding a Master's in Social Intervention and Development, with a focus on intermediation, participatory democracy and territorial dynamics, she built her path through field experience in France and internationally, spanning social accompaniment, coordination of associative projects, international solidarity and educational support.",
+      intro2: "Humalink Network's approach grows directly from this experience: observing before acting, understanding local realities, and building useful connections between actors, with method, attentiveness and genuine territorial grounding.",
       citation: "The most relevant projects always emerge from the field. The real challenge is not to impose an external vision, but to support initiatives that reflect the local realities from which they grew.",
       linkedin: "LinkedIn profile",
       axe1_title: "Socio-territorial background",
@@ -610,7 +610,7 @@ const translations = {
     projets_page: {
       tag:           "Field initiatives",
       title:         "Projects",
-      subtitle:      "Local initiatives documented and shared by humalink.",
+      subtitle:      "Local initiatives documented and shared by Humalink Network.",
       back_home:     "← Back to home",
       btn_carto:     "World map →",
       back_cards:    "← All projects",
@@ -670,7 +670,7 @@ const translations = {
       f_submit:  "Send message &rsaquo;"
     },
     submit: {
-      page_title:    "Submit a project — humalink",
+      page_title:    "Submit a project — Humalink Network",
       hero_tag:      "Project holders",
       hero_title:    "Submit a project",
       hero_subtitle: "Present your local initiative to join the platform and facilitate collaborations with partners, funders or international experts.",
@@ -783,7 +783,7 @@ const translations = {
       fF5_label:   "Languages spoken",
 
       btn_submit:   "Send my submission →",
-      submit_note:  "By submitting this form, you agree that the information provided may be used by the humalink team to evaluate your project. Submission does not guarantee publication. All submissions are reviewed manually.",
+      submit_note:  "By submitting this form, you agree that the information provided may be used by the Humalink Network team to evaluate your project. Submission does not guarantee publication. All submissions are reviewed manually.",
       form_error:   "An error occurred while sending. Please check the required fields and try again.",
 
       success_title: "Your project has been submitted",
@@ -791,7 +791,7 @@ const translations = {
       success_btn:   "← Back to home"
     },
     footer: {
-      text: "&copy; 2026 humalink &middot; Understanding the field, creating connections"
+      text: "&copy; 2026 Humalink Network &middot; Understanding the field, creating connections"
     }
   }
 

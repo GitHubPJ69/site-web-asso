@@ -6,10 +6,10 @@ Contexte projet à lire en priorité avant toute modification.
 
 ## Projet
 
-Site web de **humalink**, une association qui agit dans le **développement local et la coopération internationale**.
+Site web de **Humalink Network**, une association qui agit dans le **développement local et la coopération internationale**.
 Le positionnement du projet est celui d'un **intermédiaire** entre initiatives locales et acteurs internationaux : ONG, fondations, financeurs, institutions, partenaires techniques.
 
-Ne pas présenter humalink comme un acteur d'humanitaire d'urgence. Le vocabulaire et les choix éditoriaux doivent rester ancrés dans : développement, coopération, prévention, résilience, écoute, compétences locales et partenariats durables.
+Ne pas présenter Humalink Network comme un acteur d'humanitaire d'urgence. Le vocabulaire et les choix éditoriaux doivent rester ancrés dans : développement, coopération, prévention, résilience, écoute, compétences locales et partenariats durables.
 
 Logo actuellement utilisé dans le site : `Logo.png`.
 

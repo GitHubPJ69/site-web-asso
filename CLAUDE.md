@@ -10,7 +10,7 @@ Site web d'une association intervenant dans le **développement local et la coop
 Positionnement : **intermédiaire** entre initiatives locales et acteurs internationaux (ONG, fondations, financeurs).
 Ne pas confondre avec l'humanitaire d'urgence — logique de développement, coopération, prévention, résilience.
 
-Nom de l'association : **humalink** (logo : `logo-humalink.png` à la racine du projet).
+Nom de l'association : **Humalink Network** (logo : `logo-humalink.png` à la racine du projet).
 
 ---
 

@@ -394,7 +394,7 @@ const translations = {
       success_btn:   "← Retour à l'accueil"
     },
     footer: {
-      text: "&copy; 2026 humalink &middot; Intermédiation pour le développement local et la coopération internationale"
+      text: "&copy; 2026 humalink &middot; Comprendre le terrain, créer des liens"
     }
   },
 
@@ -791,7 +791,7 @@ const translations = {
       success_btn:   "← Back to home"
     },
     footer: {
-      text: "&copy; 2026 humalink &middot; Intermediation for local development and international cooperation"
+      text: "&copy; 2026 humalink &middot; Understanding the field, creating connections"
     }
   }
 

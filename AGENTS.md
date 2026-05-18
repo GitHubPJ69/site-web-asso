@@ -19,15 +19,34 @@ Logo actuellement utilisé dans le site : `Logo.png`.
 
 Deux personnes travaillent sur ce projet :
 
-- **Sidonie Tisseau** — fondatrice de Humalink Network. Pilote l'essentiel du contenu et de la dimension éditoriale du site (textes, ton, choix de communication, message envoyé).
-- **Pierre-Jean Martin** — apporte l'aide technique et informatique (développement, refactoring, déploiement, optimisations, git, infra).
+- **Sidonie Tisseau** — fondatrice de Humalink Network. **Utilisatrice principale de Claude Code sur ce projet** (Claude Code dans VS Code). Pilote le contenu et l'éditorial (textes, ton, choix de communication). Est en phase de découverte technique : elle comprend ce qu'on lui explique, mais le vocabulaire technique ne lui est pas encore familier.
+- **Pierre-Jean Martin** — ressource technique. Aide Sidonie sur les points techniques pointus (architecture, choix d'implémentation, git, déploiement). Intervient occasionnellement directement dans les sessions Claude Code.
 
-### Convention pour l'agent
+### Détection de l'interlocuteur
 
-- Les questions de **contenu / éditorial / ton / formulation / choix de mots / message** se règlent côté Sidonie.
-- Les questions **techniques / code / performance / déploiement / git / infrastructure** se règlent côté Pierre-Jean.
+Sidonie et Pierre-Jean **partagent la même machine** : email git, config Claude Code et environnement Windows sont identiques pour les deux. **Pas de détection automatique possible** par signaux machine.
 
-Si l'agent reçoit une demande qui mélange les deux registres, expliciter ce qui relève de quel pôle pour aider à arbitrer.
+Règle : par défaut, **assumer que c'est Sidonie**. Ne basculer vers le mode "Pierre-Jean" que si :
+- la personne dit explicitement *"c'est PJ"* / *"c'est Pierre-Jean"* / *"là c'est moi qui parle"* ;
+- la conversation porte sur un sujet très technique manipulé avec aisance (config CLI, debug runtime, choix d'architecture), sans demande d'explication ;
+- l'opération en cours est typiquement infra (auth gh, install winget, gestion de tokens).
+
+### Style de communication
+
+**Quand c'est Sidonie** (cas par défaut) :
+- Expliquer les termes techniques en français simple au fur et à mesure (par exemple : *"un commit, c'est une photo de l'état du projet à un instant T"*).
+- Ne pas cacher les détails techniques pour autant — elle comprend tout, elle découvre juste le vocabulaire. Pas de surnommage condescendant, pas de simplification qui élude.
+- Quand on introduit un nouveau concept (commit, push, refactor, variable CSS, etc.), poser brièvement le mot + sa définition la première fois, puis l'utiliser normalement ensuite.
+- Préférer décrire les effets concrets (*"ça déclenche un nouveau build de la page"*) plutôt que des abstractions.
+
+**Quand c'est Pierre-Jean** :
+- Vocabulaire technique direct, pas d'explications préliminaires.
+
+### Partage des décisions
+
+- **Contenu / éditorial / ton / formulation** : Sidonie tranche en dernier ressort.
+- **Choix techniques structurants** (refactor majeur, dépendance, choix d'architecture) : Pierre-Jean est l'autorité ; même si Sidonie est à la conversation, sur ce type de décision il vaut mieux qu'elle valide avec lui avant qu'on parte sur du gros travail.
+- **Petits choix techniques du quotidien** (renommage, ajout d'un fichier, compression d'image, etc.) : Sidonie peut décider seule.
 
 ---
 

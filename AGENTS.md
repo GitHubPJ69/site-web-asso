@@ -15,6 +15,22 @@ Logo actuellement utilisé dans le site : `Logo.png`.
 
 ---
 
+## Équipe
+
+Deux personnes travaillent sur ce projet :
+
+- **Sidonie Tisseau** — fondatrice de Humalink Network. Pilote l'essentiel du contenu et de la dimension éditoriale du site (textes, ton, choix de communication, message envoyé).
+- **Pierre-Jean Martin** — apporte l'aide technique et informatique (développement, refactoring, déploiement, optimisations, git, infra).
+
+### Convention pour l'agent
+
+- Les questions de **contenu / éditorial / ton / formulation / choix de mots / message** se règlent côté Sidonie.
+- Les questions **techniques / code / performance / déploiement / git / infrastructure** se règlent côté Pierre-Jean.
+
+Si l'agent reçoit une demande qui mélange les deux registres, expliciter ce qui relève de quel pôle pour aider à arbitrer.
+
+---
+
 ## Stack et architecture
 
 - Site statique en **HTML / CSS / JavaScript pur**.

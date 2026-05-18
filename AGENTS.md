@@ -40,6 +40,8 @@ site_web_asso/
 ├── countries.js                       — GeoJSON pays local
 ├── project_submission_specification_v1.md — spécification métier du formulaire V1
 ├── Logo.png                           — logo utilisé par le site
+├── AGENTS.md                          — ce fichier : source de vérité unique du contexte projet
+├── CLAUDE.md                          — import `@AGENTS.md` (chargé automatiquement par Claude Code)
 └── CNAME                              — configuration GitHub Pages / domaine
 ```
 
@@ -109,7 +111,7 @@ Fichier central : `i18n.js`.
 Namespaces actuellement présents :
 
 ```text
-nav, hero, role, approche, domaines, principes, equipe,
+nav, hero, demarche, role, approche, domaines, principes, equipe,
 carte, continents, projets_page, contact, submit, footer
 ```
 
@@ -184,6 +186,6 @@ Si le CDN ou Three.js plante, tout le bloc s'arrête ; les autres fonctionnalit�
 
 ## Points de vigilance connus
 
-- `CLAUDE.md` peut contenir des informations historiques désormais décalées ; toujours confronter avec les fichiers actuels.
+- `CLAUDE.md` ne contient plus qu'un import `@AGENTS.md` : toute mise à jour du contexte projet doit donc se faire dans **AGENTS.md** uniquement, jamais dans CLAUDE.md.
 - Le CSS est dupliqué entre pages HTML, donc une évolution visuelle peut nécessiter plusieurs modifications coordonnées.
 - Le site est volontairement simple : préserver cette simplicité au lieu d'introduire prématurément une architecture lourde.

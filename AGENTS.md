@@ -39,11 +39,28 @@ site_web_asso/
 ├── projects.js                        — données projets + couleurs de statut
 ├── countries.js                       — GeoJSON pays local
 ├── project_submission_specification_v1.md — spécification métier du formulaire V1
-├── Logo.png                           — logo utilisé par le site
+├── logo-navbar.png                    — logo compressé utilisé dans la navbar / footer (152×152, ~19 KB)
+├── favicon-32.png / favicon-180.png   — favicon (onglet navigateur) et apple-touch-icon (raccourci iOS)
+├── og-cover.jpg                       — image Open Graph / Twitter Card (1200×630) pour le partage social
+├── hero-background.jpg                — image de fond du hero `#accueil` (gradient sombre par-dessus en CSS)
+├── photo_pro_sido.jpg                 — photo profil Sidonie Tisseau, section `#qui-sommes-nous`
+├── originals/                         — sources HD non utilisées par le site (voir section dédiée plus bas)
 ├── AGENTS.md                          — ce fichier : source de vérité unique du contexte projet
 ├── CLAUDE.md                          — import `@AGENTS.md` (chargé automatiquement par Claude Code)
 └── CNAME                              — configuration GitHub Pages / domaine
 ```
+
+### Dossier `originals/`
+
+Sources haute définition des visuels, **non référencées dans le site**. Conservées pour réutilisation future (impression, supports de comm', déclinaisons graphiques, retouche). Ne jamais les linker directement dans le HTML — toujours générer une version optimisée à la racine et référencer celle-ci.
+
+| Fichier | Description |
+|---|---|
+| `originals/Logo.png` | Logo canonique HD (1254×1254 PNG, ~1.2 MB). Source pour `logo-navbar.png`, `favicon-32.png`, `favicon-180.png`, `og-cover.jpg`. |
+| `originals/Photo.pro.png` | Photo Sidonie Tisseau HD (1402×1122 PNG, ~1.7 MB). Source pour `photo_pro_sido.jpg`. |
+| `originals/hero-original.png` | Image de fond du hero, version HD (1536×1024 PNG, ~2.3 MB). Source pour `hero-background.jpg`. |
+| `originals/Favicon2.png` | Variante historique du favicon (1254×1254 PNG, ~900 KB). Conservé au cas où. |
+| `originals/FAVicon.png` | Autre variante historique du favicon (1024×1024 PNG, ~1.4 MB). Conservé au cas où. |
 
 ---
 

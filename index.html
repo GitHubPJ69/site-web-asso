@@ -2672,21 +2672,28 @@
           const iso = feat?.properties?.ISO_A3;
           container.style.cursor = (feat && iso && iso !== '-99') ? 'pointer' : 'grab';
         })
-        .pointsData(projects)
-        .pointLat('lat')
-        .pointLng('lng')
-        .pointColor(p => STATUS_COLORS[p.status])
-        .pointRadius(0.45)
-        .pointAltitude(0.02)
-        .pointResolution(16)
-        .onPointClick((p, evt) => {
-          pointJustClicked = true;
-          setTimeout(() => { pointJustClicked = false; }, 80);
-          projectDetailSource = 'carte';
-          handleProjectClick(p);
-        })
-        .onPointHover(p => {
-          container.style.cursor = p ? 'pointer' : 'grab';
+        .htmlElementsData(projects)
+        .htmlLat('lat')
+        .htmlLng('lng')
+        .htmlAltitude(0.01)
+        .htmlElement(p => {
+          const color  = STATUS_COLORS[p.status];
+          const el     = document.createElement('div');
+          el.style.cssText = 'position:relative;width:18px;height:26px;cursor:pointer;transform:translate(-50%,-100%);pointer-events:auto';
+          const head   = document.createElement('div');
+          head.style.cssText = `position:absolute;top:0;left:0;width:18px;height:18px;border-radius:50%;background:${color};box-shadow:0 1px 5px rgba(0,0,0,0.4)`;
+          const tail   = document.createElement('div');
+          tail.style.cssText = `position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:10px solid ${color}`;
+          el.appendChild(head);
+          el.appendChild(tail);
+          el.addEventListener('click', evt => {
+            evt.stopPropagation();
+            pointJustClicked = true;
+            setTimeout(() => { pointJustClicked = false; }, 80);
+            projectDetailSource = 'carte';
+            handleProjectClick(p);
+          });
+          return el;
         })
         (container);
     } catch (err) {
@@ -3017,12 +3024,12 @@
         if (filterState.supportType && !p.supportNeeds?.includes(filterState.supportType)) return false;
         return true;
       });
-      globe.pointsData(filtered);
+      globe.htmlElementsData(filtered);
     }
 
     // API publique pour les futurs boutons filtres
     window.setGlobeFilter   = (k, v) => { filterState[k] = v; applyFilters(); };
-    window.resetGlobeFilter = ()      => { filterState = {}; globe.pointsData(projects); };
+    window.resetGlobeFilter = ()      => { filterState = {}; globe.htmlElementsData(projects); };
 
   }());
 

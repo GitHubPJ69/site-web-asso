@@ -2679,6 +2679,7 @@
         .htmlElement(p => {
           const color  = STATUS_COLORS[p.status];
           const el     = document.createElement('div');
+          el.setAttribute('data-globe-pin', '');
           el.style.cssText = 'position:relative;width:18px;height:26px;cursor:pointer;transform:translate(-50%,-100%);pointer-events:auto';
           const head   = document.createElement('div');
           head.style.cssText = `position:absolute;top:0;left:0;width:18px;height:18px;border-radius:50%;background:${color};box-shadow:0 1px 5px rgba(0,0,0,0.4)`;
@@ -2712,8 +2713,6 @@
     resizeGlobe();
 
     // Éclairage uniforme : supprime l'effet "soleil" de Three.js → couleurs unies
-    // + corrige le pointer-events sur l'overlay HTML de Globe.gl pour ne pas bloquer
-    //   le pinch-to-zoom mobile (les pins gardent pointer-events:auto en inline)
     setTimeout(() => {
       try {
         globe.scene().traverse(obj => {
@@ -2721,10 +2720,22 @@
           if (obj.isDirectionalLight) { obj.intensity = 0; }
         });
       } catch(e) {}
-      container.querySelectorAll(':scope > div').forEach(div => {
-        div.style.pointerEvents = 'none';
-      });
     }, 0);
+
+    // Corrige le pinch-to-zoom mobile : l'overlay htmlElementsData de Globe.gl
+    // peut bloquer les touch events vers le canvas. On cible uniquement ce div
+    // (parent direct de nos pins) sans toucher aux divs de contrôle du globe.
+    setTimeout(() => {
+      const pin = container.querySelector('[data-globe-pin]');
+      if (!pin) return;
+      let overlay = pin.parentElement;
+      while (overlay && overlay.parentElement !== container) {
+        overlay = overlay.parentElement;
+      }
+      if (overlay && overlay !== container) {
+        overlay.style.pointerEvents = 'none';
+      }
+    }, 300);
 
     // Le globe est rendu — masquer le texte de chargement immédiatement
     const loadingEl = document.getElementById('globe-loading');

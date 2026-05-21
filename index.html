@@ -2712,6 +2712,8 @@
     resizeGlobe();
 
     // Éclairage uniforme : supprime l'effet "soleil" de Three.js → couleurs unies
+    // + corrige le pointer-events sur l'overlay HTML de Globe.gl pour ne pas bloquer
+    //   le pinch-to-zoom mobile (les pins gardent pointer-events:auto en inline)
     setTimeout(() => {
       try {
         globe.scene().traverse(obj => {
@@ -2719,6 +2721,9 @@
           if (obj.isDirectionalLight) { obj.intensity = 0; }
         });
       } catch(e) {}
+      container.querySelectorAll(':scope > div').forEach(div => {
+        div.style.pointerEvents = 'none';
+      });
     }, 0);
 
     // Le globe est rendu — masquer le texte de chargement immédiatement

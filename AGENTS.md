@@ -89,7 +89,7 @@ Contient tous les visuels du site sauf `og-cover.jpg` (qui doit rester à la rac
 
 | Fichier | Description |
 |---|---|
-| `images/logo-navbar.png` | Logo compressé pour la navbar et le footer (152×152, ~19 KB) |
+| `images/logo-linkovia.png` | Logo compressé pour la navbar et le footer (152×152, ~19 KB) |
 | `images/favicon-32.png` | Favicon onglet navigateur (32×32 PNG, ~1.4 KB) |
 | `images/favicon-180.png` | Apple touch icon iOS (180×180 PNG, ~21 KB) |
 | `images/hero-background.jpg` | Image de fond du hero `#accueil` (gradient sombre par-dessus en CSS) |
@@ -99,7 +99,7 @@ Contient tous les visuels du site sauf `og-cover.jpg` (qui doit rester à la rac
 
 | Fichier | Description |
 |---|---|
-| `images/originals/Logo.png` | Logo canonique HD (1254×1254 PNG, ~1.2 MB). Source pour `logo-navbar.png`, les favicons, et `og-cover.jpg`. |
+| `images/originals/Logo.png` | Logo canonique HD (1254×1254 PNG, ~1.2 MB). Source pour `logo-linkovia.png`, les favicons, et `og-cover.jpg`. |
 | `images/originals/Photo.pro.png` | Photo Sidonie Tisseau HD (1402×1122 PNG, ~1.7 MB). Source pour `photo_pro_sido.jpg`. |
 | `images/originals/hero-original.png` | Image de fond du hero, version HD (1536×1024 PNG, ~2.3 MB). Source pour `hero-background.jpg`. |
 | `images/originals/Favicon2.png` | Variante historique du favicon (1254×1254 PNG, ~900 KB). Conservé au cas où. |

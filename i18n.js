@@ -22,11 +22,11 @@ const translations = {
     demarche: {
       tag:   "Notre démarche",
       title: "Relier les acteurs,<br />structurer les coopérations",
-      lead:  "Humalink Network relie les initiatives locales aux acteurs de soutien, afin que des ressources disponibles puissent rencontrer des projets pertinents, crédibles et ancrés dans les réalités du terrain."
+      lead:  "Linkovia Network relie les initiatives locales aux acteurs de soutien, afin que des ressources disponibles puissent rencontrer des projets pertinents, crédibles et ancrés dans les réalités du terrain."
     },
     role: {
       constat1: "De nombreuses organisations internationales disposent de ressources importantes et recherchent des projets capables de produire un impact réel, durable et ancré localement.",
-      constat2: "Dans le même temps, des acteurs locaux portent des initiatives concrètes, fondées sur une connaissance fine de leur territoire, mais manquent parfois de visibilité, de réseau ou d'accompagnement pour accéder aux ressources nécessaires. Humalink Network intervient dans cet espace : écouter, documenter, connecter.",
+      constat2: "Dans le même temps, des acteurs locaux portent des initiatives concrètes, fondées sur une connaissance fine de leur territoire, mais manquent parfois de visibilité, de réseau ou d'accompagnement pour accéder aux ressources nécessaires. Linkovia Network intervient dans cet espace : écouter, documenter, connecter.",
       flux_left_title:   "Organisations & financeurs",
       flux_left_1:       "Ressources financières",
       flux_left_2:       "Expertises techniques",
@@ -46,7 +46,7 @@ const translations = {
     approche: {
       tag:      "Notre approche",
       title:    "Structurer des coopérations utiles et ancrées",
-      lead:     "Humalink Network agit comme un tiers de confiance entre les initiatives locales et les acteurs internationaux. Notre démarche est structurée, ancrée dans les réalités du terrain, et conduite avec rigueur à chaque étape.",
+      lead:     "Linkovia Network agit comme un tiers de confiance entre les initiatives locales et les acteurs internationaux. Notre démarche est structurée, ancrée dans les réalités du terrain, et conduite avec rigueur à chaque étape.",
       piliers_titre: "Notre processus d'accompagnement",
       etape_pfx:  "Étape",
       phase1_label: "Analyser &amp; Documenter",
@@ -114,7 +114,7 @@ const translations = {
       voir_plus: "Voir plus",
       voir_moins: "Voir moins",
       conclusion: "Ces domaines servent de repères pour organiser l'analyse, rendre les besoins plus lisibles et identifier les complémentarités possibles entre initiatives locales et acteurs de soutien. Ils ne prétendent pas figer les réalités d'un territoire : chaque situation demande d'écouter les priorités exprimées, de comprendre les ressources déjà présentes et de replacer les projets dans leur contexte social, économique et institutionnel.",
-      nexus: "Humalink Network conserve volontairement une approche ouverte et évolutive. Les mises en relation sont envisagées à partir de besoins documentés, de capacités locales existantes et de partenariats réellement pertinents, afin que la plateforme reste utile sans enfermer les projets dans une grille prédéfinie."
+      nexus: "Linkovia Network conserve volontairement une approche ouverte et évolutive. Les mises en relation sont envisagées à partir de besoins documentés, de capacités locales existantes et de partenariats réellement pertinents, afin que la plateforme reste utile sans enfermer les projets dans une grille prédéfinie."
     },
     principes: {
       tag:   "Nos principes",
@@ -123,24 +123,24 @@ const translations = {
       detail_close: "Masquer le détail",
       p1_title:  "Partir du terrain",
       p1_phrase: "Comprendre avant d'agir.",
-      p1_text:   "Avant toute mise en relation, Humalink Network cherche à comprendre les dynamiques existantes, les ressources disponibles et les contraintes propres à chaque contexte local. Cette écoute préalable conditionne la pertinence de toute intervention extérieure.",
+      p1_text:   "Avant toute mise en relation, Linkovia Network cherche à comprendre les dynamiques existantes, les ressources disponibles et les contraintes propres à chaque contexte local. Cette écoute préalable conditionne la pertinence de toute intervention extérieure.",
       p2_title:  "Relier sans se substituer",
       p2_phrase: "Créer les conditions de la rencontre, sans décider à la place.",
-      p2_text:   "Humalink Network identifie les complémentarités, facilite les contacts et laisse aux acteurs concernés la maîtrise de leur trajectoire. Son rôle est d'articuler, non de se substituer.",
+      p2_text:   "Linkovia Network identifie les complémentarités, facilite les contacts et laisse aux acteurs concernés la maîtrise de leur trajectoire. Son rôle est d'articuler, non de se substituer.",
       p3_title:  "Une mise en relation ciblée",
       p3_phrase: "Chaque connexion doit répondre à un besoin identifié.",
       p3_text:   "Chaque rapprochement est construit à partir des besoins, des capacités existantes et de la valeur ajoutée réelle pour les deux parties, afin de privilégier des partenariats utiles, durables et opérationnels.",
       p4_title:  "Contextualiser et nommer les limites",
       p4_phrase: "La transparence fait partie de la méthode.",
-      p4_text:   "Humalink Network contextualise ses analyses, signale les zones d'incertitude et évite de présenter comme certaines des réalités encore incomplètes. Les partenaires sont informés des limites comme des points d'appui.",
+      p4_text:   "Linkovia Network contextualise ses analyses, signale les zones d'incertitude et évite de présenter comme certaines des réalités encore incomplètes. Les partenaires sont informés des limites comme des points d'appui.",
       note_label: "Note de cadrage",
-      note_text:  "Ces principes sont en cours de consolidation. Humalink Network est une initiative dans sa phase exploratoire&nbsp;: ses méthodes évoluent au contact des réalités de terrain, des retours de ses partenaires et des enseignements tirés de chaque mission. Ce cadre exprime une direction appelée à être ajustée avec rigueur et honnêteté.",
+      note_text:  "Ces principes sont en cours de consolidation. Linkovia Network est une initiative dans sa phase exploratoire&nbsp;: ses méthodes évoluent au contact des réalités de terrain, des retours de ses partenaires et des enseignements tirés de chaque mission. Ce cadre exprime une direction appelée à être ajustée avec rigueur et honnêteté.",
     },
     equipe: {
       tag:   "Derrière l'initiative",
       title: "Qui sommes-nous&nbsp;?",
-      intro:  "Humalink Network est une initiative portée par Sidonie Tisseau. Après un Master en Intervention et Développement Social, centré sur l'intermédiation, la démocratie participative et les dynamiques territoriales, elle a construit un parcours de terrain en France et à l'international, entre accompagnement social, coordination de projets associatifs, solidarité internationale et soutien éducatif.",
-      intro2: "La démarche d'Humalink Network est directement issue de cette expérience&nbsp;: observer avant d'agir, comprendre les réalités locales et créer des liens utiles entre les acteurs, avec méthode, écoute et ancrage territorial.",
+      intro:  "Linkovia Network est une initiative portée par Sidonie Tisseau. Après un Master en Intervention et Développement Social, centré sur l'intermédiation, la démocratie participative et les dynamiques territoriales, elle a construit un parcours de terrain en France et à l'international, entre accompagnement social, coordination de projets associatifs, solidarité internationale et soutien éducatif.",
+      intro2: "La démarche de Linkovia Network est directement issue de cette expérience&nbsp;: observer avant d'agir, comprendre les réalités locales et créer des liens utiles entre les acteurs, avec méthode, écoute et ancrage territorial.",
       citation: "Les projets les plus pertinents naissent toujours du terrain. L'enjeu n'est pas d'imposer une vision extérieure, mais de soutenir des initiatives à l'image des réalités locales qui les ont fait émerger.",
       linkedin: "Profil LinkedIn",
       axe1_title: "Parcours socio-territorial",
@@ -213,7 +213,7 @@ const translations = {
     projets_page: {
       tag:           "Initiatives de terrain",
       title:         "Projets",
-      subtitle:      "Initiatives locales documentées et relayées par Humalink Network.",
+      subtitle:      "Initiatives locales documentées et relayées par Linkovia Network.",
       back_home:     "← Retour à l'accueil",
       btn_carto:     "Cartographie mondiale →",
       back_cards:    "← Tous les projets",
@@ -273,7 +273,7 @@ const translations = {
       f_submit:  "Envoyer le message &rsaquo;"
     },
     submit: {
-      page_title:    "Soumettre un projet — Humalink Network",
+      page_title:    "Soumettre un projet — Linkovia Network",
       hero_tag:      "Porteurs de projets",
       hero_title:    "Soumettre un projet",
       hero_subtitle: "Présentez votre initiative locale pour rejoindre la plateforme et faciliter des collaborations avec des partenaires, financeurs ou experts internationaux.",
@@ -386,7 +386,7 @@ const translations = {
       fF5_label:   "Langues parlées",
 
       btn_submit:   "Envoyer ma soumission →",
-      submit_note:  "En soumettant ce formulaire, vous acceptez que les informations fournies soient utilisées par l'équipe de Humalink Network pour l'évaluation de votre projet. La soumission ne garantit pas la publication. Toutes les soumissions sont examinées manuellement.",
+      submit_note:  "En soumettant ce formulaire, vous acceptez que les informations fournies soient utilisées par l'équipe de Linkovia Network pour l'évaluation de votre projet. La soumission ne garantit pas la publication. Toutes les soumissions sont examinées manuellement.",
       form_error:   "Une erreur est survenue lors de l'envoi. Veuillez vérifier les champs obligatoires et réessayer.",
 
       success_title: "Votre projet a bien été soumis",
@@ -394,7 +394,7 @@ const translations = {
       success_btn:   "← Retour à l'accueil"
     },
     footer: {
-      text: "&copy; 2026 Humalink Network &middot; Comprendre le terrain, créer des liens"
+      text: "&copy; 2026 Linkovia Network &middot; Comprendre le terrain, créer des liens"
     }
   },
 
@@ -419,11 +419,11 @@ const translations = {
     demarche: {
       tag:   "Our approach",
       title: "Connecting actors,<br />structuring cooperation",
-      lead:  "Humalink Network connects local initiatives with supporting actors so that available resources can meet relevant, credible projects rooted in field realities."
+      lead:  "Linkovia Network connects local initiatives with supporting actors so that available resources can meet relevant, credible projects rooted in field realities."
     },
     role: {
       constat1: "Many international organisations have significant resources and are looking for projects capable of producing real, lasting impact while remaining rooted in local realities.",
-      constat2: "At the same time, local actors are carrying concrete initiatives built on in-depth knowledge of their territory, but sometimes lack the visibility, networks or support needed to access resources. Humalink Network operates in that space: listening, documenting, connecting.",
+      constat2: "At the same time, local actors are carrying concrete initiatives built on in-depth knowledge of their territory, but sometimes lack the visibility, networks or support needed to access resources. Linkovia Network operates in that space: listening, documenting, connecting.",
       flux_left_title:   "Organisations & funders",
       flux_left_1:       "Financial resources",
       flux_left_2:       "Technical expertise",
@@ -443,7 +443,7 @@ const translations = {
     approche: {
       tag:      "Our approach",
       title:    "Structuring useful and grounded cooperation",
-      lead:     "Humalink Network acts as a trusted intermediary between local initiatives and international actors. Our process is structured, grounded in field realities, and conducted rigorously at every step.",
+      lead:     "Linkovia Network acts as a trusted intermediary between local initiatives and international actors. Our process is structured, grounded in field realities, and conducted rigorously at every step.",
       piliers_titre: "Our support process",
       etape_pfx:  "Step",
       phase1_label: "Analyse &amp; Document",
@@ -511,7 +511,7 @@ const translations = {
       voir_plus: "Show more",
       voir_moins: "Show less",
       conclusion: "These fields act as reference points for structuring analysis, making needs easier to read and identifying possible complementarities between local initiatives and supporting actors. They are not meant to freeze the realities of a territory: each situation requires listening to expressed priorities, understanding resources already present and placing projects within their social, economic and institutional context.",
-      nexus: "Humalink Network deliberately keeps an open and evolving approach. Connections are considered from documented needs, existing local capacities and genuinely relevant partnerships, so the platform remains useful without forcing projects into a predefined grid."
+      nexus: "Linkovia Network deliberately keeps an open and evolving approach. Connections are considered from documented needs, existing local capacities and genuinely relevant partnerships, so the platform remains useful without forcing projects into a predefined grid."
     },
     principes: {
       tag:   "Our principles",
@@ -520,24 +520,24 @@ const translations = {
       detail_close: "Hide the detail",
       p1_title:  "Start from the field",
       p1_phrase: "Understand before acting.",
-      p1_text:   "Before any introduction, Humalink Network seeks to understand existing dynamics, available resources and the constraints specific to each local context. This prior listening determines the relevance of any outside intervention.",
+      p1_text:   "Before any introduction, Linkovia Network seeks to understand existing dynamics, available resources and the constraints specific to each local context. This prior listening determines the relevance of any outside intervention.",
       p2_title:  "Connect without substituting",
       p2_phrase: "Create the conditions for encounter, without deciding in others' place.",
-      p2_text:   "Humalink Network identifies complementarities, facilitates contacts and leaves the actors concerned in control of their own path. Its role is to articulate, not to substitute.",
+      p2_text:   "Linkovia Network identifies complementarities, facilitates contacts and leaves the actors concerned in control of their own path. Its role is to articulate, not to substitute.",
       p3_title:  "A targeted introduction",
       p3_phrase: "Every connection should answer an identified need.",
       p3_text:   "Each introduction is built from needs, existing capacities and real added value for both parties, in order to favour useful, lasting and operational partnerships.",
       p4_title:  "Contextualise and name the limits",
       p4_phrase: "Transparency is part of the method.",
-      p4_text:   "Humalink Network contextualises its analyses, flags areas of uncertainty and avoids presenting incomplete realities as certain. Partners are informed of limitations as much as of points of support.",
+      p4_text:   "Linkovia Network contextualises its analyses, flags areas of uncertainty and avoids presenting incomplete realities as certain. Partners are informed of limitations as much as of points of support.",
       note_label: "Framing note",
-      note_text:  "These principles are still being consolidated. Humalink Network is an initiative in its exploratory phase: its methods evolve through contact with field realities, partner feedback and lessons drawn from each mission. This framework expresses a direction that will continue to be adjusted with rigour and honesty.",
+      note_text:  "These principles are still being consolidated. Linkovia Network is an initiative in its exploratory phase: its methods evolve through contact with field realities, partner feedback and lessons drawn from each mission. This framework expresses a direction that will continue to be adjusted with rigour and honesty.",
     },
     equipe: {
       tag:   "Behind the initiative",
       title: "Who we are",
-      intro:  "Humalink Network is an initiative led by Sidonie Tisseau. Holding a Master's in Social Intervention and Development, with a focus on intermediation, participatory democracy and territorial dynamics, she built her path through field experience in France and internationally, spanning social accompaniment, coordination of associative projects, international solidarity and educational support.",
-      intro2: "Humalink Network's approach grows directly from this experience: observing before acting, understanding local realities, and building useful connections between actors, with method, attentiveness and genuine territorial grounding.",
+      intro:  "Linkovia Network is an initiative led by Sidonie Tisseau. Holding a Master's in Social Intervention and Development, with a focus on intermediation, participatory democracy and territorial dynamics, she built her path through field experience in France and internationally, spanning social accompaniment, coordination of associative projects, international solidarity and educational support.",
+      intro2: "Linkovia Network's approach grows directly from this experience: observing before acting, understanding local realities, and building useful connections between actors, with method, attentiveness and genuine territorial grounding.",
       citation: "The most relevant projects always emerge from the field. The real challenge is not to impose an external vision, but to support initiatives that reflect the local realities from which they grew.",
       linkedin: "LinkedIn profile",
       axe1_title: "Socio-territorial background",
@@ -610,7 +610,7 @@ const translations = {
     projets_page: {
       tag:           "Field initiatives",
       title:         "Projects",
-      subtitle:      "Local initiatives documented and shared by Humalink Network.",
+      subtitle:      "Local initiatives documented and shared by Linkovia Network.",
       back_home:     "← Back to home",
       btn_carto:     "World map →",
       back_cards:    "← All projects",
@@ -670,7 +670,7 @@ const translations = {
       f_submit:  "Send message &rsaquo;"
     },
     submit: {
-      page_title:    "Submit a project — Humalink Network",
+      page_title:    "Submit a project — Linkovia Network",
       hero_tag:      "Project holders",
       hero_title:    "Submit a project",
       hero_subtitle: "Present your local initiative to join the platform and facilitate collaborations with partners, funders or international experts.",
@@ -783,7 +783,7 @@ const translations = {
       fF5_label:   "Languages spoken",
 
       btn_submit:   "Send my submission →",
-      submit_note:  "By submitting this form, you agree that the information provided may be used by the Humalink Network team to evaluate your project. Submission does not guarantee publication. All submissions are reviewed manually.",
+      submit_note:  "By submitting this form, you agree that the information provided may be used by the Linkovia Network team to evaluate your project. Submission does not guarantee publication. All submissions are reviewed manually.",
       form_error:   "An error occurred while sending. Please check the required fields and try again.",
 
       success_title: "Your project has been submitted",
@@ -791,7 +791,7 @@ const translations = {
       success_btn:   "← Back to home"
     },
     footer: {
-      text: "&copy; 2026 Humalink Network &middot; Understanding the field, creating connections"
+      text: "&copy; 2026 Linkovia Network &middot; Understanding the field, creating connections"
     }
   },
 
@@ -816,11 +816,11 @@ const translations = {
     demarche: {
       tag:   "Nuestro enfoque",
       title: "Conectar a los actores,<br />estructurar las cooperaciones",
-      lead:  "Humalink Network conecta las iniciativas locales con los actores de apoyo, para que los recursos disponibles puedan encontrar proyectos pertinentes, creíbles y arraigados en las realidades del terreno."
+      lead:  "Linkovia Network conecta las iniciativas locales con los actores de apoyo, para que los recursos disponibles puedan encontrar proyectos pertinentes, creíbles y arraigados en las realidades del terreno."
     },
     role: {
       constat1: "Muchas organizaciones internacionales disponen de recursos importantes y buscan proyectos capaces de producir un impacto real, duradero y arraigado localmente.",
-      constat2: "Al mismo tiempo, los actores locales llevan iniciativas concretas, fundamentadas en un conocimiento profundo de su territorio, pero a veces carecen de visibilidad, redes o acompañamiento para acceder a los recursos necesarios. Humalink Network interviene en ese espacio: escuchar, documentar, conectar.",
+      constat2: "Al mismo tiempo, los actores locales llevan iniciativas concretas, fundamentadas en un conocimiento profundo de su territorio, pero a veces carecen de visibilidad, redes o acompañamiento para acceder a los recursos necesarios. Linkovia Network interviene en ese espacio: escuchar, documentar, conectar.",
       flux_left_title:   "Organizaciones y financiadores",
       flux_left_1:       "Recursos financieros",
       flux_left_2:       "Conocimientos técnicos",
@@ -840,7 +840,7 @@ const translations = {
     approche: {
       tag:      "Nuestro enfoque",
       title:    "Estructurar cooperaciones útiles y arraigadas",
-      lead:     "Humalink Network actúa como intermediario de confianza entre las iniciativas locales y los actores internacionales. Nuestro proceso es estructurado, arraigado en las realidades del terreno y llevado con rigor en cada etapa.",
+      lead:     "Linkovia Network actúa como intermediario de confianza entre las iniciativas locales y los actores internacionales. Nuestro proceso es estructurado, arraigado en las realidades del terreno y llevado con rigor en cada etapa.",
       piliers_titre: "Nuestro proceso de acompañamiento",
       etape_pfx:  "Etapa",
       phase1_label: "Analizar &amp; Documentar",
@@ -908,7 +908,7 @@ const translations = {
       voir_plus: "Ver más",
       voir_moins: "Ver menos",
       conclusion: "Estos campos sirven como referencias para estructurar el análisis, hacer las necesidades más legibles e identificar posibles complementariedades entre iniciativas locales y actores de apoyo. No pretenden fijar las realidades de un territorio: cada situación requiere escuchar las prioridades expresadas, comprender los recursos ya presentes y situar los proyectos en su contexto social, económico e institucional.",
-      nexus: "Humalink Network mantiene deliberadamente un enfoque abierto y en evolución. Las conexiones se plantean a partir de necesidades documentadas, capacidades locales existentes y asociaciones verdaderamente pertinentes, para que la plataforma siga siendo útil sin encerrar los proyectos en una cuadrícula predefinida."
+      nexus: "Linkovia Network mantiene deliberadamente un enfoque abierto y en evolución. Las conexiones se plantean a partir de necesidades documentadas, capacidades locales existentes y asociaciones verdaderamente pertinentes, para que la plataforma siga siendo útil sin encerrar los proyectos en una cuadrícula predefinida."
     },
     principes: {
       tag:   "Nuestros principios",
@@ -917,24 +917,24 @@ const translations = {
       detail_close: "Ocultar el detalle",
       p1_title:  "Partir del terreno",
       p1_phrase: "Comprender antes de actuar.",
-      p1_text:   "Antes de cualquier puesta en relación, Humalink Network busca comprender las dinámicas existentes, los recursos disponibles y las limitaciones propias de cada contexto local. Esta escucha previa condiciona la pertinencia de cualquier intervención exterior.",
+      p1_text:   "Antes de cualquier puesta en relación, Linkovia Network busca comprender las dinámicas existentes, los recursos disponibles y las limitaciones propias de cada contexto local. Esta escucha previa condiciona la pertinencia de cualquier intervención exterior.",
       p2_title:  "Conectar sin sustituir",
       p2_phrase: "Crear las condiciones del encuentro, sin decidir en lugar de los demás.",
-      p2_text:   "Humalink Network identifica las complementariedades, facilita los contactos y deja a los actores implicados el control de su propia trayectoria. Su papel es articular, no sustituir.",
+      p2_text:   "Linkovia Network identifica las complementariedades, facilita los contactos y deja a los actores implicados el control de su propia trayectoria. Su papel es articular, no sustituir.",
       p3_title:  "Una puesta en relación dirigida",
       p3_phrase: "Cada conexión debe responder a una necesidad identificada.",
       p3_text:   "Cada acercamiento se construye a partir de las necesidades, las capacidades existentes y el valor añadido real para ambas partes, con el fin de favorecer asociaciones útiles, duraderas y operativas.",
       p4_title:  "Contextualizar y nombrar los límites",
       p4_phrase: "La transparencia forma parte del método.",
-      p4_text:   "Humalink Network contextualiza sus análisis, señala las zonas de incertidumbre y evita presentar como ciertas realidades aún incompletas. Los socios son informados de las limitaciones tanto como de los puntos de apoyo.",
+      p4_text:   "Linkovia Network contextualiza sus análisis, señala las zonas de incertidumbre y evita presentar como ciertas realidades aún incompletas. Los socios son informados de las limitaciones tanto como de los puntos de apoyo.",
       note_label: "Nota de encuadre",
-      note_text:  "Estos principios están siendo consolidados. Humalink Network es una iniciativa en su fase exploratoria: sus métodos evolucionan al contacto con las realidades del terreno, los comentarios de sus socios y las enseñanzas extraídas de cada misión. Este marco expresa una dirección que continuará ajustándose con rigor y honestidad.",
+      note_text:  "Estos principios están siendo consolidados. Linkovia Network es una iniciativa en su fase exploratoria: sus métodos evolucionan al contacto con las realidades del terreno, los comentarios de sus socios y las enseñanzas extraídas de cada misión. Este marco expresa una dirección que continuará ajustándose con rigor y honestidad.",
     },
     equipe: {
       tag:   "Detrás de la iniciativa",
       title: "¿Quiénes somos?",
-      intro:  "Humalink Network es una iniciativa llevada por Sidonie Tisseau. Titulada de un Máster en Intervención y Desarrollo Social, centrado en la intermediación, la democracia participativa y las dinámicas territoriales, construyó su trayectoria a través de experiencias de campo en Francia e internacionalmente, entre acompañamiento social, coordinación de proyectos asociativos, solidaridad internacional y apoyo educativo.",
-      intro2: "El enfoque de Humalink Network surge directamente de esta experiencia: observar antes de actuar, comprender las realidades locales y crear vínculos útiles entre los actores, con método, escucha y arraigo territorial.",
+      intro:  "Linkovia Network es una iniciativa llevada por Sidonie Tisseau. Titulada de un Máster en Intervención y Desarrollo Social, centrado en la intermediación, la democracia participativa y las dinámicas territoriales, construyó su trayectoria a través de experiencias de campo en Francia e internacionalmente, entre acompañamiento social, coordinación de proyectos asociativos, solidaridad internacional y apoyo educativo.",
+      intro2: "El enfoque de Linkovia Network surge directamente de esta experiencia: observar antes de actuar, comprender las realidades locales y crear vínculos útiles entre los actores, con método, escucha y arraigo territorial.",
       citation: "Los proyectos más pertinentes siempre nacen del terreno. El desafío no es imponer una visión exterior, sino apoyar iniciativas que reflejen las realidades locales de las que emergieron.",
       linkedin: "Perfil de LinkedIn",
       axe1_title: "Trayectoria socio-territorial",
@@ -1007,7 +1007,7 @@ const translations = {
     projets_page: {
       tag:           "Iniciativas de campo",
       title:         "Proyectos",
-      subtitle:      "Iniciativas locales documentadas y difundidas por Humalink Network.",
+      subtitle:      "Iniciativas locales documentadas y difundidas por Linkovia Network.",
       back_home:     "← Volver al inicio",
       btn_carto:     "Cartografía mundial →",
       back_cards:    "← Todos los proyectos",
@@ -1067,7 +1067,7 @@ const translations = {
       f_submit:  "Enviar el mensaje &rsaquo;"
     },
     submit: {
-      page_title:    "Enviar un proyecto — Humalink Network",
+      page_title:    "Enviar un proyecto — Linkovia Network",
       hero_tag:      "Portadores de proyectos",
       hero_title:    "Enviar un proyecto",
       hero_subtitle: "Presente su iniciativa local para unirse a la plataforma y facilitar colaboraciones con socios, financiadores o expertos internacionales.",
@@ -1180,7 +1180,7 @@ const translations = {
       fF5_label:   "Idiomas hablados",
 
       btn_submit:   "Enviar mi solicitud →",
-      submit_note:  "Al enviar este formulario, usted acepta que la información proporcionada sea utilizada por el equipo de Humalink Network para la evaluación de su proyecto. El envío no garantiza la publicación. Todas las solicitudes son examinadas manualmente.",
+      submit_note:  "Al enviar este formulario, usted acepta que la información proporcionada sea utilizada por el equipo de Linkovia Network para la evaluación de su proyecto. El envío no garantiza la publicación. Todas las solicitudes son examinadas manualmente.",
       form_error:   "Se produjo un error al enviar. Por favor, verifique los campos obligatorios y vuelva a intentarlo.",
 
       success_title: "Su proyecto ha sido enviado correctamente",
@@ -1188,7 +1188,7 @@ const translations = {
       success_btn:   "← Volver al inicio"
     },
     footer: {
-      text: "&copy; 2026 Humalink Network &middot; Comprender el terreno, crear vínculos"
+      text: "&copy; 2026 Linkovia Network &middot; Comprender el terreno, crear vínculos"
     }
   }
 

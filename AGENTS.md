@@ -6,10 +6,10 @@ Contexte projet à lire en priorité avant toute modification.
 
 ## Projet
 
-Site web de **Humalink Network**, une association qui agit dans le **développement local et la coopération internationale**.
+Site web de **Linkovia Network**, une association qui agit dans le **développement local et la coopération internationale**.
 Le positionnement du projet est celui d'un **intermédiaire** entre initiatives locales et acteurs internationaux : ONG, fondations, financeurs, institutions, partenaires techniques.
 
-Ne pas présenter Humalink Network comme un acteur d'humanitaire d'urgence. Le vocabulaire et les choix éditoriaux doivent rester ancrés dans : développement, coopération, prévention, résilience, écoute, compétences locales et partenariats durables.
+Ne pas présenter Linkovia Network comme un acteur d'humanitaire d'urgence. Le vocabulaire et les choix éditoriaux doivent rester ancrés dans : développement, coopération, prévention, résilience, écoute, compétences locales et partenariats durables.
 
 Logo actuellement utilisé dans le site : `Logo.png`.
 
@@ -19,7 +19,7 @@ Logo actuellement utilisé dans le site : `Logo.png`.
 
 Deux personnes travaillent sur ce projet :
 
-- **Sidonie Tisseau** — fondatrice de Humalink Network. **Utilisatrice principale de Claude Code sur ce projet** (Claude Code dans VS Code). Pilote le contenu et l'éditorial (textes, ton, choix de communication). Est en phase de découverte technique : elle comprend ce qu'on lui explique, mais le vocabulaire technique ne lui est pas encore familier.
+- **Sidonie Tisseau** — fondatrice de Linkovia Network. **Utilisatrice principale de Claude Code sur ce projet** (Claude Code dans VS Code). Pilote le contenu et l'éditorial (textes, ton, choix de communication). Est en phase de découverte technique : elle comprend ce qu'on lui explique, mais le vocabulaire technique ne lui est pas encore familier.
 - **Pierre-Jean Martin** — ressource technique. Aide Sidonie sur les points techniques pointus (architecture, choix d'implémentation, git, déploiement). Intervient occasionnellement directement dans les sessions Claude Code.
 
 ### Détection de l'interlocuteur
@@ -74,7 +74,7 @@ site_web_asso/
 ├── projects.js                        — données projets + couleurs de statut
 ├── countries.js                       — GeoJSON pays local
 ├── project_submission_specification_v1.md — spécification métier du formulaire V1
-├── og-cover.jpg                       — image Open Graph / Twitter Card (1200×630). **Reste à la racine** : le lien `https://humalink.org/og-cover.jpg` a déjà été partagé sur LinkedIn, on ne le déplace pas pour ne pas casser le preview cache.
+├── og-cover.jpg                       — image Open Graph / Twitter Card (1200×630). **Reste à la racine** : le lien `https://linkovia-network.org/og-cover.jpg` a déjà été partagé sur LinkedIn, on ne le déplace pas pour ne pas casser le preview cache.
 ├── images/                            — tous les autres assets visuels (voir section dédiée plus bas)
 ├── AGENTS.md                          — ce fichier : source de vérité unique du contexte projet
 ├── CLAUDE.md                          — import `@AGENTS.md` (chargé automatiquement par Claude Code)

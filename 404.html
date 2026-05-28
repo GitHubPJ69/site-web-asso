@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title data-i18n="notfound.title">Page introuvable — Linkovia Network</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bleu:       #C06800;
+      --vert:       #1E9660;
+      --vert-clair: #28A870;
+      --beige:      #F5F0E8;
+      --gris:       #5A6A5E;
+      --gris-clair: #FAF6EE;
+      --blanc:      #FFFFFF;
+      --sombre:     #0D3A1E;
+      --radius-sm:  8px;
+      --radius-md:  14px;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+      color: var(--sombre);
+      background: var(--gris-clair);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(12, 74, 53, 0.97);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      padding: 0.9rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+    .logo img { height: 38px; width: auto; border-radius: var(--radius-sm); }
+    .logo-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    .logo-sub {
+      font-size: 0.58rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+    .lang-switcher { display: flex; gap: 0.25rem; }
+    .lang-switcher button {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.28);
+      color: rgba(255,255,255,0.72);
+      padding: 0.22rem 0.55rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .lang-switcher button.active,
+    .lang-switcher button:hover { background: rgba(255,255,255,0.14); color: #fff; }
+
+    /* ── 404 SECTION ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 7rem 1.5rem 4rem;
+      text-align: center;
+    }
+    .notfound-inner { max-width: 480px; }
+    .notfound-code {
+      font-size: 7rem;
+      font-weight: 800;
+      line-height: 1;
+      color: var(--vert);
+      letter-spacing: -4px;
+      margin-bottom: 1rem;
+    }
+    .notfound-msg {
+      font-size: 1.1rem;
+      color: var(--gris);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+    .btn-retour {
+      display: inline-block;
+      background: var(--vert);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1.75rem;
+      border-radius: var(--radius-md);
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: opacity 0.18s;
+    }
+    .btn-retour:hover { opacity: 0.88; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #083828;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="logo">
+      <img src="images/Logo-Linkovia.png" alt="Linkovia Network">
+      <span class="logo-name">Linkovia<span class="logo-sub">Network</span></span>
+    </a>
+    <div class="lang-switcher">
+      <button data-lang="fr">FR</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="es">ES</button>
+    </div>
+  </nav>
+
+  <main>
+    <div class="notfound-inner">
+      <div class="notfound-code" data-i18n="notfound.heading">404</div>
+      <p class="notfound-msg" data-i18n="notfound.message">Cette page n'existe pas ou a été déplacée.</p>
+      <a href="index.html" class="btn-retour" data-i18n="notfound.cta">Retour à l'accueil</a>
+    </div>
+  </main>
+
+  <footer>
+    <p data-i18n="footer.text"></p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script>
+    // Init language and wire lang switcher
+    (function () {
+      const lang = localStorage.getItem('linkovia.lang') || 'fr';
+      setLanguage(lang);
+      document.querySelectorAll('.lang-switcher button').forEach(btn => {
+        if (btn.dataset.lang === lang) btn.classList.add('active');
+        btn.addEventListener('click', () => {
+          setLanguage(btn.dataset.lang);
+          document.querySelectorAll('.lang-switcher button').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -227,6 +227,31 @@ Si le CDN ou Three.js plante, tout le bloc s'arrête ; les autres fonctionnalit�
 - Éviter : ton militant agressif, critique caricaturale du top-down, confusion avec l'humanitaire d'urgence.
 - Public cible : ONG, fondations, financeurs, institutions, associations locales, chercheurs.
 
+## Workflow GitHub
+
+- **Nouvelle tâche** → créer une Issue GitHub d'abord.
+- **Développement** → travailler sur une branche dédiée. Jamais directement sur `master`.
+- **Livraison** → ouvrir une Pull Request, vérifier, puis merger. Jamais de `git push` direct sur `master` pour du nouveau code.
+
+### Convention de nommage des PRs et des branches
+
+Le titre d'une PR doit commencer par un préfixe qui indique la nature du changement :
+
+| Préfixe | Quand l'utiliser |
+|---|---|
+| `feat:` | Nouvelle fonctionnalité ou nouvelle section |
+| `fix:` | Correction d'un bug ou d'un problème visible |
+| `content:` | Texte, images, traductions |
+| `style:` | CSS / design sans impact sur la logique |
+| `chore:` | Maintenance : renommage, réorganisation, compression |
+| `docs:` | Mise à jour de la documentation (AGENTS.md, etc.) |
+
+Exemple : `feat: ajouter la section Témoignages sur index.html`
+
+La branche suit le même préfixe : `feat/issue-<n>-<slug>`, `fix/issue-<n>-<slug>`, etc.
+
+Le titre de la PR devient le message du commit sur `master` après merge — il doit être compréhensible seul, sans contexte supplémentaire.
+
 ---
 
 ## Règles de travail avec l'agent

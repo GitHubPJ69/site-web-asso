@@ -396,6 +396,12 @@ const translations = {
     footer: {
       text: "&copy; 2026 Linkovia Network &middot; Comprendre le terrain, créer des liens"
     }
+    notfound: {
+      title:   "Page introuvable — Linkovia Network",
+      heading: "404",
+      message: "Cette page n'existe pas ou a été déplacée.",
+      cta:     "Retour à l'accueil"
+    }
   },
 
   en: {
@@ -792,6 +798,11 @@ const translations = {
     },
     footer: {
       text: "&copy; 2026 Linkovia Network &middot; Understanding the field, creating connections"
+    notfound: {
+      title:   "Page not found — Linkovia Network",
+      heading: "404",
+      message: "This page does not exist or has been moved.",
+      cta:     "Back to homepage"
     }
   },
 
@@ -1189,6 +1200,11 @@ const translations = {
     },
     footer: {
       text: "&copy; 2026 Linkovia Network &middot; Comprender el terreno, crear vínculos"
+    notfound: {
+      title:   "Página no encontrada — Linkovia Network",
+      heading: "404",
+      message: "Esta página no existe o ha sido movida.",
+      cta:     "Volver al inicio"
     }
   }
 

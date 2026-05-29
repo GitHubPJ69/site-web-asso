@@ -7,6 +7,7 @@ const translations = {
       demarche:  "Notre démarche",
       domaines:  "Domaines d'intervention",
       projets:   "Projets",
+      annuaire:  "Annuaire",
       qui:          "Qui sommes-nous ?",
       contact_lien: "Contact",
       contact:      "Soumettre un projet"
@@ -410,6 +411,7 @@ const translations = {
       demarche:  "Our approach",
       domaines:  "Areas of action",
       projets:   "Projects",
+      annuaire:  "Directory",
       qui:          "About us",
       contact_lien: "Contact",
       contact:      "Submit a project"
@@ -813,6 +815,7 @@ const translations = {
       demarche:  "Nuestro enfoque",
       domaines:  "Áreas de intervención",
       projets:   "Proyectos",
+      annuaire:  "Directorio",
       qui:          "¿Quiénes somos?",
       contact_lien: "Contacto",
       contact:      "Enviar un proyecto"

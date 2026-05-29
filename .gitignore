@@ -10,3 +10,12 @@ desktop.ini
 
 # Temp
 *.tmp
+
+# Données de prospection (fichiers internes, ne pas publier)
+*.xlsx
+*.xls
+associations.json
+
+# Scripts de maintenance locaux
+*.bat
+*.ps1

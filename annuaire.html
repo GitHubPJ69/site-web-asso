@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google" content="notranslate" />
+  <title>Annuaire des associations — Linkovia Network</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Annuaire consultable des associations et fondations de coopération internationale recensées par Linkovia Network." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://linkovia-network.org/annuaire.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://linkovia-network.org/annuaire.html" />
+  <meta property="og:title" content="Annuaire des associations — Linkovia Network" />
+  <meta property="og:description" content="Annuaire consultable des associations et fondations de coopération internationale recensées par Linkovia Network." />
+  <meta property="og:image" content="https://linkovia-network.org/og-cover.jpg" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Linkovia Network" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bleu:        #C06800;
+      --bleu-clair:  #E08820;
+      --vert:        #1E9660;
+      --vert-clair:  #28A870;
+      --terre:       #D4820A;
+      --beige:       #F5F0E8;
+      --beige-fort:  #EDE7D9;
+      --gris:        #5A6A5E;
+      --gris-clair:  #FAF6EE;
+      --blanc:       #FFFFFF;
+      --sombre:      #0D3A1E;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+      color: var(--sombre);
+      background: var(--gris-clair);
+      line-height: 1.6;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(12, 74, 53, 0.97);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      padding: 0.9rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .logo-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+
+    .logo-sub {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      opacity: 0.72;
+      text-align: justify;
+      text-align-last: justify;
+      text-justify: inter-character;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.80);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: #fff; font-weight: 700; }
+
+    .nav-cta {
+      background: var(--terre);
+      color: #fff !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+    }
+
+    .nav-cta:hover { opacity: 0.88; }
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .lang-switcher button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.65);
+      padding: 0.28rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .lang-switcher button:hover {
+      border-color: rgba(255,255,255,0.7);
+      color: #fff;
+    }
+
+    .lang-switcher button.active {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      background: transparent;
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      padding: 0.2rem 0.3rem;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(12, 74, 53, 0.97);
+      backdrop-filter: blur(8px);
+      z-index: 99;
+      padding: 0.5rem 1.5rem 1rem;
+    }
+
+    .mobile-menu ul { list-style: none; }
+
+    .mobile-menu ul li a {
+      display: block;
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu ul li:last-child a { border-bottom: none; }
+    .mobile-menu ul li a:hover { color: #fff; }
+
+    .mobile-menu ul li a.nav-cta {
+      display: inline-block;
+      margin-top: 0.6rem;
+      border-bottom: none;
+      background: var(--terre);
+      color: #fff !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .mobile-menu.open { display: block; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: linear-gradient(160deg, rgba(12,74,53,0.97) 0%, rgba(7,43,31,0.99) 100%);
+      padding: 7rem 2.5rem 3.5rem;
+      text-align: center;
+    }
+
+    .page-hero-inner { max-width: 640px; margin: 0 auto; }
+
+    .page-hero-tag {
+      display: inline-block;
+      background: rgba(212, 130, 10, 0.15);
+      color: var(--terre);
+      border: 1px solid rgba(212, 130, 10, 0.4);
+      padding: 0.3rem 1rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.2rem;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .page-hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 1.05rem;
+    }
+
+    /* ── BANDEAU DISCLAIMER ── */
+    .disclaimer-banner {
+      background: #FFF8E7;
+      border-bottom: 2px solid #E8C56A;
+      padding: 1.1rem 2.5rem;
+    }
+
+    .disclaimer-banner-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      gap: 0.8rem;
+      align-items: flex-start;
+    }
+
+    .disclaimer-icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      line-height: 1.6;
+    }
+
+    .disclaimer-banner p {
+      font-size: 0.88rem;
+      color: #5C4A0A;
+      line-height: 1.6;
+    }
+
+    .disclaimer-link {
+      color: #5C4A0A;
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .disclaimer-link:hover { color: #3A2E06; }
+
+    /* ── CONTENU PRINCIPAL ── */
+    .annuaire-main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+    }
+
+    /* ── PANNEAU FILTRES ── */
+    .filtres-panel {
+      background: var(--blanc);
+      border-radius: 14px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 2px 12px rgba(13,58,30,0.07);
+    }
+
+    /* Barre de recherche */
+    .search-wrap {
+      margin-bottom: 1.4rem;
+    }
+
+    .search-wrap label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gris);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 0.5rem;
+    }
+
+    .search-input-wrap {
+      position: relative;
+    }
+
+    .search-input-wrap svg {
+      position: absolute;
+      left: 0.9rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gris);
+      pointer-events: none;
+    }
+
+    #search-input {
+      width: 100%;
+      padding: 0.7rem 1rem 0.7rem 2.6rem;
+      border: 1.5px solid var(--beige-fort);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--sombre);
+      background: var(--gris-clair);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    #search-input:focus {
+      border-color: var(--vert);
+      background: #fff;
+    }
+
+    /* Ligne de filtres en rangée */
+    .filtres-ligne {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.2rem;
+    }
+
+    .filtre-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      flex: 1;
+      min-width: 160px;
+    }
+
+    .filtre-group.chips-wrap { flex: 2; min-width: 260px; }
+    .filtre-group.full-width { flex: 1 1 100%; }
+
+    .filtre-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gris);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* Selects */
+    .filtre-select {
+      padding: 0.6rem 0.9rem;
+      border: 1.5px solid var(--beige-fort);
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      color: var(--sombre);
+      background: var(--gris-clair);
+      cursor: pointer;
+      outline: none;
+      transition: border-color 0.2s;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A6A5E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      padding-right: 2.2rem;
+    }
+
+    .filtre-select:focus { border-color: var(--vert); background-color: #fff; }
+
+    /* Chips catégorie */
+    .chips-groupe {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .chip {
+      padding: 0.35rem 0.85rem;
+      border: 1.5px solid var(--beige-fort);
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      font-family: inherit;
+      color: var(--gris);
+      background: var(--gris-clair);
+      cursor: pointer;
+      transition: all 0.18s;
+      white-space: nowrap;
+    }
+
+    .chip:hover {
+      border-color: var(--vert);
+      color: var(--vert);
+    }
+
+    .chip.active {
+      background: var(--vert);
+      border-color: var(--vert);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Domaines checkboxes */
+    .domaines-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.4rem 1.2rem;
+    }
+
+    .domaine-check-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.88rem;
+      color: var(--sombre);
+      cursor: pointer;
+      padding: 0.2rem 0;
+    }
+
+    .domaine-check-item input[type="checkbox"] {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--vert);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    /* Barre du bas : compteur + reset */
+    .filtres-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--beige-fort);
+      margin-top: 1.2rem;
+    }
+
+    .resultats-count {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--vert);
+    }
+
+    #btn-reset {
+      padding: 0.5rem 1.2rem;
+      background: transparent;
+      border: 1.5px solid var(--beige-fort);
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-family: inherit;
+      color: var(--gris);
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+
+    #btn-reset:hover {
+      border-color: var(--sombre);
+      color: var(--sombre);
+    }
+
+    /* ── GRILLE DE CARTES ── */
+    #cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.2rem;
+    }
+
+    /* Carte organisation */
+    .org-card {
+      background: var(--blanc);
+      border: 1.5px solid var(--beige-fort);
+      border-radius: 12px;
+      padding: 1.4rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .org-card:hover {
+      box-shadow: 0 8px 24px rgba(13,58,30,0.1);
+      transform: translateY(-2px);
+    }
+
+    .card-header { flex: 1; }
+
+    .card-nom {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--sombre);
+      line-height: 1.35;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-meta {
+      font-size: 0.8rem;
+      color: var(--gris);
+      line-height: 1.4;
+    }
+
+    /* Tags domaines */
+    .card-domaines {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .domaine-tag {
+      display: inline-block;
+      background: rgba(30, 150, 96, 0.09);
+      color: var(--vert);
+      border: 1px solid rgba(30, 150, 96, 0.2);
+      padding: 0.18rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.73rem;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    /* Footer de la carte */
+    .card-footer {
+      margin-top: auto;
+    }
+
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--vert);
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+
+    .card-link:hover { color: var(--vert-clair); }
+
+    /* ── MESSAGE VIDE ── */
+    #vide-msg {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--gris);
+      font-size: 1.05rem;
+    }
+
+    /* ── CHARGEMENT ── */
+    #loading-msg {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--gris);
+      font-size: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #083828;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .annuaire-main { padding: 2rem 1.5rem 4rem; }
+      .filtres-panel { padding: 1.5rem 1.4rem; }
+    }
+
+    @media (max-width: 700px) {
+      nav { padding: 0.9rem 1.2rem; }
+      .nav-links { display: none; }
+      .page-hero { padding: 6rem 1.5rem 2.5rem; }
+      .disclaimer-banner { padding: 1rem 1.5rem; }
+      .annuaire-main { padding: 1.5rem 1rem 4rem; }
+      .filtres-panel { padding: 1.2rem 1rem; }
+      .filtres-ligne { gap: 0.8rem; }
+      .filtre-group { min-width: 100%; }
+      .filtre-group.chips-wrap { min-width: 100%; }
+      .domaines-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .hamburger { display: block; }
+      #cards-grid { grid-template-columns: 1fr; }
+      .domaines-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="logo">
+      <img src="images/Logo-Linkovia.png" alt="Linkovia Network">
+      <span class="logo-name">Linkovia<span class="logo-sub">Network</span></span>
+    </a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html#accueil"         data-i18n="nav.accueil"></a></li>
+        <li><a href="index.html#notre-role"      data-i18n="nav.demarche"></a></li>
+        <li><a href="index.html#domaines"        data-i18n="nav.domaines"></a></li>
+        <li><a href="projects.html"              data-i18n="nav.projets"></a></li>
+        <li><a href="annuaire.html" class="active" data-i18n="nav.annuaire"></a></li>
+        <li><a href="index.html#qui-sommes-nous" data-i18n="nav.qui"></a></li>
+        <li><a href="index.html#contact"         data-i18n="nav.contact_lien"></a></li>
+        <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
+      </ul>
+      <div class="lang-switcher">
+        <button data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="es">ES</button>
+      </div>
+      <button class="hamburger" id="hamburger-btn" onclick="toggleMobileMenu()" aria-label="Menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="index.html#accueil"         data-i18n="nav.accueil"      onclick="closeMobileMenu()"></a></li>
+      <li><a href="index.html#notre-role"      data-i18n="nav.demarche"     onclick="closeMobileMenu()"></a></li>
+      <li><a href="index.html#domaines"        data-i18n="nav.domaines"     onclick="closeMobileMenu()"></a></li>
+      <li><a href="projects.html"              data-i18n="nav.projets"      onclick="closeMobileMenu()"></a></li>
+      <li><a href="annuaire.html"              data-i18n="nav.annuaire"     onclick="closeMobileMenu()"></a></li>
+      <li><a href="index.html#qui-sommes-nous" data-i18n="nav.qui"          onclick="closeMobileMenu()"></a></li>
+      <li><a href="index.html#contact"         data-i18n="nav.contact_lien" onclick="closeMobileMenu()"></a></li>
+      <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact" onclick="closeMobileMenu()"></a></li>
+    </ul>
+  </div>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <span class="page-hero-tag">Ressource</span>
+      <h1>Annuaire de la coopération internationale</h1>
+      <p>Associations et fondations référencées par domaine, pays et taille.</p>
+    </div>
+  </div>
+
+  <!-- BANDEAU DISCLAIMER -->
+  <div class="disclaimer-banner" role="note" aria-label="Information importante">
+    <div class="disclaimer-banner-inner">
+      <span class="disclaimer-icon" aria-hidden="true">ℹ️</span>
+      <p>
+        Cet annuaire recense des associations et fondations de coopération internationale à partir
+        d'informations publiques. Il s'agit d'un travail de recensement de l'écosystème&nbsp;: la présence
+        d'une organisation dans cet annuaire ne signifie aucun partenariat, aucune affiliation ni aucun
+        lien avec <strong>Linkovia Network</strong>.
+        <br>La classification par type d'organisation (Intermédiaire, Fondation, Réseau, Opérationnelle)
+        et par domaine est une nomenclature indicative établie par Linkovia à partir de sources publiques
+        — elle sera vérifiée et affinée dans le temps. Les tailles indiquées sont des estimations
+        indicatives. Toute organisation peut demander la correction ou le retrait de sa fiche.
+        <br>Une organisation a été oubliée et souhaite apparaître dans cet annuaire&nbsp;?
+        <a href="index.html#contact" class="disclaimer-link">Envoyez-nous une demande via le formulaire de contact.</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="annuaire-main">
+
+    <!-- PANNEAU FILTRES -->
+    <section class="filtres-panel" aria-label="Filtres de recherche">
+
+      <!-- Recherche texte -->
+      <div class="search-wrap">
+        <label for="search-input">Recherche</label>
+        <div class="search-input-wrap">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Nom de l'organisation, secteur…"
+            autocomplete="off"
+            aria-label="Rechercher par nom ou secteur"
+          >
+        </div>
+      </div>
+
+      <!-- Filtres Pays + Taille + Réseau -->
+      <div class="filtres-ligne">
+        <div class="filtre-group">
+          <label class="filtre-label" for="filtre-pays">Pays</label>
+          <select id="filtre-pays" class="filtre-select" aria-label="Filtrer par pays">
+            <option value="">Tous les pays</option>
+          </select>
+        </div>
+
+        <div class="filtre-group">
+          <label class="filtre-label" for="filtre-taille">Taille</label>
+          <select id="filtre-taille" class="filtre-select" aria-label="Filtrer par taille">
+            <option value="">Toutes tailles</option>
+          </select>
+        </div>
+
+        <div class="filtre-group">
+          <label class="filtre-label" for="filtre-reseau">Réseau</label>
+          <select id="filtre-reseau" class="filtre-select" aria-label="Filtrer par réseau">
+            <option value="">Tous les réseaux</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Filtre Catégorie (chips) -->
+      <div class="filtres-ligne">
+        <div class="filtre-group chips-wrap">
+          <span class="filtre-label" id="label-categorie">Type d'organisation</span>
+          <div class="chips-groupe" id="chips-categorie" role="group" aria-labelledby="label-categorie">
+            <button class="chip" data-value="Intermédiaire"  type="button">Intermédiaire</button>
+            <button class="chip" data-value="Fondation"      type="button">Fondation</button>
+            <button class="chip" data-value="Réseau"         type="button">Réseau</button>
+            <button class="chip" data-value="Opérationnelle" type="button">Opérationnelle</button>
+            <button class="chip" data-value="Autre"          type="button">Autre</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filtre Domaines (cases à cocher) -->
+      <div class="filtres-ligne">
+        <div class="filtre-group full-width">
+          <span class="filtre-label" id="label-domaines">Domaines</span>
+          <div class="domaines-grid" id="domaines-checks" role="group" aria-labelledby="label-domaines">
+            <!-- Rempli dynamiquement par JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Compteur + bouton reset -->
+      <div class="filtres-actions">
+        <span class="resultats-count" id="resultats-count" aria-live="polite">Chargement…</span>
+        <button id="btn-reset" type="button">Réinitialiser les filtres</button>
+      </div>
+
+    </section><!-- /.filtres-panel -->
+
+    <!-- État de chargement -->
+    <div id="loading-msg" aria-live="polite">Chargement des données…</div>
+
+    <!-- Grille des cartes -->
+    <div id="cards-grid" role="list" aria-label="Liste des organisations"></div>
+
+    <!-- Message aucun résultat -->
+    <div id="vide-msg" role="status">
+      Aucune organisation ne correspond à votre recherche. Essayez d'élargir les filtres.
+    </div>
+
+  </main><!-- /.annuaire-main -->
+
+  <!-- FOOTER -->
+  <footer>
+    <p data-i18n="footer.text"></p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="associations.js"></script>
+
+  <script>
+    /* ── Navigation mobile ── */
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    }
+    function closeMobileMenu() {
+      document.getElementById('mobile-menu').classList.remove('open');
+    }
+    document.addEventListener('click', function (e) {
+      var menu = document.getElementById('mobile-menu');
+      var btn  = document.getElementById('hamburger-btn');
+      if (menu.classList.contains('open') && !menu.contains(e.target) && e.target !== btn) {
+        menu.classList.remove('open');
+      }
+    });
+  </script>
+
+  <script>
+    /* ── Annuaire ── */
+    (function () {
+      'use strict';
+
+      /* Ordre logique des tranches de taille */
+      var TAILLE_ORDER = ['< 5', '5-20', '10-50', '50-200', '100-500', '200-500', '500+'];
+
+      var allData = [];
+
+      /* Supprime les diacritiques et met en minuscules pour une recherche insensible */
+      function normalise(str) {
+        if (!str) return '';
+        return str.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+      }
+
+      /* Échappe les caractères HTML pour éviter toute injection */
+      function escapeHtml(str) {
+        if (!str) return '';
+        return str
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      /* ── Construction des filtres dynamiques ── */
+      function buildFilters(data) {
+        /* Pays : union dédoublonnée et triée alphabétiquement */
+        var paysSet = new Set();
+        data.forEach(function (o) { (o.pays || []).forEach(function (p) { paysSet.add(p); }); });
+        var paysList = Array.from(paysSet).sort(function (a, b) { return a.localeCompare(b, 'fr'); });
+        var selectPays = document.getElementById('filtre-pays');
+        paysList.forEach(function (p) {
+          var opt = document.createElement('option');
+          opt.value = p;
+          opt.textContent = p;
+          selectPays.appendChild(opt);
+        });
+
+        /* Taille : valeurs présentes, dans l'ordre logique */
+        var taillesPresentes = new Set(data.map(function (o) { return o.taille; }));
+        var selectTaille = document.getElementById('filtre-taille');
+        TAILLE_ORDER.filter(function (t) { return taillesPresentes.has(t); }).forEach(function (t) {
+          var opt = document.createElement('option');
+          opt.value = t;
+          opt.textContent = t;
+          selectTaille.appendChild(opt);
+        });
+
+        /* Réseau : réseaux avec au moins 3 membres, triés alphabétiquement */
+        var reseauxCount = {};
+        data.forEach(function (o) {
+          (o.reseaux || []).forEach(function (r) {
+            reseauxCount[r] = (reseauxCount[r] || 0) + 1;
+          });
+        });
+        var reseauxList = Object.keys(reseauxCount)
+          .filter(function (r) { return reseauxCount[r] >= 3; })
+          .sort(function (a, b) { return a.localeCompare(b, 'fr'); });
+        var selectReseau = document.getElementById('filtre-reseau');
+        reseauxList.forEach(function (r) {
+          var opt = document.createElement('option');
+          opt.value = r;
+          opt.textContent = r + ' (' + reseauxCount[r] + ')';
+          selectReseau.appendChild(opt);
+        });
+
+        /* Domaines : union dédoublonnée et triée alphabétiquement */
+        var domainesSet = new Set();
+        data.forEach(function (o) { (o.domaines || []).forEach(function (d) { domainesSet.add(d); }); });
+        var domainesList = Array.from(domainesSet).sort(function (a, b) { return a.localeCompare(b, 'fr'); });
+        var domainesGrid = document.getElementById('domaines-checks');
+        domainesList.forEach(function (d) {
+          var id = 'dom-' + normalise(d).replace(/[\s\/&]+/g, '-');
+          var label = document.createElement('label');
+          label.className = 'domaine-check-item';
+          label.htmlFor = id;
+          var cb = document.createElement('input');
+          cb.type = 'checkbox';
+          cb.className = 'domaine-cb';
+          cb.value = d;
+          cb.id = id;
+          cb.addEventListener('change', applyFilters);
+          label.appendChild(cb);
+          label.appendChild(document.createTextNode(' ' + d));
+          domainesGrid.appendChild(label);
+        });
+      }
+
+      /* ── Application des filtres ── */
+      function applyFilters() {
+        var searchVal  = normalise(document.getElementById('search-input').value.trim());
+        var paysVal    = document.getElementById('filtre-pays').value;
+        var tailleVal  = document.getElementById('filtre-taille').value;
+        var reseauVal  = document.getElementById('filtre-reseau').value;
+        var catActives = Array.from(document.querySelectorAll('#chips-categorie .chip.active'))
+                              .map(function (c) { return c.dataset.value; });
+        var domainesActifs = Array.from(document.querySelectorAll('.domaine-cb:checked'))
+                                  .map(function (c) { return c.value; });
+
+        var filtered = allData.filter(function (org) {
+          /* Recherche texte (nom + secteurs), insensible à la casse ET aux accents */
+          if (searchVal) {
+            var inNom      = normalise(org.nom).includes(searchVal);
+            var inSecteurs = (org.secteurs || []).some(function (s) { return normalise(s).includes(searchVal); });
+            if (!inNom && !inSecteurs) return false;
+          }
+
+          /* Filtre pays (OR interne : l'organisme correspond si le pays sélectionné est dans son tableau) */
+          if (paysVal && !(org.pays || []).includes(paysVal)) return false;
+
+          /* Filtre taille */
+          if (tailleVal && org.taille !== tailleVal) return false;
+
+          /* Filtre réseau */
+          if (reseauVal && !(org.reseaux || []).includes(reseauVal)) return false;
+
+          /* Filtre catégorie : OR entre les chips actifs */
+          if (catActives.length > 0 && !catActives.includes(org.categorie)) return false;
+
+          /* Filtre domaines : OR entre les cases cochées */
+          if (domainesActifs.length > 0) {
+            var hasDomaine = domainesActifs.some(function (d) { return (org.domaines || []).includes(d); });
+            if (!hasDomaine) return false;
+          }
+
+          return true;
+        });
+
+        renderCards(filtered);
+        updateCount(filtered.length);
+      }
+
+      /* ── Mise à jour du compteur ── */
+      function updateCount(n) {
+        document.getElementById('resultats-count').textContent =
+          n + ' organisation' + (n > 1 ? 's' : '');
+      }
+
+      /* ── Rendu des cartes ── */
+      function renderCards(data) {
+        var grid = document.getElementById('cards-grid');
+        var vide = document.getElementById('vide-msg');
+        grid.innerHTML = '';
+
+        if (data.length === 0) {
+          vide.style.display = 'block';
+          return;
+        }
+        vide.style.display = 'none';
+
+        data.forEach(function (org) {
+          var card = document.createElement('article');
+          card.className = 'org-card';
+          card.setAttribute('role', 'listitem');
+
+          /* Ligne métadonnées : catégorie · pays_detail · taille */
+          var metaParts = [org.categorie, org.pays_detail, org.taille].filter(Boolean);
+          var metaStr = metaParts.map(escapeHtml).join(' · ');
+
+          /* Tags domaines */
+          var tagsHtml = (org.domaines || []).map(function (d) {
+            return '<span class="domaine-tag">' + escapeHtml(d) + '</span>';
+          }).join('');
+
+          /* Lien site web */
+          var lienHtml = org.site_web
+            ? '<a href="' + escapeHtml(org.site_web) + '" class="card-link" target="_blank" rel="noopener noreferrer">Site web →</a>'
+            : '';
+
+          card.innerHTML =
+            '<div class="card-header">' +
+              '<h2 class="card-nom">' + escapeHtml(org.nom) + '</h2>' +
+              '<p class="card-meta">' + metaStr + '</p>' +
+            '</div>' +
+            (tagsHtml ? '<div class="card-domaines">' + tagsHtml + '</div>' : '') +
+            (lienHtml ? '<div class="card-footer">' + lienHtml + '</div>' : '');
+
+          grid.appendChild(card);
+        });
+      }
+
+      /* ── Réinitialisation ── */
+      function resetFilters() {
+        document.getElementById('search-input').value = '';
+        document.getElementById('filtre-pays').value = '';
+        document.getElementById('filtre-taille').value = '';
+        document.getElementById('filtre-reseau').value = '';
+        document.querySelectorAll('#chips-categorie .chip').forEach(function (c) {
+          c.classList.remove('active');
+        });
+        document.querySelectorAll('.domaine-cb').forEach(function (c) { c.checked = false; });
+        applyFilters();
+      }
+
+      /* ── Écouteurs d'événements ── */
+      document.querySelectorAll('#chips-categorie .chip').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          chip.classList.toggle('active');
+          applyFilters();
+        });
+      });
+
+      document.getElementById('search-input').addEventListener('input', applyFilters);
+      document.getElementById('filtre-pays').addEventListener('change', applyFilters);
+      document.getElementById('filtre-taille').addEventListener('change', applyFilters);
+      document.getElementById('filtre-reseau').addEventListener('change', applyFilters);
+      document.getElementById('btn-reset').addEventListener('click', resetFilters);
+
+      /* ── Chargement des données (variable globale embarquée dans associations.js) ── */
+      if (typeof associationsData !== 'undefined') {
+        allData = associationsData;
+        document.getElementById('loading-msg').style.display = 'none';
+        buildFilters(allData);
+        applyFilters();
+      } else {
+        document.getElementById('loading-msg').style.display = 'none';
+        var vide = document.getElementById('vide-msg');
+        vide.textContent = 'Impossible de charger les données. Veuillez rafraîchir la page.';
+        vide.style.display = 'block';
+      }
+
+    })();
+  </script>
+
+</body>
+</html>

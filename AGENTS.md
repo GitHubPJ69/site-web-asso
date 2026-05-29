@@ -256,6 +256,31 @@ Le titre de la PR devient le message du commit sur `master` après merge — il 
 
 ## Règles de travail avec l'agent
 
+### Début de chaque nouvelle conversation
+
+Avant toute chose, exécuter systématiquement :
+
+```bash
+git fetch origin
+git status
+```
+
+- Si la branche locale est **en retard** sur `origin/master` → signaler et proposer un `git pull` avant de commencer.
+- Si des fichiers sont **modifiés localement sans être commités** → les signaler pour éviter toute confusion sur l'état du code.
+- Résumer en une phrase l'état du dépôt ("À jour", "X commits en retard", "Y fichiers modifiés non commités").
+
+### Pour chaque nouvelle tâche — checklist légale
+
+Avant de modifier des données, du contenu ou des fonctionnalités publiques, vérifier :
+
+1. **Données exposées** : les informations publiées sur les organisations se limitent-elles à ce qui est publiquement disponible ? Aucune donnée de prospection interne (priorité, budget, statut, contact ciblé, notes) ne doit apparaître dans les fichiers servis.
+2. **RGPD** : la tâche introduit-elle une collecte de données personnelles (email, nom de personne physique, formulaire) ? Si oui, signaler que cela peut nécessiter une politique de confidentialité.
+3. **Droits sur les contenus** : tout texte, image ou donnée ajouté doit être soit produit par Linkovia, soit issu de sources publiques et reformulé — jamais copié-collé d'un site tiers.
+4. **Mentions légales** : si une nouvelle page est créée, vérifier qu'elle est liée à la page mentions légales (issue #40).
+5. **Fichiers sensibles** : avant tout commit, confirmer que `git status` ne liste aucun fichier Excel, CSV, script de prospection ou fichier interne.
+
+### Règles générales
+
 1. Avant une modification significative, expliquer brièvement l'approche proposée et vérifier qu'elle correspond bien à l'intention demandée.
 2. Ne modifier que les zones demandées, sauf petites adaptations techniques indispensables.
 3. Avant de modifier, regarder l'état réel du dépôt : le code actuel fait foi si la documentation est en retard.

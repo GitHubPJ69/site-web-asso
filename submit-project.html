@@ -95,12 +95,10 @@
     .logo-sub {
       font-size: 0.58rem;
       font-weight: 500;
-      letter-spacing: 0;
+      letter-spacing: 0.45em;
+      margin-right: -0.45em;
       text-transform: uppercase;
       opacity: 0.72;
-      text-align: justify;
-      text-align-last: justify;
-      text-justify: inter-character;
     }
 
     .nav-right {
@@ -135,6 +133,21 @@
       opacity: 0.7;
       cursor: default;
     }
+
+    /* ── DROPDOWN ── */
+    .dropdown { position: relative; }
+    .dropdown-toggle { display: inline-flex; align-items: center; gap: 0.25rem; }
+    .dropdown-toggle::after { content: '▾'; font-size: 0.65rem; opacity: 0.65; display: inline-block; transition: transform 0.2s; }
+    .dropdown:hover .dropdown-toggle::after { transform: rotate(180deg); }
+    .dropdown-menu {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background: rgba(10,62,44,0.98); backdrop-filter: blur(8px); border-radius: 6px;
+      min-width: 210px; padding: 0.7rem 0 0.35rem;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.28); list-style: none; z-index: 200;
+    }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu li a { display: block; padding: 0.55rem 1.2rem; color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.82rem; font-weight: 500; white-space: nowrap; transition: background 0.15s, color 0.15s; }
+    .dropdown-menu li a:hover { background: rgba(255,255,255,0.08); color: #fff; }
 
     .lang-switcher {
       display: flex;
@@ -541,13 +554,17 @@
     <a href="index.html" class="logo"><img src="images/Logo-Linkovia.png" alt="Linkovia Network"><span class="logo-name">Linkovia<span class="logo-sub">Network</span></span></a>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="index.html#accueil"         data-i18n="nav.accueil"></a></li>
-        <li><a href="index.html#notre-role"      data-i18n="nav.demarche"></a></li>
-        <li><a href="index.html#domaines"        data-i18n="nav.domaines"></a></li>
-        <li><a href="projects.html"    data-i18n="nav.projets"></a></li>
-        <li><a href="annuaire.html"    data-i18n="nav.annuaire"></a></li>
-        <li><a href="index.html#qui-sommes-nous" data-i18n="nav.qui"></a></li>
-        <li><a href="index.html#contact"         data-i18n="nav.contact_lien"></a></li>
+        <li class="dropdown">
+          <a href="index.html#accueil" class="dropdown-toggle" data-i18n="nav.accueil"></a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#notre-role"      data-i18n="nav.demarche"></a></li>
+            <li><a href="index.html#domaines"        data-i18n="nav.domaines"></a></li>
+            <li><a href="index.html#qui-sommes-nous" data-i18n="nav.qui"></a></li>
+            <li><a href="index.html#contact"         data-i18n="nav.contact_lien"></a></li>
+          </ul>
+        </li>
+        <li><a href="projects.html" data-i18n="nav.projets"></a></li>
+        <li><a href="annuaire.html" data-i18n="nav.annuaire"></a></li>
         <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
       </ul>
       <div class="lang-switcher">

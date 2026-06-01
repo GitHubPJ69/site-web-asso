@@ -91,12 +91,10 @@
     .logo-sub {
       font-size: 0.58rem;
       font-weight: 500;
-      letter-spacing: 0;
+      letter-spacing: 0.45em;
+      margin-right: -0.45em;
       text-transform: uppercase;
       opacity: 0.72;
-      text-align: justify;
-      text-align-last: justify;
-      text-justify: inter-character;
     }
 
     .nav-right {
@@ -132,6 +130,31 @@
     }
 
     .nav-cta:hover { opacity: 0.88; }
+
+    /* ── DROPDOWN ── */
+    .dropdown { position: relative; }
+    .dropdown-toggle { display: inline-flex; align-items: center; gap: 0.25rem; }
+    .dropdown-toggle::after { content: '▾'; font-size: 0.65rem; opacity: 0.65; display: inline-block; transition: transform 0.2s; }
+    .dropdown:hover .dropdown-toggle::after { transform: rotate(180deg); }
+    .dropdown-menu {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background: rgba(10,62,44,0.98); backdrop-filter: blur(8px); border-radius: 6px;
+      min-width: 210px; padding: 0.7rem 0 0.35rem;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.28); list-style: none; z-index: 200;
+    }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu li a { display: block; padding: 0.55rem 1.2rem; color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.82rem; font-weight: 500; white-space: nowrap; transition: background 0.15s, color 0.15s; }
+    .dropdown-menu li a:hover { background: rgba(255,255,255,0.08); color: #fff; }
+    /* ── MOBILE DROPDOWN ── */
+    .mobile-dropdown-toggle { display: flex; width: 100%; align-items: center; justify-content: space-between; background: none; border: none; border-bottom: 1px solid rgba(255,255,255,0.1); color: rgba(255,255,255,0.85); font-family: inherit; font-size: 1rem; font-weight: 500; padding: 0.85rem 0; cursor: pointer; text-align: left; }
+    .mobile-dropdown-toggle::after { content: '▾'; font-size: 0.7rem; opacity: 0.65; transition: transform 0.2s; flex-shrink: 0; }
+    .mobile-dropdown-toggle.open::after { transform: rotate(180deg); }
+    .mobile-dropdown-toggle:hover { color: #fff; }
+    .mobile-dropdown-menu { display: none; list-style: none; padding: 0; }
+    .mobile-dropdown-menu.open { display: block; }
+    .mobile-dropdown-menu li a { display: block; color: rgba(255,255,255,0.72); text-decoration: none; font-size: 0.95rem; font-weight: 500; padding: 0.7rem 0 0.7rem 1.2rem; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.2s; }
+    .mobile-dropdown-menu li:last-child a { border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .mobile-dropdown-menu li a:hover { color: #fff; }
 
     .lang-switcher {
       display: flex;
@@ -576,6 +599,50 @@
       font-size: 1.05rem;
     }
 
+    /* ── PAGINATION ── */
+    #pagination-wrap {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .pagination-btn {
+      width: 2.6rem;
+      height: 2.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: 2px solid var(--vert);
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-family: inherit;
+      color: var(--vert);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .pagination-btn:hover:not(:disabled) {
+      background: var(--vert);
+      color: #fff;
+    }
+
+    .pagination-btn:disabled {
+      border-color: var(--beige-fort);
+      color: var(--beige-fort);
+      cursor: default;
+    }
+
+    #page-info {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gris);
+      min-width: 90px;
+      text-align: center;
+    }
+
     /* ── CHARGEMENT ── */
     #loading-msg {
       text-align: center;
@@ -629,13 +696,17 @@
     </a>
     <div class="nav-right">
       <ul class="nav-links">
-        <li><a href="index.html#accueil"         data-i18n="nav.accueil"></a></li>
-        <li><a href="index.html#notre-role"      data-i18n="nav.demarche"></a></li>
-        <li><a href="index.html#domaines"        data-i18n="nav.domaines"></a></li>
-        <li><a href="projects.html"              data-i18n="nav.projets"></a></li>
+        <li class="dropdown">
+          <a href="index.html#accueil" class="dropdown-toggle" data-i18n="nav.accueil"></a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#notre-role"      data-i18n="nav.demarche"></a></li>
+            <li><a href="index.html#domaines"        data-i18n="nav.domaines"></a></li>
+            <li><a href="index.html#qui-sommes-nous" data-i18n="nav.qui"></a></li>
+            <li><a href="index.html#contact"         data-i18n="nav.contact_lien"></a></li>
+          </ul>
+        </li>
+        <li><a href="projects.html"                data-i18n="nav.projets"></a></li>
         <li><a href="annuaire.html" class="active" data-i18n="nav.annuaire"></a></li>
-        <li><a href="index.html#qui-sommes-nous" data-i18n="nav.qui"></a></li>
-        <li><a href="index.html#contact"         data-i18n="nav.contact_lien"></a></li>
         <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
       </ul>
       <div class="lang-switcher">
@@ -650,13 +721,17 @@
   <!-- MENU MOBILE -->
   <div class="mobile-menu" id="mobile-menu">
     <ul>
-      <li><a href="index.html#accueil"         data-i18n="nav.accueil"      onclick="closeMobileMenu()"></a></li>
-      <li><a href="index.html#notre-role"      data-i18n="nav.demarche"     onclick="closeMobileMenu()"></a></li>
-      <li><a href="index.html#domaines"        data-i18n="nav.domaines"     onclick="closeMobileMenu()"></a></li>
-      <li><a href="projects.html"              data-i18n="nav.projets"      onclick="closeMobileMenu()"></a></li>
-      <li><a href="annuaire.html"              data-i18n="nav.annuaire"     onclick="closeMobileMenu()"></a></li>
-      <li><a href="index.html#qui-sommes-nous" data-i18n="nav.qui"          onclick="closeMobileMenu()"></a></li>
-      <li><a href="index.html#contact"         data-i18n="nav.contact_lien" onclick="closeMobileMenu()"></a></li>
+      <li class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)" data-i18n="nav.accueil"></button>
+        <ul class="mobile-dropdown-menu">
+          <li><a href="index.html#notre-role"      data-i18n="nav.demarche"     onclick="closeMobileMenu()"></a></li>
+          <li><a href="index.html#domaines"        data-i18n="nav.domaines"     onclick="closeMobileMenu()"></a></li>
+          <li><a href="index.html#qui-sommes-nous" data-i18n="nav.qui"          onclick="closeMobileMenu()"></a></li>
+          <li><a href="index.html#contact"         data-i18n="nav.contact_lien" onclick="closeMobileMenu()"></a></li>
+        </ul>
+      </li>
+      <li><a href="projects.html" data-i18n="nav.projets"  onclick="closeMobileMenu()"></a></li>
+      <li><a href="annuaire.html" data-i18n="nav.annuaire" onclick="closeMobileMenu()"></a></li>
       <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact" onclick="closeMobileMenu()"></a></li>
     </ul>
   </div>
@@ -774,6 +849,13 @@
     <!-- Grille des cartes -->
     <div id="cards-grid" role="list" aria-label="Liste des organisations"></div>
 
+    <!-- Pagination -->
+    <div id="pagination-wrap">
+      <button id="btn-prev" class="pagination-btn" type="button" aria-label="Page précédente">&#8592;</button>
+      <span id="page-info"></span>
+      <button id="btn-next" class="pagination-btn" type="button" aria-label="Page suivante">&#8594;</button>
+    </div>
+
     <!-- Message aucun résultat -->
     <div id="vide-msg" role="status">
       Aucune organisation ne correspond à votre recherche. Essayez d'élargir les filtres.
@@ -796,6 +878,14 @@
     }
     function closeMobileMenu() {
       document.getElementById('mobile-menu').classList.remove('open');
+      document.querySelectorAll('.mobile-dropdown-toggle.open').forEach(function(b) {
+        b.classList.remove('open');
+        b.nextElementSibling.classList.remove('open');
+      });
+    }
+    function toggleMobileDropdown(btn) {
+      btn.classList.toggle('open');
+      btn.nextElementSibling.classList.toggle('open');
     }
     document.addEventListener('click', function (e) {
       var menu = document.getElementById('mobile-menu');
@@ -815,6 +905,9 @@
       var TAILLE_ORDER = ['< 5', '5-20', '10-50', '50-200', '100-500', '200-500', '500+'];
 
       var allData = [];
+      var PAGE_SIZE       = 50;
+      var currentPage     = 1;
+      var currentFiltered = [];
 
       /* Supprime les diacritiques et met en minuscules pour une recherche insensible */
       function normalise(str) {
@@ -936,14 +1029,16 @@
           return true;
         });
 
-        renderCards(filtered);
-        updateCount(filtered.length);
+        currentPage     = 1;
+        currentFiltered = filtered;
+        renderCards(currentFiltered);
+        updateCount(currentFiltered.length);
       }
 
       /* ── Mise à jour du compteur ── */
-      function updateCount(n) {
-        document.getElementById('resultats-count').textContent =
-          n + ' organisation' + (n > 1 ? 's' : '');
+      function updateCount(total) {
+        var el = document.getElementById('resultats-count');
+        el.textContent = total + ' organisation' + (total > 1 ? 's' : '');
       }
 
       /* ── Rendu des cartes ── */
@@ -952,13 +1047,16 @@
         var vide = document.getElementById('vide-msg');
         grid.innerHTML = '';
 
+        var paginWrap = document.getElementById('pagination-wrap');
         if (data.length === 0) {
           vide.style.display = 'block';
+          paginWrap.style.display = 'none';
           return;
         }
         vide.style.display = 'none';
 
-        data.forEach(function (org) {
+        var start = (currentPage - 1) * PAGE_SIZE;
+        data.slice(start, start + PAGE_SIZE).forEach(function (org) {
           var card = document.createElement('article');
           card.className = 'org-card';
           card.setAttribute('role', 'listitem');
@@ -987,6 +1085,16 @@
 
           grid.appendChild(card);
         });
+
+        var totalPages = Math.ceil(data.length / PAGE_SIZE);
+        if (totalPages > 1) {
+          paginWrap.style.display = 'flex';
+          document.getElementById('btn-prev').disabled = currentPage === 1;
+          document.getElementById('btn-next').disabled = currentPage === totalPages;
+          document.getElementById('page-info').textContent = 'Page ' + currentPage + ' / ' + totalPages;
+        } else {
+          paginWrap.style.display = 'none';
+        }
       }
 
       /* ── Réinitialisation ── */
@@ -1015,6 +1123,25 @@
       document.getElementById('filtre-taille').addEventListener('change', applyFilters);
       document.getElementById('filtre-reseau').addEventListener('change', applyFilters);
       document.getElementById('btn-reset').addEventListener('click', resetFilters);
+
+      document.getElementById('btn-prev').addEventListener('click', function () {
+        if (currentPage > 1) {
+          currentPage--;
+          renderCards(currentFiltered);
+          updateCount(currentFiltered.length);
+          window.scrollTo({ top: document.getElementById('cards-grid').offsetTop - 100, behavior: 'smooth' });
+        }
+      });
+
+      document.getElementById('btn-next').addEventListener('click', function () {
+        var totalPages = Math.ceil(currentFiltered.length / PAGE_SIZE);
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderCards(currentFiltered);
+          updateCount(currentFiltered.length);
+          window.scrollTo({ top: document.getElementById('cards-grid').offsetTop - 100, behavior: 'smooth' });
+        }
+      });
 
       /* ── Chargement des données (variable globale embarquée dans associations.js) ── */
       if (typeof associationsData !== 'undefined') {

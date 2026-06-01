@@ -6,11 +6,12 @@ const translations = {
       accueil:   "Accueil",
       demarche:  "Notre démarche",
       domaines:  "Domaines d'intervention",
-      projets:   "Projets",
-      annuaire:  "Annuaire",
-      qui:          "Qui sommes-nous ?",
-      contact_lien: "Contact",
-      contact:      "Soumettre un projet"
+      projets:        "Projets",
+      cartographie:   "Cartographie mondiale",
+      annuaire:       "Annuaire",
+      qui:            "Qui sommes-nous ?",
+      contact_lien:   "Contact",
+      contact:        "Soumettre un projet"
     },
     hero: {
       surtitre:    "Intermédiation &middot; Mise en lien &middot; Développement local &middot; Coopération",
@@ -410,11 +411,12 @@ const translations = {
       accueil:   "Home",
       demarche:  "Our approach",
       domaines:  "Areas of action",
-      projets:   "Projects",
-      annuaire:  "Directory",
-      qui:          "About us",
-      contact_lien: "Contact",
-      contact:      "Submit a project"
+      projets:        "Projects",
+      cartographie:   "World map",
+      annuaire:       "Directory",
+      qui:            "About us",
+      contact_lien:   "Contact",
+      contact:        "Submit a project"
     },
     hero: {
       surtitre:    "Intermediation &middot; Connecting Actors &middot; Local Development &middot; Cooperation",
@@ -814,11 +816,12 @@ const translations = {
       accueil:   "Inicio",
       demarche:  "Nuestro enfoque",
       domaines:  "Áreas de intervención",
-      projets:   "Proyectos",
-      annuaire:  "Directorio",
-      qui:          "¿Quiénes somos?",
-      contact_lien: "Contacto",
-      contact:      "Enviar un proyecto"
+      projets:        "Proyectos",
+      cartographie:   "Mapa mundial",
+      annuaire:       "Directorio",
+      qui:            "¿Quiénes somos?",
+      contact_lien:   "Contacto",
+      contact:        "Enviar un proyecto"
     },
     hero: {
       surtitre:    "Intermediación &middot; Conexión de actores &middot; Desarrollo local &middot; Cooperación",

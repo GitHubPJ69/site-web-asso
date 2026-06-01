@@ -782,8 +782,14 @@
             <li><a href="index.html#contact"         data-i18n="nav.contact_lien"></a></li>
           </ul>
         </li>
-        <li><a href="projects.html" class="active" data-i18n="nav.projets"></a></li>
-        <li><a href="annuaire.html"                data-i18n="nav.annuaire"></a></li>
+        <li class="dropdown">
+          <a href="projects.html" class="dropdown-toggle active" data-i18n="nav.projets"></a>
+          <ul class="dropdown-menu">
+            <li><a href="projects.html"            data-i18n="nav.projets"></a></li>
+            <li><a href="index.html#cartographie"  data-i18n="nav.cartographie"></a></li>
+          </ul>
+        </li>
+        <li><a href="annuaire.html" data-i18n="nav.annuaire"></a></li>
         <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
       </ul>
       <div class="lang-switcher">
@@ -807,7 +813,13 @@
           <li><a href="index.html#contact"         data-i18n="nav.contact_lien" onclick="closeMobileMenu()"></a></li>
         </ul>
       </li>
-      <li><a href="projects.html" data-i18n="nav.projets"  onclick="closeMobileMenu()"></a></li>
+      <li class="mobile-dropdown">
+        <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)" data-i18n="nav.projets"></button>
+        <ul class="mobile-dropdown-menu">
+          <li><a href="projects.html"            data-i18n="nav.projets"      onclick="closeMobileMenu()"></a></li>
+          <li><a href="index.html#cartographie"  data-i18n="nav.cartographie"  onclick="closeMobileMenu()"></a></li>
+        </ul>
+      </li>
       <li><a href="annuaire.html" data-i18n="nav.annuaire" onclick="closeMobileMenu()"></a></li>
       <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact" onclick="closeMobileMenu()"></a></li>
     </ul>

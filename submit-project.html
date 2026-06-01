@@ -30,7 +30,9 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <script src="i18n.js" defer></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -566,10 +568,11 @@
         <li class="dropdown">
           <a href="projects.html" class="dropdown-toggle" data-i18n="nav.projets"></a>
           <ul class="dropdown-menu">
-            <li><a href="projects.html"            data-i18n="nav.projets"></a></li>
+            <li><a href="projects.html"            data-i18n="nav.tous_projets"></a></li>
             <li><a href="index.html#cartographie"  data-i18n="nav.cartographie"></a></li>
           </ul>
         </li>
+        <li><a href="articles.html" data-i18n="nav.articles"></a></li>
         <li><a href="annuaire.html" data-i18n="nav.annuaire"></a></li>
         <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
       </ul>
@@ -997,7 +1000,6 @@
     <p data-i18n="footer.text"></p>
   </footer>
 
-  <script src="i18n.js"></script>
   <script>
     const GAS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwRL3O4Nn9ZHLzuDyqjZ5szee8S01OJ3J4OdBSQVaWkJMW5zxXPoPaESEN1CfKXIy_b/exec';
 

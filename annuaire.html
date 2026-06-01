@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8" />
@@ -24,8 +24,11 @@
   <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
 
+  <script src="i18n.js" defer></script>
+  <script src="associations.js" defer></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -708,10 +711,11 @@
         <li class="dropdown">
           <a href="projects.html" class="dropdown-toggle" data-i18n="nav.projets"></a>
           <ul class="dropdown-menu">
-            <li><a href="projects.html"            data-i18n="nav.projets"></a></li>
+            <li><a href="projects.html"            data-i18n="nav.tous_projets"></a></li>
             <li><a href="index.html#cartographie"  data-i18n="nav.cartographie"></a></li>
           </ul>
         </li>
+        <li><a href="articles.html" data-i18n="nav.articles"></a></li>
         <li><a href="annuaire.html" class="active" data-i18n="nav.annuaire"></a></li>
         <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
       </ul>
@@ -739,10 +743,11 @@
       <li class="mobile-dropdown">
         <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)" data-i18n="nav.projets"></button>
         <ul class="mobile-dropdown-menu">
-          <li><a href="projects.html"            data-i18n="nav.projets"      onclick="closeMobileMenu()"></a></li>
+          <li><a href="projects.html"            data-i18n="nav.tous_projets"      onclick="closeMobileMenu()"></a></li>
           <li><a href="index.html#cartographie"  data-i18n="nav.cartographie"  onclick="closeMobileMenu()"></a></li>
         </ul>
       </li>
+      <li><a href="articles.html" data-i18n="nav.articles" onclick="closeMobileMenu()"></a></li>
       <li><a href="annuaire.html" data-i18n="nav.annuaire" onclick="closeMobileMenu()"></a></li>
       <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact" onclick="closeMobileMenu()"></a></li>
     </ul>
@@ -751,9 +756,9 @@
   <!-- PAGE HERO -->
   <div class="page-hero">
     <div class="page-hero-inner">
-      <span class="page-hero-tag">Ressource</span>
-      <h1>Annuaire de la coopération internationale</h1>
-      <p>Associations et fondations référencées par domaine, pays et taille.</p>
+      <span class="page-hero-tag" data-i18n="annuaire_page.hero_tag">Ressource</span>
+      <h1 data-i18n="annuaire_page.hero_title">Annuaire de la coopération internationale</h1>
+      <p data-i18n="annuaire_page.hero_subtitle">Associations et fondations référencées par domaine, pays et taille.</p>
     </div>
   </div>
 
@@ -762,16 +767,11 @@
     <div class="disclaimer-banner-inner">
       <span class="disclaimer-icon" aria-hidden="true">ℹ️</span>
       <p>
-        Cet annuaire recense des associations et fondations de coopération internationale à partir
-        d'informations publiques. Il s'agit d'un travail de recensement de l'écosystème&nbsp;: la présence
-        d'une organisation dans cet annuaire ne signifie aucun partenariat, aucune affiliation ni aucun
-        lien avec <strong>Linkovia Network</strong>.
-        <br>La classification par type d'organisation (Intermédiaire, Fondation, Réseau, Opérationnelle)
-        et par domaine est une nomenclature indicative établie par Linkovia à partir de sources publiques
-        — elle sera vérifiée et affinée dans le temps. Les tailles indiquées sont des estimations
-        indicatives. Toute organisation peut demander la correction ou le retrait de sa fiche.
-        <br>Une organisation a été oubliée et souhaite apparaître dans cet annuaire&nbsp;?
-        <a href="index.html#contact" class="disclaimer-link">Envoyez-nous une demande via le formulaire de contact.</a>
+        <span data-i18n="annuaire_page.disclaimer_p1">Cet annuaire recense des associations et fondations de coopération internationale à partir d'informations publiques. Il s'agit d'un travail de recensement de l'écosystème&nbsp;: la présence d'une organisation dans cet annuaire ne signifie aucun partenariat, aucune affiliation ni aucun lien avec <strong>Linkovia Network</strong>.</span>
+        <br>
+        <span data-i18n="annuaire_page.disclaimer_p2">La classification par type d'organisation (Intermédiaire, Fondation, Réseau, Opérationnelle) et par domaine est une nomenclature indicative établie par Linkovia à partir de sources publiques — elle sera vérifiée et affinée dans le temps. Les tailles indiquées sont des estimations indicatives. Toute organisation peut demander la correction ou le retrait de sa fiche.</span>
+        <br>
+        <span data-i18n="annuaire_page.disclaimer_p3">Une organisation a été oubliée et souhaite apparaître dans cet annuaire&nbsp;? <a href="index.html#contact" class="disclaimer-link">Envoyez-nous une demande via le formulaire de contact.</a></span>
       </p>
     </div>
   </div>
@@ -784,7 +784,7 @@
 
       <!-- Recherche texte -->
       <div class="search-wrap">
-        <label for="search-input">Recherche</label>
+        <label for="search-input" data-i18n="annuaire_page.filter_search_label">Recherche</label>
         <div class="search-input-wrap">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
@@ -793,6 +793,7 @@
             type="search"
             id="search-input"
             placeholder="Nom de l'organisation, secteur…"
+            data-i18n-placeholder="annuaire_page.filter_search_ph"
             autocomplete="off"
             aria-label="Rechercher par nom ou secteur"
           >
@@ -802,23 +803,23 @@
       <!-- Filtres Pays + Taille + Réseau -->
       <div class="filtres-ligne">
         <div class="filtre-group">
-          <label class="filtre-label" for="filtre-pays">Pays</label>
+          <label class="filtre-label" for="filtre-pays" data-i18n="annuaire_page.filter_pays_label">Pays</label>
           <select id="filtre-pays" class="filtre-select" aria-label="Filtrer par pays">
-            <option value="">Tous les pays</option>
+            <option value="" data-i18n="annuaire_page.filter_pays_all">Tous les pays</option>
           </select>
         </div>
 
         <div class="filtre-group">
-          <label class="filtre-label" for="filtre-taille">Taille</label>
+          <label class="filtre-label" for="filtre-taille" data-i18n="annuaire_page.filter_taille_label">Taille</label>
           <select id="filtre-taille" class="filtre-select" aria-label="Filtrer par taille">
-            <option value="">Toutes tailles</option>
+            <option value="" data-i18n="annuaire_page.filter_taille_all">Toutes tailles</option>
           </select>
         </div>
 
         <div class="filtre-group">
-          <label class="filtre-label" for="filtre-reseau">Réseau</label>
+          <label class="filtre-label" for="filtre-reseau" data-i18n="annuaire_page.filter_reseau_label">Réseau</label>
           <select id="filtre-reseau" class="filtre-select" aria-label="Filtrer par réseau">
-            <option value="">Tous les réseaux</option>
+            <option value="" data-i18n="annuaire_page.filter_reseau_all">Tous les réseaux</option>
           </select>
         </div>
       </div>
@@ -826,13 +827,13 @@
       <!-- Filtre Catégorie (chips) -->
       <div class="filtres-ligne">
         <div class="filtre-group chips-wrap">
-          <span class="filtre-label" id="label-categorie">Type d'organisation</span>
+          <span class="filtre-label" id="label-categorie" data-i18n="annuaire_page.filter_type_label">Type d'organisation</span>
           <div class="chips-groupe" id="chips-categorie" role="group" aria-labelledby="label-categorie">
-            <button class="chip" data-value="Intermédiaire"  type="button">Intermédiaire</button>
-            <button class="chip" data-value="Fondation"      type="button">Fondation</button>
-            <button class="chip" data-value="Réseau"         type="button">Réseau</button>
-            <button class="chip" data-value="Opérationnelle" type="button">Opérationnelle</button>
-            <button class="chip" data-value="Autre"          type="button">Autre</button>
+            <button class="chip" data-value="Intermédiaire"  type="button" data-i18n="annuaire_page.chip_intermediaire">Intermédiaire</button>
+            <button class="chip" data-value="Fondation"      type="button" data-i18n="annuaire_page.chip_fondation">Fondation</button>
+            <button class="chip" data-value="Réseau"         type="button" data-i18n="annuaire_page.chip_reseau">Réseau</button>
+            <button class="chip" data-value="Opérationnelle" type="button" data-i18n="annuaire_page.chip_operationnelle">Opérationnelle</button>
+            <button class="chip" data-value="Autre"          type="button" data-i18n="annuaire_page.chip_autre">Autre</button>
           </div>
         </div>
       </div>
@@ -840,7 +841,7 @@
       <!-- Filtre Domaines (cases à cocher) -->
       <div class="filtres-ligne">
         <div class="filtre-group full-width">
-          <span class="filtre-label" id="label-domaines">Domaines</span>
+          <span class="filtre-label" id="label-domaines" data-i18n="annuaire_page.filter_domaines_label">Domaines</span>
           <div class="domaines-grid" id="domaines-checks" role="group" aria-labelledby="label-domaines">
             <!-- Rempli dynamiquement par JS -->
           </div>
@@ -849,14 +850,14 @@
 
       <!-- Compteur + bouton reset -->
       <div class="filtres-actions">
-        <span class="resultats-count" id="resultats-count" aria-live="polite">Chargement…</span>
-        <button id="btn-reset" type="button">Réinitialiser les filtres</button>
+        <span class="resultats-count" id="resultats-count" aria-live="polite" data-i18n="annuaire_page.loading">Chargement…</span>
+        <button id="btn-reset" type="button" data-i18n="annuaire_page.btn_reset">Réinitialiser les filtres</button>
       </div>
 
     </section><!-- /.filtres-panel -->
 
     <!-- État de chargement -->
-    <div id="loading-msg" aria-live="polite">Chargement des données…</div>
+    <div id="loading-msg" aria-live="polite" data-i18n="annuaire_page.loading">Chargement des données…</div>
 
     <!-- Grille des cartes -->
     <div id="cards-grid" role="list" aria-label="Liste des organisations"></div>
@@ -869,7 +870,7 @@
     </div>
 
     <!-- Message aucun résultat -->
-    <div id="vide-msg" role="status">
+    <div id="vide-msg" role="status" data-i18n="annuaire_page.empty">
       Aucune organisation ne correspond à votre recherche. Essayez d'élargir les filtres.
     </div>
 
@@ -879,9 +880,6 @@
   <footer>
     <p data-i18n="footer.text"></p>
   </footer>
-
-  <script src="i18n.js"></script>
-  <script src="associations.js"></script>
 
   <script>
     /* ── Navigation mobile ── */
@@ -910,8 +908,14 @@
 
   <script>
     /* ── Annuaire ── */
-    (function () {
+    document.addEventListener('DOMContentLoaded', function () {
       'use strict';
+
+      /* Accès rapide aux traductions courantes */
+      function t(key) {
+        var lang = localStorage.getItem('lang') || 'fr';
+        return key.split('.').reduce(function (o, k) { return o && o[k]; }, translations[lang]) || key;
+      }
 
       /* Ordre logique des tranches de taille */
       var TAILLE_ORDER = ['< 5', '5-20', '10-50', '50-200', '100-500', '200-500', '500+'];
@@ -1050,7 +1054,8 @@
       /* ── Mise à jour du compteur ── */
       function updateCount(total) {
         var el = document.getElementById('resultats-count');
-        el.textContent = total + ' organisation' + (total > 1 ? 's' : '');
+        var noun = total > 1 ? t('annuaire_page.count_plural') : t('annuaire_page.count_singular');
+        el.textContent = total + ' ' + noun;
       }
 
       /* ── Rendu des cartes ── */
@@ -1084,7 +1089,7 @@
 
           /* Lien site web */
           var lienHtml = org.site_web
-            ? '<a href="' + escapeHtml(org.site_web) + '" class="card-link" target="_blank" rel="noopener noreferrer">Site web →</a>'
+            ? '<a href="' + escapeHtml(org.site_web) + '" class="card-link" target="_blank" rel="noopener noreferrer">' + t('annuaire_page.card_website') + '</a>'
             : '';
 
           card.innerHTML =
@@ -1103,7 +1108,7 @@
           paginWrap.style.display = 'flex';
           document.getElementById('btn-prev').disabled = currentPage === 1;
           document.getElementById('btn-next').disabled = currentPage === totalPages;
-          document.getElementById('page-info').textContent = 'Page ' + currentPage + ' / ' + totalPages;
+          document.getElementById('page-info').textContent = t('annuaire_page.page_label') + ' ' + currentPage + ' ' + t('annuaire_page.page_of') + ' ' + totalPages;
         } else {
           paginWrap.style.display = 'none';
         }
@@ -1155,6 +1160,12 @@
         }
       });
 
+      /* Re-render dynamic strings when language changes */
+      document.addEventListener('langchange', function () {
+        renderCards(currentFiltered);
+        updateCount(currentFiltered.length);
+      });
+
       /* ── Chargement des données (variable globale embarquée dans associations.js) ── */
       if (typeof associationsData !== 'undefined') {
         allData = associationsData;
@@ -1164,11 +1175,11 @@
       } else {
         document.getElementById('loading-msg').style.display = 'none';
         var vide = document.getElementById('vide-msg');
-        vide.textContent = 'Impossible de charger les données. Veuillez rafraîchir la page.';
+        vide.textContent = t('annuaire_page.error_load');
         vide.style.display = 'block';
       }
 
-    })();
+    });
   </script>
 
 </body>

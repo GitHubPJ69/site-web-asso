@@ -230,8 +230,8 @@ Si le CDN ou Three.js plante, tout le bloc s'arrête ; les autres fonctionnalit�
 ## Workflow GitHub
 
 - **Nouvelle tâche** → créer une Issue GitHub d'abord.
-- **Développement** → travailler sur une branche dédiée. Jamais directement sur `master`.
-- **Livraison** → ouvrir une Pull Request, vérifier, puis merger. Jamais de `git push` direct sur `master` pour du nouveau code.
+- **Développement** → travailler sur une branche dédiée. Jamais directement sur `main`.
+- **Livraison** → ouvrir une Pull Request, vérifier, puis merger. Jamais de `git push` direct sur `main` pour du nouveau code.
 
 ### Convention de nommage des PRs et des branches
 
@@ -250,7 +250,7 @@ Exemple : `feat: ajouter la section Témoignages sur index.html`
 
 La branche suit le même préfixe : `feat/issue-<n>-<slug>`, `fix/issue-<n>-<slug>`, etc.
 
-Le titre de la PR devient le message du commit sur `master` après merge — il doit être compréhensible seul, sans contexte supplémentaire.
+Le titre de la PR devient le message du commit sur `main` après merge — il doit être compréhensible seul, sans contexte supplémentaire.
 
 ---
 

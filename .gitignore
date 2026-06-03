@@ -19,3 +19,6 @@ associations.json
 # Scripts de maintenance locaux
 *.bat
 *.ps1
+
+# Dossier Articles (contenu local non publié)
+Articles/

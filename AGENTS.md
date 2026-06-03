@@ -59,6 +59,7 @@ Règle : par défaut, **assumer que c'est Sidonie**. Ne basculer vers le mode "P
 - Dépendances externes limitées :
   - Google Fonts (`Plus Jakarta Sans`)
   - Globe.gl via CDN unpkg pour la cartographie 3D
+  - GoatCounter (`gc.zgo.at/count.js`) pour la mesure d'audience — sans cookie, sans données personnelles identifiables
 - Les données pays sont embarquées localement dans `countries.js` pour éviter les problèmes de `fetch` en `file://`.
 
 ---
@@ -70,7 +71,12 @@ site_web_asso/
 ├── index.html                         — page d'accueil principale + globe 3D
 ├── projects.html                      — page dédiée à la liste et au détail des projets
 ├── submit-project.html                — formulaire de soumission de projet
-├── i18n.js                            — traductions FR/EN + `setLanguage()`
+├── annuaire.html                      — annuaire des organisations de coopération internationale
+├── articles.html                      — liste des articles publiés
+├── article-nexus.html                 — article : l'approche nexus en coopération internationale
+├── mentions-legales.html              — page mentions légales (FR/EN/ES, lien dans tous les footers)
+├── 404.html                           — page d'erreur personnalisée
+├── i18n.js                            — traductions FR/EN/ES + `setLanguage()`
 ├── projects.js                        — données projets + couleurs de statut
 ├── countries.js                       — GeoJSON pays local
 ├── project_submission_specification_v1.md — spécification métier du formulaire V1
@@ -155,14 +161,42 @@ Sections dans l'ordre actuel :
 - Le comportement et le contenu doivent rester cohérents avec `project_submission_specification_v1.md`.
 - Soumission V1 : simple, avec revue humaine manuelle avant publication.
 
+### `annuaire.html`
+
+- Annuaire des organisations de coopération internationale.
+- Données chargées depuis un fichier JSON externe (`associations.json`, exclu du dépôt via `.gitignore`).
+- Filtres par pays, taille, réseau, type d'organisation, domaines.
+- Pagination côté client.
+
+### `articles.html`
+
+- Liste des articles publiés par Linkovia Network.
+- Contenu statique (pas de CMS) : chaque article est une page HTML dédiée.
+
+### `article-nexus.html`
+
+- Article : « L'approche nexus en coopération internationale ».
+- Barre de progression de lecture, sommaire avec ancres, mise en forme éditoriale.
+
+### `mentions-legales.html`
+
+- Page mentions légales (éditeur, hébergement GitHub Pages, RGPD, GoatCounter, propriété intellectuelle).
+- Entièrement traduite FR/EN/ES via `data-i18n`.
+- **Le footer de cette page ne contient pas de lien vers elle-même** (contrairement aux autres pages).
+- `<meta name="robots" content="noindex">` pour exclure du référencement.
+
+### `404.html`
+
+- Page d'erreur personnalisée, configurée via GitHub Pages.
+
 ---
 
 ## Système multilingue
 
 Fichier central : `i18n.js`.
 
-- Langues actuelles : français et anglais.
-- `translations = { fr: {...}, en: {...} }`
+- Langues actives : **français (fr), anglais (en), espagnol (es)**.
+- `translations = { fr: {...}, en: {...}, es: {...} }`
 - Fonction `setLanguage(lang)` : injecte les contenus, met à jour `<html lang>`, persiste le choix dans `localStorage`.
 - Les contenus textuels passent par :
   - `data-i18n="namespace.cle"`
@@ -171,13 +205,14 @@ Fichier central : `i18n.js`.
 Namespaces actuellement présents :
 
 ```text
-nav, hero, demarche, role, approche, domaines, principes, equipe,
-carte, continents, projets_page, contact, submit, footer
+nav, articles_page, hero, demarche, role, approche, domaines, principes, equipe,
+carte, continents, projets_page, contact, submit, footer, legal,
+annuaire_page, nexus_article, notfound
 ```
 
 ### Règle stricte
 
-Toute modification de contenu visible doit être répercutée dans **les deux langues** (`fr` et `en`) et dans le HTML concerné.
+Toute modification de contenu visible doit être répercutée dans **les trois langues** (`fr`, `en` et `es`) et dans le HTML concerné.
 
 ---
 
@@ -265,7 +300,7 @@ git fetch origin
 git status
 ```
 
-- Si la branche locale est **en retard** sur `origin/master` → signaler et proposer un `git pull` avant de commencer.
+- Si la branche locale est **en retard** sur `origin/main` → signaler et proposer un `git pull` avant de commencer.
 - Si des fichiers sont **modifiés localement sans être commités** → les signaler pour éviter toute confusion sur l'état du code.
 - Résumer en une phrase l'état du dépôt ("À jour", "X commits en retard", "Y fichiers modifiés non commités").
 
@@ -276,7 +311,7 @@ Avant de modifier des données, du contenu ou des fonctionnalités publiques, v�
 1. **Données exposées** : les informations publiées sur les organisations se limitent-elles à ce qui est publiquement disponible ? Aucune donnée de prospection interne (priorité, budget, statut, contact ciblé, notes) ne doit apparaître dans les fichiers servis.
 2. **RGPD** : la tâche introduit-elle une collecte de données personnelles (email, nom de personne physique, formulaire) ? Si oui, signaler que cela peut nécessiter une politique de confidentialité.
 3. **Droits sur les contenus** : tout texte, image ou donnée ajouté doit être soit produit par Linkovia, soit issu de sources publiques et reformulé — jamais copié-collé d'un site tiers.
-4. **Mentions légales** : si une nouvelle page est créée, vérifier qu'elle est liée à la page mentions légales (issue #40).
+4. **Mentions légales** : si une nouvelle page est créée, vérifier qu'elle a bien le lien `footer.legal` dans son footer (comme toutes les pages existantes). La page `mentions-legales.html` existe et est en ligne — ne pas y ajouter de lien vers elle-même.
 5. **Fichiers sensibles** : avant tout commit, confirmer que `git status` ne liste aucun fichier Excel, CSV, script de prospection ou fichier interne.
 
 ### Règles générales

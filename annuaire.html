@@ -298,10 +298,29 @@
       line-height: 1.6;
     }
 
-    .disclaimer-banner p {
+    .disclaimer-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+    }
+
+    .disclaimer-list li {
       font-size: 0.88rem;
       color: #5C4A0A;
       line-height: 1.6;
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .disclaimer-list li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      font-weight: 700;
+      color: #9A7010;
     }
 
     .disclaimer-link {
@@ -531,7 +550,7 @@
       padding: 1.4rem 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 0.9rem;
+      gap: 0.45rem;
       transition: box-shadow 0.2s, transform 0.2s;
     }
 
@@ -540,7 +559,7 @@
       transform: translateY(-2px);
     }
 
-    .card-header { flex: 1; }
+    .card-header { }
 
     .card-nom {
       font-size: 1rem;
@@ -561,6 +580,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.35rem;
+      margin-top: 0.65rem;
     }
 
     .domaine-tag {
@@ -573,6 +593,17 @@
       font-size: 0.73rem;
       font-weight: 500;
       white-space: nowrap;
+    }
+
+    /* Description de la carte */
+    .card-desc {
+      font-size: 0.83rem;
+      color: var(--gris);
+      line-height: 1.55;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     /* Footer de la carte */
@@ -662,6 +693,9 @@
       padding: 2rem;
       font-size: 0.85rem;
     }
+    .footer-legal      { margin-top: .5rem; }
+    .footer-legal a    { font-size: .78rem; opacity: .6; color: inherit; text-decoration: none; }
+    .footer-legal a:hover { opacity: 1; text-decoration: underline; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -766,13 +800,11 @@
   <div class="disclaimer-banner" role="note" aria-label="Information importante">
     <div class="disclaimer-banner-inner">
       <span class="disclaimer-icon" aria-hidden="true">ℹ️</span>
-      <p>
-        <span data-i18n="annuaire_page.disclaimer_p1">Cet annuaire recense des associations et fondations de coopération internationale à partir d'informations publiques. Il s'agit d'un travail de recensement de l'écosystème&nbsp;: la présence d'une organisation dans cet annuaire ne signifie aucun partenariat, aucune affiliation ni aucun lien avec <strong>Linkovia Network</strong>.</span>
-        <br>
-        <span data-i18n="annuaire_page.disclaimer_p2">La classification par type d'organisation (Intermédiaire, Fondation, Réseau, Opérationnelle) et par domaine est une nomenclature indicative établie par Linkovia à partir de sources publiques — elle sera vérifiée et affinée dans le temps. Les tailles indiquées sont des estimations indicatives. Toute organisation peut demander la correction ou le retrait de sa fiche.</span>
-        <br>
-        <span data-i18n="annuaire_page.disclaimer_p3">Une organisation a été oubliée et souhaite apparaître dans cet annuaire&nbsp;? <a href="index.html#contact" class="disclaimer-link">Envoyez-nous une demande via le formulaire de contact.</a></span>
-      </p>
+      <ul class="disclaimer-list">
+        <li data-i18n="annuaire_page.disclaimer_p1">Cet annuaire recense des associations et fondations de coopération internationale à partir d'informations publiques. Il s'agit d'un travail de recensement de l'écosystème&nbsp;: la présence d'une organisation dans cet annuaire ne signifie aucun partenariat, aucune affiliation ni aucun lien avec <strong>Linkovia Network</strong>.</li>
+        <li data-i18n="annuaire_page.disclaimer_p2">La classification par type d'organisation (Intermédiaire, Fondation, Réseau, Opérationnelle) et par domaine, ainsi que les tailles indiquées, sont des données indicatives établies par Linkovia à partir de sources publiques. Elles seront vérifiées et affinées dans le temps.</li>
+        <li data-i18n="annuaire_page.disclaimer_p3">Toute organisation peut demander la correction ou le retrait de sa fiche. Une organisation a été oubliée et souhaite apparaître dans cet annuaire&nbsp;? <a href="index.html#contact" class="disclaimer-link">Envoyez-nous une demande via le formulaire de contact.</a></li>
+      </ul>
     </div>
   </div>
 
@@ -879,6 +911,7 @@
   <!-- FOOTER -->
   <footer>
     <p data-i18n="footer.text"></p>
+    <p class="footer-legal"><a href="mentions-legales.html" data-i18n="footer.legal"></a></p>
   </footer>
 
   <script>
@@ -1092,11 +1125,16 @@
             ? '<a href="' + escapeHtml(org.site_web) + '" class="card-link" target="_blank" rel="noopener noreferrer">' + t('annuaire_page.card_website') + '</a>'
             : '';
 
+          var descHtml = org.description
+            ? '<p class="card-desc">' + escapeHtml(org.description) + '</p>'
+            : '';
+
           card.innerHTML =
             '<div class="card-header">' +
               '<h2 class="card-nom">' + escapeHtml(org.nom) + '</h2>' +
               '<p class="card-meta">' + metaStr + '</p>' +
             '</div>' +
+            descHtml +
             (tagsHtml ? '<div class="card-domaines">' + tagsHtml + '</div>' : '') +
             (lienHtml ? '<div class="card-footer">' + lienHtml + '</div>' : '');
 

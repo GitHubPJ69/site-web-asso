@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google" content="notranslate" />
+  <title data-i18n="legal.title">Mentions légales — Linkovia Network</title>
+
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://linkovia-network.org/mentions-legales.html" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
+  <script src="i18n.js" defer></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bleu:        #C06800;
+      --bleu-clair:  #E08820;
+      --vert:        #1E9660;
+      --vert-clair:  #28A870;
+      --terre:       #D4820A;
+      --beige:       #F5F0E8;
+      --beige-fort:  #EDE7D9;
+      --gris:        #5A6A5E;
+      --gris-clair:  #FAF6EE;
+      --blanc:       #FFFFFF;
+      --sombre:      #0D3A1E;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Segoe UI', Arial, sans-serif;
+      color: var(--sombre);
+      background: var(--gris-clair);
+      line-height: 1.6;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(12, 74, 53, 0.97);
+      backdrop-filter: blur(8px);
+      z-index: 100;
+      padding: 0.9rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+      border-radius: 6px;
+    }
+
+    .logo-name {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.3px;
+    }
+    .logo-sub {
+      font-size: 0.58rem;
+      font-weight: 500;
+      letter-spacing: 0.45em;
+      margin-right: -0.45em;
+      text-transform: uppercase;
+      opacity: 0.72;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.80);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #fff; }
+
+    .nav-cta {
+      background: var(--terre);
+      color: #fff !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 6px;
+      font-weight: 600 !important;
+    }
+
+    /* ── DROPDOWN ── */
+    .dropdown { position: relative; }
+    .dropdown-toggle { display: inline-flex; align-items: center; gap: 0.25rem; }
+    .dropdown-toggle::after { content: '▾'; font-size: 0.65rem; opacity: 0.65; display: inline-block; transition: transform 0.2s; }
+    .dropdown:hover .dropdown-toggle::after { transform: rotate(180deg); }
+    .dropdown-menu {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+      background: rgba(10,62,44,0.98); backdrop-filter: blur(8px); border-radius: 6px;
+      min-width: 210px; padding: 0.7rem 0 0.35rem;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.28); list-style: none; z-index: 200;
+    }
+    .dropdown:hover .dropdown-menu { display: block; }
+    .dropdown-menu li a { display: block; padding: 0.55rem 1.2rem; color: rgba(255,255,255,0.82); text-decoration: none; font-size: 0.82rem; font-weight: 500; white-space: nowrap; transition: background 0.15s, color 0.15s; }
+    .dropdown-menu li a:hover { background: rgba(255,255,255,0.08); color: #fff; }
+
+    .lang-switcher {
+      display: flex;
+      gap: 0.3rem;
+    }
+
+    .lang-switcher button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.65);
+      padding: 0.28rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .lang-switcher button:hover {
+      border-color: rgba(255,255,255,0.7);
+      color: #fff;
+    }
+
+    .lang-switcher button.active {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+
+    /* ── LEGAL PAGE ── */
+    .legal-page        { max-width: 760px; margin: 0 auto; padding: 5.5rem 1.25rem 4rem; line-height: 1.65; }
+    .legal-page h1     { margin-bottom: 1.5rem; }
+    .legal-page h2     { margin-top: 2.25rem; font-size: 1.15rem; }
+    .legal-page p      { color: #333; }
+    .legal-page a      { color: inherit; text-decoration: underline; }
+    .legal-update      { font-size: .85rem; opacity: .6; margin-top: 2.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #083828;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      nav { padding: 0.9rem 1.2rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="logo"><img src="images/logo-navbar.png" alt="Linkovia Network"><span class="logo-name">Linkovia<span class="logo-sub">Network</span></span></a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li class="dropdown">
+          <a href="index.html#accueil" class="dropdown-toggle" data-i18n="nav.accueil"></a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#notre-role"      data-i18n="nav.demarche"></a></li>
+            <li><a href="index.html#domaines"        data-i18n="nav.domaines"></a></li>
+            <li><a href="index.html#qui-sommes-nous" data-i18n="nav.qui"></a></li>
+            <li><a href="index.html#contact"         data-i18n="nav.contact_lien"></a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="projects.html" class="dropdown-toggle" data-i18n="nav.projets"></a>
+          <ul class="dropdown-menu">
+            <li><a href="projects.html"            data-i18n="nav.tous_projets"></a></li>
+            <li><a href="index.html#cartographie"  data-i18n="nav.cartographie"></a></li>
+          </ul>
+        </li>
+        <li><a href="articles.html" data-i18n="nav.articles"></a></li>
+        <li><a href="annuaire.html" data-i18n="nav.annuaire"></a></li>
+        <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
+      </ul>
+      <div class="lang-switcher">
+        <button data-lang="fr">FR</button>
+        <button data-lang="en">EN</button>
+        <button data-lang="es">ES</button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container legal-page">
+    <h1 data-i18n="legal.title"></h1>
+
+    <section>
+      <h2 data-i18n="legal.editor_title"></h2>
+      <p data-i18n="legal.editor_text"></p>
+    </section>
+
+    <section>
+      <h2 data-i18n="legal.host_title"></h2>
+      <p data-i18n="legal.host_text"></p>
+    </section>
+
+    <section>
+      <h2 data-i18n="legal.data_title"></h2>
+      <p data-i18n="legal.data_text"></p>
+    </section>
+
+    <section>
+      <h2 data-i18n="legal.ip_title"></h2>
+      <p data-i18n="legal.ip_text"></p>
+    </section>
+
+    <p class="legal-update" data-i18n="legal.updated"></p>
+
+    <p><a href="index.html" data-i18n="legal.back"></a></p>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p data-i18n="footer.text"></p>
+  </footer>
+
+  <script data-goatcounter="https://linkovia.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>

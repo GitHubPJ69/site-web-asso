@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>L'approche nexus en coopération internationale — Linkovia Network</title>
+  <title>Les angles morts de l'action publique — Linkovia Network</title>
 
   <!-- SEO -->
-  <meta name="description" content="Note d'analyse : comment articuler l'action humanitaire, le développement et la paix dans des crises qui s'installent dans la durée ? Examen de l'approche nexus, de ses enjeux et de ses limites." />
+  <meta name="description" content="Note d'analyse : comment les dispositifs de l'action publique produisent une visibilité sélective des problèmes sociaux, du territoire rural à la coopération internationale." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://linkovia-network.org/article-nexus.html" />
+  <link rel="canonical" href="https://linkovia-network.org/article-angles-morts.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://linkovia-network.org/article-nexus.html" />
-  <meta property="og:title" content="L'approche nexus en coopération internationale" />
-  <meta property="og:description" content="Note d'analyse publiée par Linkovia Network : articuler l'urgence, le développement et la paix dans des crises qui durent." />
+  <meta property="og:url" content="https://linkovia-network.org/article-angles-morts.html" />
+  <meta property="og:title" content="Les angles morts de l'action publique" />
+  <meta property="og:description" content="Note d'analyse publiée par Linkovia Network : participation, invisibilisation et fabrique sélective des problèmes sociaux, du territoire rural à la coopération internationale." />
   <meta property="og:image" content="https://linkovia-network.org/og-cover.jpg" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Linkovia Network" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="L'approche nexus en coopération internationale" />
-  <meta name="twitter:description" content="Note d'analyse : articuler l'urgence, le développement et la paix dans des crises qui durent." />
+  <meta name="twitter:title" content="Les angles morts de l'action publique" />
+  <meta name="twitter:description" content="Note d'analyse : participation, invisibilisation et fabrique sélective des problèmes sociaux." />
   <meta name="twitter:image" content="https://linkovia-network.org/og-cover.jpg" />
 
   <link rel="icon" href="favicon.ico" sizes="any">
@@ -34,7 +34,7 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&display=swap" rel="stylesheet"></noscript>
   <script src="i18n.js" defer></script>
-  <script src="article-nexus-i18n.js" defer></script>
+  <script src="article-angles-morts-i18n.js" defer></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -194,7 +194,7 @@
     .mobile-menu ul li a.nav-cta { display: inline-block; margin-top: 0.6rem; border-bottom: none; background: var(--terre); color: #fff; padding: 0.55rem 1.3rem; border-radius: 6px; font-weight: 600; }
     .mobile-menu.open { display: block; }
 
-    /* ── HERO ARTICLE (différenciation principale) ── */
+    /* ── HERO ARTICLE ── */
     .article-hero {
       padding: 6.5rem 2.5rem 3.5rem;
       background: var(--beige-fort);
@@ -202,7 +202,6 @@
       position: relative;
     }
 
-    /* Fine ligne de couleur en haut du hero — identité éditoriale */
     .article-hero::before {
       content: '';
       display: block;
@@ -296,7 +295,7 @@
       border-radius: 3px;
     }
 
-    /* ── SOMMAIRE MOBILE (toggle) ── */
+    /* ── SOMMAIRE MOBILE ── */
     .toc-mobile-toggle {
       display: none;
       width: 100%;
@@ -403,7 +402,6 @@
 
     .article-content section { margin-bottom: 0.5rem; }
 
-    /* Paragraphes */
     .article-content p {
       font-size: 1rem;
       line-height: 1.88;
@@ -413,7 +411,6 @@
       hyphens: auto;
     }
 
-    /* Paragraphe d'introduction (plus grand) */
     .article-intro {
       font-size: 1.08rem !important;
       line-height: 1.92 !important;
@@ -421,7 +418,6 @@
       margin-bottom: 2rem !important;
     }
 
-    /* H2 — titres de section */
     .article-content h2 {
       font-size: 1.42rem;
       font-weight: 800;
@@ -430,42 +426,6 @@
       margin: 3.2rem 0 1.1rem;
       padding-top: 0.5rem;
       border-top: 1.5px solid var(--beige-fort);
-    }
-
-    /* H3 — sous-titres */
-    .article-content h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--bleu);
-      margin: 2rem 0 0.8rem;
-    }
-
-    /* ── ENCADRÉ DÉFINITION ── */
-    .def-box {
-      background: var(--beige);
-      border-left: 3px solid var(--vert);
-      border-radius: 0 6px 6px 0;
-      padding: 1.15rem 1.5rem 1.1rem;
-      margin: 2rem 0;
-    }
-
-    .def-box-label {
-      display: block;
-      font-size: 0.62rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--vert);
-      margin-bottom: 0.65rem;
-    }
-
-    .def-box p {
-      font-size: 0.97rem !important;
-      color: var(--sombre) !important;
-      line-height: 1.78 !important;
-      margin: 0 !important;
-      text-align: left !important;
-      hyphens: none !important;
     }
 
     /* ── CITATION EN EXERGUE ── */
@@ -483,34 +443,6 @@
       color: var(--gris) !important;
       line-height: 1.78 !important;
       margin: 0 !important;
-      text-align: left !important;
-    }
-
-    /* ── ENCADRÉ MISE EN CONTEXTE ── */
-    .context-box {
-      background: rgba(13,58,30,0.04);
-      border: 1px solid rgba(13,58,30,0.10);
-      border-radius: 8px;
-      padding: 1.3rem 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .context-box-label {
-      font-size: 0.62rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--sombre);
-      opacity: 0.55;
-      margin-bottom: 0.7rem;
-      display: block;
-    }
-
-    .context-box p {
-      font-size: 0.95rem !important;
-      margin: 0 !important;
-      color: var(--sombre) !important;
-      line-height: 1.75 !important;
       text-align: left !important;
     }
 
@@ -687,7 +619,7 @@
       <li class="mobile-dropdown">
         <button class="mobile-dropdown-toggle" onclick="toggleMobileDropdown(this)" data-i18n="nav.projets"></button>
         <ul class="mobile-dropdown-menu">
-          <li><a href="projects.html"            data-i18n="nav.tous_projets"      onclick="closeMobileMenu()"></a></li>
+          <li><a href="projects.html"            data-i18n="nav.tous_projets"  onclick="closeMobileMenu()"></a></li>
           <li><a href="index.html#cartographie"  data-i18n="nav.cartographie"  onclick="closeMobileMenu()"></a></li>
         </ul>
       </li>
@@ -706,26 +638,26 @@
         <span class="bc-sep">›</span>
         <a href="articles.html" data-i18n="nav.articles">Articles</a>
         <span class="bc-sep">›</span>
-        <span data-i18n="nexus_article.breadcrumb">Approche nexus</span>
+        <span data-i18n="angles_morts_article.breadcrumb">Angles morts de l'action publique</span>
       </div>
 
       <div class="article-category-row">
-        <span class="cat-tag" data-i18n="nexus_article.cat_tag">Analyse</span>
+        <span class="cat-tag" data-i18n="angles_morts_article.cat_tag">Analyse</span>
         <span class="cat-sep">·</span>
-        <span class="cat-theme" data-i18n="nexus_article.cat_theme">Coopération internationale</span>
+        <span class="cat-theme" data-i18n="angles_morts_article.cat_theme">Action publique</span>
       </div>
 
-      <h1 class="article-title-h1" data-i18n="nexus_article.h1">L'approche nexus en coopération internationale</h1>
-      <p class="article-chapo" data-i18n="nexus_article.chapo">Articuler l'urgence, le développement et la paix dans des crises qui durent</p>
+      <h1 class="article-title-h1" data-i18n="angles_morts_article.h1">Les angles morts de l'action publique</h1>
+      <p class="article-chapo" data-i18n="angles_morts_article.subtitle">Participation, invisibilisation et fabrique sélective des problèmes sociaux, du territoire rural à la coopération internationale</p>
 
       <div class="article-meta-bar">
         <span class="meta-item meta-author">Sidonie Tisseau, Linkovia Network</span>
         <span class="meta-dot">·</span>
-        <span class="meta-item" data-i18n="nexus_article.meta_date">Juin 2026</span>
+        <span class="meta-item" data-i18n="angles_morts_article.meta_date">Juin 2026</span>
         <span class="meta-dot">·</span>
-        <span class="meta-item" data-i18n="nexus_article.meta_read_time">~&nbsp;15 min de lecture</span>
+        <span class="meta-item" data-i18n="angles_morts_article.meta_read_time">~&nbsp;25 min de lecture</span>
         <span class="meta-dot">·</span>
-        <span class="meta-tag" data-i18n="nexus_article.meta_tag">Note d'analyse</span>
+        <span class="meta-tag" data-i18n="angles_morts_article.meta_tag">Note d'analyse</span>
       </div>
 
     </div>
@@ -738,15 +670,16 @@
       <!-- SOMMAIRE SIDEBAR (desktop) -->
       <aside class="article-toc" id="article-toc" aria-label="Sommaire">
         <div class="toc-inner">
-          <div class="toc-header" data-i18n="nexus_article.toc_header">Sommaire</div>
+          <div class="toc-header" data-i18n="angles_morts_article.toc_header">Sommaire</div>
           <div class="toc-nav">
-            <a href="#intro"       class="toc-link" data-i18n="nexus_article.toc_intro">Introduction</a>
-            <a href="#definition"  class="toc-link" data-i18n="nexus_article.toc_definition">Définition</a>
-            <a href="#enjeux"      class="toc-link" data-i18n="nexus_article.toc_enjeux">Les enjeux</a>
-            <a href="#terrain"     class="toc-link" data-i18n="nexus_article.toc_terrain">Situations de terrain</a>
-            <a href="#critique"    class="toc-link" data-i18n="nexus_article.toc_critique">Discussion critique</a>
-            <a href="#conclusion"  class="toc-link" data-i18n="nexus_article.toc_conclusion">Conclusion</a>
-            <a href="#references"  class="toc-link" data-i18n="nexus_article.toc_references">Références</a>
+            <a href="#intro"       class="toc-link" data-i18n="angles_morts_article.toc_intro">Introduction</a>
+            <a href="#s1"          class="toc-link" data-i18n="angles_morts_article.toc_s1">Voir les publics qui répondent</a>
+            <a href="#s2"          class="toc-link" data-i18n="angles_morts_article.toc_s2">L'invisibilité n'est pas l'absence</a>
+            <a href="#s3"          class="toc-link" data-i18n="angles_morts_article.toc_s3">Participer pour connaître</a>
+            <a href="#s4"          class="toc-link" data-i18n="angles_morts_article.toc_s4">Des angles morts transposables</a>
+            <a href="#s5"          class="toc-link" data-i18n="angles_morts_article.toc_s5">Les démarches exploratoires</a>
+            <a href="#conclusion"  class="toc-link" data-i18n="angles_morts_article.toc_conclusion">Conclusion</a>
+            <a href="#references"  class="toc-link" data-i18n="angles_morts_article.toc_references">Références</a>
           </div>
         </div>
       </aside>
@@ -755,124 +688,107 @@
       <article class="article-content" id="article-body">
 
         <!-- Sommaire mobile toggle -->
-        <button class="toc-mobile-toggle" id="toc-mobile-btn" onclick="toggleMobileToc()" data-i18n="nexus_article.mobile_toc_btn">Sommaire</button>
+        <button class="toc-mobile-toggle" id="toc-mobile-btn" onclick="toggleMobileToc()" data-i18n="angles_morts_article.mobile_toc_btn">Sommaire</button>
         <div class="toc-mobile-nav" id="toc-mobile-nav">
-          <a href="#intro"      onclick="closeMobileToc()" data-i18n="nexus_article.toc_intro">Introduction</a>
-          <a href="#definition" onclick="closeMobileToc()" data-i18n="nexus_article.toc_definition">Définition</a>
-          <a href="#enjeux"     onclick="closeMobileToc()" data-i18n="nexus_article.toc_enjeux">Les enjeux</a>
-          <a href="#terrain"    onclick="closeMobileToc()" data-i18n="nexus_article.toc_terrain">Situations de terrain</a>
-          <a href="#critique"   onclick="closeMobileToc()" data-i18n="nexus_article.toc_critique">Discussion critique</a>
-          <a href="#conclusion" onclick="closeMobileToc()" data-i18n="nexus_article.toc_conclusion">Conclusion</a>
-          <a href="#references" onclick="closeMobileToc()" data-i18n="nexus_article.toc_references">Références</a>
+          <a href="#intro"      onclick="closeMobileToc()" data-i18n="angles_morts_article.toc_intro">Introduction</a>
+          <a href="#s1"         onclick="closeMobileToc()" data-i18n="angles_morts_article.toc_s1">Voir les publics qui répondent</a>
+          <a href="#s2"         onclick="closeMobileToc()" data-i18n="angles_morts_article.toc_s2">L'invisibilité n'est pas l'absence</a>
+          <a href="#s3"         onclick="closeMobileToc()" data-i18n="angles_morts_article.toc_s3">Participer pour connaître</a>
+          <a href="#s4"         onclick="closeMobileToc()" data-i18n="angles_morts_article.toc_s4">Des angles morts transposables</a>
+          <a href="#s5"         onclick="closeMobileToc()" data-i18n="angles_morts_article.toc_s5">Les démarches exploratoires</a>
+          <a href="#conclusion" onclick="closeMobileToc()" data-i18n="angles_morts_article.toc_conclusion">Conclusion</a>
+          <a href="#references" onclick="closeMobileToc()" data-i18n="angles_morts_article.toc_references">Références</a>
         </div>
 
         <!-- ① INTRODUCTION -->
         <section id="intro">
-          <p class="article-intro" data-i18n="nexus_article.s_intro_p1"></p>
-          <p data-i18n="nexus_article.s_intro_p2"></p>
-          <p data-i18n="nexus_article.s_intro_p3"></p>
-          <p data-i18n="nexus_article.s_intro_p4"></p>
+          <p class="article-intro" data-i18n="angles_morts_article.s_intro_p1"></p>
+          <p data-i18n="angles_morts_article.s_intro_p2"></p>
+          <p data-i18n="angles_morts_article.s_intro_p3"></p>
         </section>
 
-        <!-- ② DÉFINITION -->
-        <section id="definition">
-          <h2 data-i18n="nexus_article.s_def_h2"></h2>
-          <h3 data-i18n="nexus_article.s_def_h3"></h3>
+        <!-- ② SECTION 1 -->
+        <section id="s1">
+          <h2 data-i18n="angles_morts_article.s1_h2"></h2>
+          <p data-i18n="angles_morts_article.s1_p1"></p>
+          <p data-i18n="angles_morts_article.s1_p2"></p>
+          <p data-i18n="angles_morts_article.s1_p3"></p>
+          <p data-i18n="angles_morts_article.s1_p4"></p>
+          <p data-i18n="angles_morts_article.s1_p5"></p>
+          <p data-i18n="angles_morts_article.s1_p6"></p>
+        </section>
 
-          <div class="def-box">
-            <span class="def-box-label" data-i18n="nexus_article.def_box_label">Définition</span>
-            <p data-i18n="nexus_article.s_def_box"></p>
-          </div>
-
-          <p data-i18n="nexus_article.s_def_p1"></p>
-          <p data-i18n="nexus_article.s_def_p2"></p>
-          <p data-i18n="nexus_article.s_def_p3"></p>
+        <!-- ③ SECTION 2 -->
+        <section id="s2">
+          <h2 data-i18n="angles_morts_article.s2_h2"></h2>
+          <p data-i18n="angles_morts_article.s2_p1"></p>
+          <p data-i18n="angles_morts_article.s2_p2"></p>
+          <p data-i18n="angles_morts_article.s2_p3"></p>
+          <p data-i18n="angles_morts_article.s2_p4"></p>
+          <p data-i18n="angles_morts_article.s2_p5"></p>
 
           <blockquote class="article-quote">
-            <p data-i18n="nexus_article.s_def_q1"></p>
+            <p data-i18n="angles_morts_article.s2_q1"></p>
           </blockquote>
-
-          <p data-i18n="nexus_article.s_def_p4"></p>
         </section>
 
-        <!-- ③ ENJEUX -->
-        <section id="enjeux">
-          <h2 data-i18n="nexus_article.s_enjeux_h2"></h2>
-          <p data-i18n="nexus_article.s_enjeux_p_intro"></p>
-          <h3 data-i18n="nexus_article.s_enjeux_h3_1"></h3>
-          <p data-i18n="nexus_article.s_enjeux_p1"></p>
-          <h3 data-i18n="nexus_article.s_enjeux_h3_2"></h3>
-          <p data-i18n="nexus_article.s_enjeux_p2"></p>
-          <h3 data-i18n="nexus_article.s_enjeux_h3_3"></h3>
-          <p data-i18n="nexus_article.s_enjeux_p3"></p>
-          <h3 data-i18n="nexus_article.s_enjeux_h3_4"></h3>
-          <p data-i18n="nexus_article.s_enjeux_p4"></p>
-          <p data-i18n="nexus_article.s_enjeux_p5"></p>
+        <!-- ④ SECTION 3 -->
+        <section id="s3">
+          <h2 data-i18n="angles_morts_article.s3_h2"></h2>
+          <p data-i18n="angles_morts_article.s3_p1"></p>
+          <p data-i18n="angles_morts_article.s3_p2"></p>
+          <p data-i18n="angles_morts_article.s3_p3"></p>
+          <p data-i18n="angles_morts_article.s3_p4"></p>
         </section>
 
-        <!-- ④ TERRAIN -->
-        <section id="terrain">
-          <h2 data-i18n="nexus_article.s_terrain_h2"></h2>
-          <p data-i18n="nexus_article.s_terrain_p_intro"></p>
-
-          <div class="context-box">
-            <span class="context-box-label" data-i18n="nexus_article.s_terrain_ctx1_label">Exemple 1 — Sécheresse chronique</span>
-            <p data-i18n="nexus_article.s_terrain_ctx1"></p>
-          </div>
-
-          <div class="context-box">
-            <span class="context-box-label" data-i18n="nexus_article.s_terrain_ctx2_label">Exemple 2 — Déplacement durable de population</span>
-            <p data-i18n="nexus_article.s_terrain_ctx2"></p>
-          </div>
-
-          <div class="context-box">
-            <span class="context-box-label" data-i18n="nexus_article.s_terrain_ctx3_label">Exemple 3 — Appui aux filières économiques locales</span>
-            <p data-i18n="nexus_article.s_terrain_ctx3"></p>
-          </div>
-
-          <p data-i18n="nexus_article.s_terrain_p1"></p>
-          <p data-i18n="nexus_article.s_terrain_p2"></p>
-        </section>
-
-        <!-- ⑤ CRITIQUE -->
-        <section id="critique">
-          <h2 data-i18n="nexus_article.s_critique_h2"></h2>
-          <p data-i18n="nexus_article.s_critique_p_intro"></p>
-          <h3 data-i18n="nexus_article.s_critique_h3_1"></h3>
-          <p data-i18n="nexus_article.s_critique_p1"></p>
-          <h3 data-i18n="nexus_article.s_critique_h3_2"></h3>
-          <p data-i18n="nexus_article.s_critique_p2"></p>
-          <h3 data-i18n="nexus_article.s_critique_h3_3"></h3>
-          <p data-i18n="nexus_article.s_critique_p3"></p>
-          <h3 data-i18n="nexus_article.s_critique_h3_4"></h3>
-          <p data-i18n="nexus_article.s_critique_p4"></p>
+        <!-- ⑤ SECTION 4 -->
+        <section id="s4">
+          <h2 data-i18n="angles_morts_article.s4_h2"></h2>
+          <p data-i18n="angles_morts_article.s4_p1"></p>
+          <p data-i18n="angles_morts_article.s4_p2"></p>
+          <p data-i18n="angles_morts_article.s4_p3"></p>
+          <p data-i18n="angles_morts_article.s4_p4"></p>
 
           <blockquote class="article-quote">
-            <p data-i18n="nexus_article.s_critique_q"></p>
+            <p data-i18n="angles_morts_article.s4_q1"></p>
           </blockquote>
-
-          <p data-i18n="nexus_article.s_critique_p5"></p>
         </section>
 
-        <!-- ⑥ CONCLUSION -->
+        <!-- ⑥ SECTION 5 -->
+        <section id="s5">
+          <h2 data-i18n="angles_morts_article.s5_h2"></h2>
+          <p data-i18n="angles_morts_article.s5_p1"></p>
+          <p data-i18n="angles_morts_article.s5_p2"></p>
+          <p data-i18n="angles_morts_article.s5_p3"></p>
+        </section>
+
+        <!-- ⑦ CONCLUSION -->
         <section id="conclusion">
-          <h2 data-i18n="nexus_article.s_conclusion_h2"></h2>
-          <p data-i18n="nexus_article.s_conclusion_p1"></p>
-          <p data-i18n="nexus_article.s_conclusion_p2"></p>
-          <p data-i18n="nexus_article.s_conclusion_p3"></p>
-          <p data-i18n="nexus_article.s_conclusion_p4"></p>
-          <p data-i18n="nexus_article.s_conclusion_p5"></p>
+          <h2 data-i18n="angles_morts_article.s_conclusion_h2"></h2>
+          <p data-i18n="angles_morts_article.s_conclusion_p1"></p>
+          <p data-i18n="angles_morts_article.s_conclusion_p2"></p>
+          <p data-i18n="angles_morts_article.s_conclusion_p3"></p>
         </section>
 
-        <!-- ⑦ RÉFÉRENCES -->
+        <!-- ⑧ RÉFÉRENCES -->
         <section id="references">
-          <h2 data-i18n="nexus_article.s_refs_h2"></h2>
+          <h2 data-i18n="angles_morts_article.s_refs_h2"></h2>
           <ol class="article-refs">
-            <li data-i18n="nexus_article.s_refs_1"></li>
-            <li data-i18n="nexus_article.s_refs_2"></li>
-            <li data-i18n="nexus_article.s_refs_3"></li>
-            <li data-i18n="nexus_article.s_refs_4"></li>
-            <li data-i18n="nexus_article.s_refs_5"></li>
+            <li data-i18n="angles_morts_article.s_refs_1"></li>
+            <li data-i18n="angles_morts_article.s_refs_2"></li>
+            <li data-i18n="angles_morts_article.s_refs_3"></li>
+            <li data-i18n="angles_morts_article.s_refs_4"></li>
+            <li data-i18n="angles_morts_article.s_refs_5"></li>
+            <li data-i18n="angles_morts_article.s_refs_6"></li>
+            <li data-i18n="angles_morts_article.s_refs_7"></li>
+            <li data-i18n="angles_morts_article.s_refs_8"></li>
+            <li data-i18n="angles_morts_article.s_refs_9"></li>
+            <li data-i18n="angles_morts_article.s_refs_10"></li>
+            <li data-i18n="angles_morts_article.s_refs_11"></li>
+            <li data-i18n="angles_morts_article.s_refs_12"></li>
+            <li data-i18n="angles_morts_article.s_refs_13"></li>
+            <li data-i18n="angles_morts_article.s_refs_14"></li>
+            <li data-i18n="angles_morts_article.s_refs_15"></li>
           </ol>
         </section>
 
@@ -883,8 +799,8 @@
   <!-- NAVIGATION RETOUR -->
   <section class="article-footer-nav">
     <div class="container">
-      <a href="articles.html" class="btn-back-articles" data-i18n="nexus_article.btn_back">← Retour aux articles</a>
-      <p class="article-footer-share" data-i18n="nexus_article.footer_meta">Note d'analyse · Sidonie Tisseau, Linkovia Network · Juin 2026</p>
+      <a href="articles.html" class="btn-back-articles" data-i18n="angles_morts_article.btn_back">← Retour aux articles</a>
+      <p class="article-footer-share" data-i18n="angles_morts_article.footer_meta">Note d'analyse · Sidonie Tisseau, Linkovia Network · Juin 2026</p>
       <p class="article-footer-copyright">© 2026 Sidonie Tisseau — Linkovia Network. Reproduction interdite sans autorisation de l'auteure.</p>
     </div>
   </section>
@@ -911,7 +827,7 @@
   <!-- Sommaire : active section tracking -->
   <script>
     const tocLinks = document.querySelectorAll('.toc-link');
-    const sections = ['intro', 'definition', 'enjeux', 'terrain', 'critique', 'conclusion', 'references'];
+    const sections = ['intro', 's1', 's2', 's3', 's4', 's5', 'conclusion', 'references'];
 
     function updateActiveToc() {
       let current = sections[0];

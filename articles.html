@@ -226,7 +226,8 @@
     .hero p.subtitle {
       font-size: 1rem;
       color: rgba(255,255,255,0.68);
-      max-width: 560px;
+      max-width: none;
+      white-space: nowrap;
       margin-bottom: 2rem;
       line-height: 1.78;
       font-style: italic;
@@ -472,6 +473,7 @@
       .nav-links { gap: 0.8rem; font-size: 0.8rem; }
       .hero { padding: 8rem 1.4rem 3rem; }
       #articles-liste { padding: 2.5rem 1.2rem 4rem; }
+      .hero p.subtitle { white-space: normal; }
     }
     @media (max-width: 540px) {
       .nav-links { display: none; }
@@ -585,6 +587,28 @@
                 <span data-i18n="articles_page.card1_date">Juin 2026</span>
                 <span>·</span>
                 <span data-i18n="articles_page.card1_read_time">~&thinsp;15 min</span>
+              </div>
+              <span class="card-read-link" data-i18n="articles_page.read_link">Lire l'article →</span>
+            </div>
+          </div>
+        </a>
+
+        <!-- Article 2 : Angles morts -->
+        <a href="article-angles-morts.html" class="article-card">
+          <div class="card-editorial-band"></div>
+          <div class="card-article-body">
+            <div class="card-meta-top">
+              <span class="card-cat" data-i18n="articles_page.card2_cat">Analyse</span>
+              <span class="card-meta-sep">·</span>
+              <span class="card-meta-theme" data-i18n="articles_page.card2_theme">Action publique</span>
+            </div>
+            <h2 class="card-article-title" data-i18n="articles_page.card2_title">Les angles morts de l'action publique</h2>
+            <p class="card-article-chapo" data-i18n="articles_page.card2_chapo">Participation, invisibilisation et fabrique sélective des problèmes sociaux, du territoire rural à la coopération internationale.</p>
+            <div class="card-article-footer">
+              <div class="card-article-meta">
+                <span data-i18n="articles_page.card2_date">Juin 2026</span>
+                <span>·</span>
+                <span data-i18n="articles_page.card2_read_time">~&thinsp;25 min</span>
               </div>
               <span class="card-read-link" data-i18n="articles_page.read_link">Lire l'article →</span>
             </div>

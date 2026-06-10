@@ -2664,6 +2664,8 @@
           </div>
         </div>
         <form id="contact-form" class="formulaire" onsubmit="envoyerContact(event)">
+          <input type="hidden" name="_subject" value="Nouveau message — Linkovia Network">
+          <input type="hidden" name="_replyto" id="contact-replyto">
           <input id="contact-nom"    name="nom"     type="text"  data-i18n-placeholder="contact.f_name"  required />
           <input id="contact-email"  name="email"   type="email" data-i18n-placeholder="contact.f_email" required />
           <select id="contact-profil" name="profil">
@@ -3263,6 +3265,8 @@
       error.style.display   = 'none';
       btn.disabled = true;
       btn.textContent = lang === 'en' ? 'Sending…' : 'Envoi en cours…';
+
+      document.getElementById('contact-replyto').value = document.getElementById('contact-email').value;
 
       var data = new FormData(document.getElementById('contact-form'));
 

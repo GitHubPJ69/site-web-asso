@@ -981,6 +981,8 @@
 
       <!-- ── SUBMIT ── -->
       <div class="form-submit-area">
+        <div id="form-validation-error" class="form-error-msg" style="display:none;"
+             data-i18n="submit.form_validation_error"></div>
         <div id="form-error" class="form-error-msg" style="display:none;"
              data-i18n="submit.form_error"></div>
         <button type="submit" class="btn-submit" id="btn-submit"
@@ -1062,15 +1064,17 @@
       });
 
       /* Form submission */
-      var form       = document.getElementById('project-form');
-      var btnSubmit  = document.getElementById('btn-submit');
-      var formError  = document.getElementById('form-error');
-      var soutienErr = document.getElementById('soutien-error');
+      var form            = document.getElementById('project-form');
+      var btnSubmit       = document.getElementById('btn-submit');
+      var formError       = document.getElementById('form-error');
+      var formValError    = document.getElementById('form-validation-error');
+      var soutienErr      = document.getElementById('soutien-error');
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
-        formError.style.display  = 'none';
-        soutienErr.style.display = 'none';
+        formError.style.display    = 'none';
+        formValError.style.display = 'none';
+        soutienErr.style.display   = 'none';
 
         /* Validate Section C: at least one support type */
         var cbs = Array.from(document.querySelectorAll('.support-cb'));
@@ -1082,6 +1086,11 @@
 
         /* HTML5 validation for remaining required fields */
         if (!form.checkValidity()) {
+          var firstInvalid = form.querySelector('input:invalid, select:invalid, textarea:invalid');
+          if (firstInvalid) {
+            firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          formValError.style.display = 'block';
           form.reportValidity();
           return;
         }

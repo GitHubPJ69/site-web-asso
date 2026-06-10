@@ -418,7 +418,8 @@ const translations = {
 
       btn_submit:   "Envoyer ma soumission →",
       submit_note:  "En soumettant ce formulaire, vous acceptez que les informations fournies soient utilisées par l'équipe de Linkovia Network pour l'évaluation de votre projet. La soumission ne garantit pas la publication. Toutes les soumissions sont examinées manuellement.",
-      form_error:   "Une erreur est survenue lors de l'envoi. Veuillez vérifier les champs obligatoires et réessayer.",
+      form_validation_error: "Certains champs obligatoires ne sont pas remplis. Vérifiez les champs indiqués ci-dessus.",
+      form_error:   "Envoi échoué. Réessayez dans quelques instants ou contactez-nous à contact@linkovia-network.org.",
 
       success_title: "Votre projet a bien été soumis",
       success_msg:   "Merci pour votre soumission. Notre équipe examinera votre dossier et vous contactera si des informations complémentaires sont nécessaires.",
@@ -898,7 +899,8 @@ const translations = {
 
       btn_submit:   "Send my submission →",
       submit_note:  "By submitting this form, you agree that the information provided may be used by the Linkovia Network team to evaluate your project. Submission does not guarantee publication. All submissions are reviewed manually.",
-      form_error:   "An error occurred while sending. Please check the required fields and try again.",
+      form_validation_error: "Some required fields are not filled in. Please check the highlighted fields above.",
+      form_error:   "Sending failed. Please try again in a moment or contact us at contact@linkovia-network.org.",
 
       success_title: "Your project has been submitted",
       success_msg:   "Thank you for your submission. Our team will review your application and contact you if additional information is needed.",
@@ -1378,7 +1380,8 @@ const translations = {
 
       btn_submit:   "Enviar mi solicitud →",
       submit_note:  "Al enviar este formulario, usted acepta que la información proporcionada sea utilizada por el equipo de Linkovia Network para la evaluación de su proyecto. El envío no garantiza la publicación. Todas las solicitudes son examinadas manualmente.",
-      form_error:   "Se produjo un error al enviar. Por favor, verifique los campos obligatorios y vuelva a intentarlo.",
+      form_validation_error: "Algunos campos obligatorios no están rellenos. Compruebe los campos indicados arriba.",
+      form_error:   "Envío fallido. Inténtelo de nuevo en un momento o contáctenos en contact@linkovia-network.org.",
 
       success_title: "Su proyecto ha sido enviado correctamente",
       success_msg:   "Gracias por su solicitud. Nuestro equipo examinará su expediente y se pondrá en contacto con usted si se necesita información adicional.",

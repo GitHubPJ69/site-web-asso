@@ -340,6 +340,28 @@ Options:
 
 ---
 
+## Preferred Visibility Duration
+
+Type:
+Dropdown menu
+
+Required:
+Yes
+
+Options:
+
+* 1 year
+* 3 years
+* 5 years
+
+Description:
+How long the project stays displayed on the interactive map. When the chosen period expires, the project is removed from the map and the project holder is notified; they may then request a renewal. A project already supported through another channel can also be removed earlier at the holder's request.
+
+Note (V1):
+As with the rest of V1, this lifecycle is handled **manually** — the team records the chosen duration, tracks expiry dates, notifies holders and removes projects by hand. Automatic expiry and notifications are future work (see the dedicated GitHub issue).
+
+---
+
 # Section C, Needs and Support Requested
 
 ## Main Types of Support Needed

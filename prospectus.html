@@ -3,26 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Articles — Linkovia Network</title>
+  <title>Comment ça marche ? — Linkovia Network</title>
 
   <!-- SEO -->
-  <meta name="description" content="Notes d'analyse et de réflexion publiées par Linkovia Network sur les enjeux de la coopération internationale, du développement local et de l'intermédiation territoriale." />
+  <meta name="description" content="Comment Linkovia Network relie concrètement les initiatives locales de développement aux partenaires et financeurs internationaux." />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://linkovia-network.org/articles.html" />
+  <link rel="canonical" href="https://linkovia-network.org/prospectus.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://linkovia-network.org/articles.html" />
-  <meta property="og:title" content="Articles — Linkovia Network" />
-  <meta property="og:description" content="Notes d'analyse et de réflexion sur la coopération internationale et le développement local." />
+  <meta property="og:url" content="https://linkovia-network.org/prospectus.html" />
+  <meta property="og:title" content="Comment ça marche ? — Linkovia Network" />
+  <meta property="og:description" content="Comment Linkovia Network relie concrètement les initiatives locales de développement aux partenaires et financeurs internationaux." />
   <meta property="og:image" content="https://linkovia-network.org/og-cover.jpg" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Linkovia Network" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Articles — Linkovia Network" />
-  <meta name="twitter:description" content="Notes d'analyse et de réflexion sur la coopération internationale et le développement local." />
+  <meta name="twitter:title" content="Comment ça marche ? — Linkovia Network" />
+  <meta name="twitter:description" content="Comment Linkovia Network relie concrètement les initiatives locales de développement aux partenaires et financeurs internationaux." />
   <meta name="twitter:image" content="https://linkovia-network.org/og-cover.jpg" />
 
   <link rel="icon" href="favicon.ico" sizes="any">
@@ -49,6 +49,19 @@
       --gris-clair:  #FAF6EE;
       --blanc:       #FFFFFF;
       --sombre:      #0D3A1E;
+      /* Jetons additionnels pour les blocs visuels de cette page */
+      --orange:      #C06800;
+      --orange-fort: #A05600;
+      --orange-clr:  #E08820;
+      --surface:     #FFFFFF;
+      --line-soft:   rgba(13,58,30,0.09);
+      --shadow-soft: 0 10px 24px rgba(13,58,30,0.07);
+      --shadow-lift: 0 16px 34px rgba(13,58,30,0.11);
+      --radius-sm:   8px;
+      --radius-md:   14px;
+      --radius-lg:   18px;
+      --text-soft:   rgba(13,58,30,0.74);
+      --text-muted:  rgba(13,58,30,0.58);
     }
 
     body {
@@ -180,7 +193,7 @@
     .mobile-menu ul li a.nav-cta { display: inline-block; margin-top: 0.6rem; border-bottom: none; background: var(--terre); color: #fff; padding: 0.55rem 1.3rem; border-radius: 6px; font-weight: 600; }
     .mobile-menu.open { display: block; }
 
-    /* ── HERO — identique au style des pages liste mais avec sémantique éditoriale ── */
+    /* ── HERO ── */
     .hero {
       background:
         linear-gradient(160deg, rgba(12,74,53,0.90) 0%, rgba(7,43,31,0.96) 100%),
@@ -190,7 +203,6 @@
 
     .container { max-width: 1100px; margin: 0 auto; }
 
-    /* Tag editorial (différent de tag-vert des projets) */
     .tag-editorial {
       display: inline-flex;
       align-items: center;
@@ -221,16 +233,26 @@
       color: #fff;
       line-height: 1.15;
       margin-bottom: 0.75rem;
+      max-width: 900px;
     }
 
     .hero p.subtitle {
       font-size: 1rem;
-      color: rgba(255,255,255,0.68);
-      max-width: none;
-      white-space: nowrap;
-      margin-bottom: 2rem;
-      line-height: 1.78;
-      font-style: italic;
+      color: rgba(255,255,255,0.72);
+      max-width: 760px;
+      margin-bottom: 1.6rem;
+      line-height: 1.8;
+    }
+
+    .audience-row { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 1.8rem; }
+    .audience-chip {
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.22);
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: #fff;
     }
 
     .btn-back {
@@ -247,210 +269,70 @@
     }
     .btn-back:hover { background: rgba(255,255,255,0.16); color: #fff; }
 
-    /* ── SECTION LISTE ARTICLES ── */
-    #articles-liste {
-      background: var(--beige);
-      padding: 4rem 2.5rem 6rem;
-    }
+    /* ── SECTIONS DE CONTENU ── */
+    .cmt-section { padding: 4.5rem 2.5rem; }
+    .cmt-section.bg-beige { background: var(--beige); }
+    .cmt-section.bg-blanc { background: var(--blanc); }
 
-    /* ── FILTRE CATÉGORIES ── */
-    .articles-filter {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2.5rem;
+    .tag {
+      display: inline-block; padding: 0.3rem 0.9rem; border-radius: 999px;
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;
     }
+    .tag-vert  { background: rgba(30,150,96,0.13); color: var(--vert); border: 1px solid rgba(30,150,96,0.18); }
+    .tag-orange{ background: rgba(192,104,0,0.13); color: var(--orange); border: 1px solid rgba(192,104,0,0.18); }
+    .tag-terre { background: rgba(212,130,10,0.14); color: var(--terre); border: 1px solid rgba(212,130,10,0.18); }
 
-    .filter-label {
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--gris);
-      margin-right: 0.3rem;
+    .cmt-section h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); font-weight: 800; line-height: 1.2; letter-spacing: -0.02em; color: var(--orange); margin-bottom: 0.7rem; }
+    .cmt-section .lead { font-size: clamp(1rem, 1.5vw, 1.1rem); color: var(--text-soft); line-height: 1.8; max-width: 820px; }
+
+    .steps { display: grid; gap: 0.9rem; margin-top: 1.8rem; grid-template-columns: repeat(2, 1fr); }
+    .step {
+      display: grid; grid-template-columns: auto 1fr; gap: 1rem; align-items: start;
+      background: var(--blanc); border: 1px solid var(--line-soft); border-radius: var(--radius-md);
+      padding: 1.2rem 1.4rem; box-shadow: var(--shadow-soft);
     }
+    .cmt-section.bg-blanc .step { background: var(--beige); }
+    .step-num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font-weight: 800; font-size: 0.95rem; color: #fff; background: var(--vert); }
+    .cmt-soutien .step-num { background: var(--orange); }
+    .step h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .step p { font-size: 0.92rem; color: var(--text-soft); line-height: 1.6; }
+    .hl { color: var(--orange); font-weight: 700; }
+    .hlv { color: var(--vert); font-weight: 700; }
 
-    .filter-btn {
-      font-family: inherit;
-      font-size: 0.78rem;
-      font-weight: 600;
-      color: var(--gris);
-      background: var(--blanc);
-      border: 1px solid rgba(0,0,0,0.12);
-      padding: 0.35rem 0.9rem;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: all 0.18s;
-    }
-    .filter-btn:hover { border-color: rgba(0,0,0,0.25); color: var(--sombre); }
-    .filter-btn.active { background: var(--sombre); color: #fff; border-color: var(--sombre); }
+    .duree-row { display: flex; gap: 0.6rem; margin-top: 0.6rem; flex-wrap: wrap; }
+    .duree { font-size: 0.82rem; font-weight: 700; color: var(--vert); background: rgba(30,150,96,0.10); border: 1px solid rgba(30,150,96,0.22); border-radius: 999px; padding: 0.25rem 0.8rem; }
 
-    /* ── GRILLE ARTICLES ── */
-    .articles-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.8rem;
-    }
+    .note { margin-top: 1.6rem; font-size: 0.9rem; color: var(--text-soft); background: rgba(212,130,10,0.09); border-left: 3px solid var(--terre); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 1rem 1.2rem; max-width: 900px; }
 
-    /* ── CARTE ARTICLE ── */
-    .article-card {
-      background: var(--blanc);
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.22s ease, box-shadow 0.22s ease;
-      text-decoration: none;
-      color: inherit;
-    }
-    .article-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.11);
-    }
+    /* ── SCHÉMA DE MISE EN RELATION ── */
+    .flow { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: stretch; margin-top: 2rem; }
+    .flow-col { display: grid; gap: 0.8rem; align-content: start; }
+    .flow-head { text-align: center; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; padding: 0.6rem; border-radius: var(--radius-sm); }
+    .flow-head.terrain { color: var(--vert); background: rgba(30,150,96,0.12); }
+    .flow-head.soutien { color: var(--orange); background: rgba(192,104,0,0.12); }
+    .flow-box { background: var(--blanc); border: 1px solid var(--line-soft); border-radius: var(--radius-md); padding: 0.9rem 1.1rem; box-shadow: var(--shadow-soft); font-size: 0.86rem; }
+    .flow-box b { display: block; font-size: 0.85rem; margin-bottom: 0.2rem; }
+    .flow-box.terrain b { color: var(--vert); }
+    .flow-box.soutien b { color: var(--orange); }
+    .flow-box p { color: var(--text-soft); font-size: 0.83rem; line-height: 1.5; }
+    .flow-mid { display: grid; place-items: center; }
+    .flow-hub { writing-mode: vertical-rl; text-orientation: mixed; background: linear-gradient(180deg, var(--vert), var(--orange)); color: #fff; font-weight: 800; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 1.2rem 0.7rem; border-radius: var(--radius-md); box-shadow: var(--shadow-soft); display: grid; place-items: center; height: 100%; }
+    .flow-note { text-align: center; margin-top: 1.6rem; font-size: 0.92rem; color: var(--text-soft); max-width: 760px; margin-left: auto; margin-right: auto; }
 
-    /* Bandeau coloré haut de carte (identité éditoriale) — différent des cards projet */
-    .card-editorial-band {
-      height: 5px;
-      background: linear-gradient(90deg, var(--sombre) 0%, var(--bleu) 100%);
-      flex-shrink: 0;
-    }
-
-    .card-article-body {
-      padding: 1.4rem 1.5rem 1.6rem;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    /* Méta haut de carte */
-    .card-meta-top {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.9rem;
-    }
-
-    .card-cat {
-      font-size: 0.65rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.8px;
-      color: var(--bleu);
-      border-bottom: 1.5px solid var(--bleu);
-      padding-bottom: 1px;
-    }
-
-    .card-meta-sep { color: var(--gris); opacity: 0.4; font-size: 0.7rem; }
-
-    .card-meta-theme {
-      font-size: 0.72rem;
-      color: var(--gris);
-      font-style: italic;
-    }
-
-    /* Titre de l'article */
-    .card-article-title {
-      font-size: 1.08rem;
-      font-weight: 700;
-      color: var(--sombre);
-      line-height: 1.35;
-      margin-bottom: 0.65rem;
-    }
-
-    /* Sous-titre / chapô */
-    .card-article-chapo {
-      font-size: 0.88rem;
-      color: var(--gris);
-      line-height: 1.65;
-      font-style: italic;
-      margin-bottom: 1.2rem;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    /* Pied de carte */
-    .card-article-footer {
-      margin-top: auto;
-      padding-top: 0.85rem;
-      border-top: 1px solid var(--beige-fort);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-    }
-
-    .card-article-meta {
-      font-size: 0.75rem;
-      color: var(--gris);
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .card-read-link {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--bleu);
-      text-decoration: none;
-      letter-spacing: 0.2px;
-      transition: opacity 0.18s;
-    }
-    .card-read-link:hover { opacity: 0.75; }
-
-    /* ── ENCART "À VENIR" ── */
-    .articles-coming-soon {
-      background: rgba(13,58,30,0.04);
-      border: 1px dashed rgba(13,58,30,0.15);
-      border-radius: 10px;
-      padding: 2rem 2rem;
+    /* ── CTA FINAL ── */
+    .cmt-cta {
+      background: linear-gradient(160deg, rgba(12,74,53,0.96) 0%, rgba(7,43,31,0.98) 100%);
       text-align: center;
     }
-
-    .coming-soon-icon {
-      font-size: 1.5rem;
-      opacity: 0.35;
-      margin-bottom: 0.6rem;
-    }
-
-    .coming-soon-text {
-      font-size: 0.88rem;
-      color: var(--gris);
-      font-style: italic;
-      line-height: 1.65;
-    }
-
-    /* ── NOTE ÉDITORIALE ── */
-    .editorial-note {
-      margin-top: 3.5rem;
-      padding: 1.5rem 2rem;
-      background: var(--blanc);
-      border-radius: 8px;
-      border-left: 3px solid var(--bleu);
-      display: flex;
-      gap: 1.2rem;
-      align-items: flex-start;
-    }
-
-    .editorial-note-label {
-      font-size: 0.62rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--bleu);
-      white-space: nowrap;
-      padding-top: 0.15rem;
-    }
-
-    .editorial-note p {
-      font-size: 0.88rem;
-      color: var(--gris);
-      line-height: 1.72;
-      margin: 0;
-    }
+    .cmt-cta .tag-light { display: inline-block; padding: 0.3rem 0.9rem; border-radius: 999px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem; background: rgba(255,255,255,0.12); color: #fff; border: 1px solid rgba(255,255,255,0.25); }
+    .cmt-cta h2 { color: #fff; font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 800; margin-bottom: 0.6rem; }
+    .cmt-cta .lead { color: rgba(255,255,255,0.75); max-width: 640px; margin: 0 auto 2rem; font-size: 1.02rem; line-height: 1.8; }
+    .cta-btns { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; padding: 0.85rem 1.7rem; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.96rem; transition: all 0.2s; }
+    .btn-principal { background: var(--orange); color: #fff; }
+    .btn-principal:hover { background: var(--orange-fort); }
+    .btn-contour { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,0.5); }
+    .btn-contour:hover { border-color: #fff; background: rgba(255,255,255,0.10); }
 
     /* ── FOOTER ── */
     footer {
@@ -466,14 +348,16 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
-      .articles-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      .flow { grid-template-columns: 1fr; }
+      .flow-mid { display: none; }
+      .flow-hub { writing-mode: horizontal-tb; height: auto; padding: 0.7rem; }
     }
     @media (max-width: 700px) {
       nav { padding: 0.8rem 1.2rem; }
       .nav-links { gap: 0.8rem; font-size: 0.8rem; }
       .hero { padding: 8rem 1.4rem 3rem; }
-      #articles-liste { padding: 2.5rem 1.2rem 4rem; }
-      .hero p.subtitle { white-space: normal; }
+      .cmt-section { padding: 3rem 1.4rem; }
     }
     @media (max-width: 540px) {
       .nav-links { display: none; }
@@ -501,14 +385,14 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="projects.html" class="dropdown-toggle" data-i18n="nav.projets"></a>
+          <a href="projects.html" class="dropdown-toggle active" data-i18n="nav.projets"></a>
           <ul class="dropdown-menu">
             <li><a href="projects.html"            data-i18n="nav.tous_projets"></a></li>
-            <li><a href="prospectus.html" data-i18n="nav.comment"></a></li>
+            <li><a href="prospectus.html" class="active" data-i18n="nav.comment"></a></li>
             <li><a href="index.html#cartographie"  data-i18n="nav.cartographie"></a></li>
           </ul>
         </li>
-        <li><a href="articles.html" class="active" data-i18n="nav.articles"></a></li>
+        <li><a href="articles.html" data-i18n="nav.articles"></a></li>
         <li><a href="annuaire.html" data-i18n="nav.annuaire"></a></li>
         <li><a href="submit-project.html" class="nav-cta" data-i18n="nav.contact"></a></li>
       </ul>
@@ -550,87 +434,83 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <span class="tag-editorial" data-i18n="articles_page.tag">Analyses &amp; Réflexions</span>
-      <h1 data-i18n="articles_page.title">Articles</h1>
-      <p class="subtitle" data-i18n="articles_page.subtitle">Notes d'analyse et de réflexion publiées par Linkovia Network sur les enjeux de la coopération internationale et du développement local.</p>
-      <a href="index.html" class="btn-back" data-i18n="articles_page.back_home">← Retour à l'accueil</a>
+      <span class="tag-editorial" data-i18n="comment_page.eyebrow"></span>
+      <h1 data-i18n="comment_page.title"></h1>
+      <p class="subtitle" data-i18n="comment_page.subtitle"></p>
+      <div class="audience-row">
+        <span class="audience-chip" data-i18n="comment_page.chip1"></span>
+        <span class="audience-chip" data-i18n="comment_page.chip2"></span>
+      </div>
+      <a href="index.html" class="btn-back" data-i18n="comment_page.back_home"></a>
     </div>
   </section>
 
-  <!-- LISTE DES ARTICLES -->
-  <section id="articles-liste">
+  <!-- SECTION 1 : PORTEURS DE PROJETS LOCAUX -->
+  <section class="cmt-section bg-beige cmt-terrain">
     <div class="container">
-
-      <!-- Filtres catégories -->
-      <div class="articles-filter">
-        <span class="filter-label" data-i18n="articles_page.filter_label">Thématique</span>
-        <button class="filter-btn active" data-i18n="articles_page.filter_all">Tous</button>
-        <button class="filter-btn" data-i18n="articles_page.filter_analyse">Analyse</button>
-        <button class="filter-btn" data-i18n="articles_page.filter_coop">Coopération</button>
-        <button class="filter-btn" data-i18n="articles_page.filter_terrain">Terrain</button>
+      <span class="tag tag-vert" data-i18n="comment_page.t_tag"></span>
+      <h2 data-i18n="comment_page.t_h2"></h2>
+      <p class="lead" data-i18n="comment_page.t_lead"></p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div><h3 data-i18n="comment_page.t_s1_h"></h3><p data-i18n="comment_page.t_s1_p"></p></div></div>
+        <div class="step"><div class="step-num">2</div><div><h3 data-i18n="comment_page.t_s2_h"></h3><p data-i18n="comment_page.t_s2_p"></p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3 data-i18n="comment_page.t_s3_h"></h3><p data-i18n="comment_page.t_s3_p"></p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3 data-i18n="comment_page.t_s4_h"></h3><p data-i18n="comment_page.t_s4_p"></p><div class="duree-row" data-i18n="comment_page.t_duree"></div></div></div>
       </div>
+      <div class="note" data-i18n="comment_page.t_note"></div>
+    </div>
+  </section>
 
-      <!-- Grille d'articles -->
-      <div class="articles-grid">
+  <!-- SECTION 2 : ASSOCIATIONS DE SOLIDARITÉ -->
+  <section class="cmt-section bg-blanc cmt-soutien">
+    <div class="container">
+      <span class="tag tag-orange" data-i18n="comment_page.s_tag"></span>
+      <h2 data-i18n="comment_page.s_h2"></h2>
+      <p class="lead" data-i18n="comment_page.s_lead"></p>
+      <div class="steps">
+        <div class="step"><div class="step-num">1</div><div><h3 data-i18n="comment_page.s_s1_h"></h3><p data-i18n="comment_page.s_s1_p"></p></div></div>
+        <div class="step"><div class="step-num">2</div><div><h3 data-i18n="comment_page.s_s2_h"></h3><p data-i18n="comment_page.s_s2_p"></p></div></div>
+        <div class="step"><div class="step-num">3</div><div><h3 data-i18n="comment_page.s_s3_h"></h3><p data-i18n="comment_page.s_s3_p"></p></div></div>
+        <div class="step"><div class="step-num">4</div><div><h3 data-i18n="comment_page.s_s4_h"></h3><p data-i18n="comment_page.s_s4_p"></p></div></div>
+      </div>
+    </div>
+  </section>
 
-        <!-- Article 1 : Nexus -->
-        <a href="article-nexus.html" class="article-card">
-          <div class="card-editorial-band"></div>
-          <div class="card-article-body">
-            <div class="card-meta-top">
-              <span class="card-cat" data-i18n="articles_page.card1_cat">Analyse</span>
-              <span class="card-meta-sep">·</span>
-              <span class="card-meta-theme" data-i18n="articles_page.card1_theme">Coopération internationale</span>
-            </div>
-            <h2 class="card-article-title" data-i18n="articles_page.card1_title">L'approche nexus en coopération internationale</h2>
-            <p class="card-article-chapo" data-i18n="articles_page.card1_chapo">Articuler l'urgence, le développement et la paix dans des crises qui durent. Examen du concept, de ses enjeux concrets et des tensions qui en font un objet de débat.</p>
-            <div class="card-article-footer">
-              <div class="card-article-meta">
-                <span data-i18n="articles_page.card1_date">Juin 2026</span>
-                <span>·</span>
-                <span data-i18n="articles_page.card1_read_time">~&thinsp;15 min</span>
-              </div>
-              <span class="card-read-link" data-i18n="articles_page.read_link">Lire l'article →</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Article 2 : Angles morts -->
-        <a href="article-angles-morts.html" class="article-card">
-          <div class="card-editorial-band"></div>
-          <div class="card-article-body">
-            <div class="card-meta-top">
-              <span class="card-cat" data-i18n="articles_page.card2_cat">Analyse</span>
-              <span class="card-meta-sep">·</span>
-              <span class="card-meta-theme" data-i18n="articles_page.card2_theme">Action publique</span>
-            </div>
-            <h2 class="card-article-title" data-i18n="articles_page.card2_title">Les angles morts de l'action publique</h2>
-            <p class="card-article-chapo" data-i18n="articles_page.card2_chapo">Participation, invisibilisation et fabrique sélective des problèmes sociaux, du territoire rural à la coopération internationale.</p>
-            <div class="card-article-footer">
-              <div class="card-article-meta">
-                <span data-i18n="articles_page.card2_date">Juin 2026</span>
-                <span>·</span>
-                <span data-i18n="articles_page.card2_read_time">~&thinsp;25 min</span>
-              </div>
-              <span class="card-read-link" data-i18n="articles_page.read_link">Lire l'article →</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Carte "À venir" -->
-        <div class="articles-coming-soon">
-          <div class="coming-soon-icon">&#128196;</div>
-          <p class="coming-soon-text" data-i18n="articles_page.coming_soon_text">D'autres notes d'analyse et de réflexion sont en cours de rédaction. Elles seront publiées progressivement au fil des travaux de terrain et des échanges avec nos partenaires.</p>
+  <!-- SECTION 3 : COMMENT SE FAIT LE LIEN -->
+  <section class="cmt-section bg-beige">
+    <div class="container">
+      <span class="tag tag-terre" data-i18n="comment_page.l_tag"></span>
+      <h2 data-i18n="comment_page.l_h2"></h2>
+      <p class="lead" data-i18n="comment_page.l_lead"></p>
+      <div class="flow">
+        <div class="flow-col">
+          <div class="flow-head terrain" data-i18n="comment_page.l_head_t"></div>
+          <div class="flow-box terrain" data-i18n="comment_page.l_box_t1"></div>
+          <div class="flow-box terrain" data-i18n="comment_page.l_box_t2"></div>
+          <div class="flow-box terrain" data-i18n="comment_page.l_box_t3"></div>
         </div>
-
+        <div class="flow-mid"><div class="flow-hub" data-i18n="comment_page.l_hub"></div></div>
+        <div class="flow-col">
+          <div class="flow-head soutien" data-i18n="comment_page.l_head_s"></div>
+          <div class="flow-box soutien" data-i18n="comment_page.l_box_s1"></div>
+          <div class="flow-box soutien" data-i18n="comment_page.l_box_s2"></div>
+          <div class="flow-box soutien" data-i18n="comment_page.l_box_s3"></div>
+        </div>
       </div>
+      <p class="flow-note" data-i18n="comment_page.l_note"></p>
+    </div>
+  </section>
 
-      <!-- Note éditoriale -->
-      <div class="editorial-note">
-        <span class="editorial-note-label" data-i18n="articles_page.editorial_label">Note éditoriale</span>
-        <p data-i18n="articles_page.editorial_text">Les articles publiés sur cette page sont des notes d'analyse rédigées par l'équipe de Linkovia Network. Ils s'inscrivent dans une démarche de réflexion sur les enjeux de la coopération internationale, du développement local et de l'intermédiation territoriale. Ils ne constituent pas des prises de position institutionnelles.</p>
+  <!-- SECTION 4 : APPEL À L'ACTION -->
+  <section class="cmt-section cmt-cta">
+    <div class="container">
+      <span class="tag-light" data-i18n="comment_page.c_tag"></span>
+      <h2 data-i18n="comment_page.c_h2"></h2>
+      <p class="lead" data-i18n="comment_page.c_lead"></p>
+      <div class="cta-btns">
+        <a class="btn btn-principal" href="submit-project.html" data-i18n="comment_page.c_btn1"></a>
+        <a class="btn btn-contour" href="index.html#cartographie" data-i18n="comment_page.c_btn2"></a>
       </div>
-
     </div>
   </section>
 
@@ -639,16 +519,6 @@
     <p data-i18n="footer.text"></p>
     <p class="footer-legal"><a href="mentions-legales.html" data-i18n="footer.legal"></a></p>
   </footer>
-
-  <!-- Filtres (UI seulement, pas de logique de filtrage pour l'instant) -->
-  <script>
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      });
-    });
-  </script>
 
   <!-- Menu mobile -->
   <script>

@@ -329,7 +329,10 @@ const translations = {
       kp_support_types:       "Soutien recherché",
       section_partners_support: "Partenaires de soutien",
       partners_support_empty: "Aucun partenaire confirmé à ce stade. Cette section sera mise à jour au fil des contributions reçues.",
-      kp_partners_none: "Aucun à ce stade"
+      kp_partners_none: "Aucun à ce stade",
+      kp_visibility:          "Durée de visibilité",
+      duration_year:          "an",
+      duration_years:         "ans"
     },
     contact: {
       tag:         "Contact",
@@ -867,7 +870,10 @@ const translations = {
       kp_support_types:       "Support needed",
       section_partners_support: "Support partners",
       partners_support_empty: "No confirmed partners at this stage. This section will be updated as contributions are received.",
-      kp_partners_none: "None yet"
+      kp_partners_none: "None yet",
+      kp_visibility:          "Visibility duration",
+      duration_year:          "year",
+      duration_years:         "years"
     },
     contact: {
       tag:         "Contact",
@@ -1405,7 +1411,10 @@ const translations = {
       kp_support_types:       "Apoyo buscado",
       section_partners_support: "Socios de apoyo",
       partners_support_empty: "Ningún socio confirmado en esta etapa. Esta sección se actualizará a medida que se reciban contribuciones.",
-      kp_partners_none: "Ninguno aún"
+      kp_partners_none: "Ninguno aún",
+      kp_visibility:          "Duración de visibilidad",
+      duration_year:          "año",
+      duration_years:         "años"
     },
     contact: {
       tag:         "Contacto",

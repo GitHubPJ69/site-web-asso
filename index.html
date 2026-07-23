@@ -1541,6 +1541,13 @@
       margin-right: 0.2rem;
     }
 
+    .panel-display-duration {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      font-style: italic;
+      margin-top: 0.35rem;
+    }
+
     .support-badge {
       padding: 0.18rem 0.55rem;
       border-radius: 4px;
@@ -3060,6 +3067,7 @@
             <p class="panel-location">&#128205; ${[project.city, lp.region, lp.country].filter(Boolean).join(', ')}</p>
             <p class="panel-domain-tag">${lp.domain}</p>
             ${supportBadges ? `<div class="panel-support-badges"><span class="panel-label">${t('carte.panel_needs_label')}</span>${supportBadges}</div>` : ''}
+            ${project.visibilityDuration ? `<p class="panel-display-duration">${t('carte.panel_display_duration')} : ${project.visibilityDuration} ${project.visibilityDuration > 1 ? t('carte.panel_duration_years') : t('carte.panel_duration_year')}</p>` : ''}
           </div>
           ${field(t('carte.panel_summary'),         lp.summary)}
           ${field(t('carte.panel_local_needs'),     lp.localNeeds)}

@@ -5,6 +5,16 @@
  * - countryCode : code ISO 3166-1 alpha-3 (ex. "KEN", "SEN", "FRA")
  * - status      : needs_support | in_progress | completed_followed
  * - supportNeeds: tableau parmi financial | technical | human | material
+ *
+ * Visibilité des projets (issue #57) :
+ * - publicationDate    : date de mise en ligne, format "AAAA-MM-JJ" (ex. "2026-07-23")
+ * - visibilityDuration : durée d'affichage choisie par le porteur, en années : 1, 3 ou 5
+ * - expirationDate     : date de retrait = publicationDate + visibilityDuration
+ *                        (ex. publié le 2026-07-23 pour 3 ans → "2029-07-23")
+ *                        Champ omis (ou vide) = affichage illimité, le projet ne
+ *                        disparaît jamais tout seul.
+ * Ces dates ne changent rien à l'affichage pour l'instant : le retrait automatique
+ * à l'échéance reste à implémenter (issue #57, point 4, décision d'architecture).
  */
 
 // Couleurs des statuts — partagées avec le script globe
@@ -35,6 +45,10 @@ const projects = [
     domain_en: "Health and prevention",
     status: 'needs_support',
     supportNeeds: ['financial', 'human'],
+    // Visibilité (issue #57) : publié le 23/07/2026 pour 3 ans → expire le 23/07/2029
+    publicationDate: '2026-07-23',
+    visibilityDuration: 3,
+    expirationDate: '2029-07-23',
     summary: "Dans plusieurs communautés rurales isolées du sud du département de Potosí, un groupe de femmes assure déjà informellement le suivi de la santé des familles. Ce projet vise à structurer et équiper ce réseau local existant, sans en changer la logique ni en remplacer les responsables.",
     summary_en: "In several isolated rural communities in the south of the Department of Potosí, a group of women already informally monitors the health of local families. This project aims to structure and equip this existing local network, without altering its logic or replacing those who run it.",
     localNeeds: "Les centres de santé les plus proches se trouvent à plusieurs heures de trajet sur des routes difficiles. Le suivi de la grossesse et de la nutrition des enfants de moins de cinq ans repose presque entièrement sur ces femmes bénévoles, sans formation reconnue ni équipement de base.",

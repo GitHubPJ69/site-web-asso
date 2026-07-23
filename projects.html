@@ -1017,6 +1017,10 @@
               <div class="fiche-kp-label">&#128295; ${pp.kp_support_types}</div>
               <div class="fiche-kp-value">${supportText}</div>
             </div>` : ''}
+            ${p.visibilityDuration ? `<div class="fiche-kp-item">
+              <div class="fiche-kp-label">&#9203; ${pp.kp_visibility}</div>
+              <div class="fiche-kp-value">${p.visibilityDuration} ${p.visibilityDuration > 1 ? pp.duration_years : pp.duration_year}</div>
+            </div>` : ''}
             ${lp.timeline ? `<div class="fiche-kp-item kp-full">
               <div class="fiche-kp-label">&#128197; ${pp.field_timeline}</div>
               <div class="fiche-kp-value" style="font-style:italic;color:var(--gris)">${lp.timeline}</div>

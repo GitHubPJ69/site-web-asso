@@ -520,7 +520,7 @@ const translations = {
     legal: {
       title:        "Mentions légales",
       editor_title: "Éditeur du site",
-      editor_text:  "Le présent site est édité par l'association Linkovia Network, association déclarée régie par la loi du 1er juillet 1901 (RNA : W291017015 ; SIREN : 109 139 436). La directrice de la publication est Sidonie Tisseau, présidente de l'association. Contact : <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
+      editor_text:  "Le présent site est édité par l'association Linkovia Network, association déclarée régie par la loi du 1er juillet 1901 (RNA : W291017015 ; SIREN : 109 139 436). La directrice de la publication est Sidonie Tisseau, présidente de l'association. Le siège social est communiqué sur demande à l'adresse de contact. Contact : <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
       host_title:   "Hébergement",
       host_text:    "Ce site est hébergé par GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis (tél. +1 877 448 4820). Les serveurs sont situés hors de l'Union européenne.",
       data_title:   "Données personnelles",
@@ -1089,7 +1089,7 @@ const translations = {
     legal: {
       title:        "Legal notice",
       editor_title: "Site publisher",
-      editor_text:  "This site is published by Linkovia Network, a non-profit association governed by the French law of 1 July 1901 (RNA: W291017015; SIREN: 109 139 436). The publication director is Sidonie Tisseau, president of the association. Contact: <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
+      editor_text:  "This site is published by Linkovia Network, a non-profit association governed by the French law of 1 July 1901 (RNA: W291017015; SIREN: 109 139 436). The publication director is Sidonie Tisseau, president of the association. The registered office address is available on request at the contact address below. Contact: <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
       host_title:   "Hosting",
       host_text:    "This site is hosted by GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States (tel. +1 877 448 4820). The servers are located outside the European Union.",
       data_title:   "Personal data",
@@ -1658,7 +1658,7 @@ const translations = {
     legal: {
       title:        "Aviso legal",
       editor_title: "Editor del sitio",
-      editor_text:  "Este sitio es editado por la asociación Linkovia Network, asociación declarada regida por la ley francesa del 1 de julio de 1901 (RNA: W291017015; SIREN: 109 139 436). La directora de la publicación es Sidonie Tisseau, presidenta de la asociación. Contacto: <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
+      editor_text:  "Este sitio es editado por la asociación Linkovia Network, asociación declarada regida por la ley francesa del 1 de julio de 1901 (RNA: W291017015; SIREN: 109 139 436). La directora de la publicación es Sidonie Tisseau, presidenta de la asociación. El domicilio social se comunica a petición en la dirección de contacto. Contacto: <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
       host_title:   "Alojamiento",
       host_text:    "Este sitio está alojado por GitHub, Inc. (servicio GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, Estados Unidos (tel. +1 877 448 4820). Los servidores están ubicados fuera de la Unión Europea.",
       data_title:   "Datos personales",

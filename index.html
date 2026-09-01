@@ -1902,7 +1902,7 @@
 
     .equipe-texte > span { margin-bottom: 0.5rem; display: block; }
 
-    .equipe-texte h2 {
+    .equipe-nom {
       font-size: 1.34rem;
       font-weight: 700;
       color: var(--sombre);
@@ -1977,6 +1977,33 @@
       letter-spacing: 0.2px;
       line-height: 1.4;
     }
+
+    /* Second profil (Pierre-Jean) au sein de la même section équipe */
+    .equipe-separateur {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line-soft) 18%, var(--line-soft) 82%, transparent);
+      margin-bottom: 2.5rem;
+    }
+
+    .equipe-role {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--terre);
+      margin-top: -0.15rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .equipe-liens {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .equipe-liens .equipe-linkedin { margin-top: 0; }
+
+    .equipe-lien-icone { font-size: 0.95rem; line-height: 1; }
 
     .equipe-axes {
       display: grid;
@@ -2597,13 +2624,18 @@
 
   <!-- QUI SOMMES-NOUS -->
   <section id="qui-sommes-nous">
+    <div class="section-en-tete">
+      <span class="tag tag-terre" data-i18n="equipe.tag"></span>
+      <h2 data-i18n="equipe.title"></h2>
+    </div>
+
     <div class="equipe-profil">
       <div class="equipe-photo-wrap">
         <img src="images/photo_pro_sido.jpg" alt="Sidonie Tisseau" class="equipe-photo">
       </div>
       <div class="equipe-texte">
-        <span class="tag tag-terre" data-i18n="equipe.tag"></span>
-        <h2 data-i18n="equipe.title"></h2>
+        <h3 class="equipe-nom" data-i18n="equipe.sido_nom"></h3>
+        <p class="equipe-role" data-i18n="equipe.sido_role"></p>
         <p class="equipe-intro" data-i18n="equipe.intro"></p>
         <p class="equipe-intro" data-i18n="equipe.intro2"></p>
         <p class="equipe-citation" data-i18n="equipe.citation"></p>
@@ -2646,6 +2678,68 @@
           <li data-i18n="equipe.axe3_k2"></li>
           <li data-i18n="equipe.axe3_k3"></li>
           <li data-i18n="equipe.axe3_k4"></li>
+        </ul>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="equipe-separateur"></div>
+
+    <div class="equipe-profil equipe-profil--secondaire">
+      <div class="equipe-photo-wrap">
+        <img src="images/photo_pro_PJ.jpg" alt="Pierre-Jean Martin" class="equipe-photo">
+      </div>
+      <div class="equipe-texte">
+        <h3 class="equipe-nom" data-i18n="equipe.pj_title"></h3>
+        <p class="equipe-role" data-i18n="equipe.pj_role"></p>
+        <p class="equipe-intro" data-i18n="equipe.pj_intro"></p>
+        <p class="equipe-intro" data-i18n="equipe.pj_intro2"></p>
+        <div class="equipe-liens">
+          <a href="https://pierre-jean-martin.ch/" class="equipe-linkedin" target="_blank" rel="noopener">
+            <span class="equipe-lien-icone">&#127760;</span>
+            <span data-i18n="equipe.pj_site"></span>
+          </a>
+          <a href="https://www.linkedin.com/in/pierre-jean-martin/" class="equipe-linkedin" target="_blank" rel="noopener">
+            <span class="equipe-linkedin-badge">in</span>
+            <span data-i18n="equipe.pj_linkedin"></span>
+          </a>
+        </div>
+        <div class="equipe-axes">
+      <div class="axe-carte">
+        <div class="axe-header">
+          <span class="axe-icone">&#128187;</span>
+          <h3 data-i18n="equipe.pj_axe1_title"></h3>
+        </div>
+        <ul>
+          <li data-i18n="equipe.pj_axe1_k1"></li>
+          <li data-i18n="equipe.pj_axe1_k2"></li>
+          <li data-i18n="equipe.pj_axe1_k3"></li>
+          <li data-i18n="equipe.pj_axe1_k4"></li>
+        </ul>
+      </div>
+      <div class="axe-carte">
+        <div class="axe-header">
+          <span class="axe-icone">&#128736;&#65039;</span>
+          <h3 data-i18n="equipe.pj_axe2_title"></h3>
+        </div>
+        <ul>
+          <li data-i18n="equipe.pj_axe2_k1"></li>
+          <li data-i18n="equipe.pj_axe2_k2"></li>
+          <li data-i18n="equipe.pj_axe2_k3"></li>
+          <li data-i18n="equipe.pj_axe2_k4"></li>
+        </ul>
+      </div>
+      <div class="axe-carte">
+        <div class="axe-header">
+          <span class="axe-icone">&#129309;</span>
+          <h3 data-i18n="equipe.pj_axe3_title"></h3>
+        </div>
+        <ul>
+          <li data-i18n="equipe.pj_axe3_k1"></li>
+          <li data-i18n="equipe.pj_axe3_k2"></li>
+          <li data-i18n="equipe.pj_axe3_k3"></li>
+          <li data-i18n="equipe.pj_axe3_k4"></li>
         </ul>
       </div>
         </div>

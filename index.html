@@ -2996,39 +2996,66 @@
     };
 
     if (isCoarse) {
-      // Tactile (issues #13 + #65) : UN doigt fait défiler la PAGE, DEUX doigts font
-      // tourner et zoomer le globe (pinch-to-zoom).
-      // On garde touch-action:none (OrbitControls capte pleinement le geste à deux
-      // doigts) et on fait défiler la page NOUS-MÊMES au doigt — approche déterministe
-      // qui ne dépend pas des variations de touch-action entre navigateurs mobiles.
+      // Tactile (issues #13 + #65) — on distingue selon l'endroit touché :
+      //   • UN doigt SUR la sphère du globe → le globe tourne (OrbitControls) ;
+      //   • UN doigt À CÔTÉ (marges de la zone, hors sphère) → la page défile ;
+      //   • DEUX doigts → zoom + rotation du globe (pinch-to-zoom).
+      // On garde touch-action:none et on décide, dès le pointerdown, si ce doigt
+      // pilote le globe ou fait défiler la page.
       controls.enableZoom = true;
       if (controls.touches) {
-        controls.touches.ONE = undefined; // un doigt → aucune action globe
-        controls.touches.TWO = 3;         // 3 = THREE.TOUCH.DOLLY_ROTATE (zoom + rotation)
+        controls.touches.ONE = 0; // 0 = ROTATE (ajusté par geste ci-dessous)
+        controls.touches.TWO = 3; // 3 = THREE.TOUCH.DOLLY_ROTATE (zoom + rotation)
       }
-      // Indice « deux doigts » quand on pose un seul doigt sur le globe.
       if (zoomHint) {
         zoomHint.setAttribute('data-i18n', 'carte.zoom_hint_touch');
         zoomHint.textContent = t('carte.zoom_hint_touch');
       }
-      let lastTouchY = null;
-      container.addEventListener('touchstart', evt => {
-        lastTouchY = evt.touches.length === 1 ? evt.touches[0].clientY : null;
-        if (evt.touches.length === 1) flashHint();
-      }, { capture: true, passive: true });
-      container.addEventListener('touchmove', evt => {
-        // Un seul doigt → on défile la page manuellement (le globe reste immobile).
-        if (evt.touches.length === 1 && lastTouchY !== null) {
-          const y = evt.touches[0].clientY;
-          window.scrollBy(0, lastTouchY - y);
-          lastTouchY = y;
+
+      // Le point écran (clientX,clientY) tombe-t-il sur la sphère du globe ?
+      const touchOnGlobe = (clientX, clientY) => {
+        const rect = container.getBoundingClientRect();
+        const x = clientX - rect.left, y = clientY - rect.top;
+        if (typeof globe.toGlobeCoords === 'function') return !!globe.toGlobeCoords(x, y);
+        // Repli géométrique : cercle centré ≈ rayon du globe à l'écran.
+        const cx = rect.width / 2, cy = rect.height / 2;
+        const r = Math.min(rect.width, rect.height) * 0.46;
+        return (x - cx) * (x - cx) + (y - cy) * (y - cy) <= r * r;
+      };
+
+      const activePointers = new Set();
+      let scrollGesture = false, lastY = 0;
+
+      // Capture : s'exécute avant qu'OrbitControls (canvas) ne lise touches.ONE.
+      container.addEventListener('pointerdown', evt => {
+        if (evt.pointerType !== 'touch') return;
+        activePointers.add(evt.pointerId);
+        if (activePointers.size === 1) {
+          const onGlobe = touchOnGlobe(evt.clientX, evt.clientY);
+          scrollGesture = !onGlobe;                       // hors sphère → défilement page
+          controls.touches.ONE = onGlobe ? 0 : undefined; // sur sphère → rotation ; sinon rien
+          lastY = evt.clientY;
+          if (onGlobe) flashHint();                        // rappelle « deux doigts = zoom »
         } else {
-          lastTouchY = null; // 2+ doigts → c'est le globe, on ne défile pas
+          scrollGesture = false;                           // 2+ doigts → globe (zoom)
         }
       }, { capture: true, passive: true });
-      container.addEventListener('touchend', evt => {
-        lastTouchY = evt.touches.length === 1 ? evt.touches[0].clientY : null;
+
+      container.addEventListener('pointermove', evt => {
+        if (evt.pointerType !== 'touch') return;
+        if (scrollGesture && activePointers.size === 1) {
+          window.scrollBy(0, lastY - evt.clientY);
+          lastY = evt.clientY;
+        }
       }, { capture: true, passive: true });
+
+      const endPointer = evt => {
+        if (evt.pointerType !== 'touch') return;
+        activePointers.delete(evt.pointerId);
+        if (activePointers.size === 0) scrollGesture = false;
+      };
+      container.addEventListener('pointerup', endPointer, { capture: true, passive: true });
+      container.addEventListener('pointercancel', endPointer, { capture: true, passive: true });
     } else {
       // Souris (issue #65) : molette = défilement de page par défaut ; le zoom du
       // globe se fait avec Ctrl (⌘) + molette. On bascule enableZoom à la volée,

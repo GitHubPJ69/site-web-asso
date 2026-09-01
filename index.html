@@ -1978,6 +1978,33 @@
       line-height: 1.4;
     }
 
+    /* Second profil (Pierre-Jean) au sein de la même section équipe */
+    .equipe-separateur {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line-soft) 18%, var(--line-soft) 82%, transparent);
+      margin-bottom: 2.5rem;
+    }
+
+    .equipe-role {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--terre);
+      margin-top: -0.15rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .equipe-liens {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .equipe-liens .equipe-linkedin { margin-top: 0; }
+
+    .equipe-lien-icone { font-size: 0.95rem; line-height: 1; }
+
     .equipe-axes {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -2646,6 +2673,69 @@
           <li data-i18n="equipe.axe3_k2"></li>
           <li data-i18n="equipe.axe3_k3"></li>
           <li data-i18n="equipe.axe3_k4"></li>
+        </ul>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="equipe-separateur"></div>
+
+    <div class="equipe-profil equipe-profil--secondaire">
+      <div class="equipe-photo-wrap">
+        <img src="images/photo_pro_PJ.jpg" alt="Pierre-Jean Martin" class="equipe-photo">
+      </div>
+      <div class="equipe-texte">
+        <span class="tag tag-vert" data-i18n="equipe.pj_tag"></span>
+        <h2 data-i18n="equipe.pj_title"></h2>
+        <p class="equipe-role" data-i18n="equipe.pj_role"></p>
+        <p class="equipe-intro" data-i18n="equipe.pj_intro"></p>
+        <p class="equipe-intro" data-i18n="equipe.pj_intro2"></p>
+        <div class="equipe-liens">
+          <a href="https://pierre-jean-martin.ch/" class="equipe-linkedin" target="_blank" rel="noopener">
+            <span class="equipe-lien-icone">&#127760;</span>
+            <span data-i18n="equipe.pj_site"></span>
+          </a>
+          <a href="https://www.linkedin.com/in/pierre-jean-martin/" class="equipe-linkedin" target="_blank" rel="noopener">
+            <span class="equipe-linkedin-badge">in</span>
+            <span data-i18n="equipe.pj_linkedin"></span>
+          </a>
+        </div>
+        <div class="equipe-axes">
+      <div class="axe-carte">
+        <div class="axe-header">
+          <span class="axe-icone">&#128187;</span>
+          <h3 data-i18n="equipe.pj_axe1_title"></h3>
+        </div>
+        <ul>
+          <li data-i18n="equipe.pj_axe1_k1"></li>
+          <li data-i18n="equipe.pj_axe1_k2"></li>
+          <li data-i18n="equipe.pj_axe1_k3"></li>
+          <li data-i18n="equipe.pj_axe1_k4"></li>
+        </ul>
+      </div>
+      <div class="axe-carte">
+        <div class="axe-header">
+          <span class="axe-icone">&#128736;&#65039;</span>
+          <h3 data-i18n="equipe.pj_axe2_title"></h3>
+        </div>
+        <ul>
+          <li data-i18n="equipe.pj_axe2_k1"></li>
+          <li data-i18n="equipe.pj_axe2_k2"></li>
+          <li data-i18n="equipe.pj_axe2_k3"></li>
+          <li data-i18n="equipe.pj_axe2_k4"></li>
+        </ul>
+      </div>
+      <div class="axe-carte">
+        <div class="axe-header">
+          <span class="axe-icone">&#129309;</span>
+          <h3 data-i18n="equipe.pj_axe3_title"></h3>
+        </div>
+        <ul>
+          <li data-i18n="equipe.pj_axe3_k1"></li>
+          <li data-i18n="equipe.pj_axe3_k2"></li>
+          <li data-i18n="equipe.pj_axe3_k3"></li>
+          <li data-i18n="equipe.pj_axe3_k4"></li>
         </ul>
       </div>
         </div>

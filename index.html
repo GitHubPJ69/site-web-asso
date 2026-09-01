@@ -1300,6 +1300,27 @@
       pointer-events: none;
     }
 
+    /* Indice de zoom (issue #65) — flash quand on scrolle sans Ctrl */
+    #globe-zoom-hint {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 15;
+      padding: 0.45rem 1rem;
+      background: rgba(7, 55, 35, 0.9);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 999px;
+      color: rgba(255,255,255,0.88);
+      font-size: 0.8rem;
+      letter-spacing: 0.3px;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    #globe-zoom-hint.visible { opacity: 1; }
+
     /* Panneau latéral */
     #globe-panel {
       position: absolute;
@@ -2605,6 +2626,8 @@
       <div id="globe-container">
         <div id="globe-loading" data-i18n="carte.loading"></div>
       </div>
+      <!-- Indice zoom (issue #65) : apparaît quand on scrolle sur le globe sans Ctrl -->
+      <div id="globe-zoom-hint" data-i18n="carte.zoom_hint"></div>
       <!-- Panneau latéral — rempli dynamiquement par le script globe -->
       <div id="globe-panel"></div>
     </div>
@@ -2946,6 +2969,24 @@
 
     // Vue initiale centrée sur le monde (10°N / 20°E — zone neutre, non eurocentrée)
     globe.pointOfView({ lat: 2, lng: 25, altitude: 2.5 });
+
+    // ── Issue #65 : la molette fait défiler la page ; le zoom du globe exige Ctrl (⌘) ──
+    // Par défaut le zoom molette d'OrbitControls est coupé → le scroll de la page passe.
+    // On le réactive à la volée uniquement si Ctrl/Cmd est enfoncé pendant la molette.
+    const controls = globe.controls();
+    controls.enableZoom = false;
+    const zoomHint = document.getElementById('globe-zoom-hint');
+    let zoomHintTimer = null;
+    // Écouteur en capture : s'exécute avant qu'OrbitControls (sur le canvas) ne lise enableZoom.
+    container.addEventListener('wheel', evt => {
+      const zoomMod = evt.ctrlKey || evt.metaKey;
+      controls.enableZoom = zoomMod;
+      if (!zoomMod && zoomHint) {
+        zoomHint.classList.add('visible');
+        clearTimeout(zoomHintTimer);
+        zoomHintTimer = setTimeout(() => zoomHint.classList.remove('visible'), 1200);
+      }
+    }, { capture: true, passive: true });
 
     // Redimensionnement responsive
     function resizeGlobe() {

@@ -2984,23 +2984,53 @@
     // Vue initiale centrée sur le monde (10°N / 20°E — zone neutre, non eurocentrée)
     globe.pointOfView({ lat: 2, lng: 25, altitude: 2.5 });
 
-    // ── Issue #65 : la molette fait défiler la page ; le zoom du globe exige Ctrl (⌘) ──
-    // Par défaut le zoom molette d'OrbitControls est coupé → le scroll de la page passe.
-    // On le réactive à la volée uniquement si Ctrl/Cmd est enfoncé pendant la molette.
+    // ── Navigation molette (souris) / gestes (tactile) ──────────────────────────
     const controls = globe.controls();
-    controls.enableZoom = false;
     const zoomHint = document.getElementById('globe-zoom-hint');
     let zoomHintTimer = null;
-    // Écouteur en capture : s'exécute avant qu'OrbitControls (sur le canvas) ne lise enableZoom.
-    container.addEventListener('wheel', evt => {
-      const zoomMod = evt.ctrlKey || evt.metaKey;
-      controls.enableZoom = zoomMod;
-      if (!zoomMod && zoomHint) {
-        zoomHint.classList.add('visible');
-        clearTimeout(zoomHintTimer);
-        zoomHintTimer = setTimeout(() => zoomHint.classList.remove('visible'), 1200);
+    const flashHint = () => {
+      if (!zoomHint) return;
+      zoomHint.classList.add('visible');
+      clearTimeout(zoomHintTimer);
+      zoomHintTimer = setTimeout(() => zoomHint.classList.remove('visible'), 1600);
+    };
+
+    if (isCoarse) {
+      // Tactile (issues #13 + #65) : UN doigt fait défiler la PAGE (plus de blocage
+      // sur le globe), DEUX doigts font tourner et zoomer le globe (pinch-to-zoom).
+      controls.enableZoom = true;
+      if (controls.touches) {
+        controls.touches.ONE = undefined; // un doigt → aucune action globe → scroll page
+        controls.touches.TWO = 3;         // 3 = THREE.TOUCH.DOLLY_ROTATE (zoom + rotation)
       }
-    }, { capture: true, passive: true });
+      // OrbitControls force touch-action:none sur le canvas → on repasse à pan-y
+      // pour autoriser le défilement vertical natif de la page au-dessus du globe.
+      container.style.touchAction = 'pan-y';
+      const setCanvasScroll = () => {
+        const cv = container.querySelector('canvas');
+        if (cv) cv.style.touchAction = 'pan-y';
+      };
+      setCanvasScroll();
+      setTimeout(setCanvasScroll, 0);
+      // Indice « deux doigts » quand on pose un seul doigt sur le globe.
+      if (zoomHint) {
+        zoomHint.setAttribute('data-i18n', 'carte.zoom_hint_touch');
+        zoomHint.textContent = t('carte.zoom_hint_touch');
+      }
+      container.addEventListener('touchstart', evt => {
+        if (evt.touches.length === 1) flashHint();
+      }, { capture: true, passive: true });
+    } else {
+      // Souris (issue #65) : molette = défilement de page par défaut ; le zoom du
+      // globe se fait avec Ctrl (⌘) + molette. On bascule enableZoom à la volée,
+      // en capture, avant qu'OrbitControls (sur le canvas) ne lise la valeur.
+      controls.enableZoom = false;
+      container.addEventListener('wheel', evt => {
+        const zoomMod = evt.ctrlKey || evt.metaKey;
+        controls.enableZoom = zoomMod;
+        if (!zoomMod) flashHint();
+      }, { capture: true, passive: true });
+    }
 
     // ── Issue #13 : tap tactile sur un pin ──────────────────────────────────────
     // Sur tactile les pins sont pointer-events:none (pour ne pas casser le pinch),

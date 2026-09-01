@@ -2863,6 +2863,12 @@
     const panel     = document.getElementById('globe-panel');
     const resetBtn  = document.getElementById('globe-reset');
 
+    // Appareil principalement tactile (téléphone/tablette). Issue #13 : sur ces
+    // appareils les pins ne doivent PAS capter les touch events, sinon un des deux
+    // doigts du pinch-to-zoom se pose sur un pin et casse le geste. Le tap sur un
+    // pin est alors détecté manuellement (voir plus bas). Sur souris, rien ne change.
+    const isCoarse = !!(window.matchMedia && window.matchMedia('(pointer: coarse)').matches);
+
     // ── Helpers ──────────────────────────────────────────────────────────────
     function getDominantStatus(list) {
       const counts = {};
@@ -2945,20 +2951,28 @@
           const color  = STATUS_COLORS[p.status];
           const el     = document.createElement('div');
           el.setAttribute('data-globe-pin', '');
-          el.style.cssText = 'position:relative;width:18px;height:26px;cursor:pointer;transform:translate(-50%,-100%);pointer-events:auto';
+          el.__project = p; // référence utilisée par le tap tactile (issue #13)
+          // Sur tactile : pointer-events:none pour laisser passer le pinch (issue #13).
+          // Sur souris : pointer-events:auto + curseur main, comportement d'origine.
+          el.style.cssText = 'position:relative;width:18px;height:26px;transform:translate(-50%,-100%);' +
+            (isCoarse ? 'pointer-events:none' : 'cursor:pointer;pointer-events:auto');
           const head   = document.createElement('div');
           head.style.cssText = `position:absolute;top:0;left:0;width:18px;height:18px;border-radius:50%;background:${color};box-shadow:0 1px 5px rgba(0,0,0,0.4)`;
           const tail   = document.createElement('div');
           tail.style.cssText = `position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:0;border-left:7px solid transparent;border-right:7px solid transparent;border-top:10px solid ${color}`;
           el.appendChild(head);
           el.appendChild(tail);
-          el.addEventListener('click', evt => {
-            evt.stopPropagation();
-            pointJustClicked = true;
-            setTimeout(() => { pointJustClicked = false; }, 80);
-            projectDetailSource = 'carte';
-            handleProjectClick(p);
-          });
+          // Souris uniquement : le clic direct sur le pin ouvre le projet.
+          // Sur tactile, le tap est géré par les listeners touch du conteneur (voir plus bas).
+          if (!isCoarse) {
+            el.addEventListener('click', evt => {
+              evt.stopPropagation();
+              pointJustClicked = true;
+              setTimeout(() => { pointJustClicked = false; }, 80);
+              projectDetailSource = 'carte';
+              handleProjectClick(p);
+            });
+          }
           return el;
         })
         (container);
@@ -2987,6 +3001,64 @@
         zoomHintTimer = setTimeout(() => zoomHint.classList.remove('visible'), 1200);
       }
     }, { capture: true, passive: true });
+
+    // ── Issue #13 : tap tactile sur un pin ──────────────────────────────────────
+    // Sur tactile les pins sont pointer-events:none (pour ne pas casser le pinch),
+    // donc on détecte le tap nous-mêmes : un doigt qui se pose sur la zone d'un pin
+    // et se relève sans glisser (< 10 px) ouvre le projet correspondant.
+    if (isCoarse) {
+      // Renvoie le pin visible sous le point (x,y) écran, le plus proche du centre.
+      function pinAtPoint(x, y) {
+        let best = null, bestDist = Infinity;
+        container.querySelectorAll('[data-globe-pin]').forEach(pinEl => {
+          if (!pinEl.__project) return;
+          const st = getComputedStyle(pinEl);
+          if (st.visibility === 'hidden' || st.display === 'none' || +st.opacity === 0) return;
+          const r = pinEl.getBoundingClientRect();
+          if (x >= r.left && x <= r.right && y >= r.top && y <= r.bottom) {
+            const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+            const d = (x - cx) * (x - cx) + (y - cy) * (y - cy);
+            if (d < bestDist) { bestDist = d; best = pinEl; }
+          }
+        });
+        return best;
+      }
+
+      let tapPin = null, tapStart = null, tapMulti = false, tapResetTimer = null;
+
+      container.addEventListener('touchstart', evt => {
+        if (evt.touches.length > 1) { tapMulti = true; tapPin = null; return; }
+        tapMulti = false;
+        const t = evt.touches[0];
+        tapStart = { x: t.clientX, y: t.clientY };
+        tapPin = pinAtPoint(t.clientX, t.clientY);
+        if (tapPin) {
+          // Empêche l'ouverture du panneau pays sous le pin (le raycast du globe
+          // touche quand même le polygone dessous).
+          pointJustClicked = true;
+          clearTimeout(tapResetTimer);
+          tapResetTimer = setTimeout(() => { pointJustClicked = false; }, 400);
+        }
+      }, { capture: true, passive: true });
+
+      container.addEventListener('touchmove', evt => {
+        if (evt.touches.length > 1) { tapMulti = true; tapPin = null; return; }
+        if (tapPin && tapStart) {
+          const t = evt.touches[0];
+          const dx = t.clientX - tapStart.x, dy = t.clientY - tapStart.y;
+          if (dx * dx + dy * dy > 100) tapPin = null; // > 10 px → rotation, pas un tap
+        }
+      }, { capture: true, passive: true });
+
+      container.addEventListener('touchend', evt => {
+        const pinEl = tapPin;
+        const wasMulti = tapMulti;
+        tapPin = null; tapMulti = false;
+        if (wasMulti || !pinEl || !pinEl.__project) return;
+        projectDetailSource = 'carte';
+        handleProjectClick(pinEl.__project);
+      }, { capture: true, passive: true });
+    }
 
     // Redimensionnement responsive
     function resizeGlobe() {

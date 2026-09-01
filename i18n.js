@@ -520,14 +520,14 @@ const translations = {
     legal: {
       title:        "Mentions légales",
       editor_title: "Éditeur du site",
-      editor_text:  "Le présent site est édité à titre non professionnel par Sidonie Tisseau, qui en assure la direction de la publication. Contact : <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
+      editor_text:  "Le présent site est édité par l'association Linkovia Network, association déclarée régie par la loi du 1er juillet 1901 (RNA : W291017015 ; SIREN : 109 139 436). La directrice de la publication est Sidonie Tisseau, présidente de l'association. Contact : <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
       host_title:   "Hébergement",
       host_text:    "Ce site est hébergé par GitHub, Inc. (service GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis (tél. +1 877 448 4820). Les serveurs sont situés hors de l'Union européenne.",
       data_title:   "Données personnelles",
-      data_text:    "Le formulaire Soumettre un projet transmet les informations saisies (organisation, projet, coordonnées du contact) via le service Formspree, dans le seul but de traiter votre demande et d'échanger à son sujet. Les données sont conservées le temps nécessaire au traitement de la demande. L'hébergement et certains services tiers étant situés hors de l'Union européenne, un transfert de données hors UE est susceptible d'avoir lieu. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition que vous pouvez exercer à l'adresse <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>. Vous pouvez également introduire une réclamation auprès de la CNIL (<a href=\"https://www.cnil.fr\" target=\"_blank\" rel=\"noopener\">www.cnil.fr</a>). Ce site utilise GoatCounter (goatcounter.com) pour la mesure d'audience : cet outil est sans cookie et ne collecte aucune donnée personnelle identifiable. Les statistiques sont anonymes et agrégées.",
+      data_text:    "Le formulaire Soumettre un projet transmet les informations saisies (organisation, projet, coordonnées du contact) vers un tableur Google Sheets, hébergé par Google, dans le seul but de traiter votre demande et d'échanger à son sujet. Les données sont conservées le temps nécessaire au traitement de la demande. L'hébergement et certains services tiers (dont Google) étant situés hors de l'Union européenne, un transfert de données hors UE est susceptible d'avoir lieu. Conformément au RGPD, vous disposez d'un droit d'accès, de rectification, d'effacement et d'opposition que vous pouvez exercer à l'adresse <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>. Vous pouvez également introduire une réclamation auprès de la CNIL (<a href=\"https://www.cnil.fr\" target=\"_blank\" rel=\"noopener\">www.cnil.fr</a>). Ce site utilise GoatCounter (goatcounter.com) pour la mesure d'audience : cet outil est sans cookie et ne collecte aucune donnée personnelle identifiable. Les statistiques sont anonymes et agrégées.",
       ip_title:     "Propriété intellectuelle",
       ip_text:      "Sauf mention contraire, les contenus de ce site (textes, visuels) sont la propriété de leurs auteurs. Toute reproduction ou réutilisation, partielle ou intégrale, doit être assortie de la mention de la source.",
-      updated:      "Dernière mise à jour : 3 juin 2026.",
+      updated:      "Dernière mise à jour : 1er septembre 2026.",
       back:         "← Retour à l'accueil"
     },
     annuaire_page: {
@@ -1089,14 +1089,14 @@ const translations = {
     legal: {
       title:        "Legal notice",
       editor_title: "Site publisher",
-      editor_text:  "This site is published on a non-professional basis by Sidonie Tisseau, who is also responsible for publication. Contact: <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
+      editor_text:  "This site is published by Linkovia Network, a non-profit association governed by the French law of 1 July 1901 (RNA: W291017015; SIREN: 109 139 436). The publication director is Sidonie Tisseau, president of the association. Contact: <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
       host_title:   "Hosting",
       host_text:    "This site is hosted by GitHub, Inc. (GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, United States (tel. +1 877 448 4820). The servers are located outside the European Union.",
       data_title:   "Personal data",
-      data_text:    "The Submit a project form sends the information you enter (organisation, project, contact details) via the Formspree service, solely to process and discuss your request. Data is kept only as long as needed to handle the request. As the hosting and some third-party services are located outside the European Union, a transfer of data outside the EU may occur. Under the GDPR, you have the right to access, rectify, erase and object to your data, which you may exercise at <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>. You may also lodge a complaint with the French data protection authority, the CNIL (<a href=\"https://www.cnil.fr\" target=\"_blank\" rel=\"noopener\">www.cnil.fr</a>). This site uses GoatCounter (goatcounter.com) for audience measurement: this tool is cookie-free and collects no personally identifiable data. Statistics are anonymous and aggregated.",
+      data_text:    "The Submit a project form sends the information you enter (organisation, project, contact details) to a Google Sheets spreadsheet, hosted by Google, solely to process and discuss your request. Data is kept only as long as needed to handle the request. As the hosting and some third-party services (including Google) are located outside the European Union, a transfer of data outside the EU may occur. Under the GDPR, you have the right to access, rectify, erase and object to your data, which you may exercise at <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>. You may also lodge a complaint with the French data protection authority, the CNIL (<a href=\"https://www.cnil.fr\" target=\"_blank\" rel=\"noopener\">www.cnil.fr</a>). This site uses GoatCounter (goatcounter.com) for audience measurement: this tool is cookie-free and collects no personally identifiable data. Statistics are anonymous and aggregated.",
       ip_title:     "Intellectual property",
       ip_text:      "Unless otherwise stated, the contents of this site (text, visuals) are the property of their authors. Any reproduction or reuse, partial or full, must credit the source.",
-      updated:      "Last updated: 3 June 2026.",
+      updated:      "Last updated: 1 September 2026.",
       back:         "← Back to home"
     },
     annuaire_page: {
@@ -1658,14 +1658,14 @@ const translations = {
     legal: {
       title:        "Aviso legal",
       editor_title: "Editor del sitio",
-      editor_text:  "Este sitio es editado de forma no profesional por Sidonie Tisseau, quien también se encarga de la dirección de la publicación. Contacto: <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
+      editor_text:  "Este sitio es editado por la asociación Linkovia Network, asociación declarada regida por la ley francesa del 1 de julio de 1901 (RNA: W291017015; SIREN: 109 139 436). La directora de la publicación es Sidonie Tisseau, presidenta de la asociación. Contacto: <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>.",
       host_title:   "Alojamiento",
       host_text:    "Este sitio está alojado por GitHub, Inc. (servicio GitHub Pages), 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, Estados Unidos (tel. +1 877 448 4820). Los servidores están ubicados fuera de la Unión Europea.",
       data_title:   "Datos personales",
-      data_text:    "El formulario Enviar un proyecto transmite la información introducida (organización, proyecto, datos de contacto) a través del servicio Formspree, únicamente con el fin de tramitar su solicitud y comunicarse al respecto. Los datos se conservan durante el tiempo necesario para tramitar la solicitud. Dado que el alojamiento y algunos servicios de terceros están ubicados fuera de la Unión Europea, puede producirse una transferencia de datos fuera de la UE. De conformidad con el RGPD, usted dispone de un derecho de acceso, rectificación, supresión y oposición, que puede ejercer en la dirección <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>. Asimismo, puede presentar una reclamación ante la CNIL (<a href=\"https://www.cnil.fr\" target=\"_blank\" rel=\"noopener\">www.cnil.fr</a>). Este sitio utiliza GoatCounter (goatcounter.com) para la medición de audiencia: esta herramienta no utiliza cookies ni recopila datos personales identificables. Las estadísticas son anónimas y agregadas.",
+      data_text:    "El formulario Enviar un proyecto transmite la información introducida (organización, proyecto, datos de contacto) a una hoja de cálculo de Google Sheets, alojada por Google, únicamente con el fin de tramitar su solicitud y comunicarse al respecto. Los datos se conservan durante el tiempo necesario para tramitar la solicitud. Dado que el alojamiento y algunos servicios de terceros (incluido Google) están ubicados fuera de la Unión Europea, puede producirse una transferencia de datos fuera de la UE. De conformidad con el RGPD, usted dispone de un derecho de acceso, rectificación, supresión y oposición, que puede ejercer en la dirección <a href=\"mailto:contact@linkovia-network.org\">contact@linkovia-network.org</a>. Asimismo, puede presentar una reclamación ante la CNIL (<a href=\"https://www.cnil.fr\" target=\"_blank\" rel=\"noopener\">www.cnil.fr</a>). Este sitio utiliza GoatCounter (goatcounter.com) para la medición de audiencia: esta herramienta no utiliza cookies ni recopila datos personales identificables. Las estadísticas son anónimas y agregadas.",
       ip_title:     "Propiedad intelectual",
       ip_text:      "Salvo indicación contraria, los contenidos de este sitio (textos, elementos visuales) son propiedad de sus autores. Toda reproducción o reutilización, parcial o total, debe ir acompañada de la mención de la fuente.",
-      updated:      "Última actualización: 3 de junio de 2026.",
+      updated:      "Última actualización: 1 de septiembre de 2026.",
       back:         "← Volver al inicio"
     },
     annuaire_page: {

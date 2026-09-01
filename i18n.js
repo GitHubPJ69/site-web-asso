@@ -383,7 +383,8 @@ const translations = {
       f_opt6:    "Autre",
       f_country: "Pays ou territoire concerné (optionnel)",
       f_message: "Décrivez votre projet ou votre demande...",
-      f_submit:  "Envoyer le message &rsaquo;"
+      f_submit:  "Envoyer le message &rsaquo;",
+      rgpd_note: "Vos données (nom, e-mail, pays, message) sont utilisées uniquement par Linkovia Network pour répondre à votre demande. En savoir plus : <a href=\"mentions-legales.html\">mentions légales</a>."
     },
     submit: {
       page_title:    "Soumettre un projet — Linkovia Network",
@@ -505,7 +506,7 @@ const translations = {
       fF5_label:   "Langues parlées",
 
       btn_submit:   "Envoyer ma soumission →",
-      submit_note:  "En soumettant ce formulaire, vous acceptez que les informations fournies soient utilisées par l'équipe de Linkovia Network pour l'évaluation de votre projet. La soumission ne garantit pas la publication. Toutes les soumissions sont examinées manuellement.",
+      submit_note:  "En soumettant ce formulaire, vous acceptez que les informations fournies soient utilisées par l'équipe de Linkovia Network pour l'évaluation de votre projet. La soumission ne garantit pas la publication. Toutes les soumissions sont examinées manuellement. Pour en savoir plus sur le traitement de vos données, consultez les <a href=\"mentions-legales.html\">mentions légales</a>.",
       form_validation_error: "Certains champs obligatoires ne sont pas remplis. Vérifiez les champs indiqués ci-dessus.",
       form_error:   "Envoi échoué. Réessayez dans quelques instants ou contactez-nous à contact@linkovia-network.org.",
 
@@ -962,7 +963,8 @@ const translations = {
       f_opt6:    "Other",
       f_country: "Country or territory concerned (optional)",
       f_message: "Describe your project or your request...",
-      f_submit:  "Send message &rsaquo;"
+      f_submit:  "Send message &rsaquo;",
+      rgpd_note: "Your data (name, email, country, message) is used only by Linkovia Network to respond to your request. Learn more: <a href=\"mentions-legales.html\">legal notice</a>."
     },
     submit: {
       page_title:    "Submit a project — Linkovia Network",
@@ -1084,7 +1086,7 @@ const translations = {
       fF5_label:   "Languages spoken",
 
       btn_submit:   "Send my submission →",
-      submit_note:  "By submitting this form, you agree that the information provided may be used by the Linkovia Network team to evaluate your project. Submission does not guarantee publication. All submissions are reviewed manually.",
+      submit_note:  "By submitting this form, you agree that the information provided may be used by the Linkovia Network team to evaluate your project. Submission does not guarantee publication. All submissions are reviewed manually. To find out more about how your data is processed, see our <a href=\"mentions-legales.html\">legal notice</a>.",
       form_validation_error: "Some required fields are not filled in. Please check the highlighted fields above.",
       form_error:   "Sending failed. Please try again in a moment or contact us at contact@linkovia-network.org.",
 
@@ -1541,7 +1543,8 @@ const translations = {
       f_opt6:    "Otro",
       f_country: "País o territorio implicado (opcional)",
       f_message: "Describa su proyecto o su solicitud...",
-      f_submit:  "Enviar el mensaje &rsaquo;"
+      f_submit:  "Enviar el mensaje &rsaquo;",
+      rgpd_note: "Sus datos (nombre, correo electrónico, país, mensaje) se utilizan únicamente por Linkovia Network para responder a su solicitud. Más información: <a href=\"mentions-legales.html\">aviso legal</a>."
     },
     submit: {
       page_title:    "Enviar un proyecto — Linkovia Network",
@@ -1663,7 +1666,7 @@ const translations = {
       fF5_label:   "Idiomas hablados",
 
       btn_submit:   "Enviar mi solicitud →",
-      submit_note:  "Al enviar este formulario, usted acepta que la información proporcionada sea utilizada por el equipo de Linkovia Network para la evaluación de su proyecto. El envío no garantiza la publicación. Todas las solicitudes son examinadas manualmente.",
+      submit_note:  "Al enviar este formulario, usted acepta que la información proporcionada sea utilizada por el equipo de Linkovia Network para la evaluación de su proyecto. El envío no garantiza la publicación. Todas las solicitudes son examinadas manualmente. Para saber más sobre el tratamiento de sus datos, consulte el <a href=\"mentions-legales.html\">aviso legal</a>.",
       form_validation_error: "Algunos campos obligatorios no están rellenos. Compruebe los campos indicados arriba.",
       form_error:   "Envío fallido. Inténtelo de nuevo en un momento o contáctenos en contact@linkovia-network.org.",
 

@@ -3002,10 +3002,13 @@
       //   • DEUX doigts → zoom + rotation du globe (pinch-to-zoom).
       // On garde touch-action:none et on décide, dès le pointerdown, si ce doigt
       // pilote le globe ou fait défiler la page.
-      controls.enableZoom = true;
+      // Le zoom natif d'OrbitControls a un sens inversé dans cette configuration.
+      // On le désactive et on gère le pinch nous-mêmes (altitude de la caméra),
+      // pour garantir le bon sens : écarter les doigts = zoomer.
+      controls.enableZoom = false;
       if (controls.touches) {
-        controls.touches.ONE = 0; // 0 = ROTATE (ajusté par geste ci-dessous)
-        controls.touches.TWO = 3; // 3 = THREE.TOUCH.DOLLY_ROTATE (zoom + rotation)
+        controls.touches.ONE = 0;         // 0 = ROTATE (ajusté par geste ci-dessous)
+        controls.touches.TWO = undefined; // deux doigts gérés manuellement (zoom)
       }
       if (zoomHint) {
         zoomHint.setAttribute('data-i18n', 'carte.zoom_hint_touch');
@@ -3023,27 +3026,41 @@
         return (x - cx) * (x - cx) + (y - cy) * (y - cy) <= r * r;
       };
 
-      const activePointers = new Set();
-      let scrollGesture = false, lastY = 0;
+      const pointers = new Map(); // pointerId → {x, y}
+      let scrollGesture = false, lastY = 0, pinchPrevDist = null;
 
       // Capture : s'exécute avant qu'OrbitControls (canvas) ne lise touches.ONE.
       container.addEventListener('pointerdown', evt => {
         if (evt.pointerType !== 'touch') return;
-        activePointers.add(evt.pointerId);
-        if (activePointers.size === 1) {
+        pointers.set(evt.pointerId, { x: evt.clientX, y: evt.clientY });
+        if (pointers.size === 1) {
           const onGlobe = touchOnGlobe(evt.clientX, evt.clientY);
           scrollGesture = !onGlobe;                       // hors sphère → défilement page
           controls.touches.ONE = onGlobe ? 0 : undefined; // sur sphère → rotation ; sinon rien
           lastY = evt.clientY;
           if (onGlobe) flashHint();                        // rappelle « deux doigts = zoom »
         } else {
-          scrollGesture = false;                           // 2+ doigts → globe (zoom)
+          scrollGesture = false;                           // 2+ doigts → zoom (manuel)
+          pinchPrevDist = null;
         }
       }, { capture: true, passive: true });
 
       container.addEventListener('pointermove', evt => {
         if (evt.pointerType !== 'touch') return;
-        if (scrollGesture && activePointers.size === 1) {
+        if (pointers.has(evt.pointerId)) pointers.set(evt.pointerId, { x: evt.clientX, y: evt.clientY });
+        if (pointers.size >= 2) {
+          // Pinch → zoom manuel. Écarter les doigts (distance ↑) → altitude ↓ = zoom in.
+          const pts = [...pointers.values()];
+          const dx = pts[0].x - pts[1].x, dy = pts[0].y - pts[1].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (pinchPrevDist !== null && dist > 0) {
+            const pov = globe.pointOfView();
+            let alt = pov.altitude * (pinchPrevDist / dist);
+            alt = Math.max(0.15, Math.min(5, alt));
+            globe.pointOfView({ lat: pov.lat, lng: pov.lng, altitude: alt }, 0);
+          }
+          pinchPrevDist = dist;
+        } else if (scrollGesture && pointers.size === 1) {
           window.scrollBy(0, lastY - evt.clientY);
           lastY = evt.clientY;
         }
@@ -3051,8 +3068,9 @@
 
       const endPointer = evt => {
         if (evt.pointerType !== 'touch') return;
-        activePointers.delete(evt.pointerId);
-        if (activePointers.size === 0) scrollGesture = false;
+        pointers.delete(evt.pointerId);
+        if (pointers.size < 2) pinchPrevDist = null;
+        if (pointers.size === 0) scrollGesture = false;
       };
       container.addEventListener('pointerup', endPointer, { capture: true, passive: true });
       container.addEventListener('pointercancel', endPointer, { capture: true, passive: true });
